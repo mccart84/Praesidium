@@ -12,7 +12,7 @@
             // Get away right now
             window.open("http://weather.com", "_newtab");
             // Replace current site with another benign site
-            window.location.replace('http://google.com');
+            window.location.close();
         }
     </script>
 </head>
@@ -35,8 +35,8 @@
                             Home
                         </a>
                     </li>
-                    <li>@Html.ActionLink("Resources", "About", "Home")</li>
-                    <li>@Html.ActionLink("Cyber Security", "About", "Home")</li>
+                    <li>@Html.ActionLink("Trafficking", "Index", "Trafficking")</li>
+                    <li>@Html.ActionLink("Cyber Security", "Index", "CyberSecurity")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
@@ -52,7 +52,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <button id="get-away" onclick="javascript: getAway();">Safe Exit</button>
+            <button id="get-away" style="font-family: Britannic; color: #000000" onclick="javascript: getAway();">Emergency <br /> Exit</button>
 
             <p>&copy; @DateTime.Now.Year - _Solutions</p>
         </footer>
