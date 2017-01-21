@@ -55,7 +55,7 @@ footer {
 
 .body-content {
     min-height: calc(100vh - 288px);
-    padding-top: 80px !important;
+    padding-top: 100px !important;
 }
 
 .navbar-fixed-top {
