@@ -2,18 +2,19 @@
     ViewBag.Title = "Contact";
 }
         <style>
+
+            .logo {
+                color: #f4511e;
+                font-size: 200px;
+                padding-left: 15%;
+            }
      
-      .logo {
-      color: #f4511e;
-      font-size: 200px;
-      padding-left: 10%;
-       }
 
         </style>
 
         <!-- Created container div to create columns for content-->
         <!-- Moved header within left-most column -->
-        <div class="container">
+
             <div class="row">
 
                 <!--Add Glyphicon for design-->
@@ -32,21 +33,34 @@
                         555.555.5555<br />
                         <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
                         <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-                    </address>
-                </div>
-                <div class="col-md-4">
-                    <address>
-                        <h2>Resources</h2>
+                    </address><br />
+                        <div class="dropdown">
+                            <button class="btn bt-lg btn-primary dropdown-toggle" data-toggle="dropdown">Resources<span class="caret"></span></button></button>
                         <!--Possibly update section to pull links from content linked to ouside sites from database.-->
-                        <p>
-                            <a href="http://praesidium.azurewebsites.net/">example 1</a><br />
-                            <a href="http://praesidium.azurewebsites.net/">example 2</a><br />
-                            <a href="http://praesidium.azurewebsites.net/">example 3</a>
-                        </p>
-                    </address>
-                </div>
-
+                        <ul class="dropdown-menu">
+                            <li><a href="http://praesidium.azurewebsites.net/">Example 1</a></li>
+                            <li><a href="http://praesidium.azurewebsites.net/">Example 2</a></li>
+                            <li><a href="http://praesidium.azurewebsites.net/">Example 3</a></li>
+                        </ul>
+                      </div>
              
-        </div>
-    </div>
+            </div>
+               <div class="col-md-4">
 
+                   <div id="map" style="width:300px;height:300px;background:blue"></div>
+
+                   <script>
+                       function myMap() {
+                           var mapBack = document.getElementById("map");
+                           var mapLocation = {
+                              center: new google.maps.LatLng(43.69, -85.4837), zoom: 10
+                          };
+                     var mapped = new google.maps.Map(mapBack, mapLocation);
+}
+                   </script>
+
+                   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
+
+                   
+        </div>
+</div>
