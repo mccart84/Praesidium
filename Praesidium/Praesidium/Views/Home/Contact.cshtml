@@ -1,13 +1,20 @@
 ﻿@{
     ViewBag.Title = "Contact";
 }
-    
+        <style>
+     
+      .logo {
+      color: #f4511e;
+      font-size: 200px;
+       }
+
+        </style>
 
         <!-- Created container div to create columns for content-->
         <!-- Moved header within left-most column -->
         <div class="container">
             <div class="row">
-                <div class="col-lg-4">
+                <div class="col-md-4">
                     <h2>@ViewBag.Title </h2>
                     <address>
                         1201 S State St<br />
@@ -18,7 +25,7 @@
                         <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
                     </address>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-md-4">
                     <address>
                         <h2>Resources</h2>
                         <!--Possibly update section to pull links from content linked to ouside sites from database.-->
@@ -32,9 +39,9 @@
 
                     <!--Add Glyphicon for design-->
 
-                    <div class="col-lg-4">
-                        <span class="glyphicon glyphicon-earphone"></span>
-                        <span class="gylphicon glyphicon-earphone" style="color:orangered"></span>
+                    <div class="col-md-4">
+                        <span class="glyphicon glyphicon-earphone logo"></span>
+                       
             </div>
         </div>
     </div>
