@@ -50,12 +50,15 @@
             </div>
         </div>
     </div>
+
+    <!-- Warning banner -->
     <div class="container body-content">
         @*<div style="background-color: red; width: 100%; height: 25px; font-size: 18px">
             <p>
                 test
             </p>
         </div>*@
+
         @RenderBody()
 
     </div>
@@ -64,7 +67,9 @@
     <div>
         <div>
             <footer>
-                <button id="get-away" style="font-family: Britannic; color: #000000" onclick="javascript: getAway();" class="">Emergency <br /> Exit</button>
+
+                <!-- Added a bit of style to the button *Caleb* -->
+                <button id="get-away" style="font-family: 'Agency FB'; color: white" onclick="javascript: getAway();" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-warning-sign"></span><br /> Emergency Exit </button>
                 
                 <div class="row">
                     <div class="col-md-1"></div>
