@@ -140,11 +140,18 @@ footer {
     text-align: left;
 }
 
+/*Glyphicon styling*/
 .logo {
    color: #f4511e;
    font-size: 200px;
    padding-left: 15%;
        }
-     
+  
+/*glyphicon table styling*/ 
+
+  .logo-table {
+      color: #f4511e;
+      font-size: 50px;
+  }
 
  
