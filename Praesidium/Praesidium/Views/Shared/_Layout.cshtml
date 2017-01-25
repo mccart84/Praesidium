@@ -20,9 +20,6 @@
     <div class="whitespace">
 
     </div>
-    <div class="searchArea"style="z-index: 1030;">
-        <input id="txtSearch" class="searchBar" type="text" style="width: 150px;" />
-    </div>
     <div class="navbar navbar-inverse navbar-fixed-top">
 
         <div class="container">
@@ -46,7 +43,27 @@
                     <li>@Html.ActionLink("Cyber Security", "Index", "CyberSecurity")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>
+                        <a href="#searchArea" data-toggle="collapse" class="hidden-sm hidden-xs hidden-print">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span> 
+                            Search
+                        </a>
+                        <div class="searchArea hidden-sm hidden-xs hidden-print panel-collapse collapse" style="z-index: 1030;" id="searchArea">
+                            <input id="txtSearchlg" class="searchBar" type="text" style="width: 150px;" />
+                        </div>
+                        <div class="hidden-lg hidden-md" style="z-index: 1030;">
+                            <form class="form-inline" role="form">
+                                <div class="icon-addon addon-md">
+                                    <input id="txtSearchsm" class="form-control" type="text" style="width: 150px;" placeholder="Search...">
+                                    <label for="txtSearchsm" class="glyphicon glyphicon-search"></label>
+                                </div>
+                            </form>                      
+                        </div>
+                    </li>
+                    
                 </ul>
+                
+
             </div>
         </div>
     </div>
