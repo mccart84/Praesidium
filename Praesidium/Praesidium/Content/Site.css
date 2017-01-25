@@ -62,7 +62,7 @@ footer {
     top: 50px;
 }
 
-.navbar-inverse {
+.navbar-inverse  {
     height: 60px !important;
     background-color: #e95420;
     border-color: #e95420;
@@ -73,6 +73,17 @@ footer {
     width: 85%;
     margin: auto;
     font-weight: bold;
+}
+
+.navbar-nav {
+    padding:5px;
+    background-color: #e95420;
+    border-color: #e95420;
+    /*border-radius: 15px;*/
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+
 }
 
     .navbar-inverse .navbar-brand {
