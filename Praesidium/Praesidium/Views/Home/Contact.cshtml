@@ -1,27 +1,43 @@
 ﻿@{
     ViewBag.Title = "Contact";
 }
-<div style="text-align: center;">
-    <div style="display: inline-block; text-align: left">
-        <h2>@ViewBag.Title </h2>
 
-        <address>
-            1201 S State St<br />
-            Big Rapids, MI 49307<br />
-            <abbr title="Phone">P:</abbr>
-            555.555.5555
-        </address>
+<!-- Created container div to create columns for content-->
+<!-- Moved header within left-most column -->
+<div class="container">
+    <div class="row">
 
-        <address>
-            <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-            <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-        </address>
-        <h2>Resources</h2>
-        <!--Possibly update section to pull links from content linked to ouside sites from database.-->
-        <p>
-            <a href="http://niceme.me/">example 1</a><br />
-            <a href="http://niceme.me/">example 2</a><br />
-            <a href="http://niceme.me/">example 3</a>
-        </p>
+        <!--Add Glyphicon for design-->
+
+        <div class="col-md-4">
+            <span class="glyphicon glyphicon-earphone logo"></span>
+
+        </div>
+
+        <div class="col-md-4">
+            <h2>@ViewBag.Title </h2>
+            <address>
+                1201 S State St<br />
+                Big Rapids, MI 49307<br />
+                <abbr title="Phone">P:</abbr>
+                555.555.5555<br />
+                <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
+                <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
+            </address>
+        </div>
+        <div class="col-md-4">
+            <address>
+                <h2>Resources</h2>
+                <!--Possibly update section to pull links from content linked to ouside sites from database.-->
+                <p>
+                    <a href="http://praesidium.azurewebsites.net/">example 1</a><br />
+                    <a href="http://praesidium.azurewebsites.net/">example 2</a><br />
+                    <a href="http://praesidium.azurewebsites.net/">example 3</a>
+                </p>
+            </address>
+        </div>
+
+
     </div>
 </div>
+   

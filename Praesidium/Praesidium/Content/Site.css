@@ -1,6 +1,9 @@
 ﻿body {
+    display: block;
+    height: 100%;
+    padding-bottom: 0;
     padding-top: 50px;
-    padding-bottom: 20px;
+    margin-bottom: 0;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -26,7 +29,7 @@ textarea {
 #get-away {
     position: fixed;
     bottom: 10px;
-    right: 10px; 
+    right: 10px;
     height: 100px;
     width: 150px;
     background-color: #1272e8;
@@ -36,6 +39,119 @@ textarea {
     border-radius: 5px;
 }
 
-#get-away:hover {
-    background-color: #488bf6;
+    #get-away:hover {
+        background-color: #488bf6;
+    }
+
+footer {
+    display: block;
+    position: relative;
+    bottom: ;
+    width: 100%;
+    min-height: 180px; /* Height of the footer */
+    padding-top: 10px;
+    background-color: #282d32;
 }
+
+.body-content {
+    min-height: calc(100vh - 288px);
+    padding-top: 100px !important;
+}
+
+.navbar-fixed-top {
+    top: 50px;
+}
+
+.navbar-inverse {
+    height: 60px !important;
+    background-color: #e95420;
+    border-color: #e95420;
+    /*border-radius: 15px;*/
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 85%;
+    margin: auto;
+    font-weight: bold;
+}
+
+    .navbar-inverse .navbar-brand {
+        height: 50px;
+        color: #000;
+    }
+
+    .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+        border-color: #101010;
+        /*padding-top: 15px;*/
+    }
+
+    .navbar-inverse .navbar-nav > li > a {
+        color: #000;
+    }
+
+@media (min-width: 1200px) {
+    .container {
+        padding-top: 6px;
+    }
+}
+
+.whitespace {
+    background-color: white;
+    height: 150px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1020;
+}
+
+.searchArea {
+    z-index: 1400;
+    background-color: #e95420;
+    width: 10%;
+    height: 30px;
+    position: fixed;
+    top: 110px;
+    right: 7.5%;
+    min-width: 200px;
+}
+
+
+.searchArea:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-bottom: 30px solid white;
+    border-right: 30px solid #e95420;
+    width: 0;
+}
+
+.searchBar {
+    margin-top: 2px;
+    margin-left: 85px;
+    border-radius: 5px;
+    border: none;
+    position: fixed;
+    top: 110px;
+    right: 8%;
+    width: 90%;
+}
+.Contributer {
+    text-align: left;
+}
+
+/*Glyphicon styling*/
+.logo {
+   color: #f4511e;
+   font-size: 200px;
+   padding-left: 15%;
+       }
+  
+/*glyphicon table styling*/ 
+
+  .logo-table {
+      color: #f4511e;
+      font-size: 50px;
+  }
+
+ 
