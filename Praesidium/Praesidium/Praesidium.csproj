@@ -226,6 +226,8 @@
     <Content Include="Views\trafficking\Teachers.cshtml" />
     <Content Include="Views\trafficking\Teen.cshtml" />
     <Content Include="Views\trafficking\Youth.cshtml" />
+    <Content Include="Views\CyberSecurity\Statistics.cshtml" />
+    <Content Include="Views\CyberSecurity\LawEnforcement.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

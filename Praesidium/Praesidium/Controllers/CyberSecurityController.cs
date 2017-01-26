@@ -43,5 +43,15 @@ namespace Praesidium.Controllers
         {
             return View();
         }
+
+        public ActionResult Statistics()
+        {
+            return View();
+        }
+
+        public ActionResult LawEnforcement()
+        {
+            return View();
+        }
     }
 }
