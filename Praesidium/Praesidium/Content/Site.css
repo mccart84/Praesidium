@@ -81,8 +81,12 @@ footer {
     /*border-radius: 15px;*/
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+}
 
-
+.searchAreasm {
+    padding-left:5px;
+    padding-bottom:5px;
+    padding-right:5px;
 }
 
     .navbar-inverse .navbar-brand {
