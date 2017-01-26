@@ -214,6 +214,18 @@
     <Content Include="Views\trafficking\Index.cshtml" />
     <Content Include="Views\CyberSecurity\Index.cshtml" />
     <Content Include="Views\CyberSecurity\About.cshtml" />
+    <Content Include="Views\Home\DropDownPages.cshtml" />
+    <Content Include="Views\CyberSecurity\Resources.cshtml" />
+    <Content Include="Views\CyberSecurity\Adults.cshtml" />
+    <Content Include="Views\CyberSecurity\Teachers.cshtml" />
+    <Content Include="Views\CyberSecurity\Teen.cshtml" />
+    <Content Include="Views\CyberSecurity\Youth.cshtml" />
+    <Content Include="Views\trafficking\Resources.cshtml" />
+    <Content Include="Views\trafficking\Statistics.cshtml" />
+    <Content Include="Views\trafficking\Adults.cshtml" />
+    <Content Include="Views\trafficking\Teachers.cshtml" />
+    <Content Include="Views\trafficking\Teen.cshtml" />
+    <Content Include="Views\trafficking\Youth.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
