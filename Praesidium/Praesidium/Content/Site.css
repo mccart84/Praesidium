@@ -252,3 +252,67 @@ footer {
 .icon-addon:hover .fa {
     color: #2580db;
 }
+
+
+/* CSS for trafficking photo & effect*/
+
+figure.effect-caged figcaption::before {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	content: '';
+	transform: translate3d(0,50%,0);
+}
+
+figure.effect-caged h1 {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	width: 100%;
+	color: white;
+	transition: transform 0.35s, color 0.35s;
+	transform: translate3d(0,-50%,0);
+    text-align:center;
+    text-shadow: black 0.1em 0.1em 0.2em;
+}
+
+figure.effect-caged figcaption::before,
+figure.effect-caged p {
+    width: 100%;
+	transition: opacity 0.35s, transform 0.35s;
+    text-align:center;
+
+
+}
+
+figure.effect-caged p {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	padding: 2em;
+	width: 100%;
+	opacity: 0;
+	transform: translate3d(0,10px,0);
+    text-align:center;
+    color: white;
+    text-shadow: black 0.1em 0.1em 0.2em;
+}
+
+figure.effect-caged:hover h1 {
+
+	transform: translate3d(0,-50%,0) translate3d(0,-40px,0);
+    text-align:center;
+    font-weight:bold;
+    text-shadow: black 0.1em 0.1em 0.2em;
+    font-size:40px;
+}
+
+figure.effect-caged:hover figcaption::before ,
+figure.effect-caged:hover p {
+	opacity: 1;
+	transform: translate3d(0,0,0);
+  
+}
+/* end CSS for trafficking photo & effect*/
