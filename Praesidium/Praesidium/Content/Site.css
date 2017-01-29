@@ -316,3 +316,20 @@ figure.effect-caged:hover p {
   
 }
 /* end CSS for trafficking photo & effect*/
+
+/* CSS for jumbotron on contact page */
+
+ .jumbotron{
+    box-shadow:1px 1px 4px rgba(0,0,0,0.5);
+    background-size: cover;
+    background-position:right top;
+    background-image: url(http://kidsbizmasters.com/wp-content/uploads/2014/02/telephone.jpg); 
+    position: relative;
+    height: 100%;
+   
+}
+.jumbotron .btn{
+    border-radius:0px!important;
+    box-shadow:1px 1px 4px rgba(0,0,0,0.4);
+    padding:10px 40px;
+}
