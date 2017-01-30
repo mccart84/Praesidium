@@ -266,6 +266,9 @@ figure.effect-caged figcaption::before {
 	transform: translate3d(0,50%,0);
 }
 
+.photo_cont{
+box-shadow:1px 1px 4px rgba(0,0,0,0.8);
+}
 figure.effect-caged h1 {
 	position: absolute;
 	top: 50%;
@@ -283,6 +286,7 @@ figure.effect-caged p {
     width: 100%;
 	transition: opacity 0.35s, transform 0.35s;
     text-align:center;
+  
 
 
 }
@@ -332,4 +336,36 @@ figure.effect-caged:hover p {
     border-radius:0px!important;
     box-shadow:1px 1px 4px rgba(0,0,0,0.4);
     padding:10px 40px;
+}
+
+/* adjust the edges of carousel trafficking image*/
+
+#carousel-example-generic{
+
+box-shadow:2px 2px 4px rgba(0,0,0,0.8);
+   border-radius: 22px 22px 22px 22px;
+   width:100%;
+   overflow: hidden;
+   
+    
+}
+
+#carousel_img{
+
+ border-radius: 22px 22px 22px 22px;
+
+}
+
+#photo_cont{
+
+border-radius: 22px 22px 22px 22px;
+overflow: hidden;
+box-shadow:2px 2px 4px rgba(0,0,0,0.8);
+
+}
+
+#carousel_btn{
+    margin-top:5%;
+    margin-bottom:3%;
+
 }
