@@ -373,3 +373,37 @@ box-shadow:2px 2px 4px rgba(0,0,0,0.8);
 
 }
 
+/* Start CSS for Teen Page*/
+
+.container {
+  margin-top: 20px;
+}
+
+.center {
+  margin: 0 auto;
+}
+
+.carousel-caption {
+  font-size: 28px;
+  bottom: 0;
+}
+
+/* post class*/
+
+.post {
+  margin-bottom: 30px;
+}
+
+a.thumbnail:hover, a.thumbnail:focus{
+  border: 1px solid black;
+}
+
+@media (max-width: 768px){
+  .thumbnail {
+    border: none;
+  }
+  a.thumbnail:hover, a.thumbnail:focus{
+    border: none;
+  }
+}
+
