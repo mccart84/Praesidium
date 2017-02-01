@@ -354,8 +354,8 @@ box-shadow:2px 2px 4px rgba(0,0,0,0.8);
 #carousel_img{
 
  border-radius: 22px 22px 22px 22px;
-  min-height:375px;
    overflow: hidden;
+   min-height:375px;
 
 }
 
