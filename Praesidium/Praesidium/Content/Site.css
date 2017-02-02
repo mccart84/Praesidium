@@ -319,17 +319,17 @@ figure.effect-caged:hover p {
 	transform: translate3d(0,0,0);
   
 }
-/* end CSS for trafficking photo & effect*/
 
 /* CSS for jumbotron on contact page */
 
- .jumbotron{
+ #Contact_jumbo{
     box-shadow:1px 1px 4px rgba(0,0,0,0.5);
     background-size: cover;
     background-position:right top;
     background-image: url(http://kidsbizmasters.com/wp-content/uploads/2014/02/telephone.jpg); 
     position: relative;
     height: 100%;
+    
    
 }
 .jumbotron .btn{
@@ -346,6 +346,7 @@ box-shadow:2px 2px 4px rgba(0,0,0,0.8);
    border-radius: 22px 22px 22px 22px;
    width:100%;
    overflow: hidden;
+   min-height:375px;
    
     
 }
@@ -353,6 +354,9 @@ box-shadow:2px 2px 4px rgba(0,0,0,0.8);
 #carousel_img{
 
  border-radius: 22px 22px 22px 22px;
+   overflow: hidden;
+   min-height:375px;
+    width:100%;
 
 }
 
@@ -366,6 +370,48 @@ box-shadow:2px 2px 4px rgba(0,0,0,0.8);
 
 #carousel_btn{
     margin-top:5%;
-    margin-bottom:3%;
+    margin-bottom:10%;
 
 }
+
+/* Start CSS for Teen Page*/
+
+.center {
+  margin: 0 auto;
+}
+
+.carousel-caption {
+  bottom: 0;
+}
+
+.teen_res {
+  margin-bottom: 30px;
+}
+
+/*Cyber Security Jumbotron*/
+
+#cyber_sec_jumbo{
+
+    box-shadow:1px 1px 4px rgba(0,0,0,0.5);
+    background-size: cover;
+    background-image: url(https://cbi-blog.s3.amazonaws.com/blog/wp-content/uploads/2016/10/Cybersecurity-next-step-cover-iamge.png); 
+    position: relative;
+    height: 300px;
+    color:white;
+    text-shadow: black 0.1em 0.1em 0.2em;
+
+}
+
+/* container CSS*/
+
+#borders{
+border: 2px solid #5c8a8a ;
+box-shadow:1px 1px 4px rgba(0,0,0,0.5);
+border-radius: 10px;
+margin-top: 15px;
+margin-bottom: 15px;
+background-color:#75a3a3;
+color:white;
+}
+
+
