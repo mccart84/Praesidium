@@ -405,14 +405,14 @@ box-shadow:2px 2px 4px rgba(0,0,0,0.8);
 /* container CSS*/
 
 #borders{
-border: 2px solid #b3b3b3 ;
+border: 2px solid #333333 ;
 box-shadow:1px 1px 4px rgba(0,0,0,0.5);
 border-radius: 10px;
 margin-top: 15px;
 margin-bottom: 15px;
 background-color: #595959;
 color:white;
-text-shadow: grey 0.1em 0.1em 0.2em;
+text-shadow:  #333333 0.1em 0.1em 0.2em;
 }
 
 
