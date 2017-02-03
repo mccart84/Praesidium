@@ -44,12 +44,18 @@
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     <li>
-                        <a href="#searchArea" data-toggle="collapse" class="hidden-sm hidden-xs hidden-print">
-                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span> 
-                            Search
-                        </a>
-                        <div class="searchArea hidden-sm hidden-xs hidden-print accordion-body collapse" style="z-index: 1030;" id="searchArea">
-                            <input id="txtSearchlg" class="searchBar" type="text" style="width: 150px;" />
+                        <div class="accordion hidden-sm hidden-xs hidden-print" id="accordion2">
+                            <div class="accordion-group">
+                                <div class="accordion-heading">
+                                    <a href="#searchArea" data-toggle="collapse" class="accordion-toggle collapsed" data-parent="#accordion2">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                        <span>Search</span>
+                                    </a>
+                                </div>
+                                <div class="searchArea accordion-body collapse" id="searchArea">
+                                    <input id="txtSearchlg" class="searchBar" type="text" style="width:150px;" />
+                                </div>
+                            </div>
                         </div>
                         <div class="searchAreasm hidden-lg hidden-md">
                             <form class="form-inline" role="form">
