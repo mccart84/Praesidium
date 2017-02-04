@@ -7,6 +7,10 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
+    <script src="~/Scripts/knockout-3.4.0.js"></script>
+    <script src="~/Scripts/lodash.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+
     <script>
         function getAway() {
             // Get away right now
@@ -14,6 +18,36 @@
             // Replace current site with another benign site
             window.close();
         }
+        @*var NavItems = {
+            RecId: ko.observable(),
+            Controller: ko.observable(),
+            Action: ko.observable(),
+            DisplayText: ko.observable(),
+            FkShSySection: ko.observable(),
+            Section: ko.observable(),
+            SortOrder: ko.observable(),
+            IsActive: ko.observable(),
+            SupPages: ko.observableArray()
+        }
+
+        $.getJSON('@Url.Action("GetNavItems", "Home")', function (val) {
+            debugger;
+        });
+
+        var testData;
+
+        $.ajax({
+            url: '@Url.Action("GetNavItems", "Home")',
+            type: 'POST',
+            dataType: 'JSON',
+            success: function (data) {
+                testData = data;
+            }
+        }).then(function () {
+
+        });
+
+        debugger;*@
     </script>
 </head>
 <body>
@@ -33,7 +67,7 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav" style="float: right;">
-                    <li>
+                    @*<li>
                         <a href="@Url.Action("Index", "Home")">
                             <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
                             Home
@@ -42,7 +76,10 @@
                     <li>@Html.ActionLink("Trafficking", "Index", "Trafficking")</li>
                     <li>@Html.ActionLink("Cyber Security", "Index", "CyberSecurity")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
+                    @{ 
+                        Html.RenderAction("NavigationItems", "Home");
+                    }
                     <li>
                         <a href="#searchArea" data-toggle="collapse" class="hidden-sm hidden-xs hidden-print">
                             <span class="glyphicon glyphicon-search" aria-hidden="true"></span> 

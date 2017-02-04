@@ -33,5 +33,12 @@ namespace Praesidium.Controllers
 
             return View();
         }
+
+        public PartialViewResult NavigationItems()
+        {
+            var model = new Models.Navigation.NavigationModel();
+            model.GetNavItems();
+            return PartialView("~/Views/Shared/_Navigation.cshtml", model);
+        }
     }
 }

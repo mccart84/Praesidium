@@ -1,0 +1,41 @@
+﻿@model Praesidium.Models.Navigation.NavigationModel
+
+<script>
+    $(function () {
+        $(".dropdown").hover(
+                function () {
+                    $('.dropdown-menu', this).stop(true, true).fadeIn("fast");
+                    $(this).toggleClass('open');
+                },
+                function () {
+                    $('.dropdown-menu', this).stop(true, true).fadeOut("fast");
+                    $(this).toggleClass('open');
+                });
+    });
+</script>
+
+@if (Model != null)
+{
+    foreach (var navItem in Model.NavItems)
+    {
+        if (navItem.SubPages.Count > 0)
+        {
+            <li class="dropdown">
+                @Html.ActionLink(navItem.DisplayText, navItem.Action, navItem.Controller, new Dictionary<string, object> { { "class", "dropdown-toggle" }, { "data-toggle", "dropdown" } })
+
+                <ul class="dropdown-menu">
+                    @foreach (var subNav in navItem.SubPages)
+                    {
+                        <li>@Html.ActionLink(subNav.DisplayText, subNav.Action, subNav.Controller)</li>
+                    }
+                </ul>                
+            </li>
+        }
+        else
+        {
+            <li>
+                @Html.ActionLink(navItem.DisplayText, navItem.Action, navItem.Controller)
+            </li>
+        }
+    }
+}
