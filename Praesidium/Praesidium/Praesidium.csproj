@@ -193,6 +193,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\cyber-crime.jpg" />
     <Content Include="Content\Images\cybersecurity1.jpg" />
     <Content Include="Content\Images\cybersecurity2.jpg" />
     <Content Include="Content\Images\cybersecurity3.jpg" />
