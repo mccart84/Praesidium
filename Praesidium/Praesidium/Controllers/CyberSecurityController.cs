@@ -18,5 +18,40 @@ namespace Praesidium.Controllers
         {
             return View();
         }
+
+        public ActionResult Resources()
+        {
+            return View();
+        }
+
+        public ActionResult Adults()
+        {
+            return View();
+        }
+
+        public ActionResult Teachers()
+        {
+            return View();
+        }
+
+        public ActionResult Teen()
+        {
+            return View();
+        }
+
+        public ActionResult Youth()
+        {
+            return View();
+        }
+
+        public ActionResult Statistics()
+        {
+            return View();
+        }
+
+        public ActionResult LawEnforcement()
+        {
+            return View();
+        }
     }
 }

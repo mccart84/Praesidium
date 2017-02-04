@@ -62,7 +62,7 @@ footer {
     top: 50px;
 }
 
-.navbar-inverse {
+.navbar-inverse  {
     height: 60px !important;
     background-color: #e95420;
     border-color: #e95420;
@@ -73,6 +73,20 @@ footer {
     width: 85%;
     margin: auto;
     font-weight: bold;
+}
+
+.navbar-nav {
+    background-color: #e95420;
+    border-color: #e95420;
+    /*border-radius: 15px;*/
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.searchAreasm {
+    padding-left:5px;
+    padding-bottom:5px;
+    padding-right:5px;
 }
 
     .navbar-inverse .navbar-brand {
@@ -101,14 +115,14 @@ footer {
     position: fixed;
     width: 100%;
     top: 0;
-    z-index: 1020;
+    z-index: 20;
 }
 
 .searchArea {
     z-index: 1400;
-    background-color: #e95420;
+    background-color: #e95420 !important;
     width: 10%;
-    height: 30px;
+    height: 30px !important;
     position: fixed;
     top: 110px;
     right: 7.5%;
@@ -154,4 +168,273 @@ footer {
       font-size: 50px;
   }
 
- 
+ .center-block {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.input-group .icon-addon .form-control {
+    border-radius: 0;
+}
+
+.icon-addon {
+    position: relative;
+    color: #555;
+    display: block;
+}
+
+.icon-addon:after,
+.icon-addon:before {
+    display: table;
+    content: " ";
+}
+
+.icon-addon:after {
+    clear: both;
+}
+
+.icon-addon.addon-md .glyphicon,
+.icon-addon .glyphicon, 
+.icon-addon.addon-md .fa,
+.icon-addon .fa {
+    position: absolute;
+    z-index: 2;
+    left: 10px;
+    font-size: 14px;
+    width: 20px;
+    margin-left: -2.5px;
+    text-align: center;
+    padding: 10px 0;
+    top: 1px
+}
+
+.icon-addon.addon-lg .form-control {
+    line-height: 1.33;
+    height: 46px;
+    font-size: 18px;
+    padding: 10px 16px 10px 40px;
+}
+
+.icon-addon.addon-sm .form-control {
+    height: 30px;
+    padding: 5px 10px 5px 28px;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.icon-addon.addon-lg .fa,
+.icon-addon.addon-lg .glyphicon {
+    font-size: 18px;
+    margin-left: 0;
+    left: 11px;
+    top: 4px;
+}
+
+.icon-addon.addon-md .form-control,
+.icon-addon .form-control {
+    padding-left: 30px;
+    float: left;
+    font-weight: normal;
+}
+
+.icon-addon.addon-sm .fa,
+.icon-addon.addon-sm .glyphicon {
+    margin-left: 0;
+    font-size: 12px;
+    left: 5px;
+    top: -1px
+}
+
+.icon-addon .form-control:focus + .glyphicon,
+.icon-addon:hover .glyphicon,
+.icon-addon .form-control:focus + .fa,
+.icon-addon:hover .fa {
+    color: #2580db;
+}
+
+
+/* CSS for trafficking photo & effect*/
+
+figure.effect-caged figcaption::before {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	content: '';
+	transform: translate3d(0,50%,0);
+}
+
+.photo_cont{
+box-shadow:1px 1px 4px rgba(0,0,0,0.8);
+}
+figure.effect-caged h1 {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	width: 100%;
+	color: white;
+	transition: transform 0.35s, color 0.35s;
+	transform: translate3d(0,-50%,0);
+    text-align:center;
+    text-shadow: black 0.1em 0.1em 0.2em;
+}
+
+figure.effect-caged figcaption::before,
+figure.effect-caged p {
+    width: 100%;
+	transition: opacity 0.35s, transform 0.35s;
+    text-align:center;
+  
+
+
+}
+
+figure.effect-caged p {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	padding: 2em;
+	width: 100%;
+	opacity: 0;
+	transform: translate3d(0,10px,0);
+    text-align:center;
+    color: white;
+    text-shadow: black 0.1em 0.1em 0.2em;
+}
+
+figure.effect-caged:hover h1 {
+
+	transform: translate3d(0,-50%,0) translate3d(0,-40px,0);
+    text-align:center;
+    font-weight:bold;
+    text-shadow: black 0.1em 0.1em 0.2em;
+    font-size:40px;
+}
+
+figure.effect-caged:hover figcaption::before ,
+figure.effect-caged:hover p {
+	opacity: 1;
+	transform: translate3d(0,0,0);
+  
+}
+
+/* CSS for jumbotron on contact page */
+
+ #Contact_jumbo{
+    box-shadow:1px 1px 4px rgba(0,0,0,0.5);
+    background-size: cover;
+    background-position:right top;
+    background-image: url(http://kidsbizmasters.com/wp-content/uploads/2014/02/telephone.jpg); 
+    position: relative;
+    height: 100%;
+    
+   
+}
+.jumbotron .btn{
+    border-radius:0px!important;
+    box-shadow:1px 1px 4px rgba(0,0,0,0.4);
+    padding:10px 40px;
+}
+
+/* adjust the edges of carousel trafficking image*/
+
+#carousel-example-generic{
+
+box-shadow:2px 2px 4px rgba(0,0,0,0.8);
+   border-radius: 22px 22px 22px 22px;
+   width:100%;
+   overflow: hidden;
+   min-height:375px;
+   
+    
+}
+
+#carousel_img{
+
+ border-radius: 22px 22px 22px 22px;
+   overflow: hidden;
+   min-height:375px;
+    width:100%;
+
+}
+
+#photo_cont{
+
+border-radius: 22px 22px 22px 22px;
+overflow: hidden;
+box-shadow:2px 2px 4px rgba(0,0,0,0.8);
+
+}
+
+#carousel_btn{
+    margin-top:5%;
+    margin-bottom:10%;
+
+}
+
+/* Start CSS for Teen Page*/
+
+.center {
+  margin: 0 auto;
+}
+
+.carousel-caption {
+  bottom: 0;
+}
+
+.teen_res {
+  margin-bottom: 30px;
+}
+
+/*Cyber Security Jumbotron*/
+
+#cyber_sec_jumbo{
+
+    box-shadow:1px 1px 4px rgba(0,0,0,0.5);
+    background-size: cover;
+    background-image: url(https://cbi-blog.s3.amazonaws.com/blog/wp-content/uploads/2016/10/Cybersecurity-next-step-cover-iamge.png); 
+    position: relative;
+    height: 300px;
+    color:white;
+    text-shadow: black 0.1em 0.1em 0.2em;
+
+}
+
+/* container CSS*/
+
+#borders{
+border: 2px solid #333333 ;
+box-shadow:1px 1px 4px rgba(0,0,0,0.5);
+border-radius: 10px;
+margin-top: 15px;
+margin-bottom: 15px;
+background-color: #595959;
+color:white;
+text-shadow:  #333333 0.1em 0.1em 0.2em;
+}
+
+.dropdown > a:hover {
+    background-color: #e95420 !important;
+}
+
+.dropdown-menu {
+    background-color: #e95420;
+    border: none;
+}
+
+.dropdown-menu > li > a {
+    font-weight: bold !important;
+}
+
+.dropdown-menu > li > a:hover {
+    background-color: #e95420 !important;
+}
+
+.navbar-inverse .navbar-nav > .dropdown > a .caret {
+    border-top-color: #000;
+    border-bottom-color: #000;
+}
+
+

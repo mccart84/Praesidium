@@ -26,5 +26,19 @@ namespace Praesidium.Controllers
 
             return View();
         }
+
+        public ActionResult DropDownPages()
+        {
+            ViewBag.Message = "Pages By Section.";
+
+            return View();
+        }
+
+        public PartialViewResult NavigationItems()
+        {
+            var model = new Models.Navigation.NavigationModel();
+            model.GetNavItems();
+            return PartialView("~/Views/Shared/_Navigation.cshtml", model);
+        }
     }
 }
