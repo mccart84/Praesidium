@@ -21,12 +21,15 @@
         if (navItem.SubPages.Count > 0)
         {
             <li class="dropdown">
-                @Html.ActionLink(navItem.DisplayText, navItem.Action, navItem.Controller, new Dictionary<string, object> { { "class", "dropdown-toggle" }, { "data-toggle", "dropdown" } })
-
+                @*@Html.ActionLink("" + navItem.DisplayText + "<b class='caret'></b>" , navItem.Action, navItem.Controller, new Dictionary<string, object> { { "class", "dropdown-toggle" }, { "data-toggle", "dropdown" } })*@
+                <a href="@Url.Action(navItem.Action, navItem.Controller)">
+                    @navItem.DisplayText
+                    <span class="caret" aria-hidden="true"></span>                    
+                </a>
                 <ul class="dropdown-menu">
                     @foreach (var subNav in navItem.SubPages)
                     {
-                        <li>@Html.ActionLink(subNav.DisplayText, subNav.Action, subNav.Controller)</li>
+                        <li style="font-weight: bold !important;">@Html.ActionLink(subNav.DisplayText, subNav.Action, subNav.Controller)</li>
                     }
                 </ul>                
             </li>

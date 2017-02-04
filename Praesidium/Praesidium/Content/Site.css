@@ -415,4 +415,26 @@ color:white;
 text-shadow:  #333333 0.1em 0.1em 0.2em;
 }
 
+.dropdown > a:hover {
+    background-color: #e95420 !important;
+}
+
+.dropdown-menu {
+    background-color: #e95420;
+    border: none;
+}
+
+.dropdown-menu > li > a {
+    font-weight: bold !important;
+}
+
+.dropdown-menu > li > a:hover {
+    background-color: #e95420 !important;
+}
+
+.navbar-inverse .navbar-nav > .dropdown > a .caret {
+    border-top-color: #000;
+    border-bottom-color: #000;
+}
+
 
