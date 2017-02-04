@@ -266,7 +266,6 @@
     <Content Include="Views\trafficking\Index.cshtml" />
     <Content Include="Views\CyberSecurity\Index.cshtml" />
     <Content Include="Views\CyberSecurity\About.cshtml" />
-    <Content Include="Views\Home\DropDownPages.cshtml" />
     <Content Include="Views\CyberSecurity\Resources.cshtml" />
     <Content Include="Views\CyberSecurity\Adults.cshtml" />
     <Content Include="Views\CyberSecurity\Teachers.cshtml" />
