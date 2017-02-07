@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Praesidium.Data_Models;
 
 namespace Praesidium.DAL
 {
@@ -11,7 +12,7 @@ namespace Praesidium.DAL
     {
         public IQueryable<NavItem> GetActiveNavigationItems()
         {
-            var navItems = _context.ShSyNavigationItems.Where(x => x.IsActive && x.ParentId == null).Select(x => new NavItem
+            var navItems = _context.ShSyNavigationItems.Where(x => x.IsActive && x.ParentId == null && x.ShSySection.IsActive == true).Select(x => new NavItem
             {
                 RecId = x.RecId,
                 Controller = x.Controller,
