@@ -9,9 +9,9 @@ namespace Praesidium.DAL
 {
     public class NavigationItems : NavigationContext
     {
-        public IQueryable<NavItem> GetActiveNavigationItems()
+        public List<NavItem> GetActiveNavigationItems()
         {
-            var navItems = _context.ShSyNavigationItems.Where(x => x.IsActive && x.ParentId == null).Select(x => new NavItem
+            var navItems = _context.ShSyNavigationItems.Where(x => x.IsActive && x.ParentId == null && x.ShSySection.IsActive == true).Select(x => new NavItem
             {
                 RecId = x.RecId,
                 Controller = x.Controller,
@@ -32,7 +32,7 @@ namespace Praesidium.DAL
                     ParentId = s.ParentId,
                     SortOrder = s.SortOrder
                 }).ToList()
-            }).OrderBy(x => x.SortOrder);
+            }).OrderBy(x => x.SortOrder).ToList();
 
             return navItems;
         }
