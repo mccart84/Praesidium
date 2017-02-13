@@ -161,6 +161,7 @@
     <Compile Include="Controllers\CyberSecurityController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\traffickingController.cs" />
+    <Compile Include="DAL\Admin\REFERENCE.cs" />
     <Compile Include="DAL\NavigationItems.cs" />
     <Compile Include="Data Context\Admin\AdminContext.cs" />
     <Compile Include="Data Context\NavigationContext.cs" />
@@ -334,7 +335,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="DAL\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
