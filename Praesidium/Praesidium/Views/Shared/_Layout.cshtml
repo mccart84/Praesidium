@@ -18,36 +18,7 @@
             // Replace current site with another benign site
             window.close();
         }
-        @*var NavItems = {
-            RecId: ko.observable(),
-            Controller: ko.observable(),
-            Action: ko.observable(),
-            DisplayText: ko.observable(),
-            FkShSySection: ko.observable(),
-            Section: ko.observable(),
-            SortOrder: ko.observable(),
-            IsActive: ko.observable(),
-            SupPages: ko.observableArray()
-        }
 
-        $.getJSON('@Url.Action("GetNavItems", "Home")', function (val) {
-            debugger;
-        });
-
-        var testData;
-
-        $.ajax({
-            url: '@Url.Action("GetNavItems", "Home")',
-            type: 'POST',
-            dataType: 'JSON',
-            success: function (data) {
-                testData = data;
-            }
-        }).then(function () {
-
-        });
-
-        debugger;*@
     </script>
 </head>
 <body>
