@@ -13,5 +13,12 @@ namespace Praesidium.Controllers
         {
             return View();
         }
+
+        public PartialViewResult UserItems()
+        {
+            var model = new Models.Users.UserModel();
+            model.GetUserItems();
+            return PartialView("~/Views/Shared/_AdminLayout.cshtml", model);
+        }
     }
 }
