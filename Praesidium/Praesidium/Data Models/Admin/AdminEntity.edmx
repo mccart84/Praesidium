@@ -216,7 +216,7 @@
           <Property Name="Keyword" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="ShFile" Relationship="Self.FK__ShFileKey__FkShF__5535A963" FromRole="ShFileKeyword" ToRole="ShFile" />
         </EntityType>
-        <EntityType Name="ShSyNavigationItem">
+        <EntityType Name="ShSyAdminNavigationItem">
           <Key>
             <PropertyRef Name="RecId" />
           </Key>
@@ -230,7 +230,7 @@
           <Property Name="ParentId" Type="Int32" />
           <NavigationProperty Name="ShSySection" Relationship="Self.FK_ShSyNavigationItem_ShSySection" FromRole="ShSyNavigationItem" ToRole="ShSySection" />
         </EntityType>
-        <EntityType Name="ShSySection">
+        <EntityType Name="ShSyAdminSection">
           <Key>
             <PropertyRef Name="RecId" />
           </Key>
@@ -277,7 +277,7 @@
           <NavigationProperty Name="ShUsers" Relationship="Self.FK_ShUser_ShUserType" FromRole="ShUserType" ToRole="ShUser" />
         </EntityType>
         <Association Name="FK__ShFile__FkShSySe__5070F446">
-          <End Role="ShSySection" Type="Self.ShSySection" Multiplicity="0..1" />
+          <End Role="ShSySection" Type="AdminEntity.ShSyAdminSection" Multiplicity="0..1" />
           <End Role="ShFile" Type="Self.ShFile" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ShSySection">
@@ -325,8 +325,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ShSyNavigationItem_ShSySection">
-          <End Role="ShSySection" Type="Self.ShSySection" Multiplicity="1" />
-          <End Role="ShSyNavigationItem" Type="Self.ShSyNavigationItem" Multiplicity="*" />
+          <End Role="ShSySection" Type="AdminEntity.ShSyAdminSection" Multiplicity="1" />
+          <End Role="ShSyNavigationItem" Type="AdminEntity.ShSyAdminNavigationItem" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ShSySection">
               <PropertyRef Name="RecId" />
@@ -351,12 +351,12 @@
         <EntityContainer Name="AdminEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ShFiles" EntityType="Self.ShFile" />
           <EntitySet Name="ShFileKeywords" EntityType="Self.ShFileKeyword" />
-          <EntitySet Name="ShSyNavigationItems" EntityType="Self.ShSyNavigationItem" />
-          <EntitySet Name="ShSySections" EntityType="Self.ShSySection" />
+          <EntitySet Name="ShSyAdminNavigationItems" EntityType="AdminEntity.ShSyAdminNavigationItem" />
+          <EntitySet Name="ShSyAdminSections" EntityType="AdminEntity.ShSyAdminSection" />
           <EntitySet Name="ShUsers" EntityType="Self.ShUser" />
           <EntitySet Name="ShUserTypes" EntityType="Self.ShUserType" />
           <AssociationSet Name="FK__ShFile__FkShSySe__5070F446" Association="Self.FK__ShFile__FkShSySe__5070F446">
-            <End Role="ShSySection" EntitySet="ShSySections" />
+            <End Role="ShSySection" EntitySet="ShSyAdminSections" />
             <End Role="ShFile" EntitySet="ShFiles" />
           </AssociationSet>
           <AssociationSet Name="FK__ShFile__Modified__52593CB8" Association="Self.FK__ShFile__Modified__52593CB8">
@@ -372,8 +372,8 @@
             <End Role="ShFileKeyword" EntitySet="ShFileKeywords" />
           </AssociationSet>
           <AssociationSet Name="FK_ShSyNavigationItem_ShSySection" Association="Self.FK_ShSyNavigationItem_ShSySection">
-            <End Role="ShSySection" EntitySet="ShSySections" />
-            <End Role="ShSyNavigationItem" EntitySet="ShSyNavigationItems" />
+            <End Role="ShSySection" EntitySet="ShSyAdminSections" />
+            <End Role="ShSyNavigationItem" EntitySet="ShSyAdminNavigationItems" />
           </AssociationSet>
           <AssociationSet Name="FK_ShUser_ShUserType" Association="Self.FK_ShUser_ShUserType">
             <End Role="ShUserType" EntitySet="ShUserTypes" />
@@ -410,8 +410,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ShSyNavigationItems">
-            <EntityTypeMapping TypeName="AdminEntity.ShSyNavigationItem">
+          <EntitySetMapping Name="ShSyAdminNavigationItems">
+            <EntityTypeMapping TypeName="AdminEntity.ShSyAdminNavigationItem">
               <MappingFragment StoreEntitySet="ShSyNavigationItem">
                 <ScalarProperty Name="RecId" ColumnName="RecId" />
                 <ScalarProperty Name="Controller" ColumnName="Controller" />
@@ -424,8 +424,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ShSySections">
-            <EntityTypeMapping TypeName="AdminEntity.ShSySection">
+          <EntitySetMapping Name="ShSyAdminSections">
+            <EntityTypeMapping TypeName="AdminEntity.ShSyAdminSection">
               <MappingFragment StoreEntitySet="ShSySection">
                 <ScalarProperty Name="RecId" ColumnName="RecId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />

@@ -7,8 +7,8 @@
       <Diagram DiagramId="a0aff874887a480ba580393e32916db1" Name="Diagram1">
         <EntityTypeShape EntityType="AdminEntity.ShFile" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
         <EntityTypeShape EntityType="AdminEntity.ShFileKeyword" Width="1.5" PointX="5.25" PointY="5.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="AdminEntity.ShSyNavigationItem" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AdminEntity.ShSySection" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdminEntity.ShSyAdminNavigationItem" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdminEntity.ShSyAdminSection" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="AdminEntity.ShUser" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="AdminEntity.ShUserType" Width="1.5" PointX="1.5" PointY="13.5" IsExpanded="true" />
         <AssociationConnector Association="AdminEntity.FK__ShFile__FkShSySe__5070F446" ManuallyRouted="false" />
