@@ -5,10 +5,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Praesidium.Data_Models;
+using Praesidium.Data_Context.Admin;
 
 namespace Praesidium.DAL
 {
-    public class NavigationItems : NavigationContext
+    public class NavigationItems : AdminContext
     {
         public List<NavItem> GetActiveNavigationItems()
         {

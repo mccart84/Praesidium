@@ -35,10 +35,10 @@ namespace Praesidium.Data_Models.Admin
         public Nullable<int> DateDeleted { get; set; }
         public Nullable<bool> IsDeleted { get; set; }
     
-        public virtual ShUserType ShUserType { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ShFile> ShFiles { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ShFile> ShFiles1 { get; set; }
+        public virtual ShUserType ShUserType { get; set; }
     }
 }
