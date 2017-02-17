@@ -22,13 +22,10 @@ namespace Praesidium.Controllers
 
         #endregion
 
-        #region [Sections Admin]
         public ActionResult Sections()
         {
             return View();
         }
-
-        #endregion
 
         #region [Resources Admin]
         public ActionResult Resources()
