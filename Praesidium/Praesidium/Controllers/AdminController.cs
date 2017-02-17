@@ -42,5 +42,16 @@ namespace Praesidium.Controllers
         }
 
         #endregion
+
+
+        // Addition for Site Documentation
+
+        #region [Site Documentation Admin]
+        public ActionResult Site_Documentation()
+        {
+            return View();
+        }
+
+        #endregion
     }
 }
