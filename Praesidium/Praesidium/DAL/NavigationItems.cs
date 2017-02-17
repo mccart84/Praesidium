@@ -5,12 +5,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Praesidium.Data_Models;
+using Praesidium.Data_Context.Admin;
 
 namespace Praesidium.DAL
 {
-    public class NavigationItems : NavigationContext
+    public class NavigationItems : AdminContext
     {
-        public IQueryable<NavItem> GetActiveNavigationItems()
+        public List<NavItem> GetActiveNavigationItems()
         {
             var navItems = _context.ShSyNavigationItems.Where(x => x.IsActive && x.ParentId == null && x.ShSySection.IsActive == true).Select(x => new NavItem
             {
@@ -33,7 +34,7 @@ namespace Praesidium.DAL
                     ParentId = s.ParentId,
                     SortOrder = s.SortOrder
                 }).ToList()
-            }).OrderBy(x => x.SortOrder);
+            }).OrderBy(x => x.SortOrder).ToList();
 
             return navItems;
         }

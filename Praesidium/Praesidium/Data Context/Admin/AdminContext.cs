@@ -6,8 +6,8 @@ using Praesidium.Data_Models.Admin;
 
 namespace Praesidium.Data_Context.Admin
 {
-    public class AdminContext : IDisposable
-    {
+    public abstract class AdminContext : IDisposable
+    {      
         protected AdminEntities _context { get; set; }
 
         public AdminContext(AdminEntities context)

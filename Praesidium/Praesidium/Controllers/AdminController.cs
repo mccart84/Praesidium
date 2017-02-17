@@ -14,11 +14,36 @@ namespace Praesidium.Controllers
             return View();
         }
 
-        public PartialViewResult UserItems()
+        #region [Navigation Items Admin]
+        public ActionResult NavigationItems()
         {
-            var model = new Models.Users.UserModel();
-            model.GetUserItems();
-            return PartialView("~/Views/Shared/_AdminLayout.cshtml", model);
+            return View();
         }
+
+        #endregion
+
+        #region [Sections Admin]
+        public ActionResult Sections()
+        {
+            return View();
+        }
+
+        #endregion
+
+        #region [Resources Admin]
+        public ActionResult Resources()
+        {
+            return View();
+        }
+
+        #endregion
+
+        #region [Content Management Admin]
+        public ActionResult ContentManagement()
+        {
+            return View();
+        }
+
+        #endregion
     }
 }

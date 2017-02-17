@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Praesidium.Data_Models
+namespace Praesidium.Data_Models.Admin
 {
     using System;
     using System.Collections.Generic;

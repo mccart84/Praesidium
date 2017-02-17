@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Praesidium.Data_Models
+namespace Praesidium.Data_Models.Admin
 {
     using System;
     using System.Collections.Generic;
@@ -17,6 +17,7 @@ namespace Praesidium.Data_Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ShSySection()
         {
+            this.ShFiles = new HashSet<ShFile>();
             this.ShSyNavigationItems = new HashSet<ShSyNavigationItem>();
         }
     
@@ -24,6 +25,8 @@ namespace Praesidium.Data_Models
         public string Name { get; set; }
         public Nullable<bool> IsActive { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ShFile> ShFiles { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ShSyNavigationItem> ShSyNavigationItems { get; set; }
     }

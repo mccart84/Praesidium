@@ -10,15 +10,15 @@ namespace Praesidium.DAL.Admin
     public class REFERENCE : AdminContext // Inherit from the context class
     {
         //basic get statement
-        //    public List<object> GetItems()
-        //    {
-        //        var items = _context.TABLENAME.Where(x => x.PROPERTY == true && x.PROPERTY == "someText").Select(new CLASSFROMMODEL
-        //        {
-        //            x.ITEM,
-        //            x.ITEM
-        //        }).ToList();
-        //    }
-        //
-        //    return items
+    //    public List<object> GetItems()
+    //    {
+    //        var items = _context.TABLENAME.Where(x => x.PROPERTY == true && x.PROPERTY == "someText").Select(new CLASSFROMMODEL
+    //        {
+    //            x.ITEM,
+    //            x.ITEM
+    //        }).ToList();
+    //    }
+    //
+    //    return items
     }
 }
