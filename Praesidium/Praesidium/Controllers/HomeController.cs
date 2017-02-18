@@ -34,7 +34,7 @@ namespace Praesidium.Controllers
             return View();
         }
 
-        public PartialViewResult NavigationItems()
+        public PartialViewResult NavigationItems(bool? IsAdmin)
         {
             var model = new Models.Navigation.NavigationModel();
             model.GetNavItems();

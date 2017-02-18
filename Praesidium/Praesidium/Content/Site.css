@@ -59,25 +59,26 @@ footer {
 }
 
 .navbar-fixed-top {
-    top: 50px;
+    top: 20px;
 }
 
 .navbar-inverse  {
-    height: 60px !important;
-    background-color: #e95420;
-    border-color: #e95420;
+    height: 70px !important;
+    background-color: black;
+    border-color: black;
     /*border-radius: 15px;*/
-    border-bottom-left-radius: 10px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    width: 85%;
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    width: 95%;
     margin: auto;
     font-weight: bold;
 }
 
 .navbar-nav {
-    background-color: #e95420;
-    border-color: #e95420;
+    background-color: black;
+    border-color: black;
     /*border-radius: 15px;*/
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -91,7 +92,7 @@ footer {
 
     .navbar-inverse .navbar-brand {
         height: 50px;
-        color: #000;
+        color: #fff;
     }
 
     .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
@@ -100,7 +101,7 @@ footer {
     }
 
     .navbar-inverse .navbar-nav > li > a {
-        color: #000;
+        color: #fff;
     }
 
 @media (min-width: 1200px) {
