@@ -201,6 +201,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\FileType.cs" />
     <Compile Include="Models\Navigation\NavigationModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -298,11 +299,30 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
-    <Content Include="Views\Admin\Sections.cshtml" />
     <Content Include="Views\Admin\NavigationItems.cshtml" />
+    <Content Include="Views\Admin\Sections.cshtml" />
+    <Content Include="Views\Admin\Users.cshtml" />
+    <Content Include="Views\Admin\SectionsDetails.cshtml" />
+    <Content Include="Views\Admin\SectionsCreate.cshtml" />
+    <Content Include="Views\Admin\SectionsDelete.cshtml" />
+    <Content Include="Views\Admin\SectionsEdit.cshtml" />
+    <Content Include="Views\Admin\UsersDetails.cshtml" />
+    <Content Include="Views\Admin\UsersCreate.cshtml" />
+    <Content Include="Views\Admin\UsersEdit.cshtml" />
+    <Content Include="Views\Admin\UsersDelete.cshtml" />
+    <Content Include="Views\Admin\UserTypes.cshtml" />
+    <Content Include="Views\Admin\UserTypesDetails.cshtml" />
+    <Content Include="Views\Admin\UserTypesCreate.cshtml" />
+    <Content Include="Views\Admin\UserTypesEdit.cshtml" />
+    <Content Include="Views\Admin\UserTypesDelete.cshtml" />
+    <Content Include="Views\Admin\NavigationItemsDetails.cshtml" />
+    <Content Include="Views\Admin\NavigationItemsCreate.cshtml" />
+    <Content Include="Views\Admin\NavigationItemsEdit.cshtml" />
+    <Content Include="Views\Admin\NavigationItemsDelete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Manage\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

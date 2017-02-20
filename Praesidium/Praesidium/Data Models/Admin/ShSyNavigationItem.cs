@@ -11,16 +11,13 @@ namespace Praesidium.Data_Models.Admin
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class ShSyNavigationItem
     {
         public int RecId { get; set; }
         public string Controller { get; set; }
         public string Action { get; set; }
-        [Display(Name = "Display Text")]
         public string DisplayText { get; set; }
-        [Display(Name = "Active")]
         public bool IsActive { get; set; }
         public int FkShSySection { get; set; }
         public int SortOrder { get; set; }
