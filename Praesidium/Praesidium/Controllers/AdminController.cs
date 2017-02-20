@@ -451,6 +451,22 @@ namespace Praesidium.Controllers
 
         #endregion
 
+        #region [Files Admin]
+        public ActionResult Files()
+        {
+            var filelist = db.ShFiles;
+            return View(filelist.ToList());
+        }
+
+        public ActionResult AddFile()
+        {
+            ViewBag.SectionList = new SelectList(db.ShSySections, "RecID", "Name");
+            return View();
+        }
+
+
+        #endregion
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
