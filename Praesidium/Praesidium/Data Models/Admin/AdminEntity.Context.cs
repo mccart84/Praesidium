@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Praesidium.Data_Models
+namespace Praesidium.Data_Models.Admin
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class NavigationEntity : DbContext
+    public partial class AdminEntities : DbContext
     {
-        public NavigationEntity()
-            : base("name=NavigationEntity")
+        public AdminEntities()
+            : base("name=AdminEntities")
         {
         }
     
@@ -25,7 +25,11 @@ namespace Praesidium.Data_Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<ShFile> ShFiles { get; set; }
+        public virtual DbSet<ShFileKeyword> ShFileKeywords { get; set; }
         public virtual DbSet<ShSyNavigationItem> ShSyNavigationItems { get; set; }
         public virtual DbSet<ShSySection> ShSySections { get; set; }
+        public virtual DbSet<ShUser> ShUsers { get; set; }
+        public virtual DbSet<ShUserType> ShUserTypes { get; set; }
     }
 }

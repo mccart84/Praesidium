@@ -158,35 +158,50 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CyberSecurityController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\traffickingController.cs" />
+    <Compile Include="Controllers\TraffickingController.cs" />
+    <Compile Include="DAL\Admin\REFERENCE.cs" />
     <Compile Include="DAL\NavigationItems.cs" />
-    <Compile Include="Data Context\NavigationContext.cs" />
-    <Compile Include="Data Models\NavigationEntity.Context.cs">
+    <Compile Include="Data Context\Admin\AdminContext.cs" />
+    <Compile Include="Data Models\Admin\AdminEntity.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>NavigationEntity.Context.tt</DependentUpon>
+      <DependentUpon>AdminEntity.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data Models\NavigationEntity.cs">
+    <Compile Include="Data Models\Admin\AdminEntity.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>NavigationEntity.tt</DependentUpon>
+      <DependentUpon>AdminEntity.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data Models\NavigationEntity.Designer.cs">
+    <Compile Include="Data Models\Admin\AdminEntity.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>NavigationEntity.edmx</DependentUpon>
+      <DependentUpon>AdminEntity.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Data Models\ShSyNavigationItem.cs">
-      <DependentUpon>NavigationEntity.tt</DependentUpon>
+    <Compile Include="Data Models\Admin\ShFile.cs">
+      <DependentUpon>AdminEntity.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data Models\ShSySection.cs">
-      <DependentUpon>NavigationEntity.tt</DependentUpon>
+    <Compile Include="Data Models\Admin\ShFileKeyword.cs">
+      <DependentUpon>AdminEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data Models\Admin\ShSyNavigationItem.cs">
+      <DependentUpon>AdminEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data Models\Admin\ShSySection.cs">
+      <DependentUpon>AdminEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data Models\Admin\ShUser.cs">
+      <DependentUpon>AdminEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data Models\Admin\ShUserType.cs">
+      <DependentUpon>AdminEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\FileType.cs" />
     <Compile Include="Models\Navigation\NavigationModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -204,31 +219,32 @@
     <Content Include="Content\Images\test2.jpg" />
     <Content Include="Content\Images\test3.jpg" />
     <Content Include="Content\Images\test4.jpg" />
-    <Content Include="Data Models\NavigationEntity.Context.tt">
+    <Content Include="Data Models\Admin\AdminEntity.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>NavigationEntity.edmx</DependentUpon>
-      <LastGenOutput>NavigationEntity.Context.cs</LastGenOutput>
+      <DependentUpon>AdminEntity.edmx</DependentUpon>
+      <LastGenOutput>AdminEntity.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Data Models\NavigationEntity.tt">
+    <Content Include="Data Models\Admin\AdminEntity.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>NavigationEntity.edmx</DependentUpon>
-      <LastGenOutput>NavigationEntity.cs</LastGenOutput>
+      <DependentUpon>AdminEntity.edmx</DependentUpon>
+      <LastGenOutput>AdminEntity.cs</LastGenOutput>
     </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\Admin\NavigationItems\NavigationItems.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <EntityDeploy Include="Data Models\NavigationEntity.edmx">
+    <EntityDeploy Include="Data Models\Admin\AdminEntity.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>NavigationEntity.Designer.cs</LastGenOutput>
+      <LastGenOutput>AdminEntity.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Data Models\NavigationEntity.edmx.diagram">
-      <DependentUpon>NavigationEntity.edmx</DependentUpon>
+    <Content Include="Data Models\Admin\AdminEntity.edmx.diagram">
+      <DependentUpon>AdminEntity.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -280,9 +296,33 @@
     <Content Include="Views\CyberSecurity\Statistics.cshtml" />
     <Content Include="Views\CyberSecurity\LawEnforcement.cshtml" />
     <Content Include="Views\Shared\_Navigation.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Admin\NavigationItems.cshtml" />
+    <Content Include="Views\Admin\Sections.cshtml" />
+    <Content Include="Views\Admin\Users.cshtml" />
+    <Content Include="Views\Admin\SectionsDetails.cshtml" />
+    <Content Include="Views\Admin\SectionsCreate.cshtml" />
+    <Content Include="Views\Admin\SectionsDelete.cshtml" />
+    <Content Include="Views\Admin\SectionsEdit.cshtml" />
+    <Content Include="Views\Admin\UsersDetails.cshtml" />
+    <Content Include="Views\Admin\UsersCreate.cshtml" />
+    <Content Include="Views\Admin\UsersEdit.cshtml" />
+    <Content Include="Views\Admin\UsersDelete.cshtml" />
+    <Content Include="Views\Admin\UserTypes.cshtml" />
+    <Content Include="Views\Admin\UserTypesDetails.cshtml" />
+    <Content Include="Views\Admin\UserTypesCreate.cshtml" />
+    <Content Include="Views\Admin\UserTypesEdit.cshtml" />
+    <Content Include="Views\Admin\UserTypesDelete.cshtml" />
+    <Content Include="Views\Admin\NavigationItemsDetails.cshtml" />
+    <Content Include="Views\Admin\NavigationItemsCreate.cshtml" />
+    <Content Include="Views\Admin\NavigationItemsEdit.cshtml" />
+    <Content Include="Views\Admin\NavigationItemsDelete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Manage\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

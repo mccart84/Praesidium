@@ -7,22 +7,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Praesidium.Data_Models
+namespace Praesidium.Data_Models.Admin
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class ShSyNavigationItem
+    public partial class ShFileKeyword
     {
         public int RecId { get; set; }
-        public string Controller { get; set; }
-        public string Action { get; set; }
-        public string DisplayText { get; set; }
-        public bool IsActive { get; set; }
-        public int FkShSySection { get; set; }
-        public int SortOrder { get; set; }
-        public Nullable<int> ParentId { get; set; }
+        public Nullable<int> FkShFile { get; set; }
+        public string Keyword { get; set; }
     
-        public virtual ShSySection ShSySection { get; set; }
+        public virtual ShFile ShFile { get; set; }
     }
 }
