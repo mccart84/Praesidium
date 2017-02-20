@@ -46,7 +46,7 @@ textarea {
 footer {
     display: block;
     position: relative;
-    bottom: ;
+    bottom: 0%;
     width: 100%;
     min-height: 180px; /* Height of the footer */
     padding-top: 10px;
@@ -63,6 +63,7 @@ footer {
 }
 
 .navbar-inverse  {
+
     height: 60px !important;
     background-color: #e95420;
     border-color: #e95420;
@@ -70,6 +71,7 @@ footer {
     border-bottom-left-radius: 10px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
     width: 85%;
     margin: auto;
     font-weight: bold;
@@ -438,4 +440,65 @@ text-shadow:  #333333 0.1em 0.1em 0.2em;
     border-bottom-color: #000;
 }
 
+/* Admin layout CSS*/
+.container{
+    display:inline-block;
+    width:850px;
+    overflow:hidden;
+}
 
+#Admin_list{
+    color:azure;
+    text-shadow: black 0.08em 0.08em 0.15em;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: justify;
+}
+
+.side-bar{
+    position:absolute;
+    background:grey;
+    height:100%;
+    width:200px;
+    color: white;
+    transition: margin-left 0.8s;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.side-bar ul
+{
+    padding:2px;   
+}
+
+.content
+{
+    padding-left: 200px;
+    transition: padding-left 0.5s;
+}
+
+.active > .side-bar
+{
+    margin-left:-150px;   
+    transition: margin-left 0.5s;
+}
+
+.active > .content
+{
+    padding-left:50px;
+    transition: padding-left 0.5s;
+}
+.logo {
+    max-height: 110px;
+}
+
+.logo > img {
+
+        margin-top: 20px;
+        padding: 4px;
+        border: 4px solid grey;
+        border-radius: 100%;
+        overflow: hidden;
+        margin-bottom:40px;
+        margin-right:20px;
+    }
+
+/* End admin layout CSS*/
