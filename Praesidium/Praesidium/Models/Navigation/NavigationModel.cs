@@ -31,15 +31,37 @@ namespace Praesidium.Models.Navigation
         public int SortOrder { get; set; }
     }
 
+    public class AdminNavItem
+    {
+        public int RecId { get; set; }
+        public string Controller { get; set; }
+        public string Action { get; set; }
+        public string DisplayText { get; set; }
+        public bool IsActive { get; set; }
+        public int ParentId { get; set; }
+        public int FkShSySection { get; set; }
+        public int SortOrder { get; set; }
+        public string Section { get; set; }
+    }
+
     public class NavigationModel
     {
         public List<NavItem> NavItems;
+        public List<AdminNavItem> AdminNavItems;
 
         public List<NavItem> GetNavItems()
         {
             using (var biz = new DAL.NavigationItems())
             {
                 return NavItems = biz.GetActiveNavigationItems().ToList();
+            }
+        }
+
+        public List<AdminNavItem> GetAdminNavItems()
+        {
+            using (var biz = new DAL.NavigationItems())
+            {
+                return AdminNavItems = biz.GetAdminNavItems().ToList();
             }
         }
     }

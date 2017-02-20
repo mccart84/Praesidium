@@ -16,10 +16,12 @@
 
 @if (Model != null)
 {
-    foreach (var navItem in Model.NavItems)
+    if (Model.NavItems != null)
     {
-        if (navItem.SubPages.Count > 0)
+        foreach (var navItem in Model.NavItems)
         {
+            if (navItem.SubPages.Count > 0)
+            {
             <li class="dropdown">
                 @*@Html.ActionLink("" + navItem.DisplayText + "<b class='caret'></b>" , navItem.Action, navItem.Controller, new Dictionary<string, object> { { "class", "dropdown-toggle" }, { "data-toggle", "dropdown" } })*@
                 <a href="@Url.Action(navItem.Action, navItem.Controller)">
@@ -33,11 +35,21 @@
                     }
                 </ul>                
             </li>
-        }
-        else
-        {
+            }
+            else
+            {
             <li>
                 @Html.ActionLink(navItem.DisplayText, navItem.Action, navItem.Controller)
+            </li>
+            }
+        }
+    }
+    else if (Model.AdminNavItems != null)
+    {
+        foreach (var adminNavItem in Model.AdminNavItems)
+        {
+            <li>
+                @Html.ActionLink(adminNavItem.DisplayText, adminNavItem.Action, adminNavItem.Controller)
             </li>
         }
     }

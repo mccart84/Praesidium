@@ -10,106 +10,110 @@
     <script src="~/Scripts/knockout-3.4.0.js"></script>
     <script src="~/Scripts/lodash.js"></script>
     <script src="~/Scripts/jquery-1.10.2.js"></script>
+
+    <script>
+        function getAway() {
+            // Get away right now
+            window.open("http://weather.com", "_newtab");
+            // Replace current site with another benign site
+            window.close();
+        }
+    </script>
 </head>
 <body>
+    <div class="whitespace">
+
+    </div>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("TCS Solutions", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav" style="float: right;">
+                    @{
+                    Html.RenderAction("NavigationItems", "Home", new {IsAdmin = true});
+                    }
+                    <li>
+                        <a data-toggle="collapse" href="#searchArea" aria-expanded="false" aria-controls="collapseExample">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            Search
+                        </a>
+                        <div class="searchArea accordion-body collapse" id="searchArea">
+                            <input id="txtSearchlg" class="searchBar" type="text" style="width:150px;" />
+                        </div>
+                        <div class="searchAreasm hidden-lg hidden-md">
+                            <form class="form-inline" role="form">
+                                <div class="icon-addon addon-md">
+                                    <input id="txtSearchsm" class="form-control" type="text" style="padding-left:5px;" placeholder="Search...">
+                                    <label for="txtSearchsm" class="glyphicon glyphicon-search"></label>
+                                </div>
+                            </form>
+                        </div>
+                    </li>
+
+                </ul>
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Warning banner -->
     <div class="container body-content">
         @RenderBody()
+    </div>
+
+    <hr />
+    <div>
+        <div>
+            <footer>
+
+                <button id="get-away" style="font-family: 'Agency FB'; color: white" onclick="javascript: getAway();" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-warning-sign"></span><br /> Emergency Exit </button>
+
+                <div class="row">
+                    <div class="col-md-1 col-sm-1 col-lg-1"></div>
+                    <div class="col-md-5 item" style="color: white; text-align: center;">
+                        <h3>Company Name</h3>
+                        <p>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut <br /> vehicula rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar <br /> dictum vel in justo.</p>
+                    </div>
+                    <div class="col-md-2 item" style="color: white; text-align: center;">
+                        <h3>Services</h3>
+                        <ul style="list-style-type: none; padding-right: 35px;">
+                            <li><a href="#">Web design</a></li>
+                            <li><a href="#">Development</a></li>
+                            <li><a href="#">Hosting</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-2 item" style="color: white; text-align: center;">
+                        <h3>About</h3>
+                        <ul style="list-style-type: none; padding-right: 35px">
+                            <li><a href="#">Company</a></li>
+                            <li><a href="#">Team</a></li>
+                            <li><a href="#">Careers</a></li>
+                        </ul>
+                    </div>
+                    <br />
+
+                </div>
+                <div class="col-md-12 col-sm-4 item social">
+                    <a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a>
+                </div>
+                <div class="col-md-12" style="color: white; text-align: center;">
+                    <p>&copy; @DateTime.Now.Year - _Solutions</p>
+                </div>
+            </footer>
+        </div>
     </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-
-<!-- BEGIN PAGE LAYOUT
-
-    <nav class="navbar navbar-default navbar-static-top">
-        <div class="container">
-            <div class="navbar-header">
-
-                <button type="button" class="navbar-toggle navbar-toggle-sidebar collapsed">
-                    Options
-                </button>
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
-                <a class="navbar-brand" href="#">
-                    Admin View
-                </a>
-            </div>
-
-            
-
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-                <ul class="nav navbar-nav navbar-right">
-
-                    <li><a href="http://praesidium.azurewebsites.net/">Website</a></li>
-
-                    <li class="dropdown">
-
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            Settings
-                            <p class="glyphicon glyphicon-cog"></p>
-                        </a>
-
-                   
-                        <ul class="dropdown-menu" role="menu">
-                            <li class=""><a href="">Account Details</a></li>
-                            <li class=""><a href="">Edit Account</a></li>
-                            <li><a href="">Logout</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                
-            </div>
-        </div>
-    </nav>
-
-    <div class="container main-container">
-
-        <div class="col-md-3 sidebar">
-
-            <div class="row">
-
-                <div class="absolute-wrapper"> </div>
-
-                <div class="side-menu">
-
-                    <nav class="navbar navbar-default" role="navigation">
-
-
-                        <div class="side-menu-container">
-                            <ul class="nav navbar-nav">
-                                <li class="active"><a href=""><span class="glyphicon glyphicon-dashboard"></span>Home</a></li>
-                                <li><a href="#"><span class="glyphicon glyphicon-paperclip"></span>Application Documentation</a></li>
-                                <li><a href="#"><span class="glyphicon glyphicon-road"></span>Navigation Items</a></li>
-                                <li><a href="#"><span class="glyphicon glyphicon-edit"></span>Site Sections</a></li>
-                                <li><a href="#"><span class="glyphicon glyphicon-list-alt"></span>Site Files</a></li>
-                       
-                                <li class="panel panel-default" id="dropdown">
-                                    <a data-toggle="collapse" href="#dropdown-lvl1">
-                                        <span class="glyphicon glyphicon-user"></span> Sub Level <span class="caret"></span>
-                                    </a>
-
-                                    <div id="dropdown-lvl1" class="panel-collapse collapse">
-                                        <div class="panel-body">
-                                            <ul class="nav navbar-nav">
-                                                <li><a href="">Moderators</a></li>
-                                                <li><a href="">Administrators</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </div> END LAYOUT COMMENT -->
-
 </body>
 </html>

@@ -1,13 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
-
+using Praesidium.Data_Models.Admin;
 namespace Praesidium.Controllers
 {
     public class AdminController : Controller
     {
+        private AdminEntities db = new AdminEntities();
+
         // GET: Admin
         public ActionResult Index()
         {
@@ -17,7 +22,28 @@ namespace Praesidium.Controllers
         #region [Navigation Items Admin]
         public ActionResult NavigationItems()
         {
-            return View();
+            var shSyNavigationItems = db.ShSyNavigationItems.Include(s => s.ShSySection).OrderBy(x => x.Controller);
+            var sections = db.ShSySections.ToList();
+
+            ViewBag.Sections = sections;
+
+            return View(shSyNavigationItems.ToList());
+        }
+
+        public JsonResult GetSelectedRecord(int? id)
+        {
+            var selectedItem = db.ShSyNavigationItems.Select(x => new
+            {
+                x.Controller,
+                x.Action,
+                x.DisplayText,
+                x.IsActive,
+                x.FkShSySection,
+                x.ShSySection.Name,
+                x.RecId,
+                x.ParentId
+            }).ToList();
+            return Json(selectedItem);
         }
 
         #endregion
