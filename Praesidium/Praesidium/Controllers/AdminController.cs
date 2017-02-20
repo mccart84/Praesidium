@@ -85,5 +85,20 @@ namespace Praesidium.Controllers
         }
 
         #endregion
+
+        #region [Files Admin]
+        public ActionResult FileList()
+        {
+            return View();
+        }
+
+        public ActionResult AddFile()
+        {
+            ViewBag.SectionList = new SelectList(db.ShSySections, "RecID", "Name");
+            return View();
+        }
+
+
+        #endregion
     }
 }
