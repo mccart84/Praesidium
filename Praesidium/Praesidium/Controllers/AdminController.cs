@@ -53,6 +53,12 @@ namespace Praesidium.Controllers
             return View();
         }
 
+        public ActionResult Users()
+        {
+            var users = db.ShUsers.OrderBy(x => x.FirstName);
+            return View(users.ToList());
+        }
+
         #region [Resources Admin]
         public ActionResult Resources()
         {
