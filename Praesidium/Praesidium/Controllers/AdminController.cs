@@ -81,9 +81,10 @@ namespace Praesidium.Controllers
         #endregion
 
         #region [Files Admin]
-        public ActionResult FileList()
+        public ActionResult Files()
         {
-            return View();
+            var filelist = db.ShFiles;
+            return View(filelist.ToList());
         }
 
         public ActionResult AddFile()
