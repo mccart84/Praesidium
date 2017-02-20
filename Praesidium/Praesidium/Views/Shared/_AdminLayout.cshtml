@@ -1,4 +1,5 @@
 ﻿<!DOCTYPE html>
+
 <html>
 <head>
     <meta charset="utf-8" />
@@ -6,110 +7,44 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
     <script src="~/Scripts/knockout-3.4.0.js"></script>
     <script src="~/Scripts/lodash.js"></script>
     <script src="~/Scripts/jquery-1.10.2.js"></script>
 </head>
 <body>
-    <div class="container body-content">
-        @RenderBody()
-    </div>
-
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 
-<!-- BEGIN PAGE LAYOUT
 
-    <nav class="navbar navbar-default navbar-static-top">
-        <div class="container">
-            <div class="navbar-header">
-
-                <button type="button" class="navbar-toggle navbar-toggle-sidebar collapsed">
-                    Options
-                </button>
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
-                <a class="navbar-brand" href="#">
-                    Admin View
-                </a>
-            </div>
-
-            
-
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-                <ul class="nav navbar-nav navbar-right">
-
-                    <li><a href="http://praesidium.azurewebsites.net/">Website</a></li>
-
-                    <li class="dropdown">
-
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            Settings
-                            <p class="glyphicon glyphicon-cog"></p>
-                        </a>
-
-                   
-                        <ul class="dropdown-menu" role="menu">
-                            <li class=""><a href="">Account Details</a></li>
-                            <li class=""><a href="">Edit Account</a></li>
-                            <li><a href="">Logout</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                
-            </div>
-        </div>
-    </nav>
-
-    <div class="container main-container">
-
-        <div class="col-md-3 sidebar">
-
-            <div class="row">
-
-                <div class="absolute-wrapper"> </div>
-
-                <div class="side-menu">
-
-                    <nav class="navbar navbar-default" role="navigation">
-
-
-                        <div class="side-menu-container">
-                            <ul class="nav navbar-nav">
-                                <li class="active"><a href=""><span class="glyphicon glyphicon-dashboard"></span>Home</a></li>
-                                <li><a href="#"><span class="glyphicon glyphicon-paperclip"></span>Application Documentation</a></li>
-                                <li><a href="#"><span class="glyphicon glyphicon-road"></span>Navigation Items</a></li>
-                                <li><a href="#"><span class="glyphicon glyphicon-edit"></span>Site Sections</a></li>
-                                <li><a href="#"><span class="glyphicon glyphicon-list-alt"></span>Site Files</a></li>
-                       
-                                <li class="panel panel-default" id="dropdown">
-                                    <a data-toggle="collapse" href="#dropdown-lvl1">
-                                        <span class="glyphicon glyphicon-user"></span> Sub Level <span class="caret"></span>
-                                    </a>
-
-                                    <div id="dropdown-lvl1" class="panel-collapse collapse">
-                                        <div class="panel-body">
-                                            <ul class="nav navbar-nav">
-                                                <li><a href="">Moderators</a></li>
-                                                <li><a href="">Administrators</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
+    <div class="container table-responsive">
+        <div class="row">
+            <div class="wrapper">
+                <div class="side-bar">
+                    <div class="logo">
+                    <img src="http://1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png" class="img-responsive center-block" alt="photo">
+                    </div>
+                    <ul style="margin-top:20px;margin-right:10px;margin-left:5px;">            
+                        <li><a href="#" id="Admin_list">Index<span class="glyphicon glyphicon-home pull-right"></span></a></li>
+                        <li><a href="#" id="Admin_list">Site Documentation<span class="glyphicon glyphicon-bookmark pull-right"></span></a></li>
+                        <li><a href="#" id="Admin_list">Edit Users<span class="glyphicon glyphicon-user pull-right"></span></a></li>
+                        <li><a href="#" id="Admin_list">Edit Content<span class="glyphicon glyphicon-cutlery pull-right"></span></a></li>
+                        <li><a href="#" id="Admin_list">Log Out<span class="glyphicon glyphicon-eye-close pull-right"></span></a></li>
+                        <li><a href="" id="Admin_list">Settings <span class="glyphicon glyphicon-cog pull-right"></span></a></li>
+                    </ul>
+                </div>
+                <div class="content">
+                    <div class="col-md-12">
+                       <div class="panel panel-default">
+                         
+                            <div class="panel-body">
+                                @RenderBody()
+                            </div>
                         </div>
-                    </nav>
+                    </div>
                 </div>
             </div>
         </div>
-    </div> END LAYOUT COMMENT -->
-
+    </div>
 </body>
 </html>
