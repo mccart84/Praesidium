@@ -1,0 +1,25 @@
+﻿body {
+    display: block;
+    height: 100%;
+    padding-bottom: 0;
+    padding-top: 0;
+    margin-bottom: 0;
+    width: 100%;
+    max-width: 100% !important;
+    margin: auto;
+}
+
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+input,
+select,
+textarea {
+    max-width: 280px;
+}
