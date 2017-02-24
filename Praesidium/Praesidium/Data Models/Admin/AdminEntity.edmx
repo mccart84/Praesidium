@@ -39,6 +39,7 @@
           <Property Name="FkShSySection" Type="int" Nullable="false" />
           <Property Name="SortOrder" Type="int" Nullable="false" />
           <Property Name="ParentId" Type="int" />
+          <Property Name="Description" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="ShSySection">
           <Key>
@@ -229,6 +230,7 @@
           <Property Name="SortOrder" Type="Int32" Nullable="false" />
           <Property Name="ParentId" Type="Int32" />
           <NavigationProperty Name="ShSySection" Relationship="Self.FK_ShSyNavigationItem_ShSySection" FromRole="ShSyNavigationItem" ToRole="ShSySection" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="ShSySection">
           <Key>
@@ -414,6 +416,7 @@
           <EntitySetMapping Name="ShSyNavigationItems">
             <EntityTypeMapping TypeName="AdminModel.ShSyNavigationItem">
               <MappingFragment StoreEntitySet="ShSyNavigationItem">
+                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="RecId" ColumnName="RecId" />
                 <ScalarProperty Name="Controller" ColumnName="Controller" />
                 <ScalarProperty Name="Action" ColumnName="Action" />

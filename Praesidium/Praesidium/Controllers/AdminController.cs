@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Praesidium.Data_Models.Admin;
+using PagedList;
 namespace Praesidium.Controllers
 {
     public class AdminController : Controller
@@ -25,14 +26,49 @@ namespace Praesidium.Controllers
         }
 
         #region [Navigation Items Admin]
-        public ActionResult NavigationItems()
+        public ActionResult NavigationItems(string sortOrder, int? page)
         {
-            var shSyNavigationItems = db.ShSyNavigationItems.Include(s => s.ShSySection).OrderBy(x => x.Controller);
+            page = page == null ? 1 : page;
+
+            ViewBag.SectionSortParm = sortOrder == "Section" ? "section_desc" : "Section";
+            ViewBag.DisplayTextSortParm = sortOrder == "DisplayText" ? "displayText_desc" : "DisplayText";
+            ViewBag.IsActiveSortParm = sortOrder == "IsActive" ? "isActive_desc" : "IsActive";
+
+            var navItems = db.ShSyNavigationItems.Include(s => s.ShSySection);
+
+            switch (sortOrder)
+            {
+                case "section_desc":
+                    navItems = navItems.OrderByDescending(x => x.ShSySection.Name);
+                    break;
+                case "Section":
+                    navItems = navItems.OrderBy(x => x.ShSySection.Name);
+                    break;
+                case "displayText_desc":
+                    navItems = navItems.OrderByDescending(x => x.DisplayText);
+                    break;
+                case "DisplayText":
+                    navItems = navItems.OrderBy(x => x.DisplayText);
+                    break;               
+                case "isActive_desc":
+                    navItems = navItems.OrderByDescending(x => x.IsActive);
+                    break;
+                case "IsActive":
+                    navItems = navItems.OrderBy(x => x.IsActive);
+                    break;
+                default:
+                    navItems = navItems.OrderBy(x => x.ShSySection.Name);
+                    break;
+            }
+
             var sections = db.ShSySections.ToList();
 
             ViewBag.Sections = sections;
 
-            return View(shSyNavigationItems.ToList());
+            int pageSize = 9;
+            int pageNumber = (page ?? 1);
+
+            return View(navItems.ToPagedList(pageNumber, pageSize));
         }
 
         public JsonResult GetSelectedRecord(int? id)

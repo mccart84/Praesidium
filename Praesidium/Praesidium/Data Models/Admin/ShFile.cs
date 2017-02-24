@@ -11,8 +11,7 @@ namespace Praesidium.Data_Models.Admin
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class ShFile
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -24,8 +23,6 @@ namespace Praesidium.Data_Models.Admin
         public int RecId { get; set; }
         public string FileName { get; set; }
         public string FileStore { get; set; }
-        [Required]
-        [Display(Name = "Section")]
         public Nullable<int> FkShSySection { get; set; }
         public string Description { get; set; }
         public Nullable<int> UploadedBy { get; set; }

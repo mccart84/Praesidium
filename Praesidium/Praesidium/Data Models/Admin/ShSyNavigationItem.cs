@@ -22,6 +22,7 @@ namespace Praesidium.Data_Models.Admin
         public int FkShSySection { get; set; }
         public int SortOrder { get; set; }
         public Nullable<int> ParentId { get; set; }
+        public string Description { get; set; }
     
         public virtual ShSySection ShSySection { get; set; }
     }
