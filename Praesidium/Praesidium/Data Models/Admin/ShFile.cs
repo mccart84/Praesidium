@@ -13,7 +13,8 @@ namespace Praesidium.Data_Models.Admin
     using System.Collections.Generic;
     using System.Web.Mvc;
     using System.ComponentModel.DataAnnotations;
-    
+    using System.Web;
+
     public partial class ShFile
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -23,16 +24,22 @@ namespace Praesidium.Data_Models.Admin
         }
     
         public int RecId { get; set; }
+
+        [Required]
+        [StringLength(255)]
         public string FileName { get; set; }
-        public string FileStore { get; set; }
+        public byte[] FileStore { get; set; }
         public Nullable<int> FkShSySection { get; set; }
         [UIHint("tinymce_jquery_full"), AllowHtml]
+
+        [Required]
         public string Description { get; set; }
         public Nullable<int> UploadedBy { get; set; }
         public Nullable<int> ModifiedBy { get; set; }
         public Nullable<System.DateTime> DateUploaded { get; set; }
         public Nullable<System.DateTime> DateModified { get; set; }
-    
+        
+        [Required]
         public virtual ShSySection ShSySection { get; set; }
         public virtual ShUser ShUser { get; set; }
         public virtual ShUser ShUser1 { get; set; }
