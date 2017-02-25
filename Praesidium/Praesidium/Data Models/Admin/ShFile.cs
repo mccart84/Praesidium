@@ -11,6 +11,8 @@ namespace Praesidium.Data_Models.Admin
 {
     using System;
     using System.Collections.Generic;
+    using System.Web.Mvc;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class ShFile
     {
@@ -24,6 +26,7 @@ namespace Praesidium.Data_Models.Admin
         public string FileName { get; set; }
         public string FileStore { get; set; }
         public Nullable<int> FkShSySection { get; set; }
+        [UIHint("tinymce_jquery_full"), AllowHtml]
         public string Description { get; set; }
         public Nullable<int> UploadedBy { get; set; }
         public Nullable<int> ModifiedBy { get; set; }

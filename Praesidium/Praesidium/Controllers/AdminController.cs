@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using Praesidium.Data_Models.Admin;
 using PagedList;
+
+
 namespace Praesidium.Controllers
 {
     public class AdminController : Controller
@@ -494,9 +496,10 @@ namespace Praesidium.Controllers
             return View(filelist.ToList());
         }
 
-        public ActionResult AddFile()
+        public ActionResult FilesCreate()
         {
-            ViewBag.SectionList = new SelectList(db.ShSySections, "RecID", "Name");
+            ViewBag.users = new SelectList(db.ShUsers, "RecID", "Username");
+            ViewBag.sectionList = new SelectList(db.ShSySections, "RecID", "Name");
             return View();
         }
 
