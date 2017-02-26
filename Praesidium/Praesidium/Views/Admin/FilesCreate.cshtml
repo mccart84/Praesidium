@@ -4,7 +4,7 @@
     ViewBag.Title = "Add a file";
 }
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("SaveFile","Admin",FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     <script src="~/scripts/tinymce/tinymce.min.js"></script>
@@ -22,7 +22,7 @@
             theme_advanced_toolbar_location: "top",
             theme_advanced_toolbar_align: "left",
             theme_advanced_statusbar_location: "bottom",
-            theme_advanced_resizing: true,
+            theme_advanced_resizing: true
         });
     </script>
         <div class="form-horizontal">
@@ -54,7 +54,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.FkShSySection, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.DropDownList("sectionList", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.DropDownList("FkShSySection", null, htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.FkShSySection, "", new { @class = "text-danger" })
                 </div>
             </div>
