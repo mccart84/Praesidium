@@ -504,7 +504,8 @@ namespace Praesidium.Controllers
             return View();
         }
 
-        public ActionResult SaveFile(ShFile model, HttpPostedFileBase upload)
+        [HttpPost]
+        public ActionResult FilesCreate(ShFile model, HttpPostedFileBase upload)
         {
             try
             {
@@ -512,16 +513,15 @@ namespace Praesidium.Controllers
                 {
                     if (upload != null && upload.ContentLength > 0)
                     {
-                        ShFile newfile = new ShFile();
-                        newfile.Description = model.Description;
-                        newfile.FileName = upload.FileName;
-                        newfile.FkShSySection = Convert.ToInt32(model.FkShSySection.Value);
+                        
+                        model.FileName = upload.FileName;
                         using (var reader = new System.IO.BinaryReader(upload.InputStream))
                         {
-                            newfile.FileStore = reader.ReadBytes(upload.ContentLength);
+                            model.FileStore = reader.ReadBytes(upload.ContentLength);
                         }
+                        model.ContentType = upload.ContentType;
 
-                        db.ShFiles.Add(newfile);
+                        db.ShFiles.Add(model);
                         db.SaveChanges();
                     }
 
