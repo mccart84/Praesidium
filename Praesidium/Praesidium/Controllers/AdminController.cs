@@ -493,14 +493,14 @@ namespace Praesidium.Controllers
         #region [Files Admin]
         public ActionResult Files()
         {
-            
+
             var filelist = db.ShFiles.Include(u => u.ShUser1);
             return View(filelist.ToList());
         }
 
         public ActionResult FilesCreate()
         {
-            ViewBag.UploadedBy = new SelectList(db.ShUsers, "RecID", "Username");
+            ViewBag.users = new SelectList(db.ShUsers, "RecID", "Username");
             ViewBag.FkShSySection = new SelectList(db.ShSySections, "RecID", "Name");
             return View();
         }
@@ -514,7 +514,7 @@ namespace Praesidium.Controllers
                 {
                     if (upload != null && upload.ContentLength > 0)
                     {
-                        
+
                         model.FileName = upload.FileName;
                         using (var reader = new System.IO.BinaryReader(upload.InputStream))
                         {
@@ -538,7 +538,24 @@ namespace Praesidium.Controllers
             return View();
         }
 
+        public ActionResult FilesEdit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var file = db.ShFiles.Find(id);
 
+
+
+            if (file == null)
+                return HttpNotFound();
+
+            ViewBag.FkShSySection = new SelectList(db.ShSySections, "RecID", "Name", file.FkShSySection);
+            ViewBag.uploadusers = new SelectList(db.ShUsers, "RecID", "Username", file.UploadedBy);
+            ViewBag.modusers = new SelectList(db.ShUsers, "RecID", "Username", file.ModifiedBy);
+            return View(file);
+        }
         #endregion
 
         protected override void Dispose(bool disposing)
