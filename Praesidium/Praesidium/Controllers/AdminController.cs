@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Praesidium.Data_Models.Admin;
 using PagedList;
+
+
 namespace Praesidium.Controllers
 {
     public class AdminController : Controller
@@ -17,7 +20,7 @@ namespace Praesidium.Controllers
         public ActionResult Login()
         {
             return View();
-        }        
+        }
 
         // GET: Admin
         public ActionResult Index()
@@ -49,7 +52,7 @@ namespace Praesidium.Controllers
                     break;
                 case "DisplayText":
                     navItems = navItems.OrderBy(x => x.DisplayText);
-                    break;               
+                    break;
                 case "isActive_desc":
                     navItems = navItems.OrderByDescending(x => x.IsActive);
                     break;
@@ -494,9 +497,42 @@ namespace Praesidium.Controllers
             return View(filelist.ToList());
         }
 
-        public ActionResult AddFile()
+        public ActionResult FilesCreate()
         {
-            ViewBag.SectionList = new SelectList(db.ShSySections, "RecID", "Name");
+            ViewBag.users = new SelectList(db.ShUsers, "RecID", "Username");
+            ViewBag.FkShSySection = new SelectList(db.ShSySections, "RecID", "Name");
+            return View();
+        }
+
+        public ActionResult SaveFile(ShFile model, HttpPostedFileBase upload)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    if (upload != null && upload.ContentLength > 0)
+                    {
+                        ShFile newfile = new ShFile();
+                        newfile.Description = model.Description;
+                        newfile.FileName = upload.FileName;
+                        newfile.FkShSySection = Convert.ToInt32(model.FkShSySection.Value);
+                        using (var reader = new System.IO.BinaryReader(upload.InputStream))
+                        {
+                            newfile.FileStore = reader.ReadBytes(upload.ContentLength);
+                        }
+
+                        db.ShFiles.Add(newfile);
+                        db.SaveChanges();
+                    }
+
+                    return RedirectToAction("Files");
+                }
+            }
+            catch (Exception ex /* dex */)
+            {
+                throw ex;
+            }
+
             return View();
         }
 
