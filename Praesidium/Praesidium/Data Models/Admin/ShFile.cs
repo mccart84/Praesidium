@@ -22,7 +22,7 @@ namespace Praesidium.Data_Models.Admin
     
         public int RecId { get; set; }
         public string FileName { get; set; }
-        public string FileStore { get; set; }
+        public byte[] FileStore { get; set; }
         public Nullable<int> FkShSySection { get; set; }
         public string Description { get; set; }
         public Nullable<int> UploadedBy { get; set; }

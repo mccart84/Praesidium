@@ -4,14 +4,14 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="AdminModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="AdminModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ShFile">
           <Key>
             <PropertyRef Name="RecId" />
           </Key>
           <Property Name="RecId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FileName" Type="varchar(max)" />
-          <Property Name="FileStore" Type="nvarchar(max)" />
+          <Property Name="FileStore" Type="varbinary" MaxLength="50" />
           <Property Name="FkShSySection" Type="int" />
           <Property Name="Description" Type="varchar(max)" />
           <Property Name="UploadedBy" Type="int" />
@@ -39,6 +39,7 @@
           <Property Name="FkShSySection" Type="int" Nullable="false" />
           <Property Name="SortOrder" Type="int" Nullable="false" />
           <Property Name="ParentId" Type="int" />
+          <Property Name="Description" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="ShSySection">
           <Key>
@@ -65,6 +66,7 @@
           <Property Name="DateUpdated" Type="int" />
           <Property Name="DateDeleted" Type="int" />
           <Property Name="IsDeleted" Type="bit" />
+          <Property Name="password" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="ShUserType">
           <Key>
@@ -184,8 +186,7 @@
             <End Role="ShUser" EntitySet="ShUser" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AdminModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -195,7 +196,7 @@
           </Key>
           <Property Name="RecId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="FileStore" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FileStore" Type="Binary" />
           <Property Name="FkShSySection" Type="Int32" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="UploadedBy" Type="Int32" />
@@ -229,6 +230,7 @@
           <Property Name="SortOrder" Type="Int32" Nullable="false" />
           <Property Name="ParentId" Type="Int32" />
           <NavigationProperty Name="ShSySection" Relationship="Self.FK_ShSyNavigationItem_ShSySection" FromRole="ShSyNavigationItem" ToRole="ShSySection" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="ShSySection">
           <Key>
@@ -260,6 +262,7 @@
           <NavigationProperty Name="ShFiles" Relationship="Self.FK__ShFile__Modified__52593CB8" FromRole="ShUser" ToRole="ShFile" />
           <NavigationProperty Name="ShFiles1" Relationship="Self.FK__ShFile__Uploaded__5165187F" FromRole="ShUser" ToRole="ShFile" />
           <NavigationProperty Name="ShUserType" Relationship="Self.FK_ShUser_ShUserType" FromRole="ShUser" ToRole="ShUserType" />
+          <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="ShUserType">
           <Key>
@@ -413,6 +416,7 @@
           <EntitySetMapping Name="ShSyNavigationItems">
             <EntityTypeMapping TypeName="AdminModel.ShSyNavigationItem">
               <MappingFragment StoreEntitySet="ShSyNavigationItem">
+                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="RecId" ColumnName="RecId" />
                 <ScalarProperty Name="Controller" ColumnName="Controller" />
                 <ScalarProperty Name="Action" ColumnName="Action" />
@@ -436,6 +440,7 @@
           <EntitySetMapping Name="ShUsers">
             <EntityTypeMapping TypeName="AdminModel.ShUser">
               <MappingFragment StoreEntitySet="ShUser">
+                <ScalarProperty Name="password" ColumnName="password" />
                 <ScalarProperty Name="RecId" ColumnName="RecId" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
