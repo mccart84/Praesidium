@@ -30,10 +30,10 @@
             @Html.DisplayNameFor(model => model.UploadedBy)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ModifiedBy)
+            @Html.DisplayNameFor(model => model.DateUploaded)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DateUploaded)
+            @Html.DisplayNameFor(model => model.ModifiedBy)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.DateModified)
@@ -64,13 +64,13 @@
             @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.UploadedBy)
+            @Html.DisplayFor(modelItem => item.ShUser1.Username)
+        </td>
+        <td
+            >@Html.DisplayFor(modelItem => item.DateUploaded)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ModifiedBy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateUploaded)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.DateModified)

@@ -493,13 +493,14 @@ namespace Praesidium.Controllers
         #region [Files Admin]
         public ActionResult Files()
         {
-            var filelist = db.ShFiles;
+            
+            var filelist = db.ShFiles.Include(u => u.ShUser1);
             return View(filelist.ToList());
         }
 
         public ActionResult FilesCreate()
         {
-            ViewBag.users = new SelectList(db.ShUsers, "RecID", "Username");
+            ViewBag.UploadedBy = new SelectList(db.ShUsers, "RecID", "Username");
             ViewBag.FkShSySection = new SelectList(db.ShSySections, "RecID", "Name");
             return View();
         }
@@ -520,6 +521,7 @@ namespace Praesidium.Controllers
                             model.FileStore = reader.ReadBytes(upload.ContentLength);
                         }
                         model.ContentType = upload.ContentType;
+                        model.DateUploaded = DateTime.Now;
 
                         db.ShFiles.Add(model);
                         db.SaveChanges();
