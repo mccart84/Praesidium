@@ -22,13 +22,13 @@ namespace Praesidium.Data_Models.Admin
     
         public int RecId { get; set; }
         public string FileName { get; set; }
-        public byte[] FileStore { get; set; }
         public Nullable<int> FkShSySection { get; set; }
         public string Description { get; set; }
         public Nullable<int> UploadedBy { get; set; }
         public Nullable<int> ModifiedBy { get; set; }
         public Nullable<System.DateTime> DateUploaded { get; set; }
         public Nullable<System.DateTime> DateModified { get; set; }
+        public byte[] FileStore { get; set; }
     
         public virtual ShSySection ShSySection { get; set; }
         public virtual ShUser ShUser { get; set; }

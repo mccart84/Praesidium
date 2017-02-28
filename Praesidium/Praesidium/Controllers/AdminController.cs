@@ -504,6 +504,8 @@ namespace Praesidium.Controllers
             return View();
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult SaveFile(ShFile model, HttpPostedFileBase upload)
         {
             try
