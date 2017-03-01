@@ -7,7 +7,7 @@
 <h2>Users</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "UsersCreate")
 </p>
 <table class="table">
     <tr>
@@ -22,30 +22,6 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UserCreatedBy)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UserUpdatedBy)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UserDeletedBy)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DateCreated)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DateUpdated)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DateDeleted)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsDeleted)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ShUserType.Type)
         </th>
         <th></th>
     </tr>
@@ -65,33 +41,9 @@
             @Html.DisplayFor(modelItem => item.email)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.UserCreatedBy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UserUpdatedBy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UserDeletedBy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateCreated)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateUpdated)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateDeleted)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsDeleted)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ShUserType.Type)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.RecId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.RecId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.RecId })
+            @Html.ActionLink("Edit", "UsersEdit", new { id=item.RecId }) |
+            @Html.ActionLink("Details", "UsersDetails", new { id=item.RecId }) |
+            @Html.ActionLink("Delete", "UsersDelete", new { id=item.RecId })
         </td>
     </tr>
 }

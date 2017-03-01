@@ -214,3 +214,10 @@ C:\Users\Ryan\Source\Repos\Praesidium\Praesidium\Praesidium\bin\Newtonsoft.Json.
 C:\Users\Ryan\Source\Repos\Praesidium\Praesidium\Praesidium\obj\Debug\Praesidium.csprojResolveAssemblyReference.cache
 C:\Users\Ryan\Source\Repos\Praesidium\Praesidium\Praesidium\obj\Debug\Praesidium.dll
 C:\Users\Ryan\Source\Repos\Praesidium\Praesidium\Praesidium\obj\Debug\Praesidium.pdb
+C:\Users\Ryan\Source\Repos\Praesidium\Praesidium\Praesidium\bin\AdminLte.dll
+C:\Users\Ryan\Source\Repos\Praesidium\Praesidium\Praesidium\bin\AdminLte.pdb
+C:\Users\Ryan\Source\Repos\Praesidium\Praesidium\Praesidium\bin\AdminLte.xml
+C:\Users\Ryan\Source\Repos\Praesidium\Praesidium\Praesidium\bin\PagedList.dll
+C:\Users\Ryan\Source\Repos\Praesidium\Praesidium\Praesidium\bin\PagedList.Mvc.dll
+C:\Users\Ryan\Source\Repos\Praesidium\Praesidium\Praesidium\bin\PagedList.xml
+C:\Users\Ryan\Source\Repos\Praesidium\Praesidium\Praesidium\bin\PagedList.Mvc.xml

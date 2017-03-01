@@ -49,7 +49,7 @@
         foreach (var adminNavItem in Model.AdminNavItems)
         {
             <li>
-                @Html.ActionLink(adminNavItem.DisplayText, adminNavItem.Action, adminNavItem.Controller)
+                @Html.ActionLink(adminNavItem.DisplayText, adminNavItem.Action, adminNavItem.Controller, new { area = "" }, new { @class = "header" })
             </li>
         }
     }
