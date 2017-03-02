@@ -25,24 +25,21 @@
             theme_advanced_resizing: true
         });
     </script>
-
     <script type="text/javascript">
         function showGroup(value) {
             if (value == 2) {
-                document.getElementById("group_tr").style.display = "block";
-                document.getElementById("group_cs").style.display = "none";
-
-                //This should remove the checked property of all of the other elements to this value
-                $('.cs').prop('checked', false);
+                $('.2').show();
+                $('.3').hide();
+                $('.3').prop('checked', false);
             }
             else if (value == 3) {
-                document.getElementById("group_tr").style.display = "none";
-                document.getElementById("group_cs").style.display = "block";
-                $('.tr').prop('checked', false);
+                $('.3').show();
+                $('.2').hide();
+                $('.2').prop('checked', false);
             }
             else {
-                document.getElementById("group_tr").style.display = "none";
-                document.getElementById("group_cs").style.display = "none";
+                $('.3').hide();
+                $('.2').hide();
                 $('.cs').prop('checked', false);
                 $('.tr').prop('checked', false);
             }
@@ -58,24 +55,33 @@
                 <input type="file" id="upload" name="upload" />
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.FkShSySection, "Section", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("FkShSySection", null, htmlAttributes: new { @class = "form-control", @onchange = "showGroup(this.value)" })
+                @Html.DropDownList("SectionList", (SelectList)ViewBag.sections, "Please select", htmlAttributes: new { @class = "form-control", @onchange = "showGroup(this.value)" })
                 @Html.ValidationMessageFor(model => model.FkShSySection, "", new { @class = "text-danger" })
             </div>
         </div>
-        
+
         @*******
-        This here
-        *******@
-        
-        
-        @foreach (var t in ViewBag.navitems)
-        {
-            @Html.CheckBox("cb", htmlAttributes: new { @class = @t.FkShSySection });
-        }
+            This here
+            *******@
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Pages</label>
+            <div class="col-md-10">
+                @foreach (var t in ViewBag.cblist)
+                {
+
+                    <div class="@t.FkNavId" style="display: none;">
+                        @Html.CheckBox("cblist", false, htmlAttributes: new { @id = "cb" + t.Id, @class = @t.FkNavId })
+                        <label class="@t.FkNavId">@t.Name</label>
+                        <br />
+                    </div>
+                }
+                
+            </div>
+        </div>
 
 
         <div class="form-group editor-label">
@@ -85,7 +91,6 @@
                 @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.UploadedBy, "Uploaded by", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -93,7 +98,6 @@
                 @Html.ValidationMessageFor(model => model.UploadedBy, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="submit" class="btn btn-default" />

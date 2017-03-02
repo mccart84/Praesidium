@@ -503,14 +503,26 @@ namespace Praesidium.Controllers
         public ActionResult FilesCreate()
         {
             ViewBag.users = new SelectList(db.ShUsers, "RecID", "Username");
-            ViewBag.FkShSySection = new SelectList(db.ShSySections.Where(m => (bool)m.IsActive), "RecID", "Name");
-            ViewBag.navitems = db.ShSyNavigationItems.Where(m => m.FkShSySection == 2)
-                .Where(m => m.FkShSySection == 3);
+            ViewBag.sections = new SelectList(db.ShSySections.Where(m => ((bool)m.IsActive) && (m.RecId !=1)) , "RecID", "Name");
+            var navitems = db.ShSyNavigationItems.Where((m =>(m.FkShSySection == 2) || (m.FkShSySection == 3)));
+            ViewBag.cblist = new List<CheckModel>();
+            foreach (var t in navitems)
+            {
+                CheckModel cm = new CheckModel
+                {
+                    Checked = false,
+                    Id = t.RecId,
+                    Name = t.DisplayText,
+                    FkNavId = t.FkShSySection
+                };
+                ViewBag.cblist.Add(cm);
+
+            }
             return View();
         }
 
         [HttpPost]
-        public ActionResult FilesCreate(ShFile model, HttpPostedFileBase upload)
+        public ActionResult FilesCreate(ShFile model, HttpPostedFileBase upload )
         {
             try
             {
@@ -528,6 +540,13 @@ namespace Praesidium.Controllers
                         model.DateUploaded = DateTime.Now;
 
                         db.ShFiles.Add(model);
+                        db.SaveChanges();
+
+                        var navitems = db.ShSyNavigationItems.Where((m => (m.FkShSySection == 2) || (m.FkShSySection == 3)));
+                        model.ShFileKeywords = new List<ShFileKeyword>();
+
+
+
                         db.SaveChanges();
                     }
 
