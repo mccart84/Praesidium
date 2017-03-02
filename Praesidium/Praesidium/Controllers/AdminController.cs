@@ -551,9 +551,9 @@ namespace Praesidium.Controllers
             if (file == null)
                 return HttpNotFound();
 
-            ViewBag.FkShSySection = new SelectList(db.ShSySections, "RecID", "Name", file.FkShSySection);
-            ViewBag.uploadusers = new SelectList(db.ShUsers, "RecID", "Username", file.UploadedBy);
-            ViewBag.modusers = new SelectList(db.ShUsers, "RecID", "Username", file.ModifiedBy);
+            ViewBag.section = new SelectList(db.ShSySections, "RecID", "Name", file.FkShSySection);
+            ViewBag.uploadusers = file.UploadedBy != null ? new SelectList(db.ShUsers, "RecID", "Username", file.UploadedBy) : new SelectList(db.ShUsers, "RecID", "Username");
+            ViewBag.modusers = file.ModifiedBy != null ? new SelectList(db.ShUsers, "RecID", "Username", file.ModifiedBy) : new SelectList(db.ShUsers, "RecID", "Username");
             return View(file);
         }
         #endregion

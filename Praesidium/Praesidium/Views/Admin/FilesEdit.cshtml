@@ -4,12 +4,12 @@
     ViewBag.Title = "FilesEdit";
 }
 
-<h2>FilesEdit</h2>
+<h2>FilesEdit test</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>ShFile</h4>
         <hr />
@@ -22,18 +22,18 @@
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.FileStore, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.FileStore, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.FileStore, "", new { @class = "text-danger" })
-            </div>
-        </div>
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.FileStore, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.FileStore, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.FileStore, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
 
         <div class="form-group">
             @Html.LabelFor(model => model.FkShSySection, "FkShSySection", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("FkShSySection", null, htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("FkShSySection", (SelectList)ViewBag.section, "Please select", htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.FkShSySection, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -49,31 +49,31 @@
         <div class="form-group">
             @Html.LabelFor(model => model.UploadedBy, "UploadedBy", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("UploadedBy", null, htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("UploadedBy", (SelectList)ViewBag.uploadusers, "Please select", htmlAttributes: new { @readonly = true, @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.UploadedBy, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ModifiedBy, "ModifiedBy", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("ModifiedBy", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.ModifiedBy, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.DateUploaded, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.DateUploaded, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.DateUploaded, new { htmlAttributes = new { @readonly = true, @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.DateUploaded, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ModifiedBy, "ModifiedBy", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("ModifiedBy", (SelectList)ViewBag.modusers, "Please select", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ModifiedBy, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.DateModified, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.DateModified, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.DateModified, new { htmlAttributes = new { @readonly = true, @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.DateModified, "", new { @class = "text-danger" })
             </div>
         </div>
