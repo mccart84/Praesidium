@@ -6,9 +6,9 @@ using System.Web.Mvc;
 
 namespace Praesidium.Controllers
 {
-    public class traffickingController : Controller
+    public class TraffickingController : Controller
     {
-        // GET: trafficking
+        // GET: Trafficking
         public ActionResult Index()
         {
             return View();

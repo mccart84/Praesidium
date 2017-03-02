@@ -37,5 +37,21 @@ namespace Praesidium.Controllers
 
             return View();
         }
+
+        public PartialViewResult NavigationItems(bool? IsAdmin)
+        {
+            var model = new Models.Navigation.NavigationModel();
+
+            if (IsAdmin == true)
+            {
+                model.GetAdminNavItems();
+            }
+            else
+            {
+                model.GetNavItems();
+            }
+            
+            return PartialView("~/Views/Shared/_Navigation.cshtml", model);
+        }
     }
 }
