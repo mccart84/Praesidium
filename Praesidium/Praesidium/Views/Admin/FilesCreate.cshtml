@@ -4,7 +4,7 @@
     ViewBag.Title = "Add a file";
 }
 
-@using (Html.BeginForm("FilesCreate","Admin",FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("FilesCreate", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     <script src="~/scripts/tinymce/tinymce.min.js"></script>
@@ -31,7 +31,7 @@
             if (value == 2) {
                 document.getElementById("group_tr").style.display = "block";
                 document.getElementById("group_cs").style.display = "none";
-                
+
                 //This should remove the checked property of all of the other elements to this value
                 $('.cs').prop('checked', false);
             }
@@ -48,67 +48,58 @@
             }
         }
     </script>
-        <div class="form-horizontal">
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            @*<div class="form-group">
-                    @Html.LabelFor(model => model.FileName, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.FileName, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.FileName, "", new { @class = "text-danger" })
-                    </div>
-                </div>
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.FileStore, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.FileStore, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.FileStore, "", new { @class = "text-danger" })
-                    </div>
-                </div>*@
-
-            <div class="form-group">
-                @Html.Label("File", new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    <input type="file" id="upload" name="upload" />
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.FkShSySection,"Section", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownList("FkShSySection", null, htmlAttributes: new { @class = "form-control", @onchange = "showGroup(this.value)" })
-                    @Html.ValidationMessageFor(model => model.FkShSySection, "", new { @class = "text-danger" })
-                </div>
-            </div>
-            @foreach (var t in ViewBag.navitems)
-    {
-                @Html.CheckBox("cb", htmlAttributes: new { @class = @t.FkShSySection });
-    })
-            
-
-            <div class="form-group editor-label">
-                @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="editor-field col-md-10">
-                    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.UploadedBy,"Uploaded by", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownList("UploadedBy", (SelectList)ViewBag.users, "Please select", htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.UploadedBy, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="submit" class="btn btn-default" />
-                </div>
+        <div class="form-group">
+            @Html.Label("File", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" id="upload" name="upload" />
             </div>
         </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FkShSySection, "Section", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("FkShSySection", null, htmlAttributes: new { @class = "form-control", @onchange = "showGroup(this.value)" })
+                @Html.ValidationMessageFor(model => model.FkShSySection, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        
+        @*******
+        This here
+        *******@
+        
+        
+        @foreach (var t in ViewBag.navitems)
+        {
+            @Html.CheckBox("cb", htmlAttributes: new { @class = @t.FkShSySection });
+        }
+
+
+        <div class="form-group editor-label">
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="editor-field col-md-10">
+                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UploadedBy, "Uploaded by", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("UploadedBy", (SelectList)ViewBag.users, "Please select", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.UploadedBy, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="submit" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
 }
 
 <div>
