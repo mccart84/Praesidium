@@ -25,6 +25,29 @@
             theme_advanced_resizing: true
         });
     </script>
+
+    <script type="text/javascript">
+        function showGroup(value) {
+            if (value == 2) {
+                document.getElementById("group_tr").style.display = "block";
+                document.getElementById("group_cs").style.display = "none";
+                
+                //This should remove the checked property of all of the other elements to this value
+                $('.cs').prop('checked', false);
+            }
+            else if (value == 3) {
+                document.getElementById("group_tr").style.display = "none";
+                document.getElementById("group_cs").style.display = "block";
+                $('.tr').prop('checked', false);
+            }
+            else {
+                document.getElementById("group_tr").style.display = "none";
+                document.getElementById("group_cs").style.display = "none";
+                $('.cs').prop('checked', false);
+                $('.tr').prop('checked', false);
+            }
+        }
+    </script>
         <div class="form-horizontal">
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -54,10 +77,15 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.FkShSySection,"Section", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.DropDownList("FkShSySection", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.DropDownList("FkShSySection", null, htmlAttributes: new { @class = "form-control", @onchange = "showGroup(this.value)" })
                     @Html.ValidationMessageFor(model => model.FkShSySection, "", new { @class = "text-danger" })
                 </div>
             </div>
+            @foreach (var t in ViewBag.navitems)
+    {
+                @Html.CheckBox("cb", htmlAttributes: new { @class = @t.FkShSySection });
+    })
+            
 
             <div class="form-group editor-label">
                 @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
