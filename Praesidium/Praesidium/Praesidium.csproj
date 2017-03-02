@@ -1061,7 +1061,6 @@
     <Content Include="Scripts\tinymce\langs\readme.md" />
     <Content Include="Views\Download\Download.cshtml" />
     <Content Include="Views\Admin\FilesEdit.cshtml" />
-    <Content Include="Views\Admin\SaveFile.cshtml" />
     <Content Include="Views\Admin\Site_Documentation.cshtml" />
     <Content Include="Views\Admin\AddFile.cshtml" />
   </ItemGroup>
