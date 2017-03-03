@@ -173,6 +173,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AdminLteController.cs" />
     <Compile Include="Controllers\CyberSecurityController.cs" />
+    <Compile Include="Controllers\DownloadController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TraffickingController.cs" />
     <Compile Include="DAL\Admin\REFERENCE.cs" />
@@ -215,6 +216,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\FileType.cs" />
+    <Compile Include="Models\FileWeb.cs" />
     <Compile Include="Models\Navigation\NavigationModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -1058,6 +1060,9 @@
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.eot" />
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\readme.md" />
     <Content Include="Scripts\tinymce\langs\readme.md" />
+    <Content Include="Views\Download\Download.cshtml" />
+    <Content Include="Views\Admin\FilesEdit.cshtml" />
+    <Content Include="Views\Admin\Site_Documentation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
