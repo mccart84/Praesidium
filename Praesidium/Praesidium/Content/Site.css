@@ -41,7 +41,7 @@ textarea {
     right: 10px;
     height: 100px;
     width: 150px;
-    background-color: dodgerblue;
+    background-color: indianred;
     color: black;
     font-size: 25px;
     border: 0px;
@@ -99,9 +99,10 @@ footer {
     .navbar-inverse .navbar-brand {
         height: 50px;
         font-size:18px;
-        color: dodgerblue;
+        color: #5a7299;
         background-color:#282d32;
-      
+        text-shadow: white .00em .00em 0.01em;
+        font-family:Arial;
     }
 
     .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
@@ -377,12 +378,12 @@ box-shadow:2px 2px 4px rgba(0,0,0,0.8);
 
 #borders{
 
-border: 2px solid #333333 ;
+border: 2px solid #273344 ;
 box-shadow:1px 1px 4px rgba(0,0,0,0.5);
 border-radius: 10px;
 margin-top: 15px;
 margin-bottom: 15px;
-background-color: #595959;
+background-color: #3b4a63;
 }
 
 .dropdown > a:hover {
@@ -410,6 +411,7 @@ background-color: #595959;
 
 .navbar-brand {
     width: 155px !important;
+
 }
 
 /*font adjustments*/
@@ -429,8 +431,8 @@ font-family:Arial;
 
 #headers_borders{
 color:white;
-text-shadow:dodgerblue 0.05em 0.0em 0.05em;
-font-family:Candara;
+text-shadow:#273344 0.05em 0.0em 0.05em;
+font-family:Arial;
 text-align: center;
 }
 
