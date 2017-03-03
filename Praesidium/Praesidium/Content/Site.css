@@ -99,9 +99,9 @@ footer {
     .navbar-inverse .navbar-brand {
         height: 50px;
         font-size:18px;
-        color: #5a7299;
+        color: white;
         background-color:#282d32;
-        text-shadow: white .00em .00em 0.01em;
+        text-shadow: dodgerblue .00em .00em 0.01em;
         font-family:Arial;
     }
 
@@ -420,7 +420,8 @@ background-color: #3b4a63;
 font-size:32px;
 color:#282d32;
 text-shadow:dodgerblue 0.05em 0.0em 0.05em;
-font-family:Candara;
+font-family:Arial;
+text-align: center;
 }
 
 #p_textborders{
