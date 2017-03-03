@@ -17,6 +17,7 @@ namespace Praesidium.Models
         }
 
         public List<CheckModel> Cblist { get; set; }
+        [UIHint("tinymce_jquery_full"), AllowHtml]
         public string Description { get; set; }
         public List<SelectListItem> Sections { get; set; }
         public List<SelectListItem> Uploader { get; set; }
