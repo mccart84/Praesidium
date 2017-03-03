@@ -1,4 +1,9 @@
-﻿body {
+﻿
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300i');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300i|Pacifico');
+
+
+body {
     display: block;
     height: 100%;
     padding-bottom: 0;
@@ -7,6 +12,7 @@
     width: 100%;
     max-width: 100% !important;
     margin: auto;
+
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -35,7 +41,7 @@ textarea {
     right: 10px;
     height: 100px;
     width: 150px;
-    background-color: #1272e8;
+    background-color: indianred;
     color: black;
     font-size: 25px;
     border: 0px;
@@ -63,11 +69,12 @@ footer {
 
 .navbar-fixed-top {
     top: 20px;
+    background-color:#282d32;
 }
 
 .navbar-inverse  {
     height: 70px !important;
-    background-color: black;
+    background-color: #282d32;
     border-color: black;
     /*border-radius: 15px;*/
     border-bottom-left-radius: 15px;
@@ -77,25 +84,25 @@ footer {
     width: 95%;
     margin: auto;
     font-weight: bold;
+    
 }
 
 .navbar-nav {
-    background-color: black;
+    background-color: #282d32;
     border-color: black;
     /*border-radius: 15px;*/
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
 }
 
-.searchAreasm {
-    padding-left:5px;
-    padding-bottom:5px;
-    padding-right:5px;
-}
 
     .navbar-inverse .navbar-brand {
         height: 50px;
-        color: #fff;
+        font-size:18px;
+        color: #5a7299;
+        background-color:#282d32;
+        text-shadow: white .00em .00em 0.01em;
+        font-family:Arial;
     }
 
     .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
@@ -115,46 +122,13 @@ footer {
 
 .whitespace {
     background-color: white;
-    height: 150px;
+    height: 100px;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 20;
 }
 
-.searchArea {
-    z-index: 1400;
-    background-color: black !important;
-    width: 10%;
-    height: 30px !important;
-    position: fixed;
-    top: 110px;
-    right: 7.5%;
-    min-width: 200px;
-}
-
-
-.searchArea:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-bottom: 30px solid white;
-    border-right: 30px solid black;
-    width: 0;
-}
-
-.searchBar {
-    margin-top: 2px;
-    margin-left: 85px;
-    border-radius: 5px;
-    border: none;
-    position: fixed;
-    top: 110px;
-    right: 8%;
-    width: 90%;
-    padding-left:5px;
-}
 .Contributer {
     text-align: left;
 }
@@ -167,7 +141,6 @@ footer {
        }
   
 /*glyphicon table styling*/ 
-
   .logo-table {
       color: #f4511e;
       font-size: 50px;
@@ -292,8 +265,6 @@ figure.effect-caged p {
 	transition: opacity 0.35s, transform 0.35s;
     text-align:center;
   
-
-
 }
 
 figure.effect-caged p {
@@ -337,6 +308,7 @@ figure.effect-caged:hover p {
     
    
 }
+
 .jumbotron .btn{
     border-radius:0px!important;
     box-shadow:1px 1px 4px rgba(0,0,0,0.4);
@@ -346,22 +318,19 @@ figure.effect-caged:hover p {
 /* adjust the edges of carousel trafficking image*/
 
 #carousel-example-generic{
-
-box-shadow:2px 2px 4px rgba(0,0,0,0.8);
+   box-shadow:2px 2px 4px rgba(0,0,0,0.8);
    border-radius: 22px 22px 22px 22px;
    width:100%;
    overflow: hidden;
-   min-height:375px;
-   
-    
+   min-height:375px; 
 }
 
 #carousel_img{
 
- border-radius: 22px 22px 22px 22px;
+   border-radius: 22px 22px 22px 22px;
    overflow: hidden;
    min-height:375px;
-    width:100%;
+   width:100%;
 
 }
 
@@ -376,11 +345,9 @@ box-shadow:2px 2px 4px rgba(0,0,0,0.8);
 #carousel_btn{
     margin-top:5%;
     margin-bottom:10%;
-
 }
 
 /* Start CSS for Teen Page*/
-
 .center {
   margin: 0 auto;
 }
@@ -410,14 +377,13 @@ box-shadow:2px 2px 4px rgba(0,0,0,0.8);
 /* container CSS*/
 
 #borders{
-border: 2px solid #333333 ;
+
+border: 2px solid #273344 ;
 box-shadow:1px 1px 4px rgba(0,0,0,0.5);
 border-radius: 10px;
 margin-top: 15px;
 margin-bottom: 15px;
-background-color: #595959;
-color:white;
-text-shadow:  #333333 0.1em 0.1em 0.2em;
+background-color: #3b4a63;
 }
 
 .dropdown > a:hover {
@@ -445,6 +411,35 @@ text-shadow:  #333333 0.1em 0.1em 0.2em;
 
 .navbar-brand {
     width: 155px !important;
+
 }
+
+/*font adjustments*/
+
+#headers{
+font-size:32px;
+color:#282d32;
+text-shadow:dodgerblue 0.05em 0.0em 0.05em;
+font-family:Candara;
+}
+
+#p_textborders{
+font-size:12px;
+color:white;
+font-family:Arial;
+}
+
+#headers_borders{
+color:white;
+text-shadow:#273344 0.05em 0.0em 0.05em;
+font-family:Arial;
+text-align: center;
+}
+
+#p_text{
+font-size:14px;
+font-family:Arial;
+}
+
 
 
