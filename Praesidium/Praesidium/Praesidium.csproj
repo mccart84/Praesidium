@@ -215,6 +215,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CheckModel.cs" />
     <Compile Include="Models\FileType.cs" />
     <Compile Include="Models\Navigation\NavigationModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -1061,6 +1062,7 @@
     <Content Include="Scripts\tinymce\langs\readme.md" />
     <Content Include="Views\Download\Download.cshtml" />
     <Content Include="Views\Admin\FilesEdit.cshtml" />
+    <Content Include="Views\Admin\Site_Documentation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -7,8 +7,10 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 using Praesidium.Data_Models.Admin;
 using PagedList;
+using Praesidium.Models;
 
 
 namespace Praesidium.Controllers
@@ -501,12 +503,26 @@ namespace Praesidium.Controllers
         public ActionResult FilesCreate()
         {
             ViewBag.users = new SelectList(db.ShUsers, "RecID", "Username");
-            ViewBag.FkShSySection = new SelectList(db.ShSySections, "RecID", "Name");
+            ViewBag.sections = new SelectList(db.ShSySections.Where(m => ((bool)m.IsActive) && (m.RecId !=1)) , "RecID", "Name");
+            var navitems = db.ShSyNavigationItems.Where((m =>(m.FkShSySection == 2) || (m.FkShSySection == 3)));
+            ViewBag.cblist = new List<CheckModel>();
+            foreach (var t in navitems)
+            {
+                CheckModel cm = new CheckModel
+                {
+                    Checked = false,
+                    Id = t.RecId,
+                    Name = t.DisplayText,
+                    FkNavId = t.FkShSySection
+                };
+                ViewBag.cblist.Add(cm);
+
+            }
             return View();
         }
 
         [HttpPost]
-        public ActionResult FilesCreate(ShFile model, HttpPostedFileBase upload)
+        public ActionResult FilesCreate(ShFile model, HttpPostedFileBase upload )
         {
             try
             {
@@ -524,6 +540,13 @@ namespace Praesidium.Controllers
                         model.DateUploaded = DateTime.Now;
 
                         db.ShFiles.Add(model);
+                        db.SaveChanges();
+
+                        var navitems = db.ShSyNavigationItems.Where((m => (m.FkShSySection == 2) || (m.FkShSySection == 3)));
+                        model.ShFileKeywords = new List<ShFileKeyword>();
+
+
+
                         db.SaveChanges();
                     }
 
@@ -555,6 +578,39 @@ namespace Praesidium.Controllers
             ViewBag.uploadusers = file.UploadedBy != null ? new SelectList(db.ShUsers, "RecID", "Username", file.UploadedBy) : new SelectList(db.ShUsers, "RecID", "Username");
             ViewBag.modusers = file.ModifiedBy != null ? new SelectList(db.ShUsers, "RecID", "Username", file.ModifiedBy) : new SelectList(db.ShUsers, "RecID", "Username");
             return View(file);
+        }
+
+        [HttpPost]
+        public ActionResult FilesEdit(ShFile model, HttpPostedFileBase upload)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    if (upload != null && upload.ContentLength > 0)
+                    {
+
+                        model.FileName = upload.FileName;
+                        using (var reader = new System.IO.BinaryReader(upload.InputStream))
+                        {
+                            model.FileStore = reader.ReadBytes(upload.ContentLength);
+                        }
+                        model.ContentType = upload.ContentType;
+                        model.DateUploaded = DateTime.Now;
+
+                        db.ShFiles.Add(model);
+                        db.SaveChanges();
+                    }
+
+                    return RedirectToAction("Files");
+                }
+            }
+            catch (Exception ex /* dex */)
+            {
+                throw ex;
+            }
+
+            return View();
         }
         #endregion
 
