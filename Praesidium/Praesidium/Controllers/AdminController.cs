@@ -13,6 +13,7 @@ using PagedList;
 using Praesidium.Models;
 
 
+
 namespace Praesidium.Controllers
 {
     public class AdminController : Controller
@@ -502,23 +503,44 @@ namespace Praesidium.Controllers
 
         public ActionResult FilesCreate()
         {
-            ViewBag.users = new SelectList(db.ShUsers, "RecID", "Username");
-            ViewBag.sections = new SelectList(db.ShSySections.Where(m => ((bool)m.IsActive) && (m.RecId !=1)) , "RecID", "Name");
-            var navitems = db.ShSyNavigationItems.Where((m =>(m.FkShSySection == 2) || (m.FkShSySection == 3)));
-            ViewBag.cblist = new List<CheckModel>();
-            foreach (var t in navitems)
+            FileWeb newfile = new FileWeb();
+            //var navitems = db.ShSyNavigationItems.Where((m => (m.FkShSySection == 2) || (m.FkShSySection == 3)));
+            var cblist = new List<FileWeb.CheckModel>();
+            foreach (var t in db.ShSyNavigationItems.Where((m => (m.FkShSySection == 2) || (m.FkShSySection == 3))))
             {
-                CheckModel cm = new CheckModel
+                FileWeb.CheckModel cm = new FileWeb.CheckModel
                 {
                     Checked = false,
                     Id = t.RecId,
                     Name = t.DisplayText,
                     FkNavId = t.FkShSySection
                 };
-                ViewBag.cblist.Add(cm);
-
+                cblist.Add(cm);
             }
-            return View();
+            newfile.Cblist = cblist;
+            var sections = new List<SelectListItem>();
+            //var sections = new SelectList(db.ShSySections.Where(m => ((bool)m.IsActive) && (m.RecId !=1)) , "RecID", "Name");
+            foreach (ShSySection s in db.ShSySections.Where(m => ((bool)m.IsActive) && (m.RecId != 1)))
+            {
+                var t = new SelectListItem();
+                t.Text = s.Name;
+                t.Value = s.RecId.ToString();
+                sections.Add(t);
+            }
+            newfile.Sections = sections;
+
+            var users = new List<SelectListItem>();
+            //ViewBag.users = new SelectList(db.ShUsers, "RecID", "Username");
+            foreach (ShUser u in db.ShUsers)
+            {
+                var t = new SelectListItem();
+                t.Text = u.Username;
+                t.Value = u.RecId.ToString();
+                users.Add(t);
+            }
+            newfile.Uploader = users;
+
+            return View(newfile);
         }
 
         [HttpPost]

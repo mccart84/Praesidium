@@ -215,8 +215,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\CheckModel.cs" />
     <Compile Include="Models\FileType.cs" />
+    <Compile Include="Models\FileWeb.cs" />
     <Compile Include="Models\Navigation\NavigationModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -35,7 +35,7 @@ namespace Praesidium.Data_Models.Admin
         public Nullable<System.DateTime> DateUploaded { get; set; }
         public Nullable<System.DateTime> DateModified { get; set; }
         public string ContentType { get; set; }
-        public List<CheckModel> cblist { get; set; }
+        public List<FileWeb.CheckModel> cblist { get; set; }
     
         public virtual ShSySection ShSySection { get; set; }
         public virtual ShUser ShUser { get; set; }
