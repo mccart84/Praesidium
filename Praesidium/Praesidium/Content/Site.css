@@ -1,4 +1,9 @@
-﻿body {
+﻿
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300i');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300i|Pacifico');
+
+
+body {
     display: block;
     height: 100%;
     padding-bottom: 0;
@@ -36,7 +41,7 @@ textarea {
     right: 10px;
     height: 100px;
     width: 150px;
-    background-color: #1272e8;
+    background-color: dodgerblue;
     color: black;
     font-size: 25px;
     border: 0px;
@@ -64,11 +69,12 @@ footer {
 
 .navbar-fixed-top {
     top: 20px;
+    background-color:#282d32;
 }
 
 .navbar-inverse  {
     height: 70px !important;
-    background-color: black;
+    background-color: #282d32;
     border-color: black;
     /*border-radius: 15px;*/
     border-bottom-left-radius: 15px;
@@ -78,10 +84,11 @@ footer {
     width: 95%;
     margin: auto;
     font-weight: bold;
+    
 }
 
 .navbar-nav {
-    background-color: black;
+    background-color: #282d32;
     border-color: black;
     /*border-radius: 15px;*/
     border-bottom-left-radius: 10px;
@@ -91,7 +98,10 @@ footer {
 
     .navbar-inverse .navbar-brand {
         height: 50px;
-        color: #fff;
+        font-size:18px;
+        color: dodgerblue;
+        background-color:#282d32;
+      
     }
 
     .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
@@ -130,7 +140,6 @@ footer {
        }
   
 /*glyphicon table styling*/ 
-
   .logo-table {
       color: #f4511e;
       font-size: 50px;
@@ -255,8 +264,6 @@ figure.effect-caged p {
 	transition: opacity 0.35s, transform 0.35s;
     text-align:center;
   
-
-
 }
 
 figure.effect-caged p {
@@ -300,6 +307,7 @@ figure.effect-caged:hover p {
     
    
 }
+
 .jumbotron .btn{
     border-radius:0px!important;
     box-shadow:1px 1px 4px rgba(0,0,0,0.4);
@@ -309,22 +317,19 @@ figure.effect-caged:hover p {
 /* adjust the edges of carousel trafficking image*/
 
 #carousel-example-generic{
-
-box-shadow:2px 2px 4px rgba(0,0,0,0.8);
+   box-shadow:2px 2px 4px rgba(0,0,0,0.8);
    border-radius: 22px 22px 22px 22px;
    width:100%;
    overflow: hidden;
-   min-height:375px;
-   
-    
+   min-height:375px; 
 }
 
 #carousel_img{
 
- border-radius: 22px 22px 22px 22px;
+   border-radius: 22px 22px 22px 22px;
    overflow: hidden;
    min-height:375px;
-    width:100%;
+   width:100%;
 
 }
 
@@ -339,11 +344,9 @@ box-shadow:2px 2px 4px rgba(0,0,0,0.8);
 #carousel_btn{
     margin-top:5%;
     margin-bottom:10%;
-
 }
 
 /* Start CSS for Teen Page*/
-
 .center {
   margin: 0 auto;
 }
@@ -373,14 +376,13 @@ box-shadow:2px 2px 4px rgba(0,0,0,0.8);
 /* container CSS*/
 
 #borders{
+
 border: 2px solid #333333 ;
 box-shadow:1px 1px 4px rgba(0,0,0,0.5);
 border-radius: 10px;
 margin-top: 15px;
 margin-bottom: 15px;
 background-color: #595959;
-color:white;
-text-shadow:  #333333 0.1em 0.1em 0.2em;
 }
 
 .dropdown > a:hover {
@@ -409,4 +411,33 @@ text-shadow:  #333333 0.1em 0.1em 0.2em;
 .navbar-brand {
     width: 155px !important;
 }
+
+/*font adjustments*/
+
+#headers{
+font-size:32px;
+color:#282d32;
+text-shadow:dodgerblue 0.05em 0.0em 0.05em;
+font-family:Candara;
+}
+
+#p_textborders{
+font-size:12px;
+color:white;
+font-family:Arial;
+}
+
+#headers_borders{
+color:white;
+text-shadow:dodgerblue 0.05em 0.0em 0.05em;
+font-family:Candara;
+text-align: center;
+}
+
+#p_text{
+font-size:14px;
+font-family:Arial;
+}
+
+
 
