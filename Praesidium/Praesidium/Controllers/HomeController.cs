@@ -12,6 +12,10 @@ namespace Praesidium.Controllers
         {
             return View();
         }
+        public ActionResult CISTeam()
+        {
+            return View();
+        }
 
         public ActionResult About()
         {
