@@ -184,10 +184,16 @@ namespace Praesidium.Controllers
         #endregion
 
         #region[Sections]
-        public ActionResult Sections()
+        public ActionResult Sections(string sortOrder, int? page)
         {
+            page = page == null ? 1 : page;
+
             var sections = db.ShSySections.OrderBy(x => x.Name);
-            return View(sections.ToList());
+
+            int pageSize = 9;
+            int pageNumber = (page ?? 1);
+
+            return View(sections.ToPagedList(pageNumber, pageSize));
         }
 
         public ActionResult SectionsDetails(int? id)
@@ -278,10 +284,15 @@ namespace Praesidium.Controllers
         #endregion
 
         #region[Users]
-        public ActionResult Users()
+        public ActionResult Users(string sortOrder, int? page)
         {
+            page = page == null ? 1 : page;
             var users = db.ShUsers.OrderBy(x => x.Username);
-            return View(users.ToList());
+
+            int pageSize = 9;
+            int pageNumber = (page ?? 1);
+
+            return View(users.ToPagedList(pageNumber, pageSize));
         }
 
         public ActionResult UsersDetails(int? id)
@@ -375,9 +386,16 @@ namespace Praesidium.Controllers
 
         #region[User Types]
 
-        public ActionResult UserTypes()
+        public ActionResult UserTypes(string sortOrder, int? page)
         {
-            return View(db.ShUserTypes.ToList());
+            page = page == null ? 1 : page;
+
+            var userTypes = db.ShUserTypes.ToList();
+
+            int pageSize = 9;
+            int pageNumber = (page ?? 1);
+
+            return View(userTypes.ToPagedList(pageNumber, pageSize));
         }
 
         public ActionResult UserTypesDetails(int? id)

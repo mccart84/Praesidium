@@ -7,6 +7,7 @@
     width: 100%;
     max-width: 100% !important;
     margin: auto;
+    background-color: #ecf0f5;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -58,30 +59,25 @@ footer {
 
 .body-content {
     min-height: calc(100vh - 288px);
-    padding-top: 100px !important;
+    padding-top: 160px !important;
 }
 
 .navbar-fixed-top {
-    top: 20px;
+    top: 30px;
 }
 
 .navbar-inverse  {
-    height: 70px !important;
-    background-color: black;
-    border-color: black;
-    /*border-radius: 15px;*/
-    border-bottom-left-radius: 15px;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
-    width: 95%;
+    height: 75px !important;
+    background-color: #3c8dbc;
+    border-color: #3c8dbc;
+    width: 100%;
     margin: auto;
     font-weight: bold;
 }
 
 .navbar-nav {
-    background-color: black;
-    border-color: black;
+    background-color: #3c8dbc;
+    border-color: #3c8dbc;
     /*border-radius: 15px;*/
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -94,7 +90,7 @@ footer {
 }
 
     .navbar-inverse .navbar-brand {
-        height: 50px;
+        height: 65px;
         color: #fff;
     }
 
@@ -107,14 +103,14 @@ footer {
         color: #fff;
     }
 
-@media (min-width: 1200px) {
+/*@media (min-width: 1200px) {
     .container {
         padding-top: 6px;
     }
-}
+}*/
 
 .whitespace {
-    background-color: white;
+    background-color: #ecf0f5;
     height: 150px;
     position: fixed;
     width: 100%;
@@ -124,7 +120,7 @@ footer {
 
 .searchArea {
     z-index: 1400;
-    background-color: black !important;
+    background-color: #3c8dbc !important;
     width: 10%;
     height: 30px !important;
     position: fixed;
@@ -140,7 +136,7 @@ footer {
     top: 0;
     left: 0;
     border-bottom: 30px solid white;
-    border-right: 30px solid black;
+    border-right: 30px solid #3c8dbc;
     width: 0;
 }
 
@@ -395,16 +391,15 @@ box-shadow:2px 2px 4px rgba(0,0,0,0.8);
 
 /*Cyber Security Jumbotron*/
 
-#cyber_sec_jumbo{
-
-    box-shadow:1px 1px 4px rgba(0,0,0,0.5);
+#cyber_sec_jumbo {
+    box-shadow: 1px 1px 4px rgba(0,0,0,0.5);
     background-size: cover;
-    background-image: url(https://cbi-blog.s3.amazonaws.com/blog/wp-content/uploads/2016/10/Cybersecurity-next-step-cover-iamge.png); 
+    background-image: url();
+    background-image: url('Images/CyberSecurityHome.jpg');
     position: relative;
     height: 300px;
-    color:white;
+    color: white;
     text-shadow: black 0.1em 0.1em 0.2em;
-
 }
 
 /* container CSS*/
@@ -420,31 +415,50 @@ color:white;
 text-shadow:  #333333 0.1em 0.1em 0.2em;
 }
 
+.dropdown {
+    height: 65px;
+}
+
+li > .dropdown .open {
+    height: 65px;
+    background-color: white;
+}
+
 .dropdown > a:hover {
-    background-color: black !important;
+    background-color: rgba(0,60,128,0.82) !important;
+    color: #333;
+    height: 65px;
 }
 
 .dropdown-menu {
-    background-color: black;
+    background-color: rgba(0,60,128,0.82);
     border: none;
 }
 
 .dropdown-menu > li > a {
     font-weight: bold !important;
     color: #fff;
+    background-color: rgba(0,60,128,0.82);
 }
 
 .dropdown-menu > li > a:hover {
-    background-color: #333333 !important;
+    background-color: rgba(0,60,128,0.82) !important;
 }
 
 .navbar-inverse .navbar-nav > .dropdown > a .caret {
-    border-top-color: #fff;
-    border-bottom-color: #fff;
+    border-top-color: rgba(0,60,128,0.82);
+    border-bottom-color: rgba(0,60,128,0.82);
+}
+
+.navbar-header {
+    margin-top: 0 !important;
 }
 
 .navbar-brand {
-    width: 155px !important;
+    width: 170px !important;
+    background-color: #3c8dbc !important;
+    padding-top: 20px;
 }
+
 
 

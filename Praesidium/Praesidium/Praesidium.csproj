@@ -270,9 +270,11 @@
     <Content Include="Content\Images\cybersecurity1.jpg" />
     <Content Include="Content\Images\cybersecurity2.jpg" />
     <Content Include="Content\Images\cybersecurity3.jpg" />
+    <Content Include="Content\Images\CyberSecurityHome.jpg" />
     <Content Include="Content\Images\ferris-state-university_2013-09-05_13-58-58.622.jpg" />
     <Content Include="Content\Images\img04.jpg" />
     <Content Include="Content\Images\red-logo.png" />
+    <Content Include="Content\Images\TCS_Solutions.png" />
     <Content Include="Content\Images\test1.jpg" />
     <Content Include="Content\Images\test2.jpg" />
     <Content Include="Content\Images\test3.jpg" />
