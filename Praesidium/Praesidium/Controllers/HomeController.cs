@@ -51,7 +51,7 @@ namespace Praesidium.Controllers
             return PartialView("~/Views/Shared/_Navigation.cshtml", model);
         }
 
-        public PartialViewResult FileItems(string FileId)
+        public PartialViewResult FileItems(string FileId, int n)
         {
             var db = new AdminEntities();
             List<ShFile> files = new List<ShFile>();
@@ -60,7 +60,7 @@ namespace Praesidium.Controllers
                 files.Add((ShFile)db.ShFiles.Where(a => a.RecId == t.FkShFile));
             }
             files = (List<ShFile>)files.OrderBy(m => m.DateUploaded);
-            files = (List<ShFile>) files.Take(5);
+            files = (List<ShFile>) files.Take(n);
 
             return PartialView("~/Views/Shared/_FileItems.cshtml",files);
         }
