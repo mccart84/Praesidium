@@ -7,33 +7,36 @@
 <h2>Files</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "FilesCreate")
 </p>
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.RecId)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.FileName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FileStore)
+            Content
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FkShSySection)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Description)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.UploadedBy)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.DateUploaded)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.ModifiedBy)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.DateModified)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ShSySection.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ShUser.FirstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ShUser1.FirstName)
         </th>
         <th></th>
     </tr>
@@ -41,33 +44,42 @@
 @foreach (var item in Model) {
     <tr>
         <td>
+            @Html.DisplayFor(modelItem => item.RecId)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.FileName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.FileStore)
+            @*@Html.DisplayFor(modelItem => item.FileStore)*@
+            @*@{
+                var base64 = Convert.ToBase64String(item.FileStore);
+                var filesrc = string.Format("data:{1};base64,{0}", base64,item.ContentType);
+            }
+            <a href='@filesrc'>Download</a>*@
+            @Html.ActionLink("Download File","File","Download",new { id=item.RecId},null)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FkShSySection)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.DateUploaded)
+            @Html.DisplayFor(modelItem => item.ShUser1.Username)
+        </td>
+        <td
+            >@Html.DisplayFor(modelItem => item.DateUploaded)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModifiedBy)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.DateModified)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ShSySection.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ShUser.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ShUser1.FirstName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.RecId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.RecId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.RecId })
+            @Html.ActionLink("Edit", "FilesEdit", new { id=item.RecId }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
         </td>
     </tr>
 }

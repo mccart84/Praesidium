@@ -39,8 +39,8 @@
             else
             {
             <li>
-                @Html.ActionLink(navItem.DisplayText, navItem.Action, navItem.Controller)
-            </li>
+                @Html.ActionLink(navItem.DisplayText, navItem.Action, navItem.Controller)                
+            </li>            
             }
         }
     }
@@ -49,9 +49,8 @@
         foreach (var adminNavItem in Model.AdminNavItems)
         {
             <li>
-                @Html.ActionLink(adminNavItem.DisplayText, adminNavItem.Action, adminNavItem.Controller)
+                @Html.ActionLink(adminNavItem.DisplayText, adminNavItem.Action, adminNavItem.Controller, new { area = "" }, new { @class = "header" })
             </li>
-            <br />
         }
     }
 }

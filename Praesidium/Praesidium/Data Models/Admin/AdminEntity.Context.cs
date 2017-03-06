@@ -25,11 +25,11 @@ namespace Praesidium.Data_Models.Admin
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<ShFile> ShFiles { get; set; }
-        public virtual DbSet<ShFileKeyword> ShFileKeywords { get; set; }
         public virtual DbSet<ShSyNavigationItem> ShSyNavigationItems { get; set; }
         public virtual DbSet<ShSySection> ShSySections { get; set; }
         public virtual DbSet<ShUser> ShUsers { get; set; }
         public virtual DbSet<ShUserType> ShUserTypes { get; set; }
+        public virtual DbSet<ShFile> ShFiles { get; set; }
+        public virtual DbSet<ShFileKeyword> ShFileKeywords { get; set; }
     }
 }

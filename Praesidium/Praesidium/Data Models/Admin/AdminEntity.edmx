@@ -11,13 +11,14 @@
           </Key>
           <Property Name="RecId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FileName" Type="varchar(max)" />
-          <Property Name="FileStore" Type="nvarchar(max)" />
           <Property Name="FkShSySection" Type="int" />
           <Property Name="Description" Type="varchar(max)" />
           <Property Name="UploadedBy" Type="int" />
           <Property Name="ModifiedBy" Type="int" />
           <Property Name="DateUploaded" Type="date" />
           <Property Name="DateModified" Type="date" />
+          <Property Name="FileStore" Type="varbinary(max)" />
+          <Property Name="ContentType" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="ShFileKeyword">
           <Key>
@@ -39,6 +40,7 @@
           <Property Name="FkShSySection" Type="int" Nullable="false" />
           <Property Name="SortOrder" Type="int" Nullable="false" />
           <Property Name="ParentId" Type="int" />
+          <Property Name="Description" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="ShSySection">
           <Key>
@@ -195,7 +197,7 @@
           </Key>
           <Property Name="RecId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="FileStore" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FileStore" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="FkShSySection" Type="Int32" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="UploadedBy" Type="Int32" />
@@ -206,6 +208,7 @@
           <NavigationProperty Name="ShUser" Relationship="Self.FK__ShFile__Modified__52593CB8" FromRole="ShFile" ToRole="ShUser" />
           <NavigationProperty Name="ShUser1" Relationship="Self.FK__ShFile__Uploaded__5165187F" FromRole="ShFile" ToRole="ShUser" />
           <NavigationProperty Name="ShFileKeywords" Relationship="Self.FK__ShFileKey__FkShF__5535A963" FromRole="ShFile" ToRole="ShFileKeyword" />
+          <Property Name="ContentType" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="ShFileKeyword">
           <Key>
@@ -229,6 +232,7 @@
           <Property Name="SortOrder" Type="Int32" Nullable="false" />
           <Property Name="ParentId" Type="Int32" />
           <NavigationProperty Name="ShSySection" Relationship="Self.FK_ShSyNavigationItem_ShSySection" FromRole="ShSyNavigationItem" ToRole="ShSySection" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="ShSySection">
           <Key>
@@ -390,6 +394,7 @@
           <EntitySetMapping Name="ShFiles">
             <EntityTypeMapping TypeName="AdminModel.ShFile">
               <MappingFragment StoreEntitySet="ShFile">
+                <ScalarProperty Name="ContentType" ColumnName="ContentType" />
                 <ScalarProperty Name="RecId" ColumnName="RecId" />
                 <ScalarProperty Name="FileName" ColumnName="FileName" />
                 <ScalarProperty Name="FileStore" ColumnName="FileStore" />
@@ -414,6 +419,7 @@
           <EntitySetMapping Name="ShSyNavigationItems">
             <EntityTypeMapping TypeName="AdminModel.ShSyNavigationItem">
               <MappingFragment StoreEntitySet="ShSyNavigationItem">
+                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="RecId" ColumnName="RecId" />
                 <ScalarProperty Name="Controller" ColumnName="Controller" />
                 <ScalarProperty Name="Action" ColumnName="Action" />

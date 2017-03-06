@@ -2,11 +2,18 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 using Praesidium.Data_Models.Admin;
+using PagedList;
+using Praesidium.Models;
+
+
+
 namespace Praesidium.Controllers
 {
     public class AdminController : Controller
@@ -16,7 +23,7 @@ namespace Praesidium.Controllers
         public ActionResult Login()
         {
             return View();
-        }        
+        }
 
         // GET: Admin
         public ActionResult Index()
@@ -25,14 +32,49 @@ namespace Praesidium.Controllers
         }
 
         #region [Navigation Items Admin]
-        public ActionResult NavigationItems()
+        public ActionResult NavigationItems(string sortOrder, int? page)
         {
-            var shSyNavigationItems = db.ShSyNavigationItems.Include(s => s.ShSySection).OrderBy(x => x.Controller);
+            page = page == null ? 1 : page;
+
+            ViewBag.SectionSortParm = sortOrder == "Section" ? "section_desc" : "Section";
+            ViewBag.DisplayTextSortParm = sortOrder == "DisplayText" ? "displayText_desc" : "DisplayText";
+            ViewBag.IsActiveSortParm = sortOrder == "IsActive" ? "isActive_desc" : "IsActive";
+
+            var navItems = db.ShSyNavigationItems.Include(s => s.ShSySection);
+
+            switch (sortOrder)
+            {
+                case "section_desc":
+                    navItems = navItems.OrderByDescending(x => x.ShSySection.Name);
+                    break;
+                case "Section":
+                    navItems = navItems.OrderBy(x => x.ShSySection.Name);
+                    break;
+                case "displayText_desc":
+                    navItems = navItems.OrderByDescending(x => x.DisplayText);
+                    break;
+                case "DisplayText":
+                    navItems = navItems.OrderBy(x => x.DisplayText);
+                    break;
+                case "isActive_desc":
+                    navItems = navItems.OrderByDescending(x => x.IsActive);
+                    break;
+                case "IsActive":
+                    navItems = navItems.OrderBy(x => x.IsActive);
+                    break;
+                default:
+                    navItems = navItems.OrderBy(x => x.ShSySection.Name);
+                    break;
+            }
+
             var sections = db.ShSySections.ToList();
 
             ViewBag.Sections = sections;
 
-            return View(shSyNavigationItems.ToList());
+            int pageSize = 9;
+            int pageNumber = (page ?? 1);
+
+            return View(navItems.ToPagedList(pageNumber, pageSize));
         }
 
         public JsonResult GetSelectedRecord(int? id)
@@ -142,10 +184,16 @@ namespace Praesidium.Controllers
         #endregion
 
         #region[Sections]
-        public ActionResult Sections()
+        public ActionResult Sections(string sortOrder, int? page)
         {
+            page = page == null ? 1 : page;
+
             var sections = db.ShSySections.OrderBy(x => x.Name);
-            return View(sections.ToList());
+
+            int pageSize = 9;
+            int pageNumber = (page ?? 1);
+
+            return View(sections.ToPagedList(pageNumber, pageSize));
         }
 
         public ActionResult SectionsDetails(int? id)
@@ -236,10 +284,15 @@ namespace Praesidium.Controllers
         #endregion
 
         #region[Users]
-        public ActionResult Users()
+        public ActionResult Users(string sortOrder, int? page)
         {
+            page = page == null ? 1 : page;
             var users = db.ShUsers.OrderBy(x => x.Username);
-            return View(users.ToList());
+
+            int pageSize = 9;
+            int pageNumber = (page ?? 1);
+
+            return View(users.ToPagedList(pageNumber, pageSize));
         }
 
         public ActionResult UsersDetails(int? id)
@@ -333,9 +386,16 @@ namespace Praesidium.Controllers
 
         #region[User Types]
 
-        public ActionResult UserTypes()
+        public ActionResult UserTypes(string sortOrder, int? page)
         {
-            return View(db.ShUserTypes.ToList());
+            page = page == null ? 1 : page;
+
+            var userTypes = db.ShUserTypes.ToList();
+
+            int pageSize = 9;
+            int pageNumber = (page ?? 1);
+
+            return View(userTypes.ToPagedList(pageNumber, pageSize));
         }
 
         public ActionResult UserTypesDetails(int? id)
@@ -454,17 +514,144 @@ namespace Praesidium.Controllers
         #region [Files Admin]
         public ActionResult Files()
         {
-            var filelist = db.ShFiles;
+
+            var filelist = db.ShFiles.Include(u => u.ShUser1);
             return View(filelist.ToList());
         }
 
-        public ActionResult AddFile()
+        public ActionResult FilesCreate()
         {
-            ViewBag.SectionList = new SelectList(db.ShSySections, "RecID", "Name");
+            FileWeb newfile = new FileWeb();
+            //var navitems = db.ShSyNavigationItems.Where((m => (m.FkShSySection == 2) || (m.FkShSySection == 3)));
+            var cblist = new List<FileWeb.CheckModel>();
+            foreach (var t in db.ShSyNavigationItems.Where((m => (m.FkShSySection == 2) || (m.FkShSySection == 3))))
+            {
+                FileWeb.CheckModel cm = new FileWeb.CheckModel
+                {
+                    Checked = false,
+                    Id = t.RecId,
+                    Name = t.DisplayText,
+                    FkNavId = t.FkShSySection
+                };
+                cblist.Add(cm);
+            }
+            newfile.Cblist = cblist;
+            var sections = new List<SelectListItem>();
+            //var sections = new SelectList(db.ShSySections.Where(m => ((bool)m.IsActive) && (m.RecId !=1)) , "RecID", "Name");
+            foreach (ShSySection s in db.ShSySections.Where(m => ((bool)m.IsActive) && (m.RecId != 1)))
+            {
+                var t = new SelectListItem();
+                t.Text = s.Name;
+                t.Value = s.RecId.ToString();
+                sections.Add(t);
+            }
+            newfile.Sections = sections;
+
+            var users = new List<SelectListItem>();
+            //ViewBag.users = new SelectList(db.ShUsers, "RecID", "Username");
+            foreach (ShUser u in db.ShUsers)
+            {
+                var t = new SelectListItem();
+                t.Text = u.Username;
+                t.Value = u.RecId.ToString();
+                users.Add(t);
+            }
+            newfile.Uploader = users;
+
+            return View(newfile);
+        }
+
+        [HttpPost]
+        public ActionResult FilesCreate(ShFile model, HttpPostedFileBase upload )
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    if (upload != null && upload.ContentLength > 0)
+                    {
+
+                        model.FileName = upload.FileName;
+                        using (var reader = new System.IO.BinaryReader(upload.InputStream))
+                        {
+                            model.FileStore = reader.ReadBytes(upload.ContentLength);
+                        }
+                        model.ContentType = upload.ContentType;
+                        model.DateUploaded = DateTime.Now;
+
+                        db.ShFiles.Add(model);
+                        db.SaveChanges();
+
+                        var navitems = db.ShSyNavigationItems.Where((m => (m.FkShSySection == 2) || (m.FkShSySection == 3)));
+                        model.ShFileKeywords = new List<ShFileKeyword>();
+
+
+
+                        db.SaveChanges();
+                    }
+
+                    return RedirectToAction("Files");
+                }
+            }
+            catch (Exception ex /* dex */)
+            {
+                throw ex;
+            }
+
             return View();
         }
 
+        public ActionResult FilesEdit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var file = db.ShFiles.Find(id);
 
+
+
+            if (file == null)
+                return HttpNotFound();
+
+            ViewBag.section = new SelectList(db.ShSySections, "RecID", "Name", file.FkShSySection);
+            ViewBag.uploadusers = file.UploadedBy != null ? new SelectList(db.ShUsers, "RecID", "Username", file.UploadedBy) : new SelectList(db.ShUsers, "RecID", "Username");
+            ViewBag.modusers = file.ModifiedBy != null ? new SelectList(db.ShUsers, "RecID", "Username", file.ModifiedBy) : new SelectList(db.ShUsers, "RecID", "Username");
+            return View(file);
+        }
+
+        [HttpPost]
+        public ActionResult FilesEdit(ShFile model, HttpPostedFileBase upload)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    if (upload != null && upload.ContentLength > 0)
+                    {
+
+                        model.FileName = upload.FileName;
+                        using (var reader = new System.IO.BinaryReader(upload.InputStream))
+                        {
+                            model.FileStore = reader.ReadBytes(upload.ContentLength);
+                        }
+                        model.ContentType = upload.ContentType;
+                        model.DateUploaded = DateTime.Now;
+
+                        db.ShFiles.Add(model);
+                        db.SaveChanges();
+                    }
+
+                    return RedirectToAction("Files");
+                }
+            }
+            catch (Exception ex /* dex */)
+            {
+                throw ex;
+            }
+
+            return View();
+        }
         #endregion
 
         protected override void Dispose(bool disposing)

@@ -1,155 +1,76 @@
-﻿@model IEnumerable<Praesidium.Data_Models.Admin.ShSyNavigationItem>
-
+﻿@model PagedList.IPagedList<Praesidium.Data_Models.Admin.ShSyNavigationItem>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 @{
-    ViewBag.Title = "NavigationItems";
     var sections = ViewBag.Sections;
 }
 
 <script src="~/Scripts/Admin/NavigationItems/NavigationItems.js"></script>
+<div class="panel panel-heading" >
+    <h2>Admin Navigation Items</h2>
+</div>
 
-<h2>NavigationItems</h2>
-<p>
-    @Html.ActionLink("Create New", "NavigationItemsCreate")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Controller)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Action)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DisplayText)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsActive)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SortOrder)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ParentId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ShSySection.Name)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Controller)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Action)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DisplayText)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsActive)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SortOrder)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ParentId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ShSySection.Name)
-        </td>
-        <td>
-            @*<button style="font-family: 'Agency FB'; color: white" id="editModal" data-target="#edit" data-toggle="modal" data-id="@item.RecId" data-controller="@item.Controller" data-action="@item.Action" data-displaytext="@item.DisplayText" data-section="@item.FkShSySection" data-active="@item.IsActive"><span class="glyphicon glyphicon-edit"></span></button> |*@
-            @Html.ActionLink("Edit", "NavigationItemsEdit", new { id=item.RecId}) |
-            @Html.ActionLink("Details", "NavigationItemsDetails", new { id=item.RecId }) |
-            @Html.ActionLink("Delete", "NavigationItemsDelete", new { id=item.RecId })
-        </td>
-    </tr>
-}
-</table>
-
-@*<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-                <h4 class="modal-title custom_align" id="Heading">Edit Navigation Item</h4>
-            </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <h5>Controller: </h5>
-                    <input type="text" class="form-control" name="controller" id="controller" value="" readonly/>
-                </div>
-                <div class="form-group">
-                    <label>Action: </label>
-                    <input class="form-control" type="text" name="action" id="action" value="" readonly>
-                </div>
-                <div class="form-group">
-                    <label>Display Text: </label>
-                    <input class="form-control" type="text" name="displayText" id="displayText" value="">
-                </div>
-                <div class="form-group">
-                    <label>Section: </label>
-                    @Html.DropDownList("ddlSections", new SelectList(ViewBag.Sections, "RecId", "Name"), new { @class = "form-control" })
-                </div>
-                <div class="form-group">
-                    <label>Active: </label>
-                    <input type="checkbox" name="active" id="active" value=""/>
-                </div>
-                <div class="modal-footer ">
-                    <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-ok-sign"></span> Save</button>
-                </div>
-            </div>
-        </div>
+<div class="panel">
+    <div style="">
+        <br />
+        <h4 class="col-md-11"><b>List of Navigation Items</b></h4>
+        <p style="float: right;" class="col-md-1">
+            @Html.ActionLink("Create New", "NavigationItemsCreate", null, new { @class = "btn btn-info" })
+        </p>
+        <br />
     </div>
-</div>*@
+    <table class="table panel table-striped">
+        <tr>
+            <th>
+                @Html.ActionLink("Section", "NavigationItems", new { sortOrder = ViewBag.SectionSortParm })
+            </th>
+            <th>
+                @Html.ActionLink("Display Text", "NavigationItems", new { sortOrder = ViewBag.DisplayTextSortParm })
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Sort Order
+            </th>
+            <th>
+                @Html.ActionLink("Active", "NavigationItems", new { sortOrder = ViewBag.IsActiveSortParm })
+            </th>
+            <th></th>
+        </tr>
 
-@*<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-                <h4 class="modal-title custom_align" id="Heading">Delete this section</h4>
-            </div>
-            <div class="modal-body">
-
-                <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> Are you sure you want to delete this section?</div>
-
-            </div>
-            <div class="modal-footer ">
-                <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>
-            </div>
-        </div>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td style="width: 15%;">
+                    @Html.DisplayFor(modelItem => item.ShSySection.Name)
+                </td>
+                <td style="width: 15%;">
+                    @Html.DisplayFor(modelItem => item.DisplayText)
+                </td>
+                <td style="width: 45%;">
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td style="text-align: center; width: 5%;">
+                    @Html.DisplayFor(modelItem => item.SortOrder)
+                </td>
+                <td style="width: 3%; text-align: center;">
+                    @Html.DisplayFor(modelItem => item.IsActive)
+                </td>
+                <td style="width: 10%;">
+                    @*<button style="font-family: 'Agency FB'; color: white" id="editModal" data-target="#edit" data-toggle="modal" data-id="@item.RecId" data-controller="@item.Controller" data-action="@item.Action" data-displaytext="@item.DisplayText" data-section="@item.FkShSySection" data-active="@item.IsActive"><span class="glyphicon glyphicon-edit"></span></button> |*@
+                    @Html.ActionLink(" ", "NavigationItemsEdit", new { id = item.RecId }, new { @class = "btn btn-info glyphicon glyphicon-edit", @title = "Edit Navigation Item" })
+                    @Html.ActionLink(" ", "NavigationItemsDetails", new { id = item.RecId }, new { @class = "btn btn-info glyphicon glyphicon-eye-open", @title = "View Details" })
+                    @Html.ActionLink(" ", "NavigationItemsDelete", new { id = item.RecId }, new { @class = "btn btn-danger glyphicon glyphicon-trash", @title = "Delete Navigation Item" })
+                </td>
+            </tr>
+        }
+    </table>
+    <div style="text-align: center;">
+        @Html.PagedListPager(Model, page => Url.Action("NavigationItems",
+    new { page }))
     </div>
 </div>
 
-<div class="modal fade" id="createNew" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-                <h4 class="modal-title custom_align" id="Heading">New Section</h4>
-            </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <h5>RecID</h5>
-                    <input class="form-control " type="text">
-                </div>
-                <div class="form-group">
-                    <h5>Section Name</h5>
-                    <input class="form-control " type="text">
-                </div>
-                <div class="form-group">
-                    <h5>Is Active</h5>
-                    <input type="checkbox" class="checkthis" />
-                </div>
-            </div>
-            <div class="modal-footer ">
-                <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-ok-sign"></span> Create</button>
-            </div>
-        </div>
-    </div>
-</div>*@
+
+
