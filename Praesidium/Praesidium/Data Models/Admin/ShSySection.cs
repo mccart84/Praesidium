@@ -19,7 +19,6 @@ namespace Praesidium.Data_Models.Admin
         {
             this.ShFiles = new HashSet<ShFile>();
             this.ShSyNavigationItems = new HashSet<ShSyNavigationItem>();
-            this.ShFiles = new HashSet<ShFile>();
         }
     
         public int RecId { get; set; }
@@ -30,7 +29,5 @@ namespace Praesidium.Data_Models.Admin
         public virtual ICollection<ShFile> ShFiles { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ShSyNavigationItem> ShSyNavigationItems { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ShFile> ShFiles { get; set; }
     }
 }
