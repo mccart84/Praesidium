@@ -1,9 +1,4 @@
-﻿
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300i');
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300i|Pacifico');
-
-
-body {
+﻿body {
     display: block;
     height: 100%;
     padding-bottom: 0;
@@ -12,7 +7,7 @@ body {
     width: 100%;
     max-width: 100% !important;
     margin: auto;
-
+    background-color: #ecf0f5;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -48,9 +43,6 @@ textarea {
     border-radius: 5px;
 }
 
-    #get-away:hover {
-        background-color: #488bf6;
-    }
 
 footer {
     display: block;
@@ -64,45 +56,42 @@ footer {
 
 .body-content {
     min-height: calc(100vh - 288px);
-    padding-top: 100px !important;
+    padding-top: 160px !important;
 }
 
 .navbar-fixed-top {
-    top: 20px;
-    background-color:#282d32;
+    top: 30px;
 }
 
 .navbar-inverse  {
-    height: 70px !important;
-    background-color: #282d32;
-    border-color: black;
-    /*border-radius: 15px;*/
-    border-bottom-left-radius: 15px;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
-    width: 95%;
+    height: 78px !important;
+    background-color: #3c8dbc;
+    border-color: #3c8dbc;
+    width: 100%;
     margin: auto;
     font-weight: bold;
-    
 }
 
+
 .navbar-nav {
-    background-color: #282d32;
-    border-color: black;
+    background-color: #3c8dbc;
+    border-color: #3c8dbc;
     /*border-radius: 15px;*/
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
 }
 
 
+.searchAreasm {
+    padding-left:5px;
+    padding-bottom:5px;
+    padding-right:5px;
+}
+
     .navbar-inverse .navbar-brand {
-        height: 50px;
-        font-size:18px;
-        color: white;
-        background-color:#282d32;
-        text-shadow: dodgerblue .00em .00em 0.01em;
-        font-family:Arial;
+        height: 70px;
+        color: #fff;
+        margin-left:-20px;
     }
 
     .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
@@ -110,24 +99,28 @@ footer {
         /*padding-top: 15px;*/
     }
 
+
+
     .navbar-inverse .navbar-nav > li > a {
         color: #fff;
     }
 
-@media (min-width: 1200px) {
+/*@media (min-width: 1200px) {
     .container {
         padding-top: 6px;
     }
-}
+}*/
 
 .whitespace {
-    background-color: white;
-    height: 100px;
+    background-color: #ecf0f5;
+    height: 90px;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 20;
 }
+
+
 
 .Contributer {
     text-align: left;
@@ -141,6 +134,7 @@ footer {
        }
   
 /*glyphicon table styling*/ 
+
   .logo-table {
       color: #f4511e;
       font-size: 50px;
@@ -308,7 +302,6 @@ figure.effect-caged:hover p {
     
    
 }
-
 .jumbotron .btn{
     border-radius:0px!important;
     box-shadow:1px 1px 4px rgba(0,0,0,0.4);
@@ -318,19 +311,22 @@ figure.effect-caged:hover p {
 /* adjust the edges of carousel trafficking image*/
 
 #carousel-example-generic{
-   box-shadow:2px 2px 4px rgba(0,0,0,0.8);
+
+box-shadow:2px 2px 4px rgba(0,0,0,0.8);
    border-radius: 22px 22px 22px 22px;
    width:100%;
    overflow: hidden;
-   min-height:375px; 
+   min-height:375px;
+   
+    
 }
 
 #carousel_img{
 
-   border-radius: 22px 22px 22px 22px;
+ border-radius: 22px 22px 22px 22px;
    overflow: hidden;
    min-height:375px;
-   width:100%;
+    width:100%;
 
 }
 
@@ -345,9 +341,11 @@ box-shadow:2px 2px 4px rgba(0,0,0,0.8);
 #carousel_btn{
     margin-top:5%;
     margin-bottom:10%;
+
 }
 
 /* Start CSS for Teen Page*/
+
 .center {
   margin: 0 auto;
 }
@@ -362,85 +360,112 @@ box-shadow:2px 2px 4px rgba(0,0,0,0.8);
 
 /*Cyber Security Jumbotron*/
 
-#cyber_sec_jumbo{
-
-    box-shadow:1px 1px 4px rgba(0,0,0,0.5);
+#cyber_sec_jumbo {
+    box-shadow: 1px 1px 4px rgba(0,0,0,0.5);
     background-size: cover;
-    background-image: url(https://cbi-blog.s3.amazonaws.com/blog/wp-content/uploads/2016/10/Cybersecurity-next-step-cover-iamge.png); 
+    background-image: url();
+    background-image: url('Images/CyberSecurityHome.jpg');
     position: relative;
     height: 300px;
-    color:white;
+    color: white;
     text-shadow: black 0.1em 0.1em 0.2em;
-
 }
 
 /* container CSS*/
 
 #borders{
-
-border: 2px solid #273344 ;
+border: 2px solid #333333 ;
 box-shadow:1px 1px 4px rgba(0,0,0,0.5);
 border-radius: 10px;
 margin-top: 15px;
 margin-bottom: 15px;
-background-color: #3b4a63;
+background-color: #595959;
+color:white;
+text-shadow:  #333333 0.1em 0.1em 0.2em;
+}
+
+.dropdown {
+    height: 50px;
 }
 
 .dropdown > a:hover {
-    background-color: black !important;
+    background-color: rgba(0,60,128,0.82) !important;
+    color: #333;
+    height: 50px;
 }
 
 .dropdown-menu {
-    background-color: black;
+    background-color: rgba(0,60,128,0.82);
     border: none;
 }
+
+    .dropdown-menu:before {
+       visibility:hidden;
+    }
+ 
 
 .dropdown-menu > li > a {
     font-weight: bold !important;
     color: #fff;
+    background-color: rgba(0,60,128,0.82);
 }
 
-.dropdown-menu > li > a:hover {
-    background-color: #333333 !important;
+.dropdown-menu > li > a:hover:after {
+    background-color: rgba(0,60,128,0.82) !important;
 }
 
 .navbar-inverse .navbar-nav > .dropdown > a .caret {
-    border-top-color: #fff;
-    border-bottom-color: #fff;
+    border-top-color: rgba(0,60,128,0.82);
+    border-bottom-color: rgba(0,60,128,0.82);
+}
+
+/* Nav edits*/
+.navbar-nav > li > a:hover {
+    background-color: rgba(0,60,128,0.82) !important;
+     position: relative;
+     transition: all 1s;
+     color: #fff;
+     z-index: 1;
+}
+.navbar-nav > li > a:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0%;
+  content: '.';
+  color: transparent;
+  background: #aaa;
+  height: 1px;
+   text-align: left;
+  content: '.';
+  margin: 0;
+  opacity: 0;
+   
+}
+.navbar-nav > li > a:hover:after {
+    width: 100%;
+    z-index: -10;
+    animation: fill 1s forwards;
+    -webkit-animation: fill 1s forwards;
+    -moz-animation: fill 1s forwards;
+    opacity: 1;
+}
+/* /nav edits*/
+
+
+.navbar-header {
+    margin-top: 0 !important;
+    
 }
 
 .navbar-brand {
-    width: 155px !important;
-
+    width: 170px !important;
+    background-color: #3c8dbc !important;
+    padding-top: 20px;  
 }
 
-/*font adjustments*/
-
-#headers{
-font-size:32px;
-color:#282d32;
-text-shadow:dodgerblue 0.05em 0.0em 0.05em;
-font-family:Arial;
-text-align: center;
-}
-
-#p_textborders{
-font-size:12px;
-color:white;
-font-family:Arial;
-}
-
-#headers_borders{
-color:white;
-text-shadow:#273344 0.05em 0.0em 0.05em;
-font-family:Arial;
-text-align: center;
-}
-
-#p_text{
-font-size:14px;
-font-family:Arial;
-}
 
 
 

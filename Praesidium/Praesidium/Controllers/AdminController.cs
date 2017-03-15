@@ -184,10 +184,16 @@ namespace Praesidium.Controllers
         #endregion
 
         #region[Sections]
-        public ActionResult Sections()
+        public ActionResult Sections(string sortOrder, int? page)
         {
+            page = page == null ? 1 : page;
+
             var sections = db.ShSySections.OrderBy(x => x.Name);
-            return View(sections.ToList());
+
+            int pageSize = 9;
+            int pageNumber = (page ?? 1);
+
+            return View(sections.ToPagedList(pageNumber, pageSize));
         }
 
         public ActionResult SectionsDetails(int? id)
@@ -278,10 +284,15 @@ namespace Praesidium.Controllers
         #endregion
 
         #region[Users]
-        public ActionResult Users()
+        public ActionResult Users(string sortOrder, int? page)
         {
+            page = page == null ? 1 : page;
             var users = db.ShUsers.OrderBy(x => x.Username);
-            return View(users.ToList());
+
+            int pageSize = 9;
+            int pageNumber = (page ?? 1);
+
+            return View(users.ToPagedList(pageNumber, pageSize));
         }
 
         public ActionResult UsersDetails(int? id)
@@ -375,9 +386,16 @@ namespace Praesidium.Controllers
 
         #region[User Types]
 
-        public ActionResult UserTypes()
+        public ActionResult UserTypes(string sortOrder, int? page)
         {
-            return View(db.ShUserTypes.ToList());
+            page = page == null ? 1 : page;
+
+            var userTypes = db.ShUserTypes.ToList();
+
+            int pageSize = 9;
+            int pageNumber = (page ?? 1);
+
+            return View(userTypes.ToPagedList(pageNumber, pageSize));
         }
 
         public ActionResult UserTypesDetails(int? id)
@@ -503,8 +521,9 @@ namespace Praesidium.Controllers
 
         public ActionResult FilesCreate()
         {
+            FileWeb newfile = new FileWeb();
             //var navitems = db.ShSyNavigationItems.Where((m => (m.FkShSySection == 2) || (m.FkShSySection == 3)));
-            ViewBag.cblist = new List<FileWeb.CheckModel>();
+            var cblist = new List<FileWeb.CheckModel>();
             foreach (var t in db.ShSyNavigationItems.Where((m => (m.FkShSySection == 2) || (m.FkShSySection == 3))))
             {
                 FileWeb.CheckModel cm = new FileWeb.CheckModel
@@ -514,49 +533,65 @@ namespace Praesidium.Controllers
                     Name = t.DisplayText,
                     FkNavId = t.FkShSySection
                 };
-                ViewBag.cblist.Add(cm);
+                cblist.Add(cm);
             }
-            
-            ViewBag.sections = new SelectList(db.ShSySections.Where(m => ((bool)m.IsActive) && (m.RecId !=1)) , "RecID", "Name");
-            ViewBag.users = new SelectList(db.ShUsers, "RecID", "Username");
+            newfile.Cblist = cblist;
+            var sections = new List<SelectListItem>();
+            //var sections = new SelectList(db.ShSySections.Where(m => ((bool)m.IsActive) && (m.RecId !=1)) , "RecID", "Name");
+            foreach (ShSySection s in db.ShSySections.Where(m => ((bool)m.IsActive) && (m.RecId != 1)))
+            {
+                var t = new SelectListItem();
+                t.Text = s.Name;
+                t.Value = s.RecId.ToString();
+                sections.Add(t);
+            }
+            newfile.Sections = sections;
 
-            return View();
+            var users = new List<SelectListItem>();
+            //ViewBag.users = new SelectList(db.ShUsers, "RecID", "Username");
+            foreach (ShUser u in db.ShUsers)
+            {
+                var t = new SelectListItem();
+                t.Text = u.Username;
+                t.Value = u.RecId.ToString();
+                users.Add(t);
+            }
+            newfile.Uploader = users;
+
+            return View(newfile);
         }
 
         [HttpPost]
-        public ActionResult FilesCreate(FileWeb model, HttpPostedFileBase upload)
+        public ActionResult FilesCreate(ShFile model, HttpPostedFileBase upload )
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    ShFile file = new ShFile();
-                    
                     if (upload != null && upload.ContentLength > 0)
                     {
 
-                        file.FileName = upload.FileName;
+                        model.FileName = upload.FileName;
                         using (var reader = new System.IO.BinaryReader(upload.InputStream))
                         {
-                            file.FileStore = reader.ReadBytes(upload.ContentLength);
+                            model.FileStore = reader.ReadBytes(upload.ContentLength);
                         }
-                        file.ContentType = upload.ContentType;
-                        file.DateUploaded = DateTime.Now;
+                        model.ContentType = upload.ContentType;
+                        model.DateUploaded = DateTime.Now;
 
-                        db.ShFiles.Add(file);
+                        db.ShFiles.Add(model);
                         db.SaveChanges();
 
-                        //var navitems = db.ShSyNavigationItems.Where((m => (m.FkShSySection == 2) || (m.FkShSySection == 3)));
-                        //file.ShFileKeywords = new List<ShFileKeyword>();
+                        var navitems = db.ShSyNavigationItems.Where((m => (m.FkShSySection == 2) || (m.FkShSySection == 3)));
+                        model.ShFileKeywords = new List<ShFileKeyword>();
 
 
 
-                        //db.SaveChanges();
+                        db.SaveChanges();
                     }
 
                     return RedirectToAction("Files");
                 }
-
             }
             catch (Exception ex /* dex */)
             {
@@ -565,46 +600,6 @@ namespace Praesidium.Controllers
 
             return View();
         }
-
-        //[HttpPost]
-        //public ActionResult FilesCreate(ShFile model, HttpPostedFileBase upload )
-        //{
-        //    try
-        //    {
-        //        if (ModelState.IsValid)
-        //        {
-        //            if (upload != null && upload.ContentLength > 0)
-        //            {
-
-        //                model.FileName = upload.FileName;
-        //                using (var reader = new System.IO.BinaryReader(upload.InputStream))
-        //                {
-        //                    model.FileStore = reader.ReadBytes(upload.ContentLength);
-        //                }
-        //                model.ContentType = upload.ContentType;
-        //                model.DateUploaded = DateTime.Now;
-
-        //                db.ShFiles.Add(model);
-        //                db.SaveChanges();
-
-        //                var navitems = db.ShSyNavigationItems.Where((m => (m.FkShSySection == 2) || (m.FkShSySection == 3)));
-        //                model.ShFileKeywords = new List<ShFileKeyword>();
-
-
-
-        //                db.SaveChanges();
-        //            }
-
-        //            return RedirectToAction("Files");
-        //        }
-        //    }
-        //    catch (Exception ex /* dex */)
-        //    {
-        //        throw ex;
-        //    }
-
-        //    return View();
-        //}
 
         public ActionResult FilesEdit(int? id)
         {
