@@ -1,0 +1,80 @@
+﻿@model IEnumerable<Praesidium.Data_Models.Admin.ShFile>
+
+@{
+    ViewBag.Title = "Files";
+}
+<p>
+    @Html.ActionLink("Create New", "FilesCreate")
+</p>
+<table class="table">
+    <tr>
+        <th class="col-lg-2 col-md-2">
+            @Html.DisplayNameFor(model => model.FileName)
+        </th>
+        <th>
+            
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th class="col-lg-3">
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UploadedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateUploaded)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifiedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateModified)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FileName)
+        </td>
+        <td>
+            @*@Html.DisplayFor(modelItem => item.FileStore)*@
+            @*@{
+                var base64 = Convert.ToBase64String(item.FileStore);
+                var filesrc = string.Format("data:{1};base64,{0}", base64,item.ContentType);
+            }
+            <a href='@filesrc'>Download</a>*@
+            @Html.ActionLink("Download File","File","Download",new { id=item.RecId},null)
+        </td>
+        <th>
+            @Html.DisplayFor(modelItem => item.Title)
+        </th>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShUser1.Username)
+        </td>
+        <td>
+            @if (item.DateUploaded.HasValue)
+            { @item.DateUploaded.Value.ToString("MM/dd/yyyy")}
+            @*@Html.DisplayFor(modelItem => item.DateUploaded)*@
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModifiedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateModified)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "FilesEdit", new { id=item.RecId }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

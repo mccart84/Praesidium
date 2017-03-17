@@ -1,7 +1,21 @@
-﻿
+﻿@*
+    This is the example main content of the AdminLTE demo and represents a good smattering of AdminLTE functionality in a cshtml
+    TODO: Delete this file when you're ready to start building your app
+*@
+
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Breadcrumb = new Breadcrumb(new Crumb[] {
+        new Crumb("Dashboard", "", "fa-dashboard")
+    });
 }
 
-<h2>Index</h2>
+<!-- Info boxes -->
+<section id="auth-button"></section>
+<section id="view-selector"></section>
+<section id="timeline"></section>
+
+<!-- Step 2: Load the library. -->
+<script src="~/Scripts/AdminLTE/googleApiAuth.js"></script>
+
+<script src="~/Scripts/AdminLTE/analyticsDisplay.js"></script>
 

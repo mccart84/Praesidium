@@ -8,21 +8,21 @@ namespace Praesidium.Data_Context.Admin
 {
     public abstract class AdminContext : IDisposable
     {      
-        protected AdminEntity _context { get; set; }
+        protected AdminEntities _context { get; set; }
 
-        public AdminContext(AdminEntity context)
+        public AdminContext(AdminEntities context)
         {
             _context = context;
         }
 
         public AdminContext()
         {
-            _context = new AdminEntity();
+            _context = new AdminEntities();
         }
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            _context.Dispose();
         }
     }
 }

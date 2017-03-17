@@ -5,14 +5,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Praesidium.Data_Models;
+using Praesidium.Data_Context.Admin;
 
 namespace Praesidium.DAL
 {
-    public class NavigationItems : NavigationContext
+    public class NavigationItems : AdminContext
     {
         public List<NavItem> GetActiveNavigationItems()
         {
-            var navItems = _context.ShSyNavigationItems.Where(x => x.IsActive && x.ParentId == null && x.ShSySection.IsActive == true).Select(x => new NavItem
+            var navItems = _context.ShSyNavigationItems.Where(x => x.IsActive && x.ParentId == null && x.ShSySection.IsActive == true && x.ShSySection.Name != "Admin").Select(x => new NavItem
             {
                 RecId = x.RecId,
                 Controller = x.Controller,
@@ -36,6 +37,23 @@ namespace Praesidium.DAL
             }).OrderBy(x => x.SortOrder).ToList();
 
             return navItems;
+        }
+
+        public List<AdminNavItem> GetAdminNavItems()
+        {
+            var adminItems = _context.ShSyNavigationItems.Where(x => x.IsActive && x.ShSySection.Name == "Admin").Select(x => new AdminNavItem
+            {
+                RecId = x.RecId,
+                Controller = x.Controller,
+                Action = x.Action,
+                DisplayText = x.DisplayText,
+                FkShSySection = x.FkShSySection,
+                Section = x.ShSySection.Name,
+                SortOrder = x.SortOrder,
+                IsActive = x.IsActive,
+            }).OrderBy(x => x.SortOrder).ToList();
+
+            return adminItems;
         }
     }
 }

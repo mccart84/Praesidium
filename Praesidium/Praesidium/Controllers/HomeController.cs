@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Praesidium.Data_Models.Admin;
 
 namespace Praesidium.Controllers
 {
@@ -34,11 +35,34 @@ namespace Praesidium.Controllers
             return View();
         }
 
-        public PartialViewResult NavigationItems()
+        public PartialViewResult NavigationItems(bool? IsAdmin)
         {
             var model = new Models.Navigation.NavigationModel();
-            model.GetNavItems();
+
+            if (IsAdmin == true)
+            {
+                model.GetAdminNavItems();
+            }
+            else
+            {
+                model.GetNavItems();
+            }
+            
             return PartialView("~/Views/Shared/_Navigation.cshtml", model);
+        }
+
+        public PartialViewResult FileItems(string FileId, int n)
+        {
+            var db = new AdminEntities();
+            List<ShFile> files = new List<ShFile>();
+            foreach (var t in db.ShFileKeywords.Where(m => m.Keyword == FileId))
+            {
+                files.Add((ShFile)db.ShFiles.Where(a => a.RecId == t.FkShFile));
+            }
+            files = (List<ShFile>)files.OrderBy(m => m.DateUploaded);
+            files = (List<ShFile>) files.Take(n);
+
+            return PartialView("~/Views/Shared/_FileItems.cshtml",files);
         }
     }
 }

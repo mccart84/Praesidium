@@ -4,19 +4,19 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="130a6105e1304bdbb32613a168098867" Name="Diagram1">
-        <EntityTypeShape EntityType="PraesidiumModel.ShSyNavigationItem" Width="1.5" PointX="8" PointY="6" IsExpanded="true" />
-        <EntityTypeShape EntityType="PraesidiumModel.ShSySection" Width="1.5" PointX="5.75" PointY="6.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="PraesidiumModel.ShUser" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="PraesidiumModel.ShUserType" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
-        <AssociationConnector Association="PraesidiumModel.FK_ShSyNavigationItem_ShSySection" ManuallyRouted="false" />
-        <AssociationConnector Association="PraesidiumModel.FK_ShUser_ShUserType" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="PraesidiumModel.ShFile" Width="1.5" PointX="8" PointY="1" />
-        <EntityTypeShape EntityType="PraesidiumModel.ShFileKeyword" Width="1.5" PointX="10.25" PointY="1.875" />
-        <AssociationConnector Association="PraesidiumModel.FK__ShFile__FkShSySe__5070F446" />
-        <AssociationConnector Association="PraesidiumModel.FK__ShFile__Modified__52593CB8" />
-        <AssociationConnector Association="PraesidiumModel.FK__ShFile__Uploaded__5165187F" />
-        <AssociationConnector Association="PraesidiumModel.FK__ShFileKey__FkShF__5535A963" />
+      <Diagram DiagramId="77117141d02643c68201bd3ba544226b" Name="Diagram1">
+        <EntityTypeShape EntityType="AdminModel.ShSyNavigationItem" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdminModel.ShSySection" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdminModel.ShUser" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdminModel.ShUserType" Width="1.5" PointX="1.5" PointY="13.5" IsExpanded="true" />
+        <AssociationConnector Association="AdminModel.FK_ShSyNavigationItem_ShSySection" ManuallyRouted="false" />
+        <AssociationConnector Association="AdminModel.FK_ShUser_ShUserType" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="AdminModel.ShFile" Width="1.5" PointX="3" PointY="2.5" />
+        <EntityTypeShape EntityType="AdminModel.ShFileKeyword" Width="1.5" PointX="5.25" PointY="3.375" />
+        <AssociationConnector Association="AdminModel.FK__ShFile__FkShSySe__5070F446" />
+        <AssociationConnector Association="AdminModel.FK__ShFile__Modified__52593CB8" />
+        <AssociationConnector Association="AdminModel.FK__ShFile__Uploaded__5165187F" />
+        <AssociationConnector Association="AdminModel.FK__ShFileKey__FkShF__5535A963" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

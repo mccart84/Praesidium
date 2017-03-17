@@ -10,6 +10,7 @@
     <script src="~/Scripts/knockout-3.4.0.js"></script>
     <script src="~/Scripts/lodash.js"></script>
     <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/analytics.js"></script>
 
     <script>
         function getAway() {
@@ -21,19 +22,27 @@
     </script>
 </head>
 <body>
+   <!-- Div for trafficking hotline-->
+
+
     <div class="whitespace">
+        <div class="row" style="margin-top:6px; font-size:18px;">
+            <a href="tel:1888373788888" style="margin-left:8%;color:grey;margin-bottom:10%;"><span class="glyphicon glyphicon-phone-alt" style="color:dodgerblue;"></span>  National Human Trafficking Hotline <strong style="color:dodgerblue">1(888)373-7888</strong></a>
+        </div>
 
     </div>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+
+    <div class="navbar navbar-inverse navbar-fixed-top"  style="margin-top:10px;">
 
         <div class="container">
-            <div class="navbar-header">
+            <div class="navbar-header" style="margin-top:5px;">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Praesidium", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink(" ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand", @style = ""})
+                <img alt="Widget View" src="@Url.Content("~/Content/Images/TCS_Solutions.png")" style="height: 70px; padding-top: 5px;margin-left:-135px;"> 
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav" style="float: right;">
@@ -46,16 +55,8 @@
                             Search
                         </a>
                         <div class="searchArea accordion-body collapse" id="searchArea">
-                            <input id="txtSearchlg" class="searchBar" type="text" style="width:150px;" />
-                        </div>
-                        <div class="searchAreasm hidden-lg hidden-md">
-                            <form class="form-inline" role="form">
-                                <div class="icon-addon addon-md">
-                                    <input id="txtSearchsm" class="form-control" type="text" style="padding-left:5px;" placeholder="Search...">
-                                    <label for="txtSearchsm" class="glyphicon glyphicon-search"></label>
-                                </div>
-                            </form>
-                        </div>
+                            <input id="txtSearchlg" class="searchBar" type="text" style="width:150px;" placeholder="Keywords.." />
+                        </div>             
                     </li>
 
                 </ul>
@@ -80,23 +81,21 @@
                 <div class="row">
                     <div class="col-md-1 col-sm-1 col-lg-1"></div>
                     <div class="col-md-5 item" style="color: white; text-align: center;">
-                        <h3>Company Name</h3>
-                        <p>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut <br /> vehicula rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar <br /> dictum vel in justo.</p>
+                        <h3>TCS Soltuions</h3>
+                        <p>We are a devoted group of developers looking to make the world a safer and more informed place for adults and children alike.</p>
                     </div>
                     <div class="col-md-2 item" style="color: white; text-align: center;">
                         <h3>Services</h3>
                         <ul style="list-style-type: none; padding-right: 35px;">
-                            <li><a href="#">Web design</a></li>
-                            <li><a href="#">Development</a></li>
-                            <li><a href="#">Hosting</a></li>
+                            <li><a href="http://praesidium-beta.azurewebsites.net/Trafficking">Trafficking</a></li>
+                            <li><a href="http://praesidium-beta.azurewebsites.net/CyberSecurity">Cyber Security</a></li>
                         </ul>
                     </div>
                     <div class="col-md-2 item" style="color: white; text-align: center;">
                         <h3>About</h3>
                         <ul style="list-style-type: none; padding-right: 35px">
-                            <li><a href="#">Company</a></li>
-                            <li><a href="#">Team</a></li>
-                            <li><a href="#">Careers</a></li>
+                            <li><a href="http://praesidium-beta.azurewebsites.net/Home/About">About</a></li>
+                           
                         </ul>
                     </div>
                     <br />
@@ -106,7 +105,7 @@
                     <a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a>
                 </div>
                 <div class="col-md-12" style="color: white; text-align: center;">
-                    <p>&copy; @DateTime.Now.Year - _Solutions</p>
+                    <p>&copy; @DateTime.Now.Year - TCS Solutions</p>
                 </div>
             </footer>
         </div>
