@@ -3,27 +3,21 @@
 @{
     ViewBag.Title = "Files";
 }
-
-<h2>Files</h2>
-
 <p>
     @Html.ActionLink("Create New", "FilesCreate")
 </p>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.RecId)
-        </th>
-        <th>
+        <th class="col-lg-2 col-md-2">
             @Html.DisplayNameFor(model => model.FileName)
         </th>
         <th>
-            Content
+            
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FkShSySection)
+            @Html.DisplayNameFor(model => model.Title)
         </th>
-        <th>
+        <th class="col-lg-3">
             @Html.DisplayNameFor(model => model.Description)
         </th>
         <th>
@@ -44,9 +38,6 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.RecId)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.FileName)
         </td>
         <td>
@@ -58,17 +49,19 @@
             <a href='@filesrc'>Download</a>*@
             @Html.ActionLink("Download File","File","Download",new { id=item.RecId},null)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FkShSySection)
-        </td>
+        <th>
+            @Html.DisplayFor(modelItem => item.Title)
+        </th>
         <td>
             @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ShUser1.Username)
         </td>
-        <td
-            >@Html.DisplayFor(modelItem => item.DateUploaded)
+        <td>
+            @if (item.DateUploaded.HasValue)
+            { @item.DateUploaded.Value.ToString("MM/dd/yyyy")}
+            @*@Html.DisplayFor(modelItem => item.DateUploaded)*@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ModifiedBy)
