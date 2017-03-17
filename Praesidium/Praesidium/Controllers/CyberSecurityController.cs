@@ -53,5 +53,11 @@ namespace Praesidium.Controllers
         {
             return View();
         }
+
+        public ActionResult Quiz(int? quizId)
+        {
+            ViewBag.QuizId = quizId;
+            return View();
+        }
     }
 }

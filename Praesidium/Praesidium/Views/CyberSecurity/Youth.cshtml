@@ -31,7 +31,7 @@
     </div>
 
 </div>
-</br>
+<br />
 
 <div class="col-md-8">
     <p class="h2" style="text-align:center; color:slategray"><strong>Resources for staying safe online</strong></p><br />
@@ -58,3 +58,48 @@
     </div>
 
 </div>
+﻿
+@{
+    ViewBag.Title = "Youth";
+}
+
+<div class="row">
+    <div class="col-md-8">
+
+        <p class="h2" style="text-align:center; color:slategray"><strong>Youth</strong></p><br /><br />
+
+
+        <p>
+            <h1>Welcome to the Youth resource page for Cyber Security</h1>
+            This is a page where youth (thats you!) can learn about being safe online!
+
+
+        </p>
+
+    </div>
+    <div class="col-md-4 align-center ">
+        <p class="h3" style="text-align:center;color:slategray;padding-top:25%;"><strong>Tips for youth</strong></p>
+        <ul class="align-left">
+            <li>Always tell your parents about people you don't know trying to talk to you</li>
+            <li>Never talk to strangers online</li>
+            <li>Only go to websites your parents approve</li>
+        </ul>
+
+        <br /><br />
+
+    </div>
+
+</div>
+<br />
+
+<div class="col-md-8">
+    <p class="h2" style="text-align:center; color:slategray"><strong>Resources for staying safe online</strong></p><br />
+    <div class="well">
+        <p class="h2" style="text-align:center; color:slategray"><strong>Article 1</strong></p><br />
+        <p>
+            <h2>Sammy and Facebook.</h2>
+            Your friend Sammy has a Facebook and you think thats really cool! Your parents say you can't have a Facebook until your older, so what do you do make a Facebook with a fake birthday or follow your parents rules? What should you do to...
+        </p>
+        @Html.ActionLink("Youth Quiz", "Quiz", new { quizId = 1 }, new { @class = "btn btn-info", @title = "" })
+    </div>
+    </div>
