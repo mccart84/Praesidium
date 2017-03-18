@@ -286,6 +286,7 @@
     <Content Include="Content\Images\test2.jpg" />
     <Content Include="Content\Images\test3.jpg" />
     <Content Include="Content\Images\test4.jpg" />
+    <Content Include="Content\Images\trafficking.png" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Data Models\Admin\AdminEntity.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
