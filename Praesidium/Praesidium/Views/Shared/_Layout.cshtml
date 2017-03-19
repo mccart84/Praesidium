@@ -12,14 +12,20 @@
     <script src="~/Scripts/jquery-1.10.2.js"></script>
     <script src="~/Scripts/analytics.js"></script>
 
-    <script>
-        function getAway() {
-            // Get away right now
-            window.open("http://weather.com", "_newtab");
-            // Replace current site with another benign site
-            window.close();
+    <script> 
+        function escape1() {
+            var i = 0;
+            if (i < 15) {
+                window.location.replace('http://weather.com');
+                i++;
+            } else {
+ 
+                window.close();
+                self.close();
+            }
         }
     </script>
+
 </head>
 <body>
    <!-- Div for trafficking hotline-->
@@ -76,7 +82,7 @@
         <div>
             <footer>
 
-                <button id="get-away" style="font-family: 'Agency FB'; color: white" onclick="javascript: getAway(); window.close();" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-warning-sign"></span><br /> Emergency Exit </button>
+                <button id="get-away" style="font-family: 'Agency FB'; color: white" onclick="javascript: escape1();" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-warning-sign"></span><br /> Emergency Exit </button>
 
                 <div class="row">
                     <div class="col-md-1 col-sm-1 col-lg-1"></div>
