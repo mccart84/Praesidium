@@ -465,7 +465,28 @@ text-shadow:  #333333 0.1em 0.1em 0.2em;
     background-color: #3c8dbc !important;
     padding-top: 20px;  
 }
+/* Reverted Edits*/
 
-
-
-
+#headers{
+ font-size:32px;
+ color:black;
+ font-family:Arial;
+ }
+ 
+ #p_textborders{
+ font-size:12px;
+ color:white;
+ font-family:Arial;
+ }
+ 
+ #headers_borders{
+ color:white;
+ text-shadow:black 0.05em 0.0em 0.05em;
+ font-family:Arial;
+ text-align: center;
+ }
+ 
+ #p_text{
+ font-size:14px;
+ font-family:Arial;
+ }
