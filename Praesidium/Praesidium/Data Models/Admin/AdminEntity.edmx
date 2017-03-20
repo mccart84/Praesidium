@@ -19,6 +19,7 @@
           <Property Name="DateModified" Type="date" />
           <Property Name="FileStore" Type="varbinary(max)" />
           <Property Name="ContentType" Type="varchar(max)" />
+          <Property Name="Title" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="ShFileKeyword">
           <Key>
@@ -209,6 +210,7 @@
           <NavigationProperty Name="ShUser1" Relationship="Self.FK__ShFile__Uploaded__5165187F" FromRole="ShFile" ToRole="ShUser" />
           <NavigationProperty Name="ShFileKeywords" Relationship="Self.FK__ShFileKey__FkShF__5535A963" FromRole="ShFile" ToRole="ShFileKeyword" />
           <Property Name="ContentType" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="ShFileKeyword">
           <Key>
@@ -394,6 +396,7 @@
           <EntitySetMapping Name="ShFiles">
             <EntityTypeMapping TypeName="AdminModel.ShFile">
               <MappingFragment StoreEntitySet="ShFile">
+                <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="ContentType" ColumnName="ContentType" />
                 <ScalarProperty Name="RecId" ColumnName="RecId" />
                 <ScalarProperty Name="FileName" ColumnName="FileName" />
