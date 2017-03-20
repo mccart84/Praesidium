@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Praesidium.Data_Models.Admin.ShFile>
+﻿@using Microsoft.Ajax.Utilities
+@model IEnumerable<Praesidium.Data_Models.Admin.ShFile>
 
 @{
     ViewBag.Title = "Files";
@@ -11,17 +12,11 @@
 </p>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.RecId)
-        </th>
-        <th>
+        <th style="width: 20%;">
             @Html.DisplayNameFor(model => model.FileName)
         </th>
         <th>
             Content
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FkShSySection)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Description)
@@ -44,25 +39,15 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.RecId)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.FileName)
         </td>
         <td>
-            @*@Html.DisplayFor(modelItem => item.FileStore)*@
-            @*@{
-                var base64 = Convert.ToBase64String(item.FileStore);
-                var filesrc = string.Format("data:{1};base64,{0}", base64,item.ContentType);
-            }
-            <a href='@filesrc'>Download</a>*@
-            @Html.ActionLink("Download File","File","Download",new { id=item.RecId},null)
+            @Html.ActionLink("Download","File","Download",new { id=item.RecId},null)
+            <br />
+            <a class="iframe" href="https://docs.google.com/gview?url=@Url.Action("File","Download",new { id=item.RecId},Request.Url.Scheme)">View</a>
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.FkShSySection)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
+            @Html.DisplayFor(modelItem => item.Description).ToString().Substring(0,25)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ShUser1.Username)
@@ -78,7 +63,7 @@
         </td>
         <td>
             @Html.ActionLink("Edit", "FilesEdit", new { id=item.RecId }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @*@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
             @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
         </td>
     </tr>
