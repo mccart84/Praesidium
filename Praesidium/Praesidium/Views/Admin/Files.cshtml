@@ -1,5 +1,5 @@
 ﻿@using Microsoft.Ajax.Utilities
-@model IEnumerable<Praesidium.Data_Models.Admin.ShFile>
+@model IEnumerable<Praesidium.Data_Models.Admin.FileView>
 
 @{
     ViewBag.Title = "Files";
@@ -56,7 +56,7 @@
             @Html.DisplayFor(modelItem => item.Description).ToString().Substring(0, 25)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ShUser1.Username)
+            @Html.DisplayFor(modelItem => item.UploadedBy)
         </td>
         <td
         >@Html.DisplayFor(modelItem => item.DateUploaded)

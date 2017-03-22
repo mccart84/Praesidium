@@ -194,6 +194,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AdminEntity.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Data Models\Admin\FileView.cs">
+      <DependentUpon>AdminEntity.tt</DependentUpon>
+    </Compile>
     <Compile Include="Data Models\Admin\ShFile.cs">
       <DependentUpon>AdminEntity.tt</DependentUpon>
     </Compile>

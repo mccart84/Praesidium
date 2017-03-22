@@ -17,6 +17,7 @@
         <AssociationConnector Association="AdminModel.FK__ShFile__Modified__52593CB8" />
         <AssociationConnector Association="AdminModel.FK__ShFile__Uploaded__5165187F" />
         <AssociationConnector Association="AdminModel.FK__ShFileKey__FkShF__5535A963" />
+        <EntityTypeShape EntityType="AdminModel.FileView" Width="1.5" PointX="5.375" PointY="6.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -84,6 +84,21 @@
           <Property Name="DateDeleted" Type="int" />
           <Property Name="IsDeleted" Type="bit" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Praesidium.dbo.FileView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="FileView">
+          <Key>
+            <PropertyRef Name="RecId" />
+          </Key>
+          <Property Name="RecId" Type="int" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="50" />
+          <Property Name="FileName" Type="varchar(max)" />
+          <Property Name="Description" Type="varchar(max)" />
+          <Property Name="UploadedBy" Type="varchar(max)" />
+          <Property Name="DateUploaded" Type="date" />
+          <Property Name="ModifiedBy" Type="varchar(max)" />
+          <Property Name="DateModified" Type="date" />
+        </EntityType>
         <Association Name="FK__ShFile__FkShSySe__5070F446">
           <End Role="ShSySection" Type="Self.ShSySection" Multiplicity="0..1" />
           <End Role="ShFile" Type="Self.ShFile" Multiplicity="*" />
@@ -163,6 +178,18 @@
           <EntitySet Name="ShSySection" EntityType="Self.ShSySection" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ShUser" EntityType="Self.ShUser" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ShUserType" EntityType="Self.ShUserType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FileView" EntityType="Self.FileView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [FileView].[RecId] AS [RecId], 
+    [FileView].[Title] AS [Title], 
+    [FileView].[FileName] AS [FileName], 
+    [FileView].[Description] AS [Description], 
+    [FileView].[UploadedBy] AS [UploadedBy], 
+    [FileView].[DateUploaded] AS [DateUploaded], 
+    [FileView].[ModifiedBy] AS [ModifiedBy], 
+    [FileView].[DateModified] AS [DateModified]
+    FROM [dbo].[FileView] AS [FileView]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK__ShFile__FkShSySe__5070F446" Association="Self.FK__ShFile__FkShSySe__5070F446">
             <End Role="ShSySection" EntitySet="ShSySection" />
             <End Role="ShFile" EntitySet="ShFile" />
@@ -386,7 +413,21 @@
             <End Role="ShUserType" EntitySet="ShUserTypes" />
             <End Role="ShUser" EntitySet="ShUsers" />
           </AssociationSet>
+          <EntitySet Name="FileViews" EntityType="AdminModel.FileView" />
         </EntityContainer>
+        <EntityType Name="FileView">
+          <Key>
+            <PropertyRef Name="RecId" />
+          </Key>
+          <Property Name="RecId" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="UploadedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DateUploaded" Type="DateTime" Precision="0" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DateModified" Type="DateTime" Precision="0" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -475,6 +516,20 @@
                 <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
                 <ScalarProperty Name="DateDeleted" ColumnName="DateDeleted" />
                 <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FileViews">
+            <EntityTypeMapping TypeName="AdminModel.FileView">
+              <MappingFragment StoreEntitySet="FileView">
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="DateUploaded" ColumnName="DateUploaded" />
+                <ScalarProperty Name="UploadedBy" ColumnName="UploadedBy" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="RecId" ColumnName="RecId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

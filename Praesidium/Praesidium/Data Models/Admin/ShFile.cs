@@ -15,7 +15,7 @@ namespace Praesidium.Data_Models.Admin
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class ShFile
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -23,7 +23,7 @@ namespace Praesidium.Data_Models.Admin
         {
             this.ShFileKeywords = new HashSet<ShFileKeyword>();
         }
-    
+
         public int RecId { get; set; }
         public string FileName { get; set; }
         public byte[] FileStore { get; set; }
@@ -39,7 +39,7 @@ namespace Praesidium.Data_Models.Admin
         public Nullable<System.DateTime> DateModified { get; set; }
         public string ContentType { get; set; }
         public string Title { get; set; }
-    
+
         public virtual ShSySection ShSySection { get; set; }
         public virtual ShUser ShUser { get; set; }
         public virtual ShUser ShUser1 { get; set; }

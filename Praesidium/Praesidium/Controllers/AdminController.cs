@@ -514,7 +514,8 @@ namespace Praesidium.Controllers
         #region [Files Admin]
         public ActionResult Files()
         {
-            var filelist = db.ShFiles.Include(u => u.ShUser1);
+            //var filelist = db.ShFiles.Include(u => u.ShUser1).Select(t => new ShUser{RecId = t.RecId, Title = t.Title, FileName = t.FileName, Description = t.Description, UploadedBy = t.ShUser.UserName.Where(s=>(s.RecId == t.UploadedBy)),UploadedDate = t.UploadedDate, ModifiedBy = t.ShUser.UserName.Where(=>x.RecId == t)});
+            var filelist = db.FileViews;
             return View(filelist.ToList());
         }
 
