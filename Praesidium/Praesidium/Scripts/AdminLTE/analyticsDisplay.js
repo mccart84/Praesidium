@@ -2,7 +2,7 @@
 
     // Step 3: Authorize the user.
 
-    var CLIENT_ID = 613515265029 - spkbodid2knrbh0c18930nt77db4aodp.apps.googleusercontent.com;
+    var CLIENT_ID = 613515265029-spkbodid2knrbh0c18930nt77db4aodp.apps.googleusercontent.com;
 
     gapi.analytics.auth.authorize({
         container: 'auth-button',
