@@ -20,6 +20,7 @@
           <Property Name="FileStore" Type="varbinary(max)" />
           <Property Name="ContentType" Type="varchar(max)" />
           <Property Name="Title" Type="varchar" MaxLength="50" />
+          <Property Name="DownloadCount" Type="int" />
         </EntityType>
         <EntityType Name="ShFileKeyword">
           <Key>
@@ -99,42 +100,6 @@ warning 6002: The table/view 'Praesidium.dbo.FileView' does not have a primary k
           <Property Name="ModifiedBy" Type="varchar(max)" />
           <Property Name="DateModified" Type="date" />
         </EntityType>
-        <Association Name="FK__ShFile__FkShSySe__5070F446">
-          <End Role="ShSySection" Type="Self.ShSySection" Multiplicity="0..1" />
-          <End Role="ShFile" Type="Self.ShFile" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ShSySection">
-              <PropertyRef Name="RecId" />
-            </Principal>
-            <Dependent Role="ShFile">
-              <PropertyRef Name="FkShSySection" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__ShFile__Modified__52593CB8">
-          <End Role="ShUser" Type="Self.ShUser" Multiplicity="0..1" />
-          <End Role="ShFile" Type="Self.ShFile" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ShUser">
-              <PropertyRef Name="RecId" />
-            </Principal>
-            <Dependent Role="ShFile">
-              <PropertyRef Name="ModifiedBy" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__ShFile__Uploaded__5165187F">
-          <End Role="ShUser" Type="Self.ShUser" Multiplicity="0..1" />
-          <End Role="ShFile" Type="Self.ShFile" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ShUser">
-              <PropertyRef Name="RecId" />
-            </Principal>
-            <Dependent Role="ShFile">
-              <PropertyRef Name="UploadedBy" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__ShFileKey__FkShF__5535A963">
           <End Role="ShFile" Type="Self.ShFile" Multiplicity="0..1" />
           <End Role="ShFileKeyword" Type="Self.ShFileKeyword" Multiplicity="*" />
@@ -190,18 +155,6 @@ warning 6002: The table/view 'Praesidium.dbo.FileView' does not have a primary k
     [FileView].[DateModified] AS [DateModified]
     FROM [dbo].[FileView] AS [FileView]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK__ShFile__FkShSySe__5070F446" Association="Self.FK__ShFile__FkShSySe__5070F446">
-            <End Role="ShSySection" EntitySet="ShSySection" />
-            <End Role="ShFile" EntitySet="ShFile" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ShFile__Modified__52593CB8" Association="Self.FK__ShFile__Modified__52593CB8">
-            <End Role="ShUser" EntitySet="ShUser" />
-            <End Role="ShFile" EntitySet="ShFile" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ShFile__Uploaded__5165187F" Association="Self.FK__ShFile__Uploaded__5165187F">
-            <End Role="ShUser" EntitySet="ShUser" />
-            <End Role="ShFile" EntitySet="ShFile" />
-          </AssociationSet>
           <AssociationSet Name="FK__ShFileKey__FkShF__5535A963" Association="Self.FK__ShFileKey__FkShF__5535A963">
             <End Role="ShFile" EntitySet="ShFile" />
             <End Role="ShFileKeyword" EntitySet="ShFileKeyword" />
@@ -238,6 +191,7 @@ warning 6002: The table/view 'Praesidium.dbo.FileView' does not have a primary k
           <NavigationProperty Name="ShFileKeywords" Relationship="Self.FK__ShFileKey__FkShF__5535A963" FromRole="ShFile" ToRole="ShFileKeyword" />
           <Property Name="ContentType" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DownloadCount" Type="Int32" />
         </EntityType>
         <EntityType Name="ShFileKeyword">
           <Key>
@@ -437,6 +391,7 @@ warning 6002: The table/view 'Praesidium.dbo.FileView' does not have a primary k
           <EntitySetMapping Name="ShFiles">
             <EntityTypeMapping TypeName="AdminModel.ShFile">
               <MappingFragment StoreEntitySet="ShFile">
+                <ScalarProperty Name="DownloadCount" ColumnName="DownloadCount" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="ContentType" ColumnName="ContentType" />
                 <ScalarProperty Name="RecId" ColumnName="RecId" />

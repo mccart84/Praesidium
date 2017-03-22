@@ -39,6 +39,7 @@ namespace Praesidium.Data_Models.Admin
         public Nullable<System.DateTime> DateModified { get; set; }
         public string ContentType { get; set; }
         public string Title { get; set; }
+        public int DownloadCount { get; set; }
 
         public virtual ShSySection ShSySection { get; set; }
         public virtual ShUser ShUser { get; set; }
