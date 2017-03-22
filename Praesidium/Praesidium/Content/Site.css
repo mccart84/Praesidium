@@ -386,12 +386,14 @@ text-shadow:  #333333 0.1em 0.1em 0.2em;
 
 .dropdown {
     height: 50px;
+   
 }
 
 .dropdown > a:hover {
     background-color: rgba(0,60,128,0.82) !important;
     color: #333;
     height: 50px;
+    position:relative;
 }
 
 .dropdown-menu {
@@ -414,6 +416,10 @@ text-shadow:  #333333 0.1em 0.1em 0.2em;
     background-color: rgba(0,60,128,0.82) !important;
 }
 
+.dropdown-menu > li :hover {
+    position: relative;
+}
+}
 .navbar-inverse .navbar-nav > .dropdown > a .caret {
     border-top-color: rgba(0,60,128,0.82);
     border-bottom-color: rgba(0,60,128,0.82);
