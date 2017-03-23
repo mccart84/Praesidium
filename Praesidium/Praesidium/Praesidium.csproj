@@ -194,6 +194,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AdminEntity.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Data Models\Admin\FileView.cs">
+      <DependentUpon>AdminEntity.tt</DependentUpon>
+    </Compile>
     <Compile Include="Data Models\Admin\ShFile.cs">
       <DependentUpon>AdminEntity.tt</DependentUpon>
     </Compile>
@@ -266,9 +269,11 @@
     <Content Include="Content\AdminLTE\skins\_all-skins.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\aboutus %282%29.jpg" />
     <Content Include="Content\Images\adults.png" />
     <Content Include="Content\Images\cs_cloud.png" />
     <Content Include="Content\Images\Cyber Crime Image.jpg" />
+    <Content Include="Content\Images\Cyber Final.png" />
     <Content Include="Content\Images\cyber-crime.jpg" />
     <Content Include="Content\Images\CyberLock.JPG" />
     <Content Include="Content\Images\CyberSecurity - WC.png" />
@@ -290,6 +295,7 @@
     <Content Include="Content\Images\hands-tied.jpg" />
     <Content Include="Content\Images\Human Traffickking - WC.png" />
     <Content Include="Content\Images\img04.jpg" />
+    <Content Include="Content\Images\Life is about finding people who are your kind of crazy! %285%29.png" />
     <Content Include="Content\Images\pic4.png" />
     <Content Include="Content\Images\red-logo.png" />
     <Content Include="Content\Images\save10.png" />
@@ -302,6 +308,7 @@
     <Content Include="Content\Images\test2.jpg" />
     <Content Include="Content\Images\test3.jpg" />
     <Content Include="Content\Images\test4.jpg" />
+    <Content Include="Content\Images\trafficking.png" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Data Models\Admin\AdminEntity.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

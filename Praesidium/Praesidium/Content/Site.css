@@ -386,12 +386,14 @@ text-shadow:  #333333 0.1em 0.1em 0.2em;
 
 .dropdown {
     height: 50px;
+   
 }
 
 .dropdown > a:hover {
     background-color: rgba(0,60,128,0.82) !important;
     color: #333;
     height: 50px;
+    position:relative;
 }
 
 .dropdown-menu {
@@ -414,6 +416,10 @@ text-shadow:  #333333 0.1em 0.1em 0.2em;
     background-color: rgba(0,60,128,0.82) !important;
 }
 
+.dropdown-menu > li :hover {
+    position: relative;
+}
+}
 .navbar-inverse .navbar-nav > .dropdown > a .caret {
     border-top-color: rgba(0,60,128,0.82);
     border-bottom-color: rgba(0,60,128,0.82);
@@ -465,7 +471,28 @@ text-shadow:  #333333 0.1em 0.1em 0.2em;
     background-color: #3c8dbc !important;
     padding-top: 20px;  
 }
+/* Reverted Edits*/
 
-
-
-
+#headers{
+ font-size:32px;
+ color:black;
+ font-family:Arial;
+ }
+ 
+ #p_textborders{
+ font-size:12px;
+ color:white;
+ font-family:Arial;
+ }
+ 
+ #headers_borders{
+ color:white;
+ text-shadow:black 0.05em 0.0em 0.05em;
+ font-family:Arial;
+ text-align: center;
+ }
+ 
+ #p_text{
+ font-size:14px;
+ font-family:Arial;
+ }

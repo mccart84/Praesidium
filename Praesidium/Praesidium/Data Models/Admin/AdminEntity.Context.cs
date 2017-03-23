@@ -31,5 +31,6 @@ namespace Praesidium.Data_Models.Admin
         public virtual DbSet<ShSySection> ShSySections { get; set; }
         public virtual DbSet<ShUser> ShUsers { get; set; }
         public virtual DbSet<ShUserType> ShUserTypes { get; set; }
+        public virtual DbSet<FileView> FileViews { get; set; }
     }
 }
