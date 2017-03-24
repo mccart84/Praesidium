@@ -17,7 +17,10 @@ namespace Praesidium.Controllers
         {
             return View();
         }
-
+        public ActionResult FileUpload()
+        {
+            return View();
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

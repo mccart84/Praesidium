@@ -43,5 +43,10 @@ namespace Praesidium.Controllers
         {
             return View();
         }
+
+        public ActionResult WarningSigns()
+        {
+            return View();
+        }
     }
 }
