@@ -16,6 +16,8 @@ namespace Praesidium.Controllers
             ShFile file = db.ShFiles.Find(id);
             if (file != null)
             {
+                file.DownloadCount++;
+                db.SaveChanges();
                 var newfile = new FileContentResult(file.FileStore, file.ContentType);
                 newfile.FileDownloadName = file.FileName;
                 return newfile;
