@@ -352,51 +352,6 @@ text-shadow:  #333333 0.1em 0.1em 0.2em;
 
 /* Drop down nav items */
 
-.dropdown {
-    height: 50px;
-}
-
-.dropdown > a:hover {
-    background-color: rgba(0,60,128,0.82) !important;
-    color: #333;
-    height: 50px;
-    position:relative;
-}
-
-.dropdown-menu {
-    background-color: rgba(0,60,128,0.82);
-    border: none;
-}
-
-    .dropdown-menu:before {
-       visibility:hidden;
-    }
- 
-
-.dropdown-menu > li > a {
-    font-weight: bold !important;
-    color: #fff;
-    background-color: rgba(0,60,128,0.82);
-}
-
-.dropdown-menu > li > a:hover:after {
-    background-color:  rgba(0,60,128,0.82) !important;
-}
-
-.dropdown :after{
-
-   background-color:  rgba(0,60,128,0.82) !important;
-
-}
-
-.dropdown-menu > li :hover {
-    position: relative;
-}
-}
-.navbar-inverse .navbar-nav > .dropdown > a .caret {
-    border-top-color: rgba(0,60,128,0.82);
-    border-bottom-color: rgba(0,60,128,0.82);
-}
 
 /* Nav item list */
 
