@@ -359,7 +359,9 @@ text-shadow:  #333333 0.1em 0.1em 0.2em;
 
 /* Nav item list */
 
-
+.navbar-nav > li > a{
+background-color: background-color: #3c8dbc;
+}
 
 .navbar-nav > li > a:hover {
     background-color: rgba(0,60,128,0.82) !important;
