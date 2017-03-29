@@ -100,7 +100,7 @@ footer {
     }
 
     .navbar-inverse .navbar-nav > li > a {
-        color: #000;
+        color:#e95420 ;
     }
 
 @media (min-width: 1200px) {
@@ -270,6 +270,7 @@ figure.effect-caged figcaption::before {
 .photo_cont{
 box-shadow:1px 1px 4px rgba(0,0,0,0.8);
 }
+
 figure.effect-caged h1 {
 	position: absolute;
 	top: 50%;
@@ -286,9 +287,7 @@ figure.effect-caged figcaption::before,
 figure.effect-caged p {
     width: 100%;
 	transition: opacity 0.35s, transform 0.35s;
-    text-align:center;
-  
-
+    text-align:center;+
 
 }
 
@@ -330,6 +329,7 @@ figure.effect-caged:hover p {
     background-image: url(http://kidsbizmasters.com/wp-content/uploads/2014/02/telephone.jpg); 
     position: relative;
     height: 100%;
+	margin-top:15px;
     
    
 }
@@ -348,6 +348,7 @@ box-shadow:2px 2px 4px rgba(0,0,0,0.8);
    width:100%;
    overflow: hidden;
    min-height:375px;
+   margin-top:15px;
    
     
 }
@@ -372,7 +373,6 @@ box-shadow:2px 2px 4px rgba(0,0,0,0.8);
 #carousel_btn{
     margin-top:5%;
     margin-bottom:10%;
-
 }
 
 /* Start CSS for Teen Page*/
