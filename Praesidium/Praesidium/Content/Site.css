@@ -352,11 +352,11 @@ text-shadow:  #333333 0.1em 0.1em 0.2em;
 
 /* Drop down nav items */
 .dropdown {
-
 	background-color: background-color: #3c8dbc;
-
 }
-
+.dropdown_btn{
+	background-color: background-color: #3c8dbc;
+}
 /* Nav item list */
 
 .navbar-nav > li > a{
