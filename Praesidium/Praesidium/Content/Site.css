@@ -360,32 +360,9 @@ text-shadow:  #333333 0.1em 0.1em 0.2em;
 	background-color: background-color: #3c8dbc;
 }
 
-.dropdown-menu > li > a {
-    font-weight: bold !important;
-    color: #fff;
-    background-color: rgba(0,60,128,0.82);
-}
-.dropdown-menu {
-    background-color: rgba(0,60,128,0.82);
-    border: none;
-}
-
-.dropdown-menu > li : hover{
-  background-color: grey;
-}
-
 
 /* Nav item list */
 
-.navbar-nav > li > a:hover:after {
-    width: 100%;
-    z-index: -10;
-    animation: fill 1s forwards;
-    -webkit-animation: fill 1s forwards;
-    -moz-animation: fill 1s forwards;
-    opacity: 1;
-	background-color:#fff;
-	}
 
 .navbar-nav > li > a { 
 background-color: background-color: #3c8dbc;
