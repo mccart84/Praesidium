@@ -3,7 +3,6 @@
     ViewBag.Title = "Adults";
 }
 
-<
 <div class="container-fluid" id="photo_cont" style="margin-bottom:3%;">
     <div class="row">
         <div class="col-md-12">
@@ -29,8 +28,8 @@
 
         <div class="row">
             <div class="col-md-12">
-                <h1>Adults</h1>
-                <p class="lead">
+                <h1 id="headers">Adults</h1>
+                <p class="lead" id="p_text">
                     This page is targeted towards adults to teach them about the dangers of human trafficking and the signs to help recognize when trafficking may be taking place.
                     It is meant to help inform them so that they can take appropriate actions to keep their children, and others, safe.
                 </p>
@@ -40,21 +39,21 @@
         <div class="row">
             <div class="col-md-4 col-sm-8 teen_res">
                 <a href="#" class="thumbnail"><img src="~/Content/Images/test2.jpg" /></a>
-                <h2>Innocents at Risk</h2>
+                <h2 id="headers">Innocents at Risk</h2>
                 <p> A short article, which also includes a five-minute video, about the dangers of human trafficking</p>
                 <a class="btn btn-success btn-lg" href="http://www.innocentsatrisk.org/human-trafficking">Check it out!</a>
             </div>
 
             <div class="col-md-4 col-sm-8 teen_res">
                 <a href="#" class="thumbnail"><img src="~/Content/Images/test2.jpg" /></a>
-                <h2>Recognize the Signs</h2>
+                <h2 id="headers">Recognize the Signs</h2>
                 <p> An article from Polaris describing many of the potential red flags, or signs, of trafficking</p>
                 <a class="btn btn-primary btn-lg" href="https://polarisproject.org/recognize-signs">Check it out!</a>
             </div>
 
             <div class="col-md-4 col-sm-8 teen_res">
                 <a href="#" class="thumbnail"><img src="~/Content/Images/test2.jpg" /></a>
-                <h2>7 Signs that Someone is Being Trafficked</h2>
+                <h2  id="headers">7 Signs that Someone is Being Trafficked</h2>
                 <p> An article from CNN about 7 warning signs that someone may be being trafficked in an airport  </p>
                 <a class="btn btn-danger btn-lg" href="http://www.cnn.com/2015/07/30/travel/human-trafficking-at-airports/">Check it out!</a>
             </div>
@@ -62,20 +61,21 @@
         </div>
     </div>
 </div>
-@if (Model != null)
-{
-    foreach (var file in Model)
-    {
-        <div class="row">
-            <div class="col-md-8">
-                <div class="well">
-                    <h2 style="color:slategrey;text-align:center;"><strong>@file.Title</strong></h2>
-                    <p id="p_text">
-                        @HttpUtility.HtmlDecode(file.Description)
-                    </p>
-                    <button class="btn btn-md btn-success align-center" style="margin-left:42%;">View File</button>
-                </div>
-            </div>
-        </div>
-    }
-}
+
+	@if (Model != null)
+	{
+		foreach (var file in Model)
+		{
+			<div class="row">
+				<div class="col-md-12">
+					<div class="well">
+						<h2 style="color:slategrey;text-align:center;"><strong>@file.Title</strong></h2>
+						<p id="p_text">
+							@HttpUtility.HtmlDecode(file.Description)
+						</p>
+						<button class="btn btn-md btn-success align-center" style="margin-left:42%;">View File</button>
+					</div>
+				</div>
+			</div>
+		}
+	}
