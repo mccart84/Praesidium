@@ -354,6 +354,7 @@ text-shadow:  #333333 0.1em 0.1em 0.2em;
 
 .dropdown {
     height: 50px;
+   background-color: rgba(0,60,128,0.82) !important;
 }
 
 .dropdown > a:hover {
