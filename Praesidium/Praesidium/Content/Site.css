@@ -283,6 +283,7 @@ figure.effect-caged:hover p {
    width:100%;
    overflow: hidden;
    min-height:375px;
+   padding-top:10px;
   
     
 }
