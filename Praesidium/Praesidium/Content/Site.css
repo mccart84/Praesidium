@@ -368,36 +368,9 @@ text-shadow:  #333333 0.1em 0.1em 0.2em;
      color: #fff;
      z-index: 1;
 }
-.navbar-nav > li > a:after {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-  width: 0%;
-  content: '.';
-  color: transparent;
-  background: #aaa;
-  height: 1px;
-   text-align: left;
-  content: '.';
-  margin: 0;
-  opacity: 0;
-   
-}
-.navbar-nav > li > a:hover:after {
-    width: 100%;
-    z-index: -10;
-    animation: fill 1s forwards;
-    -webkit-animation: fill 1s forwards;
-    -moz-animation: fill 1s forwards;
-    opacity: 1;
-	background-color:#fff;
-}
 
 .navbar-header {
-    margin-top: 0 !important;
-    
+    margin-top: 0 !important; 
 }
 
 .navbar-brand {
@@ -415,8 +388,6 @@ text-shadow:  #333333 0.1em 0.1em 0.2em;
         border-color: #101010;
         /*padding-top: 15px;*/
     }
-
-
 
     .navbar-inverse .navbar-nav > li > a {
         color: #fff;
@@ -438,7 +409,6 @@ text-shadow:  #333333 0.1em 0.1em 0.2em;
     margin: auto;
     font-weight: bold;
 }
-
 
 .navbar-nav {
     background-color: #3c8dbc;
