@@ -26,7 +26,7 @@
 
 
     <div class="whitespace">
-        <div class="row" style="margin-top:6px; font-size:120%;margin-left:5%;margin-right:5%;">
+        <div class="row align-left" style="margin-top:6px; font-size:120%;margin-left:5%;margin-right:5%;">
             <a href="tel:1888373788888" style="color:grey;margin-bottom:20%;"><span class="glyphicon glyphicon-phone-alt" style="color:dodgerblue;"></span>  National Human Trafficking Hotline <strong style="color:dodgerblue">1(888)373-7888</strong></a>
         </div>
 
@@ -42,21 +42,15 @@
                     <span class="icon-bar"></span>
                 </button>
                 @Html.ActionLink(" ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand", @style = ""})
-                <img alt="Widget View" src="@Url.Content("~/Content/Images/TCS_Solutions.png")" style="height: 70px; padding-top: 5px;margin-left:-135px;"> 
+                <img alt="Widget View" src="@Url.Content("~/Content/Images/TCS_Solutions.png")" style="height: 70px; padding-top:5px; margin-left:-135px;"> 
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav" style="float: right;">
                     @{
                         Html.RenderAction("NavigationItems", "Home");
                     }
-                    <li>
-                        <a data-toggle="collapse" href="#searchArea" aria-expanded="false" aria-controls="collapseExample">
-                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                            Search
-                        </a>
-                        <div class="searchArea accordion-body collapse" id="searchArea">
-                            <input id="txtSearchlg" class="searchBar" type="text" style="width:150px;" placeholder="Keywords.." />
-                        </div>             
+                    <li>                
+                            <input id="txtSearchlg" class="searchBar" type="text" style="width:150px;" placeholder="Keywords.." />                             
                     </li>
 
                 </ul>
