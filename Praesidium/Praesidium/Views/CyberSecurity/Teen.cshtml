@@ -32,29 +32,20 @@
         </ul>
     </div>
 </div>
-<div class="row">
-    <div class="col-md-8">
-        <div class="well">
-            <h2 style="color:slategrey;text-align:center;"><strong>Article 1</strong></h2>
-            <p id="p_text">
-                <h3>Top 10 way you can stay safe online</h3>
-                We know that being all grown up is the coolest and you just want to be treated like an adult. Unfortuantly not all adults
-                have a good intention when they are trying to be your "Friend". Use these 10 tips to be cool but stay safe...
-            </p>
-            <button class="btn btn-md btn-success align-center" style="margin-left:42%;">Read Article</button>
+@if (Model != null)
+{
+    foreach (var file in Model)
+    {
+        <div class="row">
+            <div class="col-md-8">
+                <div class="well">
+                    <h2 style="color:slategrey;text-align:center;"><strong>@file.Title</strong></h2>
+                    <p id="p_text">
+                        @WebUtility.HtmlDecode(file.Description)
+                    </p>
+                    <button class="btn btn-md btn-success align-center" style="margin-left:42%;">View File</button>
+                </div>
+            </div>
         </div>
-     </div>
-</div>
-<div class="row">
-    <div class="col-md-8">
-        <div class="well">
-            <h2 style="color:slategrey;text-align:center;"><strong>Article 2</strong></h2>
-            <p id="p_text">
-                <h3>Oversharing: What so bad about it</h3>
-                Your friend Nate tweeted that he was going to be at the basktball game and everyone should meet him there at 7:30. This seems 
-                harmless right? Well it could open the door to a predator and give him the information he needs to...
-            </p>
-            <button class="btn btn-md btn-danger align-center" style="margin-left:42%;">Read Article</button>
-        </div>
-    </div>
-</div>
+    }
+}
