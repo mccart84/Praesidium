@@ -1,60 +1,51 @@
-﻿
+﻿﻿
 @{
     ViewBag.Title = "Teen";
 }
 
+<div class="container-fluid" id="photo_cont" style="margin-bottom:3%;min-height:300px;margin-top:-40px;">
+    <div class="row">
+        <div class="col-md-12">
+            <figure class="effect-caged">
+                <img src="~/Content/Images/cyber_hoodie.jpg" style="width:100%;max-height:330px;" />              
+            </figure>
+        </div>
+    </div>
+</div>
+
 <div class="row">
     <div class="col-md-8">
-
-        <p class="h2" style="text-align:center; color:slategray"><strong>Teen</strong></p><br /><br />
-
-
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pharetra sapien eget tempor pulvinar. Nunc eleifend orci nec rutrum bibendum. Sed non enim ac elit malesuada venenatis. Suspendisse imperdiet dolor sit amet leo fermentum, sed pulvinar tellus cursus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec velit metus, facilisis a sodales non, scelerisque et est. Maecenas a sapien placerat, dignissim dui vestibulum, ultricies est. Praesent non mauris non dolor ultricies tincidunt. Nulla tellus purus, venenatis eu magna in, ultrices pellentesque ligula. Donec elementum pulvinar ex, non mollis justo lacinia et. Sed commodo porta felis, quis viverra ligula auctor vel. Etiam elit lacus, vehicula vel finibus quis, semper vel lectus.
-
-            Nam luctus tellus massa, ut fringilla quam ultrices a. Nam turpis ex, convallis mollis erat non, consectetur vehicula neque. Morbi enim metus, condimentum et tincidunt vitae, vestibulum eu neque. Sed velit felis, suscipit quis nibh suscipit, feugiat consequat quam. Suspendisse finibus tempus maximus. Quisque erat ex, tincidunt vitae euismod nec, sagittis eu urna. Etiam eu nibh sit amet dolor rutrum ullamcorper et eget diam. Duis pulvinar convallis semper. Nam volutpat tincidunt cursus. Etiam vitae felis orci. Fusce nec leo a diam suscipit semper ac semper nibh. Suspendisse potenti. Maecenas ac sem a lorem aliquet efficitur.
-
-        </p>
-
-    </div>
-    <div class="col-md-4 align-center ">
-        <p class="h3" style="text-align:center;color:slategray;padding-top:25%;"><strong>Teen Page Links</strong></p>
-        <ul class="align-left">
-            <li><A HREF="http://praesidium.azurewebsites.net">Teen Group 1</A></li>
-            <li><A HREF="http://praesidium.azurewebsites.net">Teen Group 2</A></li>
-            <li><A HREF="http://praesidium.azurewebsites.net">Teen Group 3</A></li>
-            <li><A HREF="http://praesidium.azurewebsites.net">Resources</A></li>
+        <h1 id="headers" class="align-left">Cyber Security for Teens</h1>
+        <p id="p_text">
+            This is a page where teens can get non-judgemental information and serves to better educate them on
+            issues that can help them avoid being unsafe online.
+        </p>  
+          @Html.ActionLink("Teen Quiz", "Quiz", new { quizId = 2 }, new { @class = "btn btn-info", @title = "" })
+             
+ </div>
+    <div class="col-md-4 align-center " id="borders" style="min-height:150px;">
+        <h3 id="headers_borders">Teen Page Links</h3>
+        <ul class="align-left" id="p_textborders">
+            <li><A HREF="http://www.cox.com/wcm/en/aboutus/datasheet/takecharge/2009-teen-survey.pdf">COX Communications Report</A></li>
+            <li><A HREF="http://www.innocentsatrisk.org">Innocents at Risk</A></li>
+            <li><A HREF="https://humantraffickinghotline.org">Human Trafficking Hotline</A></li>
         </ul>
-
-        <br /><br />
-
     </div>
-
 </div>
-</br>
-
-<div class="col-md-8">
-    <p class="h2" style="text-align:center; color:slategray"><strong>Resources for staying safe online</strong></p><br />
-    <div class="well">
-        <p class="h2" style="text-align:center; color:slategray"><strong>Article 1</strong></p><br />
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pharetra sapien eget tempor pulvinar. Nunc eleifend orci nec rutrum bibendum. Sed non enim ac elit malesuada venenatis. Suspendisse imperdiet dolor sit amet leo fermentum, sed pulvinar tellus cursus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec velit metus, facilisis a sodales non, scelerisque et est. Maecenas a sapien placerat, dignissim dui vestibulum, ultricies est. Praesent non mauris non dolor ultricies tincidunt. Nulla tellus purus, venenatis eu magna in, ultrices pellentesque ligula. Donec elementum pulvinar ex, non mollis justo lacinia et. Sed commodo porta felis, quis viverra ligula auctor vel. Etiam elit lacus, vehicula vel finibus quis, semper vel lectus.
-
-            Nam luctus tellus massa, ut fringilla quam ultrices a. Nam turpis ex, convallis mollis erat non, consectetur vehicula neque. Morbi enim metus, condimentum et tincidunt vitae, vestibulum eu neque. Sed velit felis, suscipit quis nibh suscipit, feugiat consequat quam. Suspendisse finibus tempus maximus. Quisque erat ex, tincidunt vitae euismod nec, sagittis eu urna. Etiam eu nibh sit amet dolor rutrum ullamcorper et eget diam. Duis pulvinar convallis semper. Nam volutpat tincidunt cursus. Etiam vitae felis orci. Fusce nec leo a diam suscipit semper ac semper nibh. Suspendisse potenti. Maecenas ac sem a lorem aliquet efficitur.
-
-        </p>
-
-    </div>
-
-    <div class="well">
-        <p class="h2" style="text-align:center; color:slategray"><strong>Article 2</strong></p><br />
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pharetra sapien eget tempor pulvinar. Nunc eleifend orci nec rutrum bibendum. Sed non enim ac elit malesuada venenatis. Suspendisse imperdiet dolor sit amet leo fermentum, sed pulvinar tellus cursus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec velit metus, facilisis a sodales non, scelerisque et est. Maecenas a sapien placerat, dignissim dui vestibulum, ultricies est. Praesent non mauris non dolor ultricies tincidunt. Nulla tellus purus, venenatis eu magna in, ultrices pellentesque ligula. Donec elementum pulvinar ex, non mollis justo lacinia et. Sed commodo porta felis, quis viverra ligula auctor vel. Etiam elit lacus, vehicula vel finibus quis, semper vel lectus.
-
-            Nam luctus tellus massa, ut fringilla quam ultrices a. Nam turpis ex, convallis mollis erat non, consectetur vehicula neque. Morbi enim metus, condimentum et tincidunt vitae, vestibulum eu neque. Sed velit felis, suscipit quis nibh suscipit, feugiat consequat quam. Suspendisse finibus tempus maximus. Quisque erat ex, tincidunt vitae euismod nec, sagittis eu urna. Etiam eu nibh sit amet dolor rutrum ullamcorper et eget diam. Duis pulvinar convallis semper. Nam volutpat tincidunt cursus. Etiam vitae felis orci. Fusce nec leo a diam suscipit semper ac semper nibh. Suspendisse potenti. Maecenas ac sem a lorem aliquet efficitur.
-
-        </p>
-
-    </div>
-
-</div>
+@if (Model != null)
+{
+    foreach (var file in Model)
+    {
+        <div class="row">
+            <div class="col-md-8">
+                <div class="well">
+                    <h2 style="color:slategrey;text-align:center;"><strong>@file.Title</strong></h2>
+                    <p id="p_text">
+                        @WebUtility.HtmlDecode(file.Description)
+                    </p>
+                    <button class="btn btn-md btn-success align-center" style="margin-left:42%;">View File</button>
+                </div>
+            </div>
+        </div>
+    }
+}
