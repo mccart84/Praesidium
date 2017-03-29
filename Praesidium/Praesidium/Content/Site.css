@@ -277,12 +277,12 @@ figure.effect-caged:hover p {
 /* carousel CSS*/
 
 #carousel-example-generic{
-box-shadow:2px 2px 4px rgba(0,0,0,0.8);
+   box-shadow:2px 2px 4px rgba(0,0,0,0.8);
    border-radius: 22px 22px 22px 22px;
    width:100%;
    overflow: hidden;
    min-height:375px;
-   padding-top:20px;
+  
     
 }
 
@@ -381,6 +381,12 @@ text-shadow:  #333333 0.1em 0.1em 0.2em;
 
 .dropdown-menu > li > a:hover:after {
     background-color:  rgba(0,60,128,0.82) !important;
+}
+
+.dropdown > a :after{
+   
+   background-color:  rgba(0,60,128,0.82) !important;
+
 }
 
 .dropdown-menu > li :hover {
