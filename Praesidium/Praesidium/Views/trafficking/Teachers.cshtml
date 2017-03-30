@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Praesidium.Data_Models.Admin.FileView>
+﻿
 @{
     ViewBag.Title = "Teachers";
 }
@@ -43,21 +43,5 @@
 </div>
 
 
-@if (Model != null)
-{
-    foreach (var file in Model)
-    {
-        <div class="row">
-            <div class="col-md-8">
-                <div class="well">
-                    <h2 style="color:slategrey;text-align:center;"><strong>@file.Title</strong></h2>
-                    <p id="p_text">
-                        @Html.Raw(file.Description)
-                    </p>
-                    <button class="btn btn-md btn-success align-center" style="margin-left:42%;">View File</button>
-                </div>
-            </div>
-        </div>
-    }
-}
+@{ Html.RenderAction("FileList", new { id = 9 }); }
 

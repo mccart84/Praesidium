@@ -22,37 +22,37 @@ namespace Praesidium.Controllers
 
         public ActionResult Resources()
         {
-            return View(GetFilesByCategory(18));
+            return View();
         }
 
         public ActionResult Adults()
         {
-            return View(GetFilesByCategory(12));
+            return View();
         }
 
         public ActionResult Teachers()
         {
-            return View(GetFilesByCategory(15));
+            return View();
         }
 
         public ActionResult Teen()
         {
-            return View(GetFilesByCategory(13));
+            return View();
         }
 
         public ActionResult Youth()
         {
-            return View(GetFilesByCategory(14));
+            return View();
         }
 
         public ActionResult Statistics()
         {
-            return View(GetFilesByCategory(17));
+            return View();
         }
 
         public ActionResult LawEnforcement()
         {
-            return View(GetFilesByCategory(16));
+            return View();
         }
 
         public ActionResult Quiz(int? quizId)
@@ -76,7 +76,7 @@ namespace Praesidium.Controllers
                     files.Add(file);
                 }
 
-                return files;
+                return files.OrderBy(m => m.DownloadCount).ToList();
             }
             catch (Exception e)
             {
@@ -84,6 +84,11 @@ namespace Praesidium.Controllers
                 throw;
             }
 
+        }
+        public PartialViewResult FileList(int id)
+        {
+            var fileList = GetFilesByCategory(id);
+            return PartialView("~/Views/Shared/_FileItems.cshtml", fileList);
         }
     }
 }

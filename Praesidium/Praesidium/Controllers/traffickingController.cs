@@ -20,33 +20,33 @@ namespace Praesidium.Controllers
 
         public ActionResult Resources()
         {
-            return View(GetFilesByCategory(11));
+            return View();
         }
 
         public ActionResult Statistics()
         {
-            return View(GetFilesByCategory(10));
+            return View();
         }
 
         public ActionResult Adults()
         {
             
-            return View(GetFilesByCategory(6));
+            return View();
         }
 
         public ActionResult Teachers()
         {
-            return View(GetFilesByCategory(9));
+            return View();
         }
 
         public ActionResult Teen()
         {
-            return View(GetFilesByCategory(7));
+            return View();
         }
 
         public ActionResult Youth()
         {
-            return View(GetFilesByCategory(8));
+            return View();
         }
 
         public ActionResult WarningSigns()
@@ -68,7 +68,7 @@ namespace Praesidium.Controllers
                     files.Add(file);
                 }
 
-                return files;
+                return files.OrderBy(m => m.DownloadCount).ToList();
             }
             catch (Exception e)
             {
@@ -76,6 +76,12 @@ namespace Praesidium.Controllers
                 throw;
             }
 
+        }
+
+        public PartialViewResult FileList(int id)
+        {
+            var fileList = GetFilesByCategory(id);
+            return PartialView("~/Views/Shared/_FileItems.cshtml",fileList);
         }
     }
 }
