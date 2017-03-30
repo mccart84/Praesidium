@@ -1,8 +1,8 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Adults";
 }
-<div class="container-fluid" id="photo_cont" style="margin-bottom:3%;min-height:300px;margin-top:-23px;">
+
+<div class="container-fluid" id="photo_cont" style="margin-bottom:3%;min-height:300px;">
     <div class="row">
         <div class="col-md-12">
             <figure class="effect-caged">
@@ -32,30 +32,4 @@
         </ul>
     </div>
 </div>
-<div class="row">
-    <div class="col-md-8">
-        <div class="well">
-            <h2 style="color:slategrey;text-align:center;"><strong>Article 1</strong></h2>
-            <p id="p_text">
-                <h3>Top 10 way you can keep you kids safe online</h3>
-                Did you know that over 50% of kids have shared/posted their real age online? This is an alarming statisic that....
-            </p>
-            <button class="btn btn-md btn-success align-center" style="margin-left:42%;">Read Article</button>
-        </div>
-     </div>
-</div>
-<div class="row">
-    <div class="col-md-8">
-        <div class="well">
-            <h2 style="color:slategrey;text-align:center;"><strong>Article 2</strong></h2>
-            <p id="p_text">
-                <h3>Cyberbullying: A huge problem in Youth of today</h3>
-                Did you know that over 25% of girls and 14% of boys have been victims of cyberbullying? This is a growing problem and it
-                is only going to get worse. According to COX Communications...
-            </p>
-            <button class="btn btn-md btn-danger align-center" style="margin-left:42%;">Read Article</button>
-        </div>
-    </div>
-</div>
-
-
+@{ Html.RenderAction("FileList", new { id = 12 }); }

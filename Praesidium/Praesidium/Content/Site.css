@@ -30,6 +30,8 @@ textarea {
     max-width: 280px;
 }
 
+/* exit button CSS */
+
 #get-away {
     position: fixed;
     bottom: 10px;
@@ -43,6 +45,7 @@ textarea {
     border-radius: 5px;
 }
 
+/* footer Css */
 
 footer {
     display: block;
@@ -59,28 +62,7 @@ footer {
     padding-top: 160px !important;
 }
 
-.navbar-fixed-top {
-    top: 30px;
-}
-
-.navbar-inverse  {
-    height: 78px !important;
-    background-color: #3c8dbc;
-    border-color: #3c8dbc;
-    width: 100%;
-    margin: auto;
-    font-weight: bold;
-}
-
-
-.navbar-nav {
-    background-color: #3c8dbc;
-    border-color: #3c8dbc;
-    /*border-radius: 15px;*/
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
-
+/* Search bar CSS */
 
 .searchAreasm {
     padding-left:5px;
@@ -88,29 +70,13 @@ footer {
     padding-right:5px;
 }
 
-    .navbar-inverse .navbar-brand {
-        height: 70px;
-        color: #fff;
-        margin-left:-20px;
-    }
-
-    .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
-        border-color: #101010;
-        /*padding-top: 15px;*/
-    }
-
-
-
-    .navbar-inverse .navbar-nav > li > a {
-        color: #fff;
-    }
-
 /*@media (min-width: 1200px) {
     .container {
         padding-top: 6px;
     }
 }*/
 
+/* white space css */
 .whitespace {
     background-color: #ecf0f5;
     height: 90px;
@@ -120,20 +86,20 @@ footer {
     z-index: 20;
 }
 
-
+/* contributer? */
 
 .Contributer {
     text-align: left;
 }
 
-/*Glyphicon styling*/
-.logo {
+  
+/*cyber security glyphicon table styling*/ 
+ 
+ .logo {
    color: #f4511e;
    font-size: 200px;
    padding-left: 15%;
        }
-  
-/*glyphicon table styling*/ 
 
   .logo-table {
       color: #f4511e;
@@ -226,7 +192,7 @@ footer {
 }
 
 
-/* CSS for trafficking photo & effect*/
+/* CSS for movement effect photos*/
 
 figure.effect-caged figcaption::before {
 	position: absolute;
@@ -240,6 +206,7 @@ figure.effect-caged figcaption::before {
 
 .photo_cont{
 box-shadow:1px 1px 4px rgba(0,0,0,0.8);
+padding-top:10px;
 }
 figure.effect-caged h1 {
 	position: absolute;
@@ -290,7 +257,7 @@ figure.effect-caged:hover p {
   
 }
 
-/* CSS for jumbotron on contact page */
+/* CSS for jumbotrons */
 
  #Contact_jumbo{
     box-shadow:1px 1px 4px rgba(0,0,0,0.5);
@@ -308,22 +275,22 @@ figure.effect-caged:hover p {
     padding:10px 40px;
 }
 
-/* adjust the edges of carousel trafficking image*/
+/* carousel CSS*/
 
 #carousel-example-generic{
-
-box-shadow:2px 2px 4px rgba(0,0,0,0.8);
+   box-shadow:2px 2px 4px rgba(0,0,0,0.8);
    border-radius: 22px 22px 22px 22px;
    width:100%;
    overflow: hidden;
    min-height:375px;
-   
+   padding-top:10px;
+  
     
 }
 
 #carousel_img{
 
- border-radius: 22px 22px 22px 22px;
+   border-radius: 22px 22px 22px 22px;
    overflow: hidden;
    min-height:375px;
     width:100%;
@@ -344,7 +311,7 @@ box-shadow:2px 2px 4px rgba(0,0,0,0.8);
 
 }
 
-/* Start CSS for Teen Page*/
+/* CSS for Teen Page*/
 
 .center {
   margin: 0 auto;
@@ -373,59 +340,34 @@ box-shadow:2px 2px 4px rgba(0,0,0,0.8);
 
 /* container CSS*/
 
-#borders{
-border: 2px solid #333333 ;
-box-shadow:1px 1px 4px rgba(0,0,0,0.5);
-border-radius: 10px;
-margin-top: 15px;
-margin-bottom: 15px;
-background-color: #595959;
-color:white;
-text-shadow:  #333333 0.1em 0.1em 0.2em;
+#borders {
+    border: 2px solid #333333;
+    box-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+    border-radius: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    background-color: #0a0909;
+    color: white;
+    text-shadow: #333333 0.1em 0.1em 0.2em;
 }
+
+
+/* Drop down nav items */
 
 .dropdown {
-    height: 50px;
-   
+	background-color: background-color: #3c8dbc;
+	position:relative;
 }
 
-.dropdown > a:hover {
-    background-color: rgba(0,60,128,0.82) !important;
-    color: #333;
-    height: 50px;
-    position:relative;
+
+
+/* Nav item list */
+
+
+.navbar-nav > li > a :active{ 
+ background-color: rgba(0,60,128,0.82) !important;
 }
 
-.dropdown-menu {
-    background-color: rgba(0,60,128,0.82);
-    border: none;
-}
-
-    .dropdown-menu:before {
-       visibility:hidden;
-    }
- 
-
-.dropdown-menu > li > a {
-    font-weight: bold !important;
-    color: #fff;
-    background-color: rgba(0,60,128,0.82);
-}
-
-.dropdown-menu > li > a:hover:after {
-    background-color: rgba(0,60,128,0.82) !important;
-}
-
-.dropdown-menu > li :hover {
-    position: relative;
-}
-}
-.navbar-inverse .navbar-nav > .dropdown > a .caret {
-    border-top-color: rgba(0,60,128,0.82);
-    border-bottom-color: rgba(0,60,128,0.82);
-}
-
-/* Nav edits*/
 .navbar-nav > li > a:hover {
     background-color: rgba(0,60,128,0.82) !important;
      position: relative;
@@ -433,37 +375,9 @@ text-shadow:  #333333 0.1em 0.1em 0.2em;
      color: #fff;
      z-index: 1;
 }
-.navbar-nav > li > a:after {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-  width: 0%;
-  content: '.';
-  color: transparent;
-  background: #aaa;
-  height: 1px;
-   text-align: left;
-  content: '.';
-  margin: 0;
-  opacity: 0;
-   
-}
-.navbar-nav > li > a:hover:after {
-    width: 100%;
-    z-index: -10;
-    animation: fill 1s forwards;
-    -webkit-animation: fill 1s forwards;
-    -moz-animation: fill 1s forwards;
-    opacity: 1;
-}
-/* /nav edits*/
-
 
 .navbar-header {
-    margin-top: 0 !important;
-    
+    margin-top: 0 !important; 
 }
 
 .navbar-brand {
@@ -471,7 +385,47 @@ text-shadow:  #333333 0.1em 0.1em 0.2em;
     background-color: #3c8dbc !important;
     padding-top: 20px;  
 }
-/* Reverted Edits*/
+.navbar-inverse .navbar-brand {
+        height: 70px;
+        color: #fff;
+        margin-left:-20px;
+    }
+
+    .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+        border-color: #101010;
+        /*padding-top: 15px;*/
+    }
+
+    .navbar-inverse .navbar-nav > li > a {
+        color: #fff;
+    }
+
+	.navbar-inverse .navbar-nav > li > a :after {
+        color: #fff;
+    }
+	
+	.navbar-fixed-top {
+    top: 30px;
+}
+
+.navbar-inverse  {
+    height: 78px !important;
+    background-color: #3c8dbc;
+    border-color: #3c8dbc;
+    width: 100%;
+    margin: auto;
+    font-weight: bold;
+}
+
+.navbar-nav {
+    background-color: #3c8dbc;
+    border-color: #3c8dbc;
+    /*border-radius: 15px;*/
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+/* Text congruency*/
 
 #headers{
  font-size:32px;
