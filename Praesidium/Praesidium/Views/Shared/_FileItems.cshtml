@@ -23,7 +23,16 @@
                     <div>
                         <h2 style="color:slategrey;text-align:Left;"><strong>@file.Title</strong></h2>
                         <p id="p_text">
-                            @Html.Raw(file.Description)
+                            @{
+                                if (file.Description.Length > 400)
+                                {
+                                    @Html.Raw(HttpUtility.HtmlDecode(file.Description.Substring(0, 399) + "&hellip;"))
+                                }
+                                else
+                                {
+                                    @Html.Raw(HttpUtility.HtmlDecode(file.Description))
+                                }
+                            }
                         </p>
                         <button class="btn btn-md btn-success text-right" style="margin-left:42%;">View File</button>
                     </div>
