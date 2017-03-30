@@ -294,6 +294,7 @@
     <Content Include="Content\Images\cyber_security_1.png" />
     <Content Include="Content\Images\cyber_security_computer.jpg" />
     <Content Include="Content\Images\DANGER.jpg" />
+    <Content Include="Content\Images\doc_icon.png" />
     <Content Include="Content\Images\fashion-person-woman-hand.jpg" />
     <Content Include="Content\Images\feet.jpg" />
     <Content Include="Content\Images\ferris-state-university_2013-09-05_13-58-58.622.jpg" />
@@ -305,12 +306,14 @@
     <Content Include="Content\Images\Human Traffickking - WC.png" />
     <Content Include="Content\Images\img04.jpg" />
     <Content Include="Content\Images\Life is about finding people who are your kind of crazy! %285%29.png" />
+    <Content Include="Content\Images\pdf_icon.png" />
     <Content Include="Content\Images\people-train-public-transportation-hurry.jpg" />
     <Content Include="Content\Images\pexels-photo-106567.jpeg" />
     <Content Include="Content\Images\pexels-photo-128983.jpeg" />
     <Content Include="Content\Images\pexels-photo-266046.jpeg" />
     <Content Include="Content\Images\pexels-photo-9816.jpeg" />
     <Content Include="Content\Images\pic4.png" />
+    <Content Include="Content\Images\ppt_icon.png" />
     <Content Include="Content\Images\red-logo.png" />
     <Content Include="Content\Images\Russ.png" />
     <Content Include="Content\Images\save10.png" />

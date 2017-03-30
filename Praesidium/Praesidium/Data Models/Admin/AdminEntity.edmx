@@ -21,6 +21,7 @@
           <Property Name="ContentType" Type="varchar(max)" />
           <Property Name="Title" Type="varchar" MaxLength="50" />
           <Property Name="DownloadCount" Type="int" />
+          <Property Name="ViewCount" Type="int" />
         </EntityType>
         <EntityType Name="ShFileKeyword">
           <Key>
@@ -99,6 +100,8 @@ warning 6002: The table/view 'Praesidium.dbo.FileView' does not have a primary k
           <Property Name="DateUploaded" Type="date" />
           <Property Name="ModifiedBy" Type="varchar(max)" />
           <Property Name="DateModified" Type="date" />
+          <Property Name="DownloadCount" Type="int" />
+          <Property Name="ViewCount" Type="int" />
         </EntityType>
         <Association Name="FK__ShFileKey__FkShF__5535A963">
           <End Role="ShFile" Type="Self.ShFile" Multiplicity="0..1" />
@@ -152,7 +155,9 @@ warning 6002: The table/view 'Praesidium.dbo.FileView' does not have a primary k
     [FileView].[UploadedBy] AS [UploadedBy], 
     [FileView].[DateUploaded] AS [DateUploaded], 
     [FileView].[ModifiedBy] AS [ModifiedBy], 
-    [FileView].[DateModified] AS [DateModified]
+    [FileView].[DateModified] AS [DateModified], 
+    [FileView].[DownloadCount] AS [DownloadCount], 
+    [FileView].[ViewCount] AS [ViewCount]
     FROM [dbo].[FileView] AS [FileView]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK__ShFileKey__FkShF__5535A963" Association="Self.FK__ShFileKey__FkShF__5535A963">
@@ -192,6 +197,7 @@ warning 6002: The table/view 'Praesidium.dbo.FileView' does not have a primary k
           <Property Name="ContentType" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="DownloadCount" Type="Int32" />
+          <Property Name="ViewCount" Type="Int32" />
         </EntityType>
         <EntityType Name="ShFileKeyword">
           <Key>
@@ -381,6 +387,8 @@ warning 6002: The table/view 'Praesidium.dbo.FileView' does not have a primary k
           <Property Name="DateUploaded" Type="DateTime" Precision="0" />
           <Property Name="ModifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="DateModified" Type="DateTime" Precision="0" />
+          <Property Name="DownloadCount" Type="Int32" />
+          <Property Name="ViewCount" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -391,6 +399,7 @@ warning 6002: The table/view 'Praesidium.dbo.FileView' does not have a primary k
           <EntitySetMapping Name="ShFiles">
             <EntityTypeMapping TypeName="AdminModel.ShFile">
               <MappingFragment StoreEntitySet="ShFile">
+                <ScalarProperty Name="ViewCount" ColumnName="ViewCount" />
                 <ScalarProperty Name="DownloadCount" ColumnName="DownloadCount" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="ContentType" ColumnName="ContentType" />
@@ -477,6 +486,8 @@ warning 6002: The table/view 'Praesidium.dbo.FileView' does not have a primary k
           <EntitySetMapping Name="FileViews">
             <EntityTypeMapping TypeName="AdminModel.FileView">
               <MappingFragment StoreEntitySet="FileView">
+                <ScalarProperty Name="ViewCount" ColumnName="ViewCount" />
+                <ScalarProperty Name="DownloadCount" ColumnName="DownloadCount" />
                 <ScalarProperty Name="DateModified" ColumnName="DateModified" />
                 <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
                 <ScalarProperty Name="DateUploaded" ColumnName="DateUploaded" />
