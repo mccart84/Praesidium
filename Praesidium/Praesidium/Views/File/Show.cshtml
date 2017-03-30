@@ -6,6 +6,6 @@
 <h2>View file @Model.Title</h2>
 
 <div class="col-md-6">
-    <iframe src="https://docs.google.com/gview?url=@Url.Action("File", "Download", new {id = Model.RecId}, Request.Url.Scheme)"></iframe>
+    <iframe src="https://docs.google.com/gview?url=@Url.Action("File", "Download", new {id = Model.RecId}, Request.Url.Scheme)?pid=explorer&efh=false&a=v&chrome=false&embedded=true"></iframe>
 </div>
 
