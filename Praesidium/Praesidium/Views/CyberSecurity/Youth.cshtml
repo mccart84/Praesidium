@@ -1,9 +1,9 @@
-﻿
+﻿@model IEnumerable<Praesidium.Data_Models.Admin.FileView>
 ﻿@{
     ViewBag.Title = "Youth";
 }
 
-<div class="container-fluid" id="photo_cont" style="margin-bottom:3%;min-height:300px;margin-top:-45px;">
+<div class="container-fluid" id="photo_cont" style="margin-bottom:3%;min-height:300px;">
     <div class="row">
         <div class="col-md-12">
             <figure class="effect-caged">
@@ -30,20 +30,23 @@
         </ul>
     </div>
 </div>
-<div class="row">
-    <div class="col-md-8">
-        <div class="well">
-            <h2 style="color:slategrey;text-align:center;"><strong>Article 1</strong></h2>
-            <p id="p_text">
-                <h3>Sammy & Facebook</h3>
-                Your friend Sammy has a Facebook and you think thats really cool! Your parents say you can't 
-                have a Facebook until your older, so what do you do make a Facebook with a fake birthday or follow
-                 your parents rules? What should you do to...
-            </p>
-            <button class="btn btn-md btn-success align-center" style="margin-left:42%;">Read Article</button>
+@if (Model != null)
+{
+    foreach (var file in Model)
+    {
+        <div class="row">
+            <div class="col-md-8">
+                <div class="well">
+                    <h2 style="color:slategrey;text-align:center;"><strong>@file.Title</strong></h2>
+                    <p id="p_text">
+                        @Html.Raw(file.Description)
+                    </p>
+                    <button class="btn btn-md btn-success align-center" style="margin-left:42%;">View File</button>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
+    }
+}
 
 
 

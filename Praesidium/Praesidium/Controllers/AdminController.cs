@@ -597,6 +597,7 @@ namespace Praesidium.Controllers
                         TryUpdateModel(model);
 
                         model.FileName = upload.FileName;
+                        model.Description = Server.HtmlDecode(Request.Form["Description"]);
                         using (var reader = new System.IO.BinaryReader(upload.InputStream))
                         {
                             model.FileStore = reader.ReadBytes(upload.ContentLength);
