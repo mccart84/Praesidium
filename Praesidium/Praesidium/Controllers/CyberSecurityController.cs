@@ -72,6 +72,7 @@ namespace Praesidium.Controllers
                 foreach (var t in catfiles)
                 {
                     FileView file = db.FileViews.First(u => u.RecId == t.FkShFile);
+                    file.Description = HttpUtility.HtmlDecode(file.Description);
                     files.Add(file);
                 }
 

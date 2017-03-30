@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<Praesidium.Data_Models.Admin.FileView>
 @{
     ViewBag.Title = "Teachers";
 }
@@ -40,7 +40,7 @@
                 <div class="well">
                     <h2 style="color:slategrey;text-align:center;"><strong>@file.Title</strong></h2>
                     <p id="p_text">
-                        @WebUtility.HtmlDecode(file.Description)
+                        @Html.Raw(file.Description)
                     </p>
                     <button class="btn btn-md btn-success align-center" style="margin-left:42%;">View File</button>
                 </div>
