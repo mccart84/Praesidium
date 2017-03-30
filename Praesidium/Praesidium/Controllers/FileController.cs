@@ -11,32 +11,53 @@ namespace Praesidium.Controllers
     {
         private AdminEntities db = new AdminEntities();
         // GET: Download
-        public FileResult Download(int id)
+        public FileResult Download(int? id)
         {
-            ShFile file = db.ShFiles.Find(id);
-            if (file != null)
+            try
             {
-                file.DownloadCount++;
-                db.SaveChanges();
-                var newfile = new FileContentResult(file.FileStore, file.ContentType);
-                newfile.FileDownloadName = file.FileName;
-                return newfile;
-            }
+                if (!id.HasValue)
+                    throw new HttpException(404, "No File ID Specified");
 
-            else
+                ShFile file = db.ShFiles.Find(id);
+                if (file != null)
+                {
+                    file.DownloadCount++;
+                    db.SaveChanges();
+                    var newfile = new FileContentResult(file.FileStore, file.ContentType);
+                    newfile.FileDownloadName = file.FileName;
+                    return newfile;
+                }
+
+                else
+                {
+                    throw new HttpException(404, "File Not Found");
+                }
+
+            }
+            catch (Exception e)
             {
-                throw new HttpException(404, "File Not Found");
+                Console.WriteLine(e);
+                throw;
             }
-
         }
         // GET: File
-        public ActionResult Show(int id)
+        public ActionResult Show(int? id)
         {
-            var file = db.FileViews.Find(id);
-            if (file == null)
-                throw new HttpException(404, "Invalid File Specified");
-            else
-                return View(file);
+            try
+            {
+                if (!id.HasValue)
+                { return View("Index","Home"); }
+                var file = db.FileViews.Find(id);
+                if (file == null)
+                { return View("Index", "Home"); }
+                else
+                    return View(file);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
     }
 }
