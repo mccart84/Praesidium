@@ -52,11 +52,13 @@
                     @{
                         Html.RenderAction("NavigationItems", "Home");
                     }
-                    <li>
-                        <a data-toggle="collapse" href="#searchArea" aria-expanded="false" aria-controls="collapseExample">
-                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                            Search
-                        </a>
+                    <li style="width:150px;">
+                        
+                            <a data-toggle="collapse" href="#searchArea" aria-expanded="false" aria-controls="collapseExample">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                Search
+                            </a>
+                        
                         <div class="searchArea accordion-body collapse" id="searchArea">
                             <input id="txtSearchlg" class="searchBar" type="text" style="width:150px;" placeholder="Keywords.." />
                         </div>
