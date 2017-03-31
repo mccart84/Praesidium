@@ -346,6 +346,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="googleb1706c87d204c04c.html" />
     <Content Include="Scripts\AdminLTE\analyticsDisplay.js" />
     <Content Include="Scripts\AdminLTE\app.js" />
     <Content Include="Scripts\AdminLTE\app.min.js" />
@@ -1046,6 +1047,7 @@
     <Content Include="Scripts\tinymce\tinymce.js" />
     <Content Include="Scripts\tinymce\tinymce.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="sitemap.xml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
