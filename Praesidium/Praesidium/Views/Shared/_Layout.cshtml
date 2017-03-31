@@ -12,27 +12,29 @@
     <script src="~/Scripts/jquery-1.10.2.js"></script>
     <script src="~/Scripts/analytics.js"></script>
 
-    <script> 
+    <script>
         function getaway() {
             window.open("http://weather.com", "_newtab");
             window.close();
         }
-        
+
     </script>
 
 </head>
 <body>
-   <!-- Div for trafficking hotline-->
+    <!-- Div for trafficking hotline-->
 
 
     <div class="whitespace">
         <div class="row" style="margin-top:6px; font-size:120%;margin-left:5%;margin-right:5%;">
-           <center> <a href="tel:1888373788888" style="color:grey;margin-bottom:20%;"><span class="glyphicon glyphicon-phone-alt" style="color:dodgerblue;"></span>  National Human Trafficking Hotline <strong style="color:dodgerblue">1(888)373-7888</strong></a>
-       </center> </div>
+            <center>
+                <a href="tel:1888373788888" style="color:grey;margin-bottom:20%;"><span class="glyphicon glyphicon-phone-alt" style="color:dodgerblue;"></span>  National Human Trafficking Hotline <strong style="color:dodgerblue">1(888)373-7888</strong></a>
+            </center>
+        </div>
 
     </div>
 
-    <div class="navbar navbar-inverse navbar-fixed-top"  style="margin-top:20px;">
+    <div class="navbar navbar-inverse navbar-fixed-top" style="margin-top:20px;">
 
         <div class="container">
             <div class="navbar-header" style="margin-top:5px;">
@@ -41,8 +43,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink(" ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand", @style = ""})
-                <img alt="Widget View" src="@Url.Content("~/Content/Images/TCS_Solutions.png")" style="height: 70px; padding-top: 5px;margin-left:-135px;"> 
+                @Html.ActionLink(" ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+
+                <a href='@Url.Action("Index", "Home")'><img alt="Widget View" src="@Url.Content("~/Content/Images/TCS_Solutions.png")" style="height: 70px; padding-top: 5px;margin-left:-135px;"></a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav" style="float: right;">
@@ -56,7 +59,7 @@
                         </a>
                         <div class="searchArea accordion-body collapse" id="searchArea">
                             <input id="txtSearchlg" class="searchBar" type="text" style="width:150px;" placeholder="Keywords.." />
-                        </div>             
+                        </div>
                     </li>
 
                 </ul>
@@ -95,7 +98,7 @@
                         <h3>About</h3>
                         <ul style="list-style-type: none; padding-right: 35px">
                             <li><a href="http://praesidium-beta.azurewebsites.net/Home/About">About</a></li>
-                           
+
                         </ul>
                     </div>
                     <br />

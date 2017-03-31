@@ -35,7 +35,7 @@
                             }
                         }
                     </p>
-                    <button class="btn btn-md btn-success text-right" style="margin-left: 42%;">View File</button>
+                    @Html.ActionLink("View File", "Show", "File", new { id = file.RecId }, new {@class="btn btn-info"})
                 </div>
             </div>
 
