@@ -58,21 +58,20 @@ gapi.analytics.ready(function() {
  * Create the first DataChart for top countries over the past 30 days.
  * It will be rendered inside an element with the id "chart-1-container".
  */
-  var dataChart1 = new gapi.analytics.googleCharts.DataChart({
+  var timeline = new gapi.analytics.googleCharts.DataChart({
       query: {
-          metrics: 'ga:sessions',
-          dimensions: 'ga:country',
+          'ids': 'ga:1234',
+          'dimensions': 'ga:country',
+          'metrics': 'ga:sessions',
           'start-date': '30daysAgo',
           'end-date': 'yesterday',
-          'max-results': 6,
-          sort: '-ga:sessions'
       },
       chart: {
-          container: 'chart-1-container',
-          type: 'PIE',
+          type: 'GEO',
+          container: 'timeline',
           options: {
-              width: '100%',
-              pieHole: 4 / 9
+              region: '155', // Western Europe
+              displayMode: 'markers'
           }
       }
   });
@@ -103,7 +102,7 @@ gapi.analytics.ready(function() {
      * Update the first dataChart when the first view selecter is changed.
      */
   viewSelector1.on('change', function (ids) {
-      dataChart1.set({ query: { ids: ids } }).execute();
+      timeline.set({ query: { ids: ids } }).execute();
   });
 
     /**
@@ -117,7 +116,7 @@ gapi.analytics.ready(function() {
 </script>
 
 <div id="embed-api-auth-container"></div>
-<div id="chart-1-container"></div>
+<div id="timeline"></div>
 <div id="chart-2-container"></div>
 <div id="view-selector-1-container"></div> <br />
 <div id="view-selector-2-container"></div>
