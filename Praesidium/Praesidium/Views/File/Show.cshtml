@@ -1,6 +1,7 @@
 ﻿@model Praesidium.Data_Models.Admin.FileView
 @{
     ViewBag.Title = "View";
+    var srcURL = @"https://docs.google.com/gview?url=http://praesidium-beta.azurewebsites.net/Download/File/ " + Model.RecId + "?pid=explorer&efh=false&a=v&chrome=false&embedded=true";
 }
 <div id="fb-root"></div>
 <script>
@@ -15,7 +16,7 @@
 
 <div class="col-md-6">
     @*<iframe src="https://docs.google.com/gview?url=@Url.Action("File", "Download", new {id = Model.RecId}, Request.Url.Scheme)?pid=explorer&efh=false&a=v&chrome=false&embedded=true" height="580" width="480"></iframe>*@
-    <iframe src="https://docs.google.com/gview?url=http://praesidium-beta.azurewebsites.net/Download/File/21?pid=explorer&efh=false&a=v&chrome=false&embedded=true" height="580" width="480"></iframe>
+    <iframe src="@srcURL" height="580" width="480"></iframe>
 </div>
 <div class="col-md-6">
     <div class="row">
