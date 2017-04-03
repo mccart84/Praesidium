@@ -41,7 +41,7 @@ textarea {
     background-color: indianred;
     color: black;
     font-size: 25px;
-    border: 0px;
+    border: 0;
     border-radius: 5px;
 }
 
@@ -270,7 +270,7 @@ figure.effect-caged:hover p {
    
 }
 .jumbotron .btn{
-    border-radius:0px!important;
+    border-radius:0 !important;
     box-shadow:1px 1px 4px rgba(0,0,0,0.4);
     padding:10px 40px;
 }
@@ -355,7 +355,7 @@ box-shadow:2px 2px 4px rgba(0,0,0,0.8);
 /* Drop down nav items */
 
 .dropdown {
-	background-color: background-color: #3c8dbc;
+	background-color: #3c8dbc;
 	position:relative;
 }
 
@@ -450,3 +450,27 @@ box-shadow:2px 2px 4px rgba(0,0,0,0.8);
  font-size:14px;
  font-family:Arial;
  }
+
+ ul.share-buttons{
+  list-style: none;
+  padding: 0;
+}
+
+ul.share-buttons li{
+  display: inline;
+}
+
+ul.share-buttons .sr-only {
+  position: absolute;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0;
+  border: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
+ul.share-buttons img{
+  width: 32px;
+}
