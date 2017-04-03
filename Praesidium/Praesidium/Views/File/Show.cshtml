@@ -19,7 +19,7 @@
     </div>
     <div class="row">
         <div class="col text-center">
-            @Html.ActionLink("Download this file", "File", "Download", new { id = Model.RecId, @class = "btn btn-info" }, null)
+            @Html.ActionLink("Download this file", "File", "Download", new { id = Model.RecId }, new {@class="btn btn-info"})
         </div>
         <div class="col text-center">
             <a href="https://docs.google.com/gview?url=@Url.Action("File", "Download", new {id = Model.RecId}, Request.Url.Scheme)" class="btn btn-info">View full screen</a>
