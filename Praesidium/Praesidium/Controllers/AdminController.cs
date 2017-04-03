@@ -514,8 +514,7 @@ namespace Praesidium.Controllers
         #region [Files Admin]
         public ActionResult Files()
         {
-
-            var filelist = db.ShFiles.Include(u => u.ShUser1);
+            var filelist = db.FileViews; //.Take(5);
             return View(filelist.ToList());
         }
 
@@ -598,6 +597,7 @@ namespace Praesidium.Controllers
                         TryUpdateModel(model);
 
                         model.FileName = upload.FileName;
+                        model.Description = Server.HtmlDecode(Request.Form["Description"]);
                         using (var reader = new System.IO.BinaryReader(upload.InputStream))
                         {
                             model.FileStore = reader.ReadBytes(upload.ContentLength);

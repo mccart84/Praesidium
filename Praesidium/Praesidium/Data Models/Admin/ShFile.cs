@@ -7,8 +7,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.ComponentModel.DataAnnotations;
-using System.Web.Mvc;
 using Praesidium.Models;
 
 namespace Praesidium.Data_Models.Admin
@@ -28,8 +26,6 @@ namespace Praesidium.Data_Models.Admin
         public string FileName { get; set; }
         public byte[] FileStore { get; set; }
         public Nullable<int> FkShSySection { get; set; }
-
-        [UIHint("tinymce_jquery_full"), AllowHtml]
         public string Description { get; set; }
         public Nullable<int> UploadedBy { get; set; }
         public Nullable<int> ModifiedBy { get; set; }
@@ -39,6 +35,8 @@ namespace Praesidium.Data_Models.Admin
         public Nullable<System.DateTime> DateModified { get; set; }
         public string ContentType { get; set; }
         public string Title { get; set; }
+        public Nullable<int> DownloadCount { get; set; }
+        public Nullable<int> ViewCount { get; set; }
     
         public virtual ShSySection ShSySection { get; set; }
         public virtual ShUser ShUser { get; set; }

@@ -170,10 +170,12 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Content\FileViewController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AdminLteController.cs" />
     <Compile Include="Controllers\CyberSecurityController.cs" />
     <Compile Include="Controllers\DownloadController.cs" />
+    <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TraffickingController.cs" />
     <Compile Include="DAL\Admin\REFERENCE.cs" />
@@ -193,6 +195,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AdminEntity.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Data Models\Admin\FileView.cs">
+      <DependentUpon>AdminEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Data Models\Admin\ShFile.cs">
       <DependentUpon>AdminEntity.tt</DependentUpon>
@@ -266,12 +271,18 @@
     <Content Include="Content\AdminLTE\skins\_all-skins.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\Abigail.png" />
     <Content Include="Content\Images\aboutus %282%29.jpg" />
+    <Content Include="Content\Images\about_us.png" />
     <Content Include="Content\Images\adults.png" />
+    <Content Include="Content\Images\Caleb.png" />
+    <Content Include="Content\Images\caution.jpg" />
     <Content Include="Content\Images\cs_cloud.png" />
     <Content Include="Content\Images\Cyber Crime Image.jpg" />
     <Content Include="Content\Images\Cyber Final.png" />
     <Content Include="Content\Images\cyber-crime.jpg" />
+    <Content Include="Content\Images\cyber-security-1186531_1920.png" />
+    <Content Include="Content\Images\cyber-security-1805246_1280.png" />
     <Content Include="Content\Images\CyberLock.JPG" />
     <Content Include="Content\Images\CyberSecurity - WC.png" />
     <Content Include="Content\Images\cybersecurity1.jpg" />
@@ -284,18 +295,31 @@
     <Content Include="Content\Images\cyber_hoodie.jpg" />
     <Content Include="Content\Images\cyber_security_1.png" />
     <Content Include="Content\Images\cyber_security_computer.jpg" />
+    <Content Include="Content\Images\DANGER.jpg" />
+    <Content Include="Content\Images\doc_icon.png" />
+    <Content Include="Content\Images\fashion-person-woman-hand.jpg" />
     <Content Include="Content\Images\feet.jpg" />
     <Content Include="Content\Images\ferris-state-university_2013-09-05_13-58-58.622.jpg" />
     <Content Include="Content\Images\ferris.png" />
+    <Content Include="Content\Images\hacked-2127635_1920.png" />
     <Content Include="Content\Images\hands-caged.jpg" />
     <Content Include="Content\Images\hands-open.jpg" />
     <Content Include="Content\Images\hands-tied.jpg" />
     <Content Include="Content\Images\Human Traffickking - WC.png" />
     <Content Include="Content\Images\img04.jpg" />
     <Content Include="Content\Images\Life is about finding people who are your kind of crazy! %285%29.png" />
+    <Content Include="Content\Images\pdf_icon.png" />
+    <Content Include="Content\Images\people-train-public-transportation-hurry.jpg" />
+    <Content Include="Content\Images\pexels-photo-106567.jpeg" />
+    <Content Include="Content\Images\pexels-photo-128983.jpeg" />
+    <Content Include="Content\Images\pexels-photo-266046.jpeg" />
+    <Content Include="Content\Images\pexels-photo-9816.jpeg" />
     <Content Include="Content\Images\pic4.png" />
+    <Content Include="Content\Images\ppt_icon.png" />
     <Content Include="Content\Images\red-logo.png" />
+    <Content Include="Content\Images\Russ.png" />
     <Content Include="Content\Images\save10.png" />
+    <Content Include="Content\Images\security-265130_1920.jpg" />
     <Content Include="Content\Images\Stop-Human-Trafficking.jpg" />
     <Content Include="Content\Images\T.S.CSolutions.jpg" />
     <Content Include="Content\Images\TCS_Solutions.png" />
@@ -306,6 +330,7 @@
     <Content Include="Content\Images\test3.jpg" />
     <Content Include="Content\Images\test4.jpg" />
     <Content Include="Content\Images\trafficking.png" />
+    <Content Include="Content\Images\website image.png" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Data Models\Admin\AdminEntity.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -321,6 +346,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="googleb1706c87d204c04c.html" />
     <Content Include="Scripts\AdminLTE\analyticsDisplay.js" />
     <Content Include="Scripts\AdminLTE\app.js" />
     <Content Include="Scripts\AdminLTE\app.min.js" />
@@ -1021,6 +1047,7 @@
     <Content Include="Scripts\tinymce\tinymce.js" />
     <Content Include="Scripts\tinymce\tinymce.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="sitemap.xml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -1098,9 +1125,11 @@
     <Content Include="Views\Admin\Site_Documentation.cshtml" />
     <Content Include="Views\CyberSecurity\Quiz.cshtml" />
     <Content Include="Views\Shared\_FileItems.cshtml" />
+    <Content Include="Views\File\Show.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\FileView\" />
     <Folder Include="Views\Manage\" />
   </ItemGroup>
   <ItemGroup>

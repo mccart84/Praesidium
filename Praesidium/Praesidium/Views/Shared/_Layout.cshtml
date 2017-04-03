@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - T.C.S. Solutions</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -12,27 +12,35 @@
     <script src="~/Scripts/jquery-1.10.2.js"></script>
     <script src="~/Scripts/analytics.js"></script>
 
-    <script> 
+    <script>
         function getaway() {
-            window.open("http://weather.com", "_newtab");
-            window.close();
+            window.open('http://www.cooking.com');
+            window.open('http://www.facebook.com');
+            window.open('http://www.twitter.com');
+            window.open('http://www.dancing.com');
+            window.open('http://www.ferris.edu');
+
+            var win = window.open("http://www.weather.com", "_self");
+            win.close();
         }
-        
+
     </script>
 
 </head>
 <body>
-   <!-- Div for trafficking hotline-->
+    <!-- Div for trafficking hotline-->
 
 
     <div class="whitespace">
-        <div class="row" style="margin-top:6px; font-size:18px;">
-            <a href="tel:1888373788888" style="margin-left:8%;color:grey;margin-bottom:10%;"><span class="glyphicon glyphicon-phone-alt" style="color:dodgerblue;"></span>  National Human Trafficking Hotline <strong style="color:dodgerblue">1(888)373-7888</strong></a>
+        <div class="row" style="margin-top:6px; font-size:120%;margin-left:5%;margin-right:5%;">
+            <center>
+                <a href="tel:1888373788888" style="color:grey;margin-bottom:20%;"><span class="glyphicon glyphicon-phone-alt" style="color:dodgerblue;"></span>  National Human Trafficking Hotline <strong style="color:dodgerblue">1(888)373-7888</strong></a>
+            </center>
         </div>
 
     </div>
 
-    <div class="navbar navbar-inverse navbar-fixed-top"  style="margin-top:10px;">
+    <div class="navbar navbar-inverse navbar-fixed-top" style="margin-top:20px;">
 
         <div class="container">
             <div class="navbar-header" style="margin-top:5px;">
@@ -41,22 +49,25 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink(" ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand", @style = ""})
-                <img alt="Widget View" src="@Url.Content("~/Content/Images/TCS_Solutions.png")" style="height: 70px; padding-top: 5px;margin-left:-135px;"> 
+                @Html.ActionLink(" ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+
+                <a href='@Url.Action("Index", "Home")'><img alt="Widget View" src="@Url.Content("~/Content/Images/TCS_Solutions.png")" style="height: 70px; padding-top: 5px;margin-left:-135px;"></a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav" style="float: right;">
                     @{
                         Html.RenderAction("NavigationItems", "Home");
                     }
-                    <li>
-                        <a data-toggle="collapse" href="#searchArea" aria-expanded="false" aria-controls="collapseExample">
-                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                            Search
-                        </a>
+                    <li style="width:150px;">
+                        
+                            <a data-toggle="collapse" href="#searchArea" aria-expanded="false" aria-controls="collapseExample">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                Search
+                            </a>
+                        
                         <div class="searchArea accordion-body collapse" id="searchArea">
                             <input id="txtSearchlg" class="searchBar" type="text" style="width:150px;" placeholder="Keywords.." />
-                        </div>             
+                        </div>
                     </li>
 
                 </ul>
@@ -81,7 +92,7 @@
                 <div class="row">
                     <div class="col-md-1 col-sm-1 col-lg-1"></div>
                     <div class="col-md-5 item" style="color: white; text-align: center;">
-                        <h3>TCS Soltuions</h3>
+                        <h3>TCS Solutions</h3>
                         <p>We are a devoted group of developers looking to make the world a safer and more informed place for adults and children alike.</p>
                     </div>
                     <div class="col-md-2 item" style="color: white; text-align: center;">
@@ -95,7 +106,7 @@
                         <h3>About</h3>
                         <ul style="list-style-type: none; padding-right: 35px">
                             <li><a href="http://praesidium-beta.azurewebsites.net/Home/About">About</a></li>
-                           
+
                         </ul>
                     </div>
                     <br />

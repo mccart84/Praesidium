@@ -1,5 +1,5 @@
 ﻿@using Microsoft.Ajax.Utilities
-@model IEnumerable<Praesidium.Data_Models.Admin.ShFile>
+@model IEnumerable<Praesidium.Data_Models.Admin.FileView>
 
 @{
     ViewBag.Title = "Files";
@@ -12,6 +12,9 @@
 </p>
 <table class="table">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
         <th style="width: 20%;">
             @Html.DisplayNameFor(model => model.FileName)
         </th>
@@ -39,21 +42,35 @@
 @foreach (var item in Model) {
     <tr>
         <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.FileName)
         </td>
         <td>
-            @Html.ActionLink("Download","File","Download",new { id=item.RecId},null)
-            <br />
-            <a class="iframe" href="https://docs.google.com/gview?url=@Url.Action("File","Download",new { id=item.RecId},Request.Url.Scheme)">View</a>
+            @Html.ActionLink("Download", "File", "Download", new {id = item.RecId}, null)
+            <br/>
+            <a class="iframe" href="https://docs.google.com/gview?url=@Url.Action("File", "Download", new {id = item.RecId}, Request.Url.Scheme)">View</a>
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Description).ToString().Substring(0,25)
+            @{
+
+                if (item.Description.Length > 25)
+                {
+                    @Html.Raw(HttpUtility.HtmlDecode(item.Description.Substring(0, 25) + "&hellip;"))
+
+                }
+                else
+                {
+                    @Html.Raw(HttpUtility.HtmlDecode(item.Description))
+                }
+            }
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ShUser1.Username)
+            @Html.DisplayFor(modelItem => item.UploadedBy)
         </td>
         <td
-            >@Html.DisplayFor(modelItem => item.DateUploaded)
+        >@Html.DisplayFor(modelItem => item.DateUploaded)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ModifiedBy)
@@ -62,9 +79,9 @@
             @Html.DisplayFor(modelItem => item.DateModified)
         </td>
         <td>
-            @Html.ActionLink("Edit", "FilesEdit", new { id=item.RecId }) |
+            @Html.ActionLink("Edit", "FilesEdit", new {id = item.RecId}) |
             @*@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Delete", "Delete", new {/* id=item.PrimaryKey */})
         </td>
     </tr>
 }

@@ -9,12 +9,9 @@
         <div class="col-md-12">
 
             <figure class="effect-caged">
-
-
-               
-                <img src="~/Content/Images/teacher.png"  g" style="width:100%;max-height:330px;" />
+                <img src="~/Content/Images/teacher.png" g" style="width:100%;max-height:330px;" />
                 <figcaption>
-                    <h1> <span>Teachers</span></h1>
+                    <h1><span>Teachers</span></h1>
                 </figcaption>
             </figure>
 
@@ -31,40 +28,20 @@
 
         <div class="row">
             <div class="col-md-12">
-                <h1>Teachers</h1>
-                <p class="lead">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pharetra sapien eget tempor pulvinar. Nunc eleifend orci nec rutrum
-                    bibendum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pharetra sapien eget tempor pulvinar. Nunc eleifend orci nec rutrum
-                    bibendum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pharetra sapien eget tempor pulvinar. Nunc eleifend orci nec rutrum
-                    bibendum. Aliquam erat volutpat. Nunc massa felis, ullamcorper et vehicula ac, malesuada sit amet magna. Proin ac dolor nec.
+                <h1 id=" headers">Teachers</h1>
+                <p class="lead" id="p_text">
+                    Teachers are some of the most influential people on today’s youth. In the early parts of their life, kids spend a majority of their time at
+                    school. These young kids are also the most vulnerable to human trafficking
+                    because they do not know any better and they physically cannot do much against an attacker. In order to educate our youth, 
+                    it is important for teachers to be fully aware of the dangers of human trafficking 
+                    and the signs of a possible attack. This page contains information and resources that
+                    will give content to our educators so that they can learn and pass on the information to their students.
                 </p>
             </div>
         </div>
-
-        <div class="row">
-
-            <div class="col-md-4 col-sm-8 teen_res">
-                <a href="#" class="thumbnail"><img src="~/Content/Images/test2.jpg" /></a>
-                <h2>Resource 1</h2>
-                <p> Aliquam erat volutpat. Nunc massa felis, ullamcorper et vehicula ac, malesuada sit amet magna. Proin ac dolor nec.</p>
-                <span class="btn btn-primary btn-lg">Check it out!</span>
-            </div>
-
-            <div class="col-md-4 col-sm-8 teen_res">
-                <a href="#" class="thumbnail"><img src="~/Content/Images/test2.jpg" /></a>
-                <h2>Resource 2</h2>
-                <p> Aliquam erat volutpat. Nunc massa felis, ullamcorper et vehicula ac, malesuada sit amet magna. Proin ac dolor nec. </p>
-                <span class="btn btn-danger btn-lg">Check it out!</span>
-            </div>
-
-            <div class="col-md-4 col-sm-8 teen_res">
-                <a href="#" class="thumbnail"><img src="~/Content/Images/test2.jpg" /></a>
-                <h2>Resource 3</h2>
-                <p> Aliquam erat volutpat. Nunc massa felis, ullamcorper et vehicula ac, malesuada sit amet magna. Proin ac dolor nec.</p>
-                <span class="btn btn-success btn-lg">Check it out!</span>
-            </div>
-
-        </div>
     </div>
 </div>
+
+
+@{ Html.RenderAction("FileList", new { id = 9 }); }
 
