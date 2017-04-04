@@ -2,10 +2,10 @@
     ViewBag.Title = "Teen";
 }
 
-<div class="container-fluid" id="photo_cont" style="margin-bottom:3%;min-height:300px;">
+<div class="container-fluid" id="photo_cont" style="margin-bottom:3%;">
     <div class="row">
         <div class="col-md-12">
-            <figure class="effect-caged">
+            <figure class="effect-caged img-responsive">
                 <img src="~/Content/Images/cyber_hoodie.jpg" style="width:100%;max-height:330px;" />              
             </figure>
         </div>
@@ -19,8 +19,7 @@
             This is a page where teens can get non-judgemental information and serves to better educate them on
             issues that can help them avoid being unsafe online.
         </p>  
-          @Html.ActionLink("Teen Quiz", "Quiz", new { quizId = 2 }, new { @class = "btn btn-info", @title = "" })
-             
+          @Html.ActionLink("Teen Quiz", "Quiz", new { quizId = 2 }, new { @class = "btn btn-info", @title = "" })        
  </div>
     <div class="col-md-4 align-center " id="borders" style="min-height:150px;">
         <h3 id="headers_borders">Teen Page Links</h3>
