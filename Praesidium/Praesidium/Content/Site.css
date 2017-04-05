@@ -489,3 +489,65 @@ ul.share-buttons .sr-only {
 ul.share-buttons img{
   width: 32px;
 }
+
+ul.leaders {
+    max-width: 40em;
+    padding: 0;
+    overflow-x: hidden;
+    list-style: square;
+}
+
+    ul.leaders li {
+        min-height: 25px;
+    }
+
+        ul.leaders li:before {
+            float: left;
+            width: 0;
+            white-space: nowrap;
+            content: ". . . . . . . . . . . . . . . . . . . . " ". . . . . . . . . . . . . . . . . . . . " ". . . . . . . . . . . . . . . . . . . . " ". . . . . . . . . . . . . . . . . . . . ";
+        }
+
+    ul.leaders span:first-child {
+        padding-right: 0.33em;
+        background: #073e5f;
+    }
+
+    ul.leaders span + span {
+        float: right;
+        padding-left: 0.33em;
+        background: #073e5f;
+    }
+
+ul.noleaders {
+    max-width: 40em;
+    padding: 0;
+    overflow-x: hidden;
+    list-style: square;
+}
+
+    ul.noleaders li {
+        min-height: 25px;
+    }
+
+        ul.noleaders li:before {
+            float: left;
+            width: 0;
+            white-space: nowrap;
+            content:
+                "                                        "
+                "                                        "
+                "                                        "
+                "                                        ";
+        }
+
+    ul.noleaders span:first-child {
+        padding-right: 0.33em;
+        background: #073e5f;
+    }
+
+    ul.noleaders span + span {
+        float: right;
+        padding-left: 0.33em;
+        background: #073e5f;
+    }
