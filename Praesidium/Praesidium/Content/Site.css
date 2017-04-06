@@ -209,10 +209,11 @@ figure.effect-caged figcaption::before {
 	width: 100%;
 	height: 100%;
 	content: '';
-	transform: translate3d(0,50%,0);
+
 }
 
 .photo_cont{
+    margin-top:10px;
 box-shadow:1px 1px 4px rgba(0,0,0,0.8);
 padding-top:10px;
 }
@@ -222,8 +223,6 @@ figure.effect-caged h1 {
 	left: 0;
 	width: 100%;
 	color: white;
-	transition: transform 0.35s, color 0.35s;
-	transform: translate3d(0,-50%,0);
 	text-align:center;
 	text-shadow: black 0.1em 0.1em 0.2em;
 }
@@ -231,7 +230,6 @@ figure.effect-caged h1 {
 figure.effect-caged figcaption::before,
 figure.effect-caged p {
 	width: 100%;
-	transition: opacity 0.35s, transform 0.35s;
 	text-align:center;
   
 }
@@ -243,7 +241,6 @@ figure.effect-caged p {
 	padding: 2em;
 	width: 100%;
 	opacity: 0;
-	transform: translate3d(0,10px,0);
 	text-align:center;
 	color: white;
 	text-shadow: black 0.1em 0.1em 0.2em;
@@ -251,7 +248,6 @@ figure.effect-caged p {
 
 figure.effect-caged:hover h1 {
 
-	transform: translate3d(0,-50%,0) translate3d(0,-40px,0);
 	text-align:center;
 	font-weight:bold;
 	text-shadow: black 0.1em 0.1em 0.2em;
@@ -261,7 +257,7 @@ figure.effect-caged:hover h1 {
 figure.effect-caged:hover figcaption::before ,
 figure.effect-caged:hover p {
 	opacity: 1;
-	transform: translate3d(0,0,0);
+
   
 }
 
@@ -377,13 +373,6 @@ box-shadow:2px 2px 4px rgba(0,0,0,0.8);
 
 
 /* Nav item list */
-.navbar-nav {
-    height: 78px;
-}
-
-.navbar-nav > li {
-    height: 78px;
-}
 
 .navbar-nav > li > a {
     height: 78px;
@@ -501,7 +490,64 @@ ul.share-buttons img{
   width: 32px;
 }
 
-.container {
-    min-height: 78px;
+ul.leaders {
+    max-width: 40em;
+    padding: 0;
+    overflow-x: hidden;
+    list-style: square;
 }
 
+    ul.leaders li {
+        min-height: 25px;
+    }
+
+        ul.leaders li:before {
+            float: left;
+            width: 0;
+            white-space: nowrap;
+            content: ". . . . . . . . . . . . . . . . . . . . " ". . . . . . . . . . . . . . . . . . . . " ". . . . . . . . . . . . . . . . . . . . " ". . . . . . . . . . . . . . . . . . . . ";
+        }
+
+    ul.leaders span:first-child {
+        padding-right: 0.33em;
+        background: #073e5f;
+    }
+
+    ul.leaders span + span {
+        float: right;
+        padding-left: 0.33em;
+        background: #073e5f;
+    }
+
+ul.noleaders {
+    max-width: 40em;
+    padding: 0;
+    overflow-x: hidden;
+    list-style: square;
+}
+
+    ul.noleaders li {
+        min-height: 25px;
+    }
+
+        ul.noleaders li:before {
+            float: left;
+            width: 0;
+            white-space: nowrap;
+            content:
+                "                                        "
+                "                                        "
+                "                                        "
+                "                                        ";
+        }
+
+    ul.noleaders span:first-child {
+        padding-right: 0.33em;
+        background: #073e5f;
+    }
+
+    ul.noleaders span + span {
+        float: right;
+        padding-left: 0.33em;
+        background: #073e5f;
+    }
