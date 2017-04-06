@@ -40,6 +40,18 @@ namespace Praesidium.Controllers
         // GET: Admin
         public ActionResult Index()
         {
+            var page = db.ShSyNavigationItems.FirstOrDefault(x => x.Controller == "Admin" && x.Action == "Index");
+            var model = new Models.Navigation.NavigationModel();
+            var isActive = false;
+            if (page != null)
+            {
+                isActive = model.PageAvailable(page.RecId);
+            }
+
+            if (!isActive)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             return View();
         }
 
