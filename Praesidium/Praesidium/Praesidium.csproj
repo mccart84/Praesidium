@@ -1165,7 +1165,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>1231</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:1231/</IISUrl>
+          <IISUrl>http://localhost:1500/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

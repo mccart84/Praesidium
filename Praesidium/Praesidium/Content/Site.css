@@ -377,7 +377,18 @@ box-shadow:2px 2px 4px rgba(0,0,0,0.8);
 
 
 /* Nav item list */
+.navbar-nav {
+    height: 78px;
+}
 
+.navbar-nav > li {
+    height: 78px;
+}
+
+.navbar-nav > li > a {
+    height: 78px;
+    padding-top: 28px;
+}
 
 .navbar-nav > li > a :active{ 
  background-color: rgba(0,60,128,0.82) !important;
@@ -489,3 +500,8 @@ ul.share-buttons .sr-only {
 ul.share-buttons img{
   width: 32px;
 }
+
+.container {
+    min-height: 78px;
+}
+
