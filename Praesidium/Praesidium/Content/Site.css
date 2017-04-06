@@ -366,8 +366,14 @@ box-shadow:2px 2px 4px rgba(0,0,0,0.8);
 /* Drop down nav items */
 
 .dropdown {
-	background-color: #3c8dbc;
-	position:relative;
+    background-color: #3c8dbc;
+    position: relative;
+
+}
+
+.dropdown_btn {
+    background-color: #3c8dbc !important;
+
 }
 
 
@@ -377,6 +383,7 @@ box-shadow:2px 2px 4px rgba(0,0,0,0.8);
 .navbar-nav > li > a {
     height: 78px;
     padding-top: 28px;
+ 
 }
 
 .navbar-nav > li > a :active{ 
@@ -406,10 +413,14 @@ box-shadow:2px 2px 4px rgba(0,0,0,0.8);
 		margin-left:-20px;
 	}
 
-	.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
-		border-color: #101010;
-		/*padding-top: 15px;*/
-	}
+
+.navbar-collapse {
+    border: none;
+}
+
+.navbar-toggle {
+    margin-bottom: 28px;
+}
 
 	.navbar-inverse .navbar-nav > li > a {
 		color: #fff;
