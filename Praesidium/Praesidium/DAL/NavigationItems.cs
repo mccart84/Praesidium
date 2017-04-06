@@ -55,5 +55,19 @@ namespace Praesidium.DAL
 
             return adminItems;
         }
+
+        public bool PageAvailable(int pageId)
+        {
+            var page = _context.ShSyNavigationItems.FirstOrDefault(x => x.RecId == pageId);
+            if (page != null)
+            {
+                if (page.IsActive)
+                {
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
     }
 }

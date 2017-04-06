@@ -178,6 +178,7 @@
     <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TraffickingController.cs" />
+    <Compile Include="Controllers\ValidationController.cs" />
     <Compile Include="DAL\Admin\REFERENCE.cs" />
     <Compile Include="DAL\NavigationItems.cs" />
     <Compile Include="Data Context\Admin\AdminContext.cs" />
@@ -1135,6 +1136,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Views\FileView\" />
     <Folder Include="Views\Manage\" />
+    <Folder Include="Views\Validation\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
