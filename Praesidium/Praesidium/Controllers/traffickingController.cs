@@ -12,45 +12,143 @@ namespace Praesidium.Controllers
 {
     public class TraffickingController : Controller
     {
+        private AdminEntities db = new AdminEntities();
         // GET: Trafficking
         public ActionResult Index()
         {
+            var page = db.ShSyNavigationItems.FirstOrDefault(x => x.Controller == "Trafficking" && x.Action == "Index");
+            var model = new Models.Navigation.NavigationModel();
+            var isActive = false;
+            if (page != null)
+            {
+                isActive = model.PageAvailable(page.RecId);
+            }
+
+            if (!isActive)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             return View();
+
         }
 
         public ActionResult Resources()
         {
+            var page = db.ShSyNavigationItems.FirstOrDefault(x => x.Controller == "Trafficking" && x.Action == "Resources");
+            var model = new Models.Navigation.NavigationModel();
+            var isActive = false;
+            if (page != null)
+            {
+                isActive = model.PageAvailable(page.RecId);
+            }
+
+            if (!isActive)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             return View();
         }
 
         public ActionResult Statistics()
         {
+            var page = db.ShSyNavigationItems.FirstOrDefault(x => x.Controller == "Trafficking" && x.Action == "Statistics");
+            var model = new Models.Navigation.NavigationModel();
+            var isActive = false;
+            if (page != null)
+            {
+                isActive = model.PageAvailable(page.RecId);
+            }
+
+            if (!isActive)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             return View();
         }
 
         public ActionResult Adults()
         {
-            
+            var page = db.ShSyNavigationItems.FirstOrDefault(x => x.Controller == "Trafficking" && x.Action == "Adults");
+            var model = new Models.Navigation.NavigationModel();
+            var isActive = false;
+            if (page != null)
+            {
+                isActive = model.PageAvailable(page.RecId);
+            }
+
+            if (!isActive)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             return View();
         }
 
         public ActionResult Teachers()
         {
+            var page = db.ShSyNavigationItems.FirstOrDefault(x => x.Controller == "Trafficking" && x.Action == "Teachers");
+            var model = new Models.Navigation.NavigationModel();
+            var isActive = false;
+            if (page != null)
+            {
+                isActive = model.PageAvailable(page.RecId);
+            }
+
+            if (!isActive)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             return View();
         }
 
         public ActionResult Teen()
         {
+            var page = db.ShSyNavigationItems.FirstOrDefault(x => x.Controller == "Trafficking" && x.Action == "Teen");
+            var model = new Models.Navigation.NavigationModel();
+            var isActive = false;
+            if (page != null)
+            {
+                isActive = model.PageAvailable(page.RecId);
+            }
+
+            if (!isActive)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             return View();
         }
 
         public ActionResult Youth()
         {
+            var page = db.ShSyNavigationItems.FirstOrDefault(x => x.Controller == "Trafficking" && x.Action == "Youth");
+            var model = new Models.Navigation.NavigationModel();
+            var isActive = false;
+            if (page != null)
+            {
+                isActive = model.PageAvailable(page.RecId);
+            }
+
+            if (!isActive)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             return View();
         }
 
         public ActionResult WarningSigns()
         {
+            var page = db.ShSyNavigationItems.FirstOrDefault(x => x.Controller == "Trafficking" && x.Action == "WarningSigns");
+            var model = new Models.Navigation.NavigationModel();
+            var isActive = false;
+            if (page != null)
+            {
+                isActive = model.PageAvailable(page.RecId);
+            }
+
+            if (!isActive)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             return View();
         }
 

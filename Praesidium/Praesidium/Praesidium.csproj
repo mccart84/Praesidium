@@ -178,6 +178,7 @@
     <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TraffickingController.cs" />
+    <Compile Include="Controllers\ValidationController.cs" />
     <Compile Include="DAL\Admin\REFERENCE.cs" />
     <Compile Include="DAL\NavigationItems.cs" />
     <Compile Include="Data Context\Admin\AdminContext.cs" />
@@ -297,10 +298,12 @@
     <Content Include="Content\Images\cyber_security_computer.jpg" />
     <Content Include="Content\Images\DANGER.jpg" />
     <Content Include="Content\Images\doc_icon.png" />
+    <Content Include="Content\Images\Facebook.svg" />
     <Content Include="Content\Images\fashion-person-woman-hand.jpg" />
     <Content Include="Content\Images\feet.jpg" />
     <Content Include="Content\Images\ferris-state-university_2013-09-05_13-58-58.622.jpg" />
     <Content Include="Content\Images\ferris.png" />
+    <Content Include="Content\Images\Google.svg" />
     <Content Include="Content\Images\hacked-2127635_1920.png" />
     <Content Include="Content\Images\hands-caged.jpg" />
     <Content Include="Content\Images\hands-open.jpg" />
@@ -330,6 +333,7 @@
     <Content Include="Content\Images\test3.jpg" />
     <Content Include="Content\Images\test4.jpg" />
     <Content Include="Content\Images\trafficking.png" />
+    <Content Include="Content\Images\Twitter.svg" />
     <Content Include="Content\Images\website image.png" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Data Models\Admin\AdminEntity.Context.tt">
@@ -347,6 +351,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="googleb1706c87d204c04c.html" />
+    <Content Include="robots.txt" />
     <Content Include="Scripts\AdminLTE\analyticsDisplay.js" />
     <Content Include="Scripts\AdminLTE\app.js" />
     <Content Include="Scripts\AdminLTE\app.min.js" />
@@ -1131,6 +1136,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Views\FileView\" />
     <Folder Include="Views\Manage\" />
+    <Folder Include="Views\Validation\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -1161,7 +1167,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>1231</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:1231/</IISUrl>
+          <IISUrl>http://localhost:1500/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

@@ -64,5 +64,13 @@ namespace Praesidium.Models.Navigation
                 return AdminNavItems = biz.GetAdminNavItems().ToList();
             }
         }
+
+        public bool PageAvailable(int pageId)
+        {
+            using (var biz = new DAL.NavigationItems())
+            {
+                return biz.PageAvailable(pageId);
+            }
+        }
     }
 }

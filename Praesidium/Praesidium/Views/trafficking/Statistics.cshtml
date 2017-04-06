@@ -2,22 +2,19 @@
 @{
     ViewBag.Title = "Statistics";
 }
-<!-- Jumbotron -->
 
-<img src="~/Content/Images/Stop-Human-Trafficking.jpg" style="width:100%;max-height:330px;" />
-<div class="jumbotron">
-    <h1 id="headers">Trafficking Statistics</h1>
-    <p></p>
-</div>
 
+    <img src="~/Content/Images/Stop-Human-Trafficking.jpg" style="width:100%;max-height:330px; border-radius: 22px 22px 22px 22px;" class=" img-responsive" />
+<h1 class="text-center">Human Trafficking Statistics</h1>
 <!-- Creates for all panels -->
 <div class="row">
     <!-- Left Side of Page -->
-    <div class="panel col-md-4">
+    <div class="col-md-4">
 
         <!-- Quick Facts section, created as a panel -->
-        <div class="panel-heading text-center"><h2>Quick Facts</h2></div>
+
             <div class="panel-body" id="borders">
+                <h2 id="headers_borders">Quick Facts</h2>
                 <ul>
                     <li>Fact 1</li>
                     <li>Fact 2</li>
@@ -29,8 +26,9 @@
 
         <!-- Top Ten States Section -->
         <!-- Seperate Panel to Quick Facts -->
-        <div class="panel-heading text-center"><h2>Top 10 States with Most Reported Cases</h2></div>
+  
         <div class="panel-body text-center" id="borders">
+            <h2 id="headers_borders">Top 10 States with Most Reported Cases</h2>
             <ol>
                 <li> California - 1323 cases</li>
                 <li> Texas - 670 cases</li>
@@ -48,13 +46,12 @@
 
     <!-- Center of Page-->
     <!-- Everything is on one panel -->
-    <div class="panel col-md-5">
-        <!-- Beginning header -->
-        <div class="panel-heading text-center"><h2>Whose effected the most?</h2></div>
+    <div class=" col-md-5">
 
         <!-- Panel Body -->
         <div class="panel-body" id="borders">
-
+            <h2 id="headers_borders">Who is effected the most?</h2>
+            <hr />
             <!-- Gender Progress Bar -->
                 <h3>Gender</h3>
                     <div class="progress">
