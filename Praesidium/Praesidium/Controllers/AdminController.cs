@@ -22,12 +22,36 @@ namespace Praesidium.Controllers
 
         public ActionResult Login()
         {
+            var page = db.ShSyNavigationItems.FirstOrDefault(x => x.Controller == "Admin" && x.Action == "Login");
+            var model = new Models.Navigation.NavigationModel();
+            var isActive = false;
+            if (page != null)
+            {
+                isActive = model.PageAvailable(page.RecId);
+            }
+
+            if (!isActive)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             return View();
         }
 
         // GET: Admin
         public ActionResult Index()
         {
+            var page = db.ShSyNavigationItems.FirstOrDefault(x => x.Controller == "Admin" && x.Action == "Index");
+            var model = new Models.Navigation.NavigationModel();
+            var isActive = false;
+            if (page != null)
+            {
+                isActive = model.PageAvailable(page.RecId);
+            }
+
+            if (!isActive)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             return View();
         }
 
@@ -73,6 +97,19 @@ namespace Praesidium.Controllers
 
             int pageSize = 9;
             int pageNumber = (page ?? 1);
+
+            var pageId = db.ShSyNavigationItems.FirstOrDefault(x => x.Controller == "Admin" && x.Action == "NavigationItems");
+            var model = new Models.Navigation.NavigationModel();
+            var isActive = false;
+            if (pageId != null)
+            {
+                isActive = model.PageAvailable(pageId.RecId);
+            }
+
+            if (!isActive)
+            {
+                return RedirectToAction("Index", "Home");
+            }
 
             return View(navItems.ToPagedList(pageNumber, pageSize));
         }
@@ -193,6 +230,19 @@ namespace Praesidium.Controllers
             int pageSize = 9;
             int pageNumber = (page ?? 1);
 
+            var pageId = db.ShSyNavigationItems.FirstOrDefault(x => x.Controller == "Admin" && x.Action == "Sections");
+            var model = new Models.Navigation.NavigationModel();
+            var isActive = false;
+            if (pageId != null)
+            {
+                isActive = model.PageAvailable(pageId.RecId);
+            }
+
+            if (!isActive)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             return View(sections.ToPagedList(pageNumber, pageSize));
         }
 
@@ -291,6 +341,19 @@ namespace Praesidium.Controllers
 
             int pageSize = 9;
             int pageNumber = (page ?? 1);
+
+            var pageId = db.ShSyNavigationItems.FirstOrDefault(x => x.Controller == "Admin" && x.Action == "Users");
+            var model = new Models.Navigation.NavigationModel();
+            var isActive = false;
+            if (pageId != null)
+            {
+                isActive = model.PageAvailable(pageId.RecId);
+            }
+
+            if (!isActive)
+            {
+                return RedirectToAction("Index", "Home");
+            }
 
             return View(users.ToPagedList(pageNumber, pageSize));
         }
@@ -395,6 +458,19 @@ namespace Praesidium.Controllers
             int pageSize = 9;
             int pageNumber = (page ?? 1);
 
+            var pageId = db.ShSyNavigationItems.FirstOrDefault(x => x.Controller == "Admin" && x.Action == "UserTypes");
+            var model = new Models.Navigation.NavigationModel();
+            var isActive = false;
+            if (pageId != null)
+            {
+                isActive = model.PageAvailable(pageId.RecId);
+            }
+
+            if (!isActive)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             return View(userTypes.ToPagedList(pageNumber, pageSize));
         }
 
@@ -487,6 +563,19 @@ namespace Praesidium.Controllers
         #region [Resources Admin]
         public ActionResult Resources()
         {
+            var pageId = db.ShSyNavigationItems.FirstOrDefault(x => x.Controller == "Admin" && x.Action == "Resources");
+            var model = new Models.Navigation.NavigationModel();
+            var isActive = false;
+            if (pageId != null)
+            {
+                isActive = model.PageAvailable(pageId.RecId);
+            }
+
+            if (!isActive)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             return View();
         }
 
@@ -495,6 +584,18 @@ namespace Praesidium.Controllers
         #region [Content Management Admin]
         public ActionResult ContentManagement()
         {
+            var pageId = db.ShSyNavigationItems.FirstOrDefault(x => x.Controller == "Admin" && x.Action == "ContentManagement");
+            var model = new Models.Navigation.NavigationModel();
+            var isActive = false;
+            if (pageId != null)
+            {
+                isActive = model.PageAvailable(pageId.RecId);
+            }
+
+            if (!isActive)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             return View();
         }
 
@@ -506,6 +607,18 @@ namespace Praesidium.Controllers
         #region [Site Documentation Admin]
         public ActionResult Site_Documentation()
         {
+            var pageId = db.ShSyNavigationItems.FirstOrDefault(x => x.Controller == "Admin" && x.Action == "Site_Documentation");
+            var model = new Models.Navigation.NavigationModel();
+            var isActive = false;
+            if (pageId != null)
+            {
+                isActive = model.PageAvailable(pageId.RecId);
+            }
+
+            if (!isActive)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             return View();
         }
 
@@ -514,6 +627,18 @@ namespace Praesidium.Controllers
         #region [Files Admin]
         public ActionResult Files()
         {
+            var pageId = db.ShSyNavigationItems.FirstOrDefault(x => x.Controller == "Admin" && x.Action == "Files");
+            var model = new Models.Navigation.NavigationModel();
+            var isActive = false;
+            if (pageId != null)
+            {
+                isActive = model.PageAvailable(pageId.RecId);
+            }
+
+            if (!isActive)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             var filelist = db.FileViews; //.Take(5);
             return View(filelist.ToList());
         }

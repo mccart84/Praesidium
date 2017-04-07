@@ -53,7 +53,18 @@
             <a class="iframe" href="https://docs.google.com/gview?url=@Url.Action("File", "Download", new {id = item.RecId}, Request.Url.Scheme)">View</a>
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Description).ToString().Substring(0, 25)
+            @{
+
+                if (item.Description.Length > 25)
+                {
+                    @Html.Raw(HttpUtility.HtmlDecode(item.Description.Substring(0, 25) + "&hellip;"))
+
+                }
+                else
+                {
+                    @Html.Raw(HttpUtility.HtmlDecode(item.Description))
+                }
+            }
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.UploadedBy)

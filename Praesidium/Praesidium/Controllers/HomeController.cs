@@ -9,20 +9,69 @@ namespace Praesidium.Controllers
 {
     public class HomeController : Controller
     {
+        private AdminEntities db = new AdminEntities();
         public ActionResult Index()
         {
+            var pageId = db.ShSyNavigationItems.FirstOrDefault(x => x.Controller == "Home" && x.Action == "Index");
+            var model = new Models.Navigation.NavigationModel();
+            var isActive = false;
+            if (pageId != null)
+            {
+                isActive = model.PageAvailable(pageId.RecId);
+            }
+
+            if (!isActive)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             return View();
         }
         public ActionResult CISTeam()
         {
+            var pageId = db.ShSyNavigationItems.FirstOrDefault(x => x.Controller == "Home" && x.Action == "CISTeam");
+            var model = new Models.Navigation.NavigationModel();
+            var isActive = false;
+            if (pageId != null)
+            {
+                isActive = model.PageAvailable(pageId.RecId);
+            }
+
+            if (!isActive)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             return View();
         }
         public ActionResult FileUpload()
         {
+            var pageId = db.ShSyNavigationItems.FirstOrDefault(x => x.Controller == "Home" && x.Action == "FileUpload");
+            var model = new Models.Navigation.NavigationModel();
+            var isActive = false;
+            if (pageId != null)
+            {
+                isActive = model.PageAvailable(pageId.RecId);
+            }
+
+            if (!isActive)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             return View();
         }
         public ActionResult About()
         {
+            var pageId = db.ShSyNavigationItems.FirstOrDefault(x => x.Controller == "Home" && x.Action == "About");
+            var model = new Models.Navigation.NavigationModel();
+            var isActive = false;
+            if (pageId != null)
+            {
+                isActive = model.PageAvailable(pageId.RecId);
+            }
+
+            if (!isActive)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             ViewBag.Message = "Your application description page.";
 
             return View();
@@ -30,6 +79,18 @@ namespace Praesidium.Controllers
 
         public ActionResult Contact()
         {
+            var pageId = db.ShSyNavigationItems.FirstOrDefault(x => x.Controller == "Home" && x.Action == "Contact");
+            var model = new Models.Navigation.NavigationModel();
+            var isActive = false;
+            if (pageId != null)
+            {
+                isActive = model.PageAvailable(pageId.RecId);
+            }
+
+            if (!isActive)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             ViewBag.Message = "Your contact page.";
 
             return View();
@@ -37,6 +98,18 @@ namespace Praesidium.Controllers
 
         public ActionResult DropDownPages()
         {
+            var pageId = db.ShSyNavigationItems.FirstOrDefault(x => x.Controller == "Home" && x.Action == "DropDownPages");
+            var model = new Models.Navigation.NavigationModel();
+            var isActive = false;
+            if (pageId != null)
+            {
+                isActive = model.PageAvailable(pageId.RecId);
+            }
+
+            if (!isActive)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             ViewBag.Message = "Pages By Section.";
 
             return View();
