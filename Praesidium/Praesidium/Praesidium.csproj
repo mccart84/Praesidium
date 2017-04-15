@@ -218,12 +218,16 @@
     <Compile Include="Data Models\Admin\ShUserType.cs">
       <DependentUpon>AdminEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data Models\Admin\Split_Result.cs">
+      <DependentUpon>AdminEntity.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\FileType.cs" />
     <Compile Include="Models\FileWeb.cs" />
     <Compile Include="Models\Navigation\NavigationModel.cs" />
+    <Compile Include="Models\SearchResults.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1131,6 +1135,7 @@
     <Content Include="Views\CyberSecurity\Quiz.cshtml" />
     <Content Include="Views\Shared\_FileItems.cshtml" />
     <Content Include="Views\File\Show.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
