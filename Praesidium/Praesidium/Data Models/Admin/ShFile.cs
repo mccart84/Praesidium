@@ -35,6 +35,7 @@ namespace Praesidium.Data_Models.Admin
         public string Title { get; set; }
         public Nullable<int> DownloadCount { get; set; }
         public Nullable<int> ViewCount { get; set; }
+        public string FileExtension { get; set; }
     
         public virtual ShSySection ShSySection { get; set; }
         public virtual ShUser ShUser { get; set; }

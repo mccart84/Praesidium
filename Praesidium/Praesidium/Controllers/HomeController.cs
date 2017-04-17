@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Praesidium.Data_Models.Admin;
+using System.Text.RegularExpressions;
+using Praesidium.Models;
 
 namespace Praesidium.Controllers
 {
@@ -143,6 +145,32 @@ namespace Praesidium.Controllers
             files = (List<ShFile>) files.Take(n);
 
             return PartialView("~/Views/Shared/_FileItems.cshtml",files);
+        }
+
+        public ActionResult Search(string searchTerm, int? page)
+        {
+            if (!String.IsNullOrEmpty(searchTerm))
+            {
+                //searchTerm = "trafficking";
+                page = page ?? 1;
+                searchTerm = searchTerm = Regex.Replace(searchTerm, @"[^\sa-zA-Z]", string.Empty).Trim();
+                var _service = new SearchService();
+                ;
+                var data = _service.Search(searchTerm, page);
+
+                //var model = new SearchResult();
+                //model.PageTitle = "Search";
+
+                //model.KeyWords = searchTerm;
+                //model.Results = data;
+                //model.CurrentPage = page.Value;
+                ViewBag.SearchString = searchTerm;
+                return View(data);
+            }
+            else
+            {
+                return Index();
+            }
         }
     }
 }

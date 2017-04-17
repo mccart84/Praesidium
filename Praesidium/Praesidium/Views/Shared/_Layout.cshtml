@@ -1,4 +1,12 @@
-﻿<!DOCTYPE html>
+﻿
+@{
+    if (!String.IsNullOrEmpty(ViewBag.SearchString))
+    {
+        ViewBag.SearchString = "Search...";
+    }
+}
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -75,17 +83,19 @@
                 @{
                     Html.RenderAction("NavigationItems", "Home");
                 }
-                @*<li style="width:150px;">
-                        
-                    <a data-toggle="collapse" href="#searchArea" aria-expanded="false" aria-controls="collapseExample" >
-                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                        Search
-                    </a>
-                        
-                    <div class="searchArea accordion-body collapse" id="searchArea">
-                        <input id="txtSearchlg" class="searchBar" type="text" style="width:150px;" placeholder="Keywords.." />
-                    </div>
-                </li>*@
+                <li style="width:150px; display: flex;">
+                    @using (Html.BeginForm("Search", "Home", FormMethod.Get,new {@style = "margin:auto;" }))
+                    {
+                        <div class="input-group">
+                            @Html.TextBox("searchTerm", null, new {@class = "form-control", placeholder = "Search..."})
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                            </span>
+
+                        </div>
+                    }
+                    
+                </li>
 
             </ul>
         </div>
