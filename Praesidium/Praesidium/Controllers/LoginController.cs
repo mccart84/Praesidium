@@ -3,27 +3,40 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Praesidium.Data_Models.Admin;
 using Praesidium.Models;
 
 namespace Praesidium.Controllers
 {
     public class LoginController : Controller
     {
-        // GET: Login
+        private AdminEntities db = new AdminEntities();
+
         public ActionResult Login()
         {
-            return View();
+            return View(new LoginViewModel());
         }
 
         [HttpPost]
-        public ActionResult Login(string name, string password)
+        [ValidateAntiForgeryToken]
+        public ActionResult LoginValidation(LoginViewModel login)
         {
-            if ("admin".Equals(name) && "123".Equals(password))
+            if (ModelState.IsValid)
             {
-                Session["user"] = new User() { Login = name, Name = "Tyler" };
-                return RedirectToAction("Index", "Home");
+                var account = db.ShUsers.FirstOrDefault(x => x.Username == login.Username && x.password == login.Password);
+                if (account != null)
+                {
+                    Session["User"] = account.RecId;
+                    return RedirectToAction("Index", "Admin");
+                }
             }
-            return View();
+            return RedirectToAction("Login");
+        }
+
+        public ActionResult Logout()
+        {
+            Session["User"] = null;
+            return RedirectToAction("Login");
         }
     }
 }

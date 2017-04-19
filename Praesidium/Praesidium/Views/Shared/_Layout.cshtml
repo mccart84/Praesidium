@@ -1,4 +1,12 @@
-﻿<!DOCTYPE html>
+﻿
+@{
+    if (!String.IsNullOrEmpty(ViewBag.SearchString))
+    {
+        ViewBag.SearchString = "Search...";
+    }
+}
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -13,19 +21,37 @@
     <script src="~/Scripts/analytics.js"></script>
 
     <script>
-        function getaway() {
-            window.open('http://www.cooking.com');
-            window.open('http://www.facebook.com');
-            window.open('http://www.twitter.com');
-            window.open('http://www.dancing.com');
-            window.open('http://www.ferris.edu');
+        function getaway()
+        {
+            win7 = window.open('http://www.cooking.com');         
+            win1 = window.open('http://www.cookingchanneltv.com/');
+            win2 = window.open('http://www.cookingchanneltv.com/profiles');
+            win3 = window.open('http://www.cookingchanneltv.com/videos/players/full-episodes-player');
+            win4 = window.open('http://www.weather.com');
+            win5 = window.open('https://weather.com/weather/today/l/USDC0001:1:US');
+            win6 = window.open('http://www.twitter.com');
+            
 
-            var win = window.open("http://www.weather.com", "_self");
-            win.close();
+               
+                win = window.location.replace('http://www.google.com');
+                setTimeout(closewin,1500);
+       
         }
 
+        function closewin()
+        {
+            win7.close();
+            win1.close();
+            win2.close();
+            win3.close();
+            win4.close();
+            win5.close();
+            win6.close();
+                
+                //win = window.location.replace('http://www.google.com');
+        }
     </script>
-
+   
 </head>
 <body>
     <!-- Div for trafficking hotline-->
@@ -34,48 +60,50 @@
     <div class="whitespace">
         <div class="row" style="margin-top:6px; font-size:120%;margin-left:5%;margin-right:5%;">
             <center>
-                <a href="tel:1888373788888" style="color:grey;margin-bottom:20%;"><span class="glyphicon glyphicon-phone-alt" style="color:dodgerblue;"></span>  National Human Trafficking Hotline <strong style="color:dodgerblue">1(888)373-7888</strong></a>
+                <a href="tel:1888373788888" style="color: grey; margin-bottom: 20%;"><span class="glyphicon glyphicon-phone-alt" style="color: dodgerblue;"></span>  National Human Trafficking Hotline <strong style="color: dodgerblue">1(888)373-7888</strong></a>
+                Or Text "Help" to <strong style="color: dodgerblue"><a href="sms:233733">233733</a></strong>
             </center>
         </div>
 
     </div>
 
-    <div class="navbar navbar-inverse navbar-fixed-top" style="margin-top:20px;">
+<div class="navbar navbar-inverse navbar-fixed-top" style="margin-top:20px;">
 
-        <div class="container">
-            <div class="navbar-header" style="margin-top:5px;">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink(" ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    <div class="container">
+        <div class="navbar-header" style="margin-top:5px;">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @Html.ActionLink(" ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
 
-                <a href='@Url.Action("Index", "Home")'><img alt="Widget View" src="@Url.Content("~/Content/Images/TCS_Solutions.png")" style="height: 70px; padding-top: 5px;margin-left:-135px;"></a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav" style="float: right;">
-                    @{
-                        Html.RenderAction("NavigationItems", "Home");
-                    }
-                    <li style="width:150px;">
-                        
-                            <a data-toggle="collapse" href="#searchArea" aria-expanded="false" aria-controls="collapseExample">
-                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                                Search
-                            </a>
-                        
-                        <div class="searchArea accordion-body collapse" id="searchArea">
-                            <input id="txtSearchlg" class="searchBar" type="text" style="width:150px;" placeholder="Keywords.." />
+            <a href='@Url.Action("Index", "Home")'><img alt="Widget View" src="@Url.Content("~/Content/Images/TCS_Solutions.png")" style="height: 70px; padding-top: 5px;margin-left:-135px;"></a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav" style="float: right;">
+                @{
+                    Html.RenderAction("NavigationItems", "Home");
+                }
+                <li style="width:150px; display: flex;">
+                    @using (Html.BeginForm("Search", "Home", FormMethod.Get,new {@style = "margin:auto;" }))
+                    {
+                        <div class="input-group">
+                            @Html.TextBox("searchTerm", null, new {@class = "form-control", placeholder = "Search..."})
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                            </span>
+
                         </div>
-                    </li>
+                    }
+                    
+                </li>
 
-                </ul>
-
-
-            </div>
+            </ul>
         </div>
     </div>
+</div>
+
 
     <!-- Warning banner -->
     <div class="container body-content">
@@ -90,12 +118,13 @@
                 <button id="get-away" style="font-family: 'Agency FB'; color: white; z-index:1;" onclick="javascript:getaway();" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-warning-sign"></span><br /> Emergency Exit </button>
 
                 <div class="row">
-                    <div class="col-md-1 col-sm-1 col-lg-1"></div>
-                    <div class="col-md-5 item" style="color: white; text-align: center;">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4 item" style="color: white; text-align: center; margin: auto;">
                         <h3>TCS Solutions</h3>
                         <p>We are a devoted group of developers looking to make the world a safer and more informed place for adults and children alike.</p>
                     </div>
-                    <div class="col-md-2 item" style="color: white; text-align: center;">
+                    <div class="col-md-4"></div>
+                    @*<div class="col-md-2 item" style="color: white; text-align: center;">
                         <h3>Services</h3>
                         <ul style="list-style-type: none; padding-right: 35px;">
                             <li><a href="http://praesidium-beta.azurewebsites.net/Trafficking">Trafficking</a></li>
@@ -108,7 +137,7 @@
                             <li><a href="http://praesidium-beta.azurewebsites.net/Home/About">About</a></li>
 
                         </ul>
-                    </div>
+                    </div>*@
                     <br />
 
                 </div>

@@ -177,7 +177,9 @@
     <Compile Include="Controllers\DownloadController.cs" />
     <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\TraffickingController.cs" />
+    <Compile Include="Controllers\ValidationController.cs" />
     <Compile Include="DAL\Admin\REFERENCE.cs" />
     <Compile Include="DAL\NavigationItems.cs" />
     <Compile Include="Data Context\Admin\AdminContext.cs" />
@@ -217,12 +219,17 @@
     <Compile Include="Data Models\Admin\ShUserType.cs">
       <DependentUpon>AdminEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data Models\Admin\Split_Result.cs">
+      <DependentUpon>AdminEntity.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\FileType.cs" />
     <Compile Include="Models\FileWeb.cs" />
+    <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\Navigation\NavigationModel.cs" />
+    <Compile Include="Models\SearchResults.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -310,6 +317,7 @@
     <Content Include="Content\Images\Human Traffickking - WC.png" />
     <Content Include="Content\Images\img04.jpg" />
     <Content Include="Content\Images\Life is about finding people who are your kind of crazy! %285%29.png" />
+    <Content Include="Content\Images\Loginbackground.jpg" />
     <Content Include="Content\Images\pdf_icon.png" />
     <Content Include="Content\Images\people-train-public-transportation-hurry.jpg" />
     <Content Include="Content\Images\pexels-photo-106567.jpeg" />
@@ -1131,11 +1139,17 @@
     <Content Include="Views\CyberSecurity\Quiz.cshtml" />
     <Content Include="Views\Shared\_FileItems.cshtml" />
     <Content Include="Views\File\Show.cshtml" />
+    <Content Include="Views\trafficking\WarningSigns.cshtml" />
+    <Content Include="Views\Shared\_Login.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Login\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\FileView\" />
     <Folder Include="Views\Manage\" />
+    <Folder Include="Views\Validation\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -1166,7 +1180,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>1231</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:1231/</IISUrl>
+          <IISUrl>http://localhost:1500/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

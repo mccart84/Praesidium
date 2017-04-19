@@ -10,18 +10,19 @@
             <PropertyRef Name="RecId" />
           </Key>
           <Property Name="RecId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="FileName" Type="varchar(max)" />
+          <Property Name="FileName" Type="varchar(max)" Nullable="false" />
           <Property Name="FkShSySection" Type="int" />
           <Property Name="Description" Type="varchar(max)" />
           <Property Name="UploadedBy" Type="int" />
           <Property Name="ModifiedBy" Type="int" />
           <Property Name="DateUploaded" Type="date" />
           <Property Name="DateModified" Type="date" />
-          <Property Name="FileStore" Type="varbinary(max)" />
-          <Property Name="ContentType" Type="varchar(max)" />
-          <Property Name="Title" Type="varchar" MaxLength="50" />
+          <Property Name="FileStore" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ContentType" Type="varchar(max)" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="DownloadCount" Type="int" />
           <Property Name="ViewCount" Type="int" />
+          <Property Name="FileExtension" Type="nvarchar" MaxLength="8" />
         </EntityType>
         <EntityType Name="ShFileKeyword">
           <Key>
@@ -139,6 +140,23 @@ warning 6002: The table/view 'Praesidium.dbo.FileView' does not have a primary k
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="Search" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SearchTerm" Type="varchar" Mode="In" />
+          <Parameter Name="CurrentPage" Type="int" Mode="In" />
+          <Parameter Name="PageSize" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Split" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="string" Type="varchar" Mode="In" />
+          <Parameter Name="delimiter" Type="char" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="nameIndex" Type="int" Nullable="false" />
+                <Property Name="items" Type="varchar" MaxLength="8000" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
         <EntityContainer Name="AdminModelStoreContainer">
           <EntitySet Name="ShFile" EntityType="Self.ShFile" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ShFileKeyword" EntityType="Self.ShFileKeyword" Schema="dbo" store:Type="Tables" />
@@ -182,8 +200,8 @@ warning 6002: The table/view 'Praesidium.dbo.FileView' does not have a primary k
             <PropertyRef Name="RecId" />
           </Key>
           <Property Name="RecId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="FileStore" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FileStore" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
           <Property Name="FkShSySection" Type="Int32" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="UploadedBy" Type="Int32" />
@@ -194,10 +212,11 @@ warning 6002: The table/view 'Praesidium.dbo.FileView' does not have a primary k
           <NavigationProperty Name="ShUser" Relationship="Self.FK__ShFile__Modified__52593CB8" FromRole="ShFile" ToRole="ShUser" />
           <NavigationProperty Name="ShUser1" Relationship="Self.FK__ShFile__Uploaded__5165187F" FromRole="ShFile" ToRole="ShUser" />
           <NavigationProperty Name="ShFileKeywords" Relationship="Self.FK__ShFileKey__FkShF__5535A963" FromRole="ShFile" ToRole="ShFileKeyword" />
-          <Property Name="ContentType" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ContentType" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="DownloadCount" Type="Int32" />
           <Property Name="ViewCount" Type="Int32" />
+          <Property Name="FileExtension" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="ShFileKeyword">
           <Key>
@@ -374,6 +393,15 @@ warning 6002: The table/view 'Praesidium.dbo.FileView' does not have a primary k
             <End Role="ShUser" EntitySet="ShUsers" />
           </AssociationSet>
           <EntitySet Name="FileViews" EntityType="AdminModel.FileView" />
+          <FunctionImport Name="Search">
+            <Parameter Name="SearchTerm" Mode="In" Type="String" />
+            <Parameter Name="CurrentPage" Mode="In" Type="Int32" />
+            <Parameter Name="PageSize" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Split" IsComposable="true" ReturnType="Collection(AdminModel.Split_Result)">
+            <Parameter Name="string" Mode="In" Type="String" />
+            <Parameter Name="delimiter" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="FileView">
           <Key>
@@ -390,6 +418,10 @@ warning 6002: The table/view 'Praesidium.dbo.FileView' does not have a primary k
           <Property Name="DownloadCount" Type="Int32" />
           <Property Name="ViewCount" Type="Int32" />
         </EntityType>
+        <ComplexType Name="Split_Result">
+          <Property Type="Int32" Name="nameIndex" Nullable="false" />
+          <Property Type="String" Name="items" Nullable="true" MaxLength="8000" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -399,6 +431,7 @@ warning 6002: The table/view 'Praesidium.dbo.FileView' does not have a primary k
           <EntitySetMapping Name="ShFiles">
             <EntityTypeMapping TypeName="AdminModel.ShFile">
               <MappingFragment StoreEntitySet="ShFile">
+                <ScalarProperty Name="FileExtension" ColumnName="FileExtension" />
                 <ScalarProperty Name="ViewCount" ColumnName="ViewCount" />
                 <ScalarProperty Name="DownloadCount" ColumnName="DownloadCount" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -499,6 +532,15 @@ warning 6002: The table/view 'Praesidium.dbo.FileView' does not have a primary k
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Search" FunctionName="AdminModel.Store.Search" />
+          <FunctionImportMapping FunctionImportName="Split" FunctionName="AdminModel.Store.Split">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AdminModel.Split_Result">
+                <ScalarProperty Name="nameIndex" ColumnName="nameIndex" />
+                <ScalarProperty Name="items" ColumnName="items" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
