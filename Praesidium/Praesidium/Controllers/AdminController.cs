@@ -896,6 +896,7 @@ namespace Praesidium.Controllers
                             model.FileStore = reader.ReadBytes(upload.ContentLength);
                         }
                         model.ContentType = upload.ContentType;
+                        model.UploadedBy = Convert.ToInt32(Session["User"]);
                         model.DateUploaded = DateTime.Now;
 
                         db.ShFiles.Add(model);

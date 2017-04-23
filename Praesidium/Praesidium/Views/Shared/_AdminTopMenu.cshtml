@@ -1,7 +1,10 @@
-﻿@{
+﻿@using System.Runtime.Remoting.Messaging
+@using System.Web.UI.WebControls
+@using Praesidium.DAL;
+@{
     ViewBag.Layout = null;
+    var LoggedInAs = Users.GetUserNameById(Convert.ToInt32(Session["User"]));
 }
-
 <header class="main-header">
     <!-- Logo -->
     @Html.ActionLink("T.C.S. Solutions", "Index", "Home", new { area = "" }, new { @class = "logo", @style = "font-weight: Bold;" })
@@ -13,9 +16,22 @@
         </a>
         <!-- Navbar Right Menu -->
         <div class="navbar-custom-menu">
-            <ul class="nav navbar-nav">
-                @Html.ActionLink("Logout", "Logout", "Login", null, new { @class = "btn btn-danger" })
-            </ul>
+            <div class="nav navbar-nav">
+
+                <div style="display: table; height: 50px;">
+
+                    <div class="pull-right" style="display:table-cell; vertical-align: middle;">
+                        @Html.ActionLink("Logout", "Logout", "Login", null, new { @class = "btn btn-sm btn-danger" })
+                    </div>
+                    <div class="pull-right" style="display:table-cell; vertical-align: middle;">
+                        <p style="padding-right: 5px;">Welcome back, @LoggedInAs</p>
+                    </div>
+                </div>
+
+            </div>
         </div>
+
+
+
     </nav>
 </header>
