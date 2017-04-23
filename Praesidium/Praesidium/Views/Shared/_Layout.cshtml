@@ -21,25 +21,23 @@
     <script src="~/Scripts/analytics.js"></script>
 
     <script>
-        function getaway()
-        {
-            win7 = window.open('http://www.cooking.com');         
+        function getaway() {
+            win7 = window.open('http://www.cooking.com');
             win1 = window.open('http://www.cookingchanneltv.com/');
             win2 = window.open('http://www.cookingchanneltv.com/profiles');
             win3 = window.open('http://www.cookingchanneltv.com/videos/players/full-episodes-player');
             win4 = window.open('http://www.weather.com');
             win5 = window.open('https://weather.com/weather/today/l/USDC0001:1:US');
             win6 = window.open('http://www.twitter.com');
-            
 
-               
-                win = window.location.replace('http://www.google.com');
-                setTimeout(closewin,1500);
-       
+
+
+            win = window.location.replace('http://www.google.com');
+            setTimeout(closewin, 1500);
+
         }
 
-        function closewin()
-        {
+        function closewin() {
             win7.close();
             win1.close();
             win2.close();
@@ -47,11 +45,11 @@
             win4.close();
             win5.close();
             win6.close();
-                
-                //win = window.location.replace('http://www.google.com');
+
+            //win = window.location.replace('http://www.google.com');
         }
     </script>
-   
+
 </head>
 <body>
     <!-- Div for trafficking hotline-->
@@ -67,42 +65,44 @@
 
     </div>
 
-<div class="navbar navbar-inverse navbar-fixed-top" style="margin-top:20px;">
+    <div class="navbar navbar-inverse navbar-fixed-top" style="margin-top:20px;">
 
-    <div class="container">
-        <div class="navbar-header" style="margin-top:5px;">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            @Html.ActionLink(" ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        <div class="container">
+            <div class="navbar-header" style="margin-top:5px;">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink(" ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
 
-            <a href='@Url.Action("Index", "Home")'><img alt="Widget View" src="@Url.Content("~/Content/Images/TCS_Solutions.png")" style="height: 70px; padding-top: 5px;margin-left:-135px;"></a>
-        </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav" style="float: right;">
-                @{
-                    Html.RenderAction("NavigationItems", "Home");
-                }
-                <li style="width:150px; display: flex;">
-                    @using (Html.BeginForm("Search", "Home", FormMethod.Get,new {@style = "margin:auto;" }))
-                    {
-                        <div class="input-group">
-                            @Html.TextBox("searchTerm", null, new {@class = "form-control", placeholder = "Search..."})
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-                            </span>
-
-                        </div>
+                <a href='@Url.Action("Index", "Home")'><img alt="Widget View" src="@Url.Content("~/Content/Images/TCS_Solutions.png")" style="height: 70px; padding-top: 5px;margin-left:-135px;"></a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav" style="float: right;">
+                    @{
+                        Html.RenderAction("NavigationItems", "Home");
                     }
-                    
-                </li>
+                    <li style="display: table;width:150px;height: 78px; ">
+                        <div style="display: table-cell;vertical-align: middle; ">
+                            @using (Html.BeginForm("Search", "Home", FormMethod.Get, new { @style = "" }))
+                            {
+                                <div class="input-group">
+                                    @Html.TextBox("searchTerm", null, new { @class = "form-control", placeholder = "Search..." })
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                                    </span>
 
-            </ul>
+                                </div>
+                            }
+                        </div>
+
+                    </li>
+
+                </ul>
+            </div>
         </div>
     </div>
-</div>
 
 
     <!-- Warning banner -->
@@ -125,19 +125,19 @@
                     </div>
                     <div class="col-md-4"></div>
                     @*<div class="col-md-2 item" style="color: white; text-align: center;">
-                        <h3>Services</h3>
-                        <ul style="list-style-type: none; padding-right: 35px;">
-                            <li><a href="http://praesidium-beta.azurewebsites.net/Trafficking">Trafficking</a></li>
-                            <li><a href="http://praesidium-beta.azurewebsites.net/CyberSecurity">Cyber Security</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-2 item" style="color: white; text-align: center;">
-                        <h3>About</h3>
-                        <ul style="list-style-type: none; padding-right: 35px">
-                            <li><a href="http://praesidium-beta.azurewebsites.net/Home/About">About</a></li>
+                            <h3>Services</h3>
+                            <ul style="list-style-type: none; padding-right: 35px;">
+                                <li><a href="http://praesidium-beta.azurewebsites.net/Trafficking">Trafficking</a></li>
+                                <li><a href="http://praesidium-beta.azurewebsites.net/CyberSecurity">Cyber Security</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-2 item" style="color: white; text-align: center;">
+                            <h3>About</h3>
+                            <ul style="list-style-type: none; padding-right: 35px">
+                                <li><a href="http://praesidium-beta.azurewebsites.net/Home/About">About</a></li>
 
-                        </ul>
-                    </div>*@
+                            </ul>
+                        </div>*@
                     <br />
 
                 </div>
