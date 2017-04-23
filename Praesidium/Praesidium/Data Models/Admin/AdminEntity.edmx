@@ -52,7 +52,7 @@
           </Key>
           <Property Name="RecId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar(max)" Nullable="false" />
-          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="ShUser">
           <Key>
@@ -64,14 +64,9 @@
           <Property Name="Username" Type="varchar(max)" />
           <Property Name="email" Type="varchar(max)" />
           <Property Name="FkShUserType" Type="int" />
-          <Property Name="UserCreatedBy" Type="int" />
-          <Property Name="UserUpdatedBy" Type="int" />
-          <Property Name="UserDeletedBy" Type="int" />
-          <Property Name="DateCreated" Type="int" />
-          <Property Name="DateUpdated" Type="int" />
-          <Property Name="DateDeleted" Type="int" />
           <Property Name="IsDeleted" Type="bit" />
           <Property Name="password" Type="varchar(max)" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="ShUserType">
           <Key>
@@ -79,13 +74,7 @@
           </Key>
           <Property Name="RecId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Type" Type="varchar(max)" />
-          <Property Name="UserCreatedBy" Type="int" />
-          <Property Name="UserUpdatedBy" Type="int" />
-          <Property Name="UserDeletedBy" Type="int" />
-          <Property Name="DateCreated" Type="int" />
-          <Property Name="DateUpdated" Type="int" />
-          <Property Name="DateDeleted" Type="int" />
-          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Praesidium.dbo.FileView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -248,7 +237,7 @@ warning 6002: The table/view 'Praesidium.dbo.FileView' does not have a primary k
           </Key>
           <Property Name="RecId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="ShFiles" Relationship="Self.FK__ShFile__FkShSySe__5070F446" FromRole="ShSySection" ToRole="ShFile" />
           <NavigationProperty Name="ShSyNavigationItems" Relationship="Self.FK_ShSyNavigationItem_ShSySection" FromRole="ShSySection" ToRole="ShSyNavigationItem" />
         </EntityType>
@@ -262,17 +251,12 @@ warning 6002: The table/view 'Praesidium.dbo.FileView' does not have a primary k
           <Property Name="Username" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="FkShUserType" Type="Int32" />
-          <Property Name="UserCreatedBy" Type="Int32" />
-          <Property Name="UserUpdatedBy" Type="Int32" />
-          <Property Name="UserDeletedBy" Type="Int32" />
-          <Property Name="DateCreated" Type="Int32" />
-          <Property Name="DateUpdated" Type="Int32" />
-          <Property Name="DateDeleted" Type="Int32" />
           <Property Name="IsDeleted" Type="Boolean" />
           <NavigationProperty Name="ShFiles" Relationship="Self.FK__ShFile__Modified__52593CB8" FromRole="ShUser" ToRole="ShFile" />
           <NavigationProperty Name="ShFiles1" Relationship="Self.FK__ShFile__Uploaded__5165187F" FromRole="ShUser" ToRole="ShFile" />
           <NavigationProperty Name="ShUserType" Relationship="Self.FK_ShUser_ShUserType" FromRole="ShUser" ToRole="ShUserType" />
           <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="ShUserType">
           <Key>
@@ -280,14 +264,8 @@ warning 6002: The table/view 'Praesidium.dbo.FileView' does not have a primary k
           </Key>
           <Property Name="RecId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="UserCreatedBy" Type="Int32" />
-          <Property Name="UserUpdatedBy" Type="Int32" />
-          <Property Name="UserDeletedBy" Type="Int32" />
-          <Property Name="DateCreated" Type="Int32" />
-          <Property Name="DateUpdated" Type="Int32" />
-          <Property Name="DateDeleted" Type="Int32" />
-          <Property Name="IsDeleted" Type="Boolean" />
           <NavigationProperty Name="ShUsers" Relationship="Self.FK_ShUser_ShUserType" FromRole="ShUserType" ToRole="ShUser" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
         </EntityType>
         <Association Name="FK__ShFile__FkShSySe__5070F446">
           <End Role="ShSySection" Type="Self.ShSySection" Multiplicity="0..1" />
@@ -484,6 +462,7 @@ warning 6002: The table/view 'Praesidium.dbo.FileView' does not have a primary k
           <EntitySetMapping Name="ShUsers">
             <EntityTypeMapping TypeName="AdminModel.ShUser">
               <MappingFragment StoreEntitySet="ShUser">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="password" ColumnName="password" />
                 <ScalarProperty Name="RecId" ColumnName="RecId" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
@@ -491,12 +470,6 @@ warning 6002: The table/view 'Praesidium.dbo.FileView' does not have a primary k
                 <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="FkShUserType" ColumnName="FkShUserType" />
-                <ScalarProperty Name="UserCreatedBy" ColumnName="UserCreatedBy" />
-                <ScalarProperty Name="UserUpdatedBy" ColumnName="UserUpdatedBy" />
-                <ScalarProperty Name="UserDeletedBy" ColumnName="UserDeletedBy" />
-                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
-                <ScalarProperty Name="DateDeleted" ColumnName="DateDeleted" />
                 <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -504,16 +477,10 @@ warning 6002: The table/view 'Praesidium.dbo.FileView' does not have a primary k
           <EntitySetMapping Name="ShUserTypes">
             <EntityTypeMapping TypeName="AdminModel.ShUserType">
               <MappingFragment StoreEntitySet="ShUserType">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="RecId" ColumnName="RecId" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="UserCreatedBy" ColumnName="UserCreatedBy" />
-                <ScalarProperty Name="UserUpdatedBy" ColumnName="UserUpdatedBy" />
-                <ScalarProperty Name="UserDeletedBy" ColumnName="UserDeletedBy" />
-                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
-                <ScalarProperty Name="DateDeleted" ColumnName="DateDeleted" />
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-              </MappingFragment>
+                </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="FileViews">

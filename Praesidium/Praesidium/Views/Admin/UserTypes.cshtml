@@ -21,9 +21,9 @@
             <th>
                 Type
             </th>
-            <th>
+            @*<th>
                 Deleted
-            </th>
+            </th>*@
             <th></th>
         </tr>
 
@@ -33,9 +33,9 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Type)
                 </td>
-                <td>
+                @*<td>
                     @Html.DisplayFor(modelItem => item.IsDeleted)
-                </td>
+                </td>*@
                 <td>
                     @Html.ActionLink(" ", "UserTypesEdit", new { id = item.RecId }, new { @class = "btn btn-info glyphicon glyphicon-edit", @title = "Edit User Type" })
                     @Html.ActionLink(" ", "UserTypesDetails", new { id = item.RecId }, new { @class = "btn btn-info glyphicon glyphicon-eye-open", @title = "View Details" })
