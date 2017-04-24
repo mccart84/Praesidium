@@ -779,7 +779,7 @@ namespace Praesidium.Controllers
         #endregion
 
         #region [Files Admin]
-        public ActionResult Files()
+        public ActionResult Files(string sortOrder, int? page)
         {
             if (Session["User"] == null)
             {
@@ -788,6 +788,9 @@ namespace Praesidium.Controllers
             var pageId = db.ShSyNavigationItems.FirstOrDefault(x => x.Controller == "Admin" && x.Action == "Files");
             var model = new Models.Navigation.NavigationModel();
             var isActive = false;
+            page = page == null ? 1 : page;
+            int pageSize = 9;
+            int pageNumber = (page ?? 1);
             if (pageId != null)
             {
                 isActive = model.PageAvailable(pageId.RecId);
@@ -797,8 +800,8 @@ namespace Praesidium.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
-            var filelist = db.FileViews; //.Take(5);
-            return View(filelist.ToList());
+            var filelist = db.FileViews.OrderBy(m => m.DateUploaded); //.Take(5);
+            return View(filelist.ToPagedList(pageNumber, pageSize));
         }
 
         public ActionResult FilesCreate()
@@ -893,6 +896,7 @@ namespace Praesidium.Controllers
                             model.FileStore = reader.ReadBytes(upload.ContentLength);
                         }
                         model.ContentType = upload.ContentType;
+                        model.UploadedBy = Convert.ToInt32(Session["User"]);
                         model.DateUploaded = DateTime.Now;
 
                         db.ShFiles.Add(model);

@@ -27,14 +27,9 @@ namespace Praesidium.Data_Models.Admin
         public string Username { get; set; }
         public string email { get; set; }
         public Nullable<int> FkShUserType { get; set; }
-        public Nullable<int> UserCreatedBy { get; set; }
-        public Nullable<int> UserUpdatedBy { get; set; }
-        public Nullable<int> UserDeletedBy { get; set; }
-        public Nullable<int> DateCreated { get; set; }
-        public Nullable<int> DateUpdated { get; set; }
-        public Nullable<int> DateDeleted { get; set; }
         public Nullable<bool> IsDeleted { get; set; }
         public string password { get; set; }
+        public bool IsActive { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ShFile> ShFiles { get; set; }

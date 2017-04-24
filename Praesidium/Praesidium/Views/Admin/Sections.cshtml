@@ -3,18 +3,22 @@
 <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
 <div class="panel panel-heading">
-    <h2>Admin Sections</h2>
+    <h2>Sections Admin Page</h2>
 </div>
 
 <div class="panel">
     <div style="">
-        <br />
-        <h4 class="col-md-11"><b>List of Navigation Items</b></h4>
-        <p style="float: right;" class="col-md-1">
-            @Html.ActionLink("Create New", "SectionsCreate", null, new { @class = "btn btn-info" })
-        </p>
+        <div class="col-md-10">
+            <h4><b>List of Sections</b></h4>
+        </div>
+        <div class="col-md-2">
+            <p>
+                @Html.ActionLink("Create New", "SectionsCreate", null, new { @class = "btn btn-info pull-right" })
+            </p>
+        </div>
         <br />
     </div>
+
     <table class="table panel table-striped">
         <tr>
             <th>
@@ -23,7 +27,9 @@
             <th>
                 Active
             </th>
-            <th></th>
+            <th style="width: 165px;">
+                Actions
+            </th>
         </tr>
 
         @foreach (var item in Model)
