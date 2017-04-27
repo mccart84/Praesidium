@@ -32,7 +32,7 @@ namespace Praesidium.Controllers
         {
             var pageId = db.ShSyNavigationItems.FirstOrDefault(x => x.Controller == "Home" && x.Action == "CISTeam");
             var model = new Models.Navigation.NavigationModel();
-            var isActive = false;
+            var isActive = true;
             if (pageId != null)
             {
                 isActive = model.PageAvailable(pageId.RecId);
