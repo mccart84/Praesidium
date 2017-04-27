@@ -283,6 +283,8 @@
     <Content Include="Content\Images\aboutus %282%29.jpg" />
     <Content Include="Content\Images\about_us.png" />
     <Content Include="Content\Images\adults.png" />
+    <Content Include="Content\Images\Alyssa.jpg" />
+    <Content Include="Content\Images\Blake.png" />
     <Content Include="Content\Images\Caleb.png" />
     <Content Include="Content\Images\caution.jpg" />
     <Content Include="Content\Images\cs_cloud.png" />
@@ -304,6 +306,7 @@
     <Content Include="Content\Images\cyber_security_1.png" />
     <Content Include="Content\Images\cyber_security_computer.jpg" />
     <Content Include="Content\Images\DANGER.jpg" />
+    <Content Include="Content\Images\Derek.png" />
     <Content Include="Content\Images\doc_icon.png" />
     <Content Include="Content\Images\Facebook.svg" />
     <Content Include="Content\Images\fashion-person-woman-hand.jpg" />
