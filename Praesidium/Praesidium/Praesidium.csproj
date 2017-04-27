@@ -181,6 +181,7 @@
     <Compile Include="Controllers\TraffickingController.cs" />
     <Compile Include="Controllers\ValidationController.cs" />
     <Compile Include="DAL\Admin\REFERENCE.cs" />
+    <Compile Include="DAL\Files.cs" />
     <Compile Include="DAL\NavigationItems.cs" />
     <Compile Include="DAL\Users.cs" />
     <Compile Include="Data Context\Admin\AdminContext.cs" />

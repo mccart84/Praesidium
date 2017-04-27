@@ -10,7 +10,7 @@ namespace Praesidium.DAL
     {
         private static AdminEntities db = new AdminEntities();
 
-        public List<ShUser> GetUsers()
+        public static List<ShUser> GetUsers()
         {
             var userList = db.ShUsers;
             if (userList != null)
