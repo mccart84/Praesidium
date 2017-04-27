@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Praesidium.Data_Models.Admin;
 using System.Text.RegularExpressions;
+using Praesidium.DAL;
 using Praesidium.Models;
 
 namespace Praesidium.Controllers
@@ -26,6 +27,7 @@ namespace Praesidium.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
+            ViewBag.newFiles = Files.GetFilesByDate(4);
             return View();
         }
         public ActionResult CISTeam()

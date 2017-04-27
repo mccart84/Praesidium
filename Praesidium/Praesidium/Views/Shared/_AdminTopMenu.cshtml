@@ -16,22 +16,20 @@
         </a>
         <!-- Navbar Right Menu -->
         <div class="navbar-custom-menu">
-            <div class="nav navbar-nav">
-
-                <div style="display: table; height: 50px;">
-
-                    <div class="pull-right" style="display:table-cell; vertical-align: middle;">
-                        @Html.ActionLink("Logout", "Logout", "Login", null, new { @class = "btn btn-sm btn-danger" })
-                    </div>
-                    <div class="pull-right" style="display:table-cell; vertical-align: middle;">
-                        <p style="padding-right: 5px; color: white; font-weight: bold;">Welcome back, @LoggedInAs</p>
-                    </div>
-                </div>
-
-            </div>
+            <table class="nav navbar-nav">
+                <tr style="height: 50px;">
+                    <td style="vertical-align: middle;">
+                        <div class="pull-right" style="display: table-cell; vertical-align: middle !important;color: white; font-weight: bold; padding-right: 10px;">
+                            Welcome back, @LoggedInAs
+                        </div>
+                    </td>
+                    <td style="vertical-align: middle;">
+                        <div class="pull-right" style="display: table-cell; vertical-align: middle !important;">
+                            @Html.ActionLink("Logout", "Logout", "Login", null, new { @class = "btn btn-sm btn-danger" })
+                        </div>
+                    </td>
+                </tr>
+            </table>
         </div>
-
-
-
     </nav>
 </header>

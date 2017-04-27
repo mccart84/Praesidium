@@ -47,6 +47,7 @@ namespace Praesidium.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
+            ViewBag.files = Files.GetFilesBySection(2).OrderByDescending(x => x.ViewCount);
             return View();
         }
 
