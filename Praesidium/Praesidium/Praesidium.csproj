@@ -346,6 +346,7 @@
     <Content Include="Content\Images\test4.jpg" />
     <Content Include="Content\Images\trafficking.png" />
     <Content Include="Content\Images\Twitter.svg" />
+    <Content Include="Content\Images\Tyler.jpg" />
     <Content Include="Content\Images\website image.png" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Data Models\Admin\AdminEntity.Context.tt">
