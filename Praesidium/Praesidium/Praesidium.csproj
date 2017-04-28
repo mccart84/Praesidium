@@ -209,10 +209,16 @@
     <Compile Include="Data Models\Admin\ShFileKeyword.cs">
       <DependentUpon>AdminEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data Models\Admin\ShRlShUserTypeToShSySecurityItem.cs">
+      <DependentUpon>AdminEntity.tt</DependentUpon>
+    </Compile>
     <Compile Include="Data Models\Admin\ShSyNavigationItem.cs">
       <DependentUpon>AdminEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Data Models\Admin\ShSySection.cs">
+      <DependentUpon>AdminEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data Models\Admin\ShSySecurityItem.cs">
       <DependentUpon>AdminEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Data Models\Admin\ShUser.cs">

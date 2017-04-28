@@ -12,26 +12,21 @@ namespace Praesidium.Data_Models.Admin
     using System;
     using System.Collections.Generic;
     
-    public partial class ShSyNavigationItem
+    public partial class ShSySecurityItem
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ShSyNavigationItem()
+        public ShSySecurityItem()
         {
-            this.ShSySecurityItems = new HashSet<ShSySecurityItem>();
+            this.ShRlShUserTypeToShSySecurityItems = new HashSet<ShRlShUserTypeToShSySecurityItem>();
         }
     
         public int RecId { get; set; }
-        public string Controller { get; set; }
-        public string Action { get; set; }
-        public string DisplayText { get; set; }
-        public bool IsActive { get; set; }
-        public int FkShSySection { get; set; }
-        public int SortOrder { get; set; }
-        public Nullable<int> ParentId { get; set; }
-        public string Description { get; set; }
+        public int FkShSyNavigationItem { get; set; }
+        public int Access { get; set; }
+        public string SecurityItem { get; set; }
     
-        public virtual ShSySection ShSySection { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ShSySecurityItem> ShSySecurityItems { get; set; }
+        public virtual ICollection<ShRlShUserTypeToShSySecurityItem> ShRlShUserTypeToShSySecurityItems { get; set; }
+        public virtual ShSyNavigationItem ShSyNavigationItem { get; set; }
     }
 }

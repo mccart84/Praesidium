@@ -18,6 +18,11 @@
         <AssociationConnector Association="AdminModel.FK__ShFile__Uploaded__5165187F" />
         <AssociationConnector Association="AdminModel.FK__ShFileKey__FkShF__5535A963" />
         <EntityTypeShape EntityType="AdminModel.FileView" Width="1.5" PointX="5.375" PointY="6.75" />
+        <EntityTypeShape EntityType="AdminModel.ShRlShUserTypeToShSySecurityItem" Width="1.5" PointX="7.5" PointY="12.375" />
+        <EntityTypeShape EntityType="AdminModel.ShSySecurityItem" Width="1.5" PointX="5.25" PointY="11.25" />
+        <AssociationConnector Association="AdminModel.FK_ShRlShUserTypeToShSySecurityItem_ShSySecurityItems" />
+        <AssociationConnector Association="AdminModel.FK_ShRlShUserTypeToShSySecurityItem_ShUserType" />
+        <AssociationConnector Association="AdminModel.FK_ShSySecurityItems_ShSyNavigationItem" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

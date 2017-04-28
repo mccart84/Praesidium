@@ -12,7 +12,7 @@
                     <li class="dropdown">
                         @*@Html.ActionLink("" + navItem.DisplayText + "<b class='caret'></b>" , navItem.Action, navItem.Controller, new Dictionary<string, object> { { "class", "dropdown-toggle" }, { "data-toggle", "dropdown" } })*@
                         <a class="dropdown_btn" data-toggle="dropdown" href="#">
-                            @navItem.DisplayText
+                            @navItem.Section
                             <span class="caret" aria-hidden="true"></span>
                         </a>
                         <ul class="dropdown-menu">
