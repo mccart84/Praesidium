@@ -285,7 +285,9 @@
     <Content Include="Content\Images\about_us.png" />
     <Content Include="Content\Images\adults.png" />
     <Content Include="Content\Images\Alyssa.jpg" />
+    <Content Include="Content\Images\back-to-school-1576789_960_720.jpg" />
     <Content Include="Content\Images\Blake.png" />
+    <Content Include="Content\Images\bulldog.png" />
     <Content Include="Content\Images\Caleb.png" />
     <Content Include="Content\Images\caution.jpg" />
     <Content Include="Content\Images\cs_cloud.png" />
@@ -330,6 +332,7 @@
     <Content Include="Content\Images\pexels-photo-266046.jpeg" />
     <Content Include="Content\Images\pexels-photo-9816.jpeg" />
     <Content Include="Content\Images\pic4.png" />
+    <Content Include="Content\Images\pizap.com14934192136714.jpg" />
     <Content Include="Content\Images\ppt_icon.png" />
     <Content Include="Content\Images\quiz.jpg" />
     <Content Include="Content\Images\red-logo.png" />
@@ -340,6 +343,7 @@
     <Content Include="Content\Images\T.S.CSolutions.jpg" />
     <Content Include="Content\Images\TCS_Solutions.png" />
     <Content Include="Content\Images\teacher.png" />
+    <Content Include="Content\Images\teachers.jpg" />
     <Content Include="Content\Images\teen.png" />
     <Content Include="Content\Images\test1.jpg" />
     <Content Include="Content\Images\test2.jpg" />
