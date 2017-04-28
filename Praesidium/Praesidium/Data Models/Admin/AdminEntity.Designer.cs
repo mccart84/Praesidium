@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\GIT\Source\Repos\Praesidium\Praesidium\Praesidium\Data Models\Admin\AdminEntity.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\Ryan\Source\Repos\Praesidium3\Praesidium\Praesidium\Data Models\Admin\AdminEntity.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

@@ -7,8 +7,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.ComponentModel.DataAnnotations;
-
 namespace Praesidium.Data_Models.Admin
 {
     using System;
@@ -21,10 +19,8 @@ namespace Praesidium.Data_Models.Admin
         public string FileName { get; set; }
         public string Description { get; set; }
         public string UploadedBy { get; set; }
-        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         public Nullable<System.DateTime> DateUploaded { get; set; }
         public string ModifiedBy { get; set; }
-        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         public Nullable<System.DateTime> DateModified { get; set; }
         public Nullable<int> DownloadCount { get; set; }
         public Nullable<int> ViewCount { get; set; }
