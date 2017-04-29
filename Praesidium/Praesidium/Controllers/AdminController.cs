@@ -276,7 +276,7 @@ namespace Praesidium.Controllers
             }
             page = page == null ? 1 : page;
 
-            var sections = db.ShSySections.OrderBy(x => x.Name);
+            var sections = db.ShSySections.Where(x => x.Name == "Trafficking" || x.Name == "Cyber Security").OrderBy(x => x.Name);
 
             int pageSize = 9;
             int pageNumber = (page ?? 1);

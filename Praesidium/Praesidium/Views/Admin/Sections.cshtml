@@ -42,7 +42,7 @@
                     @Html.DisplayFor(modelItem => item.IsActive)
                 </td>
                 <td>
-                    @*@Html.ActionLink(" ", "SectionsEdit", new { id = item.RecId }, new { @class = "btn btn-info glyphicon glyphicon-edit", @title = "Edit Section" })*@
+                    @Html.ActionLink(" ", "SectionsEdit", new { id = item.RecId }, new { @class = "btn btn-info glyphicon glyphicon-edit", @title = "Edit Section" })
                     @Html.ActionLink(" ", "SectionsDetails", new { id = item.RecId }, new { @class = "btn btn-info glyphicon glyphicon-eye-open", @title = "View Details" })
                     @*@Html.ActionLink(" ", "SectionsDelete", new { id = item.RecId }, new { @class = "btn btn-danger glyphicon glyphicon-trash", @title = "Delete Section" })*@
                 </td>
