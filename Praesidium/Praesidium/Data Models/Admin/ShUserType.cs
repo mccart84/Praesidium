@@ -18,7 +18,7 @@ namespace Praesidium.Data_Models.Admin
         public ShUserType()
         {
             this.ShUsers = new HashSet<ShUser>();
-            this.ShRlShUserTypeToShSySecurityItems = new HashSet<ShRlShUserTypeToShSySecurityItem>();
+            this.ShRfUserTypeAccesses = new HashSet<ShRfUserTypeAccess>();
         }
     
         public int RecId { get; set; }
@@ -28,6 +28,6 @@ namespace Praesidium.Data_Models.Admin
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ShUser> ShUsers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ShRlShUserTypeToShSySecurityItem> ShRlShUserTypeToShSySecurityItems { get; set; }
+        public virtual ICollection<ShRfUserTypeAccess> ShRfUserTypeAccesses { get; set; }
     }
 }

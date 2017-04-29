@@ -12,18 +12,15 @@ namespace Praesidium.Data_Models.Admin
     using System;
     using System.Collections.Generic;
     
-    public partial class ShSySecurityItem
+    public partial class ShRfUserTypeAccess
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ShSySecurityItem()
-        {
-            this.ShRfUserTypeAccesses = new HashSet<ShRfUserTypeAccess>();
-        }
-    
         public int RecId { get; set; }
-        public string SecurityItem { get; set; }
+        public int FkShUserType { get; set; }
+        public int FkShSySecurityItem { get; set; }
+        public int FkShSyPermissionLevel { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ShRfUserTypeAccess> ShRfUserTypeAccesses { get; set; }
+        public virtual ShSyPermissionLevel ShSyPermissionLevel { get; set; }
+        public virtual ShUserType ShUserType { get; set; }
+        public virtual ShSySecurityItem ShSySecurityItem { get; set; }
     }
 }

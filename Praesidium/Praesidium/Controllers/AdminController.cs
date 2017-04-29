@@ -612,6 +612,7 @@ namespace Praesidium.Controllers
             {
                 return RedirectToAction("Login", "Login");
             }
+
             return View();
         }
 
@@ -648,6 +649,8 @@ namespace Praesidium.Controllers
             {
                 return HttpNotFound();
             }
+
+            ViewBag.Access = db.ShRfUserTypeAccesses.Where(x => x.FkShUserType == id).ToList();
             return View(shUserType);
         }
 
@@ -701,56 +704,6 @@ namespace Praesidium.Controllers
         }
 
         #endregion
-
-        #region [Resources Admin]
-        public ActionResult Resources()
-        {
-            if (Session["User"] == null)
-            {
-                return RedirectToAction("Login", "Login");
-            }
-            var pageId = db.ShSyNavigationItems.FirstOrDefault(x => x.Controller == "Admin" && x.Action == "Resources");
-            var model = new Models.Navigation.NavigationModel();
-            var isActive = false;
-            if (pageId != null)
-            {
-                isActive = model.PageAvailable(pageId.RecId);
-            }
-
-            if (!isActive)
-            {
-                return RedirectToAction("Index", "Home");
-            }
-
-            return View();
-        }
-
-        #endregion
-
-        #region [Content Management Admin]
-        public ActionResult ContentManagement()
-        {
-            if (Session["User"] == null)
-            {
-                return RedirectToAction("Login", "Login");
-            }
-            var pageId = db.ShSyNavigationItems.FirstOrDefault(x => x.Controller == "Admin" && x.Action == "ContentManagement");
-            var model = new Models.Navigation.NavigationModel();
-            var isActive = false;
-            if (pageId != null)
-            {
-                isActive = model.PageAvailable(pageId.RecId);
-            }
-
-            if (!isActive)
-            {
-                return RedirectToAction("Index", "Home");
-            }
-            return View();
-        }
-
-        #endregion
-
 
         // Addition for Site Documentation
 

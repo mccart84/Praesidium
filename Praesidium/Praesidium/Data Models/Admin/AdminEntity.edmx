@@ -32,13 +32,14 @@
           <Property Name="FkShFile" Type="int" />
           <Property Name="Keyword" Type="varchar(max)" />
         </EntityType>
-        <EntityType Name="ShRlShUserTypeToShSySecurityItem">
+        <EntityType Name="ShRfUserTypeAccess">
           <Key>
             <PropertyRef Name="RecId" />
           </Key>
           <Property Name="RecId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FkShUserType" Type="int" Nullable="false" />
           <Property Name="FkShSySecurityItem" Type="int" Nullable="false" />
+          <Property Name="FkShSyPermissionLevel" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="ShSyNavigationItem">
           <Key>
@@ -54,6 +55,13 @@
           <Property Name="ParentId" Type="int" />
           <Property Name="Description" Type="varchar(max)" />
         </EntityType>
+        <EntityType Name="ShSyPermissionLevels">
+          <Key>
+            <PropertyRef Name="RecId" />
+          </Key>
+          <Property Name="RecId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PermissionLevel" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="ShSySection">
           <Key>
             <PropertyRef Name="RecId" />
@@ -67,8 +75,6 @@
             <PropertyRef Name="RecId" />
           </Key>
           <Property Name="RecId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="FkShSyNavigationItem" Type="int" Nullable="false" />
-          <Property Name="Access" Type="int" Nullable="false" />
           <Property Name="SecurityItem" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="ShUser">
@@ -122,26 +128,38 @@ warning 6002: The table/view 'Praesidium.dbo.FileView' does not have a primary k
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ShRlShUserTypeToShSySecurityItem_ShSySecurityItems">
+        <Association Name="FK_ShRfUserTypeAccess_ShSyPermissionLevels">
+          <End Role="ShSyPermissionLevels" Type="Self.ShSyPermissionLevels" Multiplicity="1" />
+          <End Role="ShRfUserTypeAccess" Type="Self.ShRfUserTypeAccess" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ShSyPermissionLevels">
+              <PropertyRef Name="RecId" />
+            </Principal>
+            <Dependent Role="ShRfUserTypeAccess">
+              <PropertyRef Name="FkShSyPermissionLevel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShRfUserTypeAccess_ShSySecurityItems">
           <End Role="ShSySecurityItems" Type="Self.ShSySecurityItems" Multiplicity="1" />
-          <End Role="ShRlShUserTypeToShSySecurityItem" Type="Self.ShRlShUserTypeToShSySecurityItem" Multiplicity="*" />
+          <End Role="ShRfUserTypeAccess" Type="Self.ShRfUserTypeAccess" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ShSySecurityItems">
               <PropertyRef Name="RecId" />
             </Principal>
-            <Dependent Role="ShRlShUserTypeToShSySecurityItem">
+            <Dependent Role="ShRfUserTypeAccess">
               <PropertyRef Name="FkShSySecurityItem" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ShRlShUserTypeToShSySecurityItem_ShUserType">
+        <Association Name="FK_ShRfUserTypeAccess_ShUserType">
           <End Role="ShUserType" Type="Self.ShUserType" Multiplicity="1" />
-          <End Role="ShRlShUserTypeToShSySecurityItem" Type="Self.ShRlShUserTypeToShSySecurityItem" Multiplicity="*" />
+          <End Role="ShRfUserTypeAccess" Type="Self.ShRfUserTypeAccess" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ShUserType">
               <PropertyRef Name="RecId" />
             </Principal>
-            <Dependent Role="ShRlShUserTypeToShSySecurityItem">
+            <Dependent Role="ShRfUserTypeAccess">
               <PropertyRef Name="FkShUserType" />
             </Dependent>
           </ReferentialConstraint>
@@ -155,18 +173,6 @@ warning 6002: The table/view 'Praesidium.dbo.FileView' does not have a primary k
             </Principal>
             <Dependent Role="ShSyNavigationItem">
               <PropertyRef Name="FkShSySection" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ShSySecurityItems_ShSyNavigationItem">
-          <End Role="ShSyNavigationItem" Type="Self.ShSyNavigationItem" Multiplicity="1" />
-          <End Role="ShSySecurityItems" Type="Self.ShSySecurityItems" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ShSyNavigationItem">
-              <PropertyRef Name="RecId" />
-            </Principal>
-            <Dependent Role="ShSySecurityItems">
-              <PropertyRef Name="FkShSyNavigationItem" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -202,8 +208,9 @@ warning 6002: The table/view 'Praesidium.dbo.FileView' does not have a primary k
         <EntityContainer Name="AdminModelStoreContainer">
           <EntitySet Name="ShFile" EntityType="Self.ShFile" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ShFileKeyword" EntityType="Self.ShFileKeyword" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ShRlShUserTypeToShSySecurityItem" EntityType="Self.ShRlShUserTypeToShSySecurityItem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ShRfUserTypeAccess" EntityType="Self.ShRfUserTypeAccess" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ShSyNavigationItem" EntityType="Self.ShSyNavigationItem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ShSyPermissionLevels" EntityType="Self.ShSyPermissionLevels" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ShSySection" EntityType="Self.ShSySection" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ShSySecurityItems" EntityType="Self.ShSySecurityItems" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ShUser" EntityType="Self.ShUser" Schema="dbo" store:Type="Tables" />
@@ -226,21 +233,21 @@ warning 6002: The table/view 'Praesidium.dbo.FileView' does not have a primary k
             <End Role="ShFile" EntitySet="ShFile" />
             <End Role="ShFileKeyword" EntitySet="ShFileKeyword" />
           </AssociationSet>
-          <AssociationSet Name="FK_ShRlShUserTypeToShSySecurityItem_ShSySecurityItems" Association="Self.FK_ShRlShUserTypeToShSySecurityItem_ShSySecurityItems">
-            <End Role="ShSySecurityItems" EntitySet="ShSySecurityItems" />
-            <End Role="ShRlShUserTypeToShSySecurityItem" EntitySet="ShRlShUserTypeToShSySecurityItem" />
+          <AssociationSet Name="FK_ShRfUserTypeAccess_ShSyPermissionLevels" Association="Self.FK_ShRfUserTypeAccess_ShSyPermissionLevels">
+            <End Role="ShSyPermissionLevels" EntitySet="ShSyPermissionLevels" />
+            <End Role="ShRfUserTypeAccess" EntitySet="ShRfUserTypeAccess" />
           </AssociationSet>
-          <AssociationSet Name="FK_ShRlShUserTypeToShSySecurityItem_ShUserType" Association="Self.FK_ShRlShUserTypeToShSySecurityItem_ShUserType">
+          <AssociationSet Name="FK_ShRfUserTypeAccess_ShSySecurityItems" Association="Self.FK_ShRfUserTypeAccess_ShSySecurityItems">
+            <End Role="ShSySecurityItems" EntitySet="ShSySecurityItems" />
+            <End Role="ShRfUserTypeAccess" EntitySet="ShRfUserTypeAccess" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShRfUserTypeAccess_ShUserType" Association="Self.FK_ShRfUserTypeAccess_ShUserType">
             <End Role="ShUserType" EntitySet="ShUserType" />
-            <End Role="ShRlShUserTypeToShSySecurityItem" EntitySet="ShRlShUserTypeToShSySecurityItem" />
+            <End Role="ShRfUserTypeAccess" EntitySet="ShRfUserTypeAccess" />
           </AssociationSet>
           <AssociationSet Name="FK_ShSyNavigationItem_ShSySection" Association="Self.FK_ShSyNavigationItem_ShSySection">
             <End Role="ShSySection" EntitySet="ShSySection" />
             <End Role="ShSyNavigationItem" EntitySet="ShSyNavigationItem" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ShSySecurityItems_ShSyNavigationItem" Association="Self.FK_ShSySecurityItems_ShSyNavigationItem">
-            <End Role="ShSyNavigationItem" EntitySet="ShSyNavigationItem" />
-            <End Role="ShSySecurityItems" EntitySet="ShSySecurityItems" />
           </AssociationSet>
           <AssociationSet Name="FK_ShUser_ShUserType" Association="Self.FK_ShUser_ShUserType">
             <End Role="ShUserType" EntitySet="ShUserType" />
@@ -297,7 +304,6 @@ warning 6002: The table/view 'Praesidium.dbo.FileView' does not have a primary k
           <Property Name="ParentId" Type="Int32" />
           <NavigationProperty Name="ShSySection" Relationship="Self.FK_ShSyNavigationItem_ShSySection" FromRole="ShSyNavigationItem" ToRole="ShSySection" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="ShSySecurityItems" Relationship="AdminModel.FK_ShSySecurityItems_ShSyNavigationItem" FromRole="ShSyNavigationItem" ToRole="ShSySecurityItem" />
         </EntityType>
         <EntityType Name="ShSySection">
           <Key>
@@ -334,7 +340,7 @@ warning 6002: The table/view 'Praesidium.dbo.FileView' does not have a primary k
           <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="ShUsers" Relationship="Self.FK_ShUser_ShUserType" FromRole="ShUserType" ToRole="ShUser" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="ShRlShUserTypeToShSySecurityItems" Relationship="AdminModel.FK_ShRlShUserTypeToShSySecurityItem_ShUserType" FromRole="ShUserType" ToRole="ShRlShUserTypeToShSySecurityItem" />
+          <NavigationProperty Name="ShRfUserTypeAccesses" Relationship="AdminModel.FK_ShRfUserTypeAccess_ShUserType" FromRole="ShUserType" ToRole="ShRfUserTypeAccess" />
         </EntityType>
         <Association Name="FK__ShFile__FkShSySe__5070F446">
           <End Role="ShSySection" Type="Self.ShSySection" Multiplicity="0..1" />
@@ -449,21 +455,22 @@ warning 6002: The table/view 'Praesidium.dbo.FileView' does not have a primary k
             <Parameter Name="string" Mode="In" Type="String" />
             <Parameter Name="delimiter" Mode="In" Type="String" />
           </FunctionImport>
-          <EntitySet Name="ShRlShUserTypeToShSySecurityItems" EntityType="AdminModel.ShRlShUserTypeToShSySecurityItem" />
-          <EntitySet Name="ShSySecurityItems" EntityType="AdminModel.ShSySecurityItem" />
-          <AssociationSet Name="FK_ShRlShUserTypeToShSySecurityItem_ShSySecurityItems" Association="AdminModel.FK_ShRlShUserTypeToShSySecurityItem_ShSySecurityItems">
-            <End Role="ShSySecurityItem" EntitySet="ShSySecurityItems" />
-            <End Role="ShRlShUserTypeToShSySecurityItem" EntitySet="ShRlShUserTypeToShSySecurityItems" />
+          <EntitySet Name="ShRfUserTypeAccesses" EntityType="AdminModel.ShRfUserTypeAccess" />
+          <EntitySet Name="ShSyPermissionLevels" EntityType="AdminModel.ShSyPermissionLevel" />
+          <AssociationSet Name="FK_ShRfUserTypeAccess_ShSyPermissionLevels" Association="AdminModel.FK_ShRfUserTypeAccess_ShSyPermissionLevels">
+            <End Role="ShSyPermissionLevel" EntitySet="ShSyPermissionLevels" />
+            <End Role="ShRfUserTypeAccess" EntitySet="ShRfUserTypeAccesses" />
           </AssociationSet>
-          <AssociationSet Name="FK_ShRlShUserTypeToShSySecurityItem_ShUserType" Association="AdminModel.FK_ShRlShUserTypeToShSySecurityItem_ShUserType">
+          <AssociationSet Name="FK_ShRfUserTypeAccess_ShUserType" Association="AdminModel.FK_ShRfUserTypeAccess_ShUserType">
             <End Role="ShUserType" EntitySet="ShUserTypes" />
-            <End Role="ShRlShUserTypeToShSySecurityItem" EntitySet="ShRlShUserTypeToShSySecurityItems" />
+            <End Role="ShRfUserTypeAccess" EntitySet="ShRfUserTypeAccesses" />
           </AssociationSet>
-          <AssociationSet Name="FK_ShSySecurityItems_ShSyNavigationItem" Association="AdminModel.FK_ShSySecurityItems_ShSyNavigationItem">
-            <End Role="ShSyNavigationItem" EntitySet="ShSyNavigationItems" />
+          <EntitySet Name="ShSySecurityItems" EntityType="AdminModel.ShSySecurityItem" />
+          <AssociationSet Name="FK_ShRfUserTypeAccess_ShSySecurityItems" Association="AdminModel.FK_ShRfUserTypeAccess_ShSySecurityItems">
             <End Role="ShSySecurityItem" EntitySet="ShSySecurityItems" />
+            <End Role="ShRfUserTypeAccess" EntitySet="ShRfUserTypeAccesses" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <EntityType Name="FileView">
           <Key>
             <PropertyRef Name="RecId" />
@@ -483,64 +490,71 @@ warning 6002: The table/view 'Praesidium.dbo.FileView' does not have a primary k
           <Property Type="Int32" Name="nameIndex" Nullable="false" />
           <Property Type="String" Name="items" Nullable="true" MaxLength="8000" />
         </ComplexType>
-        <EntityType Name="ShRlShUserTypeToShSySecurityItem">
+        <EntityType Name="ShRfUserTypeAccess">
           <Key>
             <PropertyRef Name="RecId" />
           </Key>
           <Property Name="RecId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FkShUserType" Type="Int32" Nullable="false" />
           <Property Name="FkShSySecurityItem" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="ShSySecurityItem" Relationship="AdminModel.FK_ShRlShUserTypeToShSySecurityItem_ShSySecurityItems" FromRole="ShRlShUserTypeToShSySecurityItem" ToRole="ShSySecurityItem" />
-          <NavigationProperty Name="ShUserType" Relationship="AdminModel.FK_ShRlShUserTypeToShSySecurityItem_ShUserType" FromRole="ShRlShUserTypeToShSySecurityItem" ToRole="ShUserType" />
+          <Property Name="FkShSyPermissionLevel" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ShSyPermissionLevel" Relationship="AdminModel.FK_ShRfUserTypeAccess_ShSyPermissionLevels" FromRole="ShRfUserTypeAccess" ToRole="ShSyPermissionLevel" />
+          <NavigationProperty Name="ShUserType" Relationship="AdminModel.FK_ShRfUserTypeAccess_ShUserType" FromRole="ShRfUserTypeAccess" ToRole="ShUserType" />
+          <NavigationProperty Name="ShSySecurityItem" Relationship="AdminModel.FK_ShRfUserTypeAccess_ShSySecurityItems" FromRole="ShRfUserTypeAccess" ToRole="ShSySecurityItem" />
         </EntityType>
+        <EntityType Name="ShSyPermissionLevel">
+          <Key>
+            <PropertyRef Name="RecId" />
+          </Key>
+          <Property Name="RecId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PermissionLevel" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ShRfUserTypeAccesses" Relationship="AdminModel.FK_ShRfUserTypeAccess_ShSyPermissionLevels" FromRole="ShSyPermissionLevel" ToRole="ShRfUserTypeAccess" />
+        </EntityType>
+        <Association Name="FK_ShRfUserTypeAccess_ShSyPermissionLevels">
+          <End Type="AdminModel.ShSyPermissionLevel" Role="ShSyPermissionLevel" Multiplicity="1" />
+          <End Type="AdminModel.ShRfUserTypeAccess" Role="ShRfUserTypeAccess" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ShSyPermissionLevel">
+              <PropertyRef Name="RecId" />
+            </Principal>
+            <Dependent Role="ShRfUserTypeAccess">
+              <PropertyRef Name="FkShSyPermissionLevel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShRfUserTypeAccess_ShUserType">
+          <End Type="AdminModel.ShUserType" Role="ShUserType" Multiplicity="1" />
+          <End Type="AdminModel.ShRfUserTypeAccess" Role="ShRfUserTypeAccess" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ShUserType">
+              <PropertyRef Name="RecId" />
+            </Principal>
+            <Dependent Role="ShRfUserTypeAccess">
+              <PropertyRef Name="FkShUserType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityType Name="ShSySecurityItem">
           <Key>
             <PropertyRef Name="RecId" />
           </Key>
           <Property Name="RecId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FkShSyNavigationItem" Type="Int32" Nullable="false" />
-          <Property Name="Access" Type="Int32" Nullable="false" />
           <Property Name="SecurityItem" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="ShRlShUserTypeToShSySecurityItems" Relationship="AdminModel.FK_ShRlShUserTypeToShSySecurityItem_ShSySecurityItems" FromRole="ShSySecurityItem" ToRole="ShRlShUserTypeToShSySecurityItem" />
-          <NavigationProperty Name="ShSyNavigationItem" Relationship="AdminModel.FK_ShSySecurityItems_ShSyNavigationItem" FromRole="ShSySecurityItem" ToRole="ShSyNavigationItem" />
+          <NavigationProperty Name="ShRfUserTypeAccesses" Relationship="AdminModel.FK_ShRfUserTypeAccess_ShSySecurityItems" FromRole="ShSySecurityItem" ToRole="ShRfUserTypeAccess" />
         </EntityType>
-        <Association Name="FK_ShRlShUserTypeToShSySecurityItem_ShSySecurityItems">
+        <Association Name="FK_ShRfUserTypeAccess_ShSySecurityItems">
           <End Type="AdminModel.ShSySecurityItem" Role="ShSySecurityItem" Multiplicity="1" />
-          <End Type="AdminModel.ShRlShUserTypeToShSySecurityItem" Role="ShRlShUserTypeToShSySecurityItem" Multiplicity="*" />
+          <End Type="AdminModel.ShRfUserTypeAccess" Role="ShRfUserTypeAccess" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ShSySecurityItem">
               <PropertyRef Name="RecId" />
             </Principal>
-            <Dependent Role="ShRlShUserTypeToShSySecurityItem">
+            <Dependent Role="ShRfUserTypeAccess">
               <PropertyRef Name="FkShSySecurityItem" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ShRlShUserTypeToShSySecurityItem_ShUserType">
-          <End Type="AdminModel.ShUserType" Role="ShUserType" Multiplicity="1" />
-          <End Type="AdminModel.ShRlShUserTypeToShSySecurityItem" Role="ShRlShUserTypeToShSySecurityItem" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ShUserType">
-              <PropertyRef Name="RecId" />
-            </Principal>
-            <Dependent Role="ShRlShUserTypeToShSySecurityItem">
-              <PropertyRef Name="FkShUserType" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ShSySecurityItems_ShSyNavigationItem">
-          <End Type="AdminModel.ShSyNavigationItem" Role="ShSyNavigationItem" Multiplicity="1" />
-          <End Type="AdminModel.ShSySecurityItem" Role="ShSySecurityItem" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ShSyNavigationItem">
-              <PropertyRef Name="RecId" />
-            </Principal>
-            <Dependent Role="ShSySecurityItem">
-              <PropertyRef Name="FkShSyNavigationItem" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -648,11 +662,20 @@ warning 6002: The table/view 'Praesidium.dbo.FileView' does not have a primary k
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <EntitySetMapping Name="ShRlShUserTypeToShSySecurityItems">
-            <EntityTypeMapping TypeName="AdminModel.ShRlShUserTypeToShSySecurityItem">
-              <MappingFragment StoreEntitySet="ShRlShUserTypeToShSySecurityItem">
+          <EntitySetMapping Name="ShRfUserTypeAccesses">
+            <EntityTypeMapping TypeName="AdminModel.ShRfUserTypeAccess">
+              <MappingFragment StoreEntitySet="ShRfUserTypeAccess">
+                <ScalarProperty Name="FkShSyPermissionLevel" ColumnName="FkShSyPermissionLevel" />
                 <ScalarProperty Name="FkShSySecurityItem" ColumnName="FkShSySecurityItem" />
                 <ScalarProperty Name="FkShUserType" ColumnName="FkShUserType" />
+                <ScalarProperty Name="RecId" ColumnName="RecId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShSyPermissionLevels">
+            <EntityTypeMapping TypeName="AdminModel.ShSyPermissionLevel">
+              <MappingFragment StoreEntitySet="ShSyPermissionLevels">
+                <ScalarProperty Name="PermissionLevel" ColumnName="PermissionLevel" />
                 <ScalarProperty Name="RecId" ColumnName="RecId" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -661,8 +684,6 @@ warning 6002: The table/view 'Praesidium.dbo.FileView' does not have a primary k
             <EntityTypeMapping TypeName="AdminModel.ShSySecurityItem">
               <MappingFragment StoreEntitySet="ShSySecurityItems">
                 <ScalarProperty Name="SecurityItem" ColumnName="SecurityItem" />
-                <ScalarProperty Name="Access" ColumnName="Access" />
-                <ScalarProperty Name="FkShSyNavigationItem" ColumnName="FkShSyNavigationItem" />
                 <ScalarProperty Name="RecId" ColumnName="RecId" />
               </MappingFragment>
             </EntityTypeMapping>

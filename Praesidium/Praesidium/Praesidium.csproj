@@ -209,10 +209,13 @@
     <Compile Include="Data Models\Admin\ShFileKeyword.cs">
       <DependentUpon>AdminEntity.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data Models\Admin\ShRlShUserTypeToShSySecurityItem.cs">
+    <Compile Include="Data Models\Admin\ShRfUserTypeAccess.cs">
       <DependentUpon>AdminEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Data Models\Admin\ShSyNavigationItem.cs">
+      <DependentUpon>AdminEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data Models\Admin\ShSyPermissionLevel.cs">
       <DependentUpon>AdminEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Data Models\Admin\ShSySection.cs">
@@ -343,6 +346,7 @@
     <Content Include="Content\Images\quiz.jpg" />
     <Content Include="Content\Images\red-logo.png" />
     <Content Include="Content\Images\Russ.png" />
+    <Content Include="Content\Images\Ryan.jpg" />
     <Content Include="Content\Images\save10.png" />
     <Content Include="Content\Images\security-265130_1920.jpg" />
     <Content Include="Content\Images\Stop-Human-Trafficking.jpg" />

@@ -34,7 +34,8 @@ namespace Praesidium.Data_Models.Admin
         public virtual DbSet<ShUser> ShUsers { get; set; }
         public virtual DbSet<ShUserType> ShUserTypes { get; set; }
         public virtual DbSet<FileView> FileViews { get; set; }
-        public virtual DbSet<ShRlShUserTypeToShSySecurityItem> ShRlShUserTypeToShSySecurityItems { get; set; }
+        public virtual DbSet<ShRfUserTypeAccess> ShRfUserTypeAccesses { get; set; }
+        public virtual DbSet<ShSyPermissionLevel> ShSyPermissionLevels { get; set; }
         public virtual DbSet<ShSySecurityItem> ShSySecurityItems { get; set; }
     
         public virtual int Search(string searchTerm, Nullable<int> currentPage, Nullable<int> pageSize)
