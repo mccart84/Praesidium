@@ -35,6 +35,7 @@ namespace Praesidium.Controllers
                 if (account != null)
                 {
                     Session["User"] = account.RecId;
+                    Session["Role"] = account.ShUserType.Type;
                     return RedirectToAction("Index");
                 }
             }
@@ -418,6 +419,10 @@ namespace Praesidium.Controllers
             {
                 return RedirectToAction("Login", "Login");
             }
+            if (Session["Role"] == "Moderator")
+            {
+                return RedirectToAction("Index");
+            }
             page = page == null ? 1 : page;
             var users = db.ShUsers.OrderBy(x => x.Username);
 
@@ -446,6 +451,10 @@ namespace Praesidium.Controllers
             {
                 return RedirectToAction("Login", "Login");
             }
+            if (Session["Role"] == "Moderator")
+            {
+                return RedirectToAction("Index");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -464,6 +473,10 @@ namespace Praesidium.Controllers
             {
                 return RedirectToAction("Login", "Login");
             }
+            if (Session["Role"] == "Moderator")
+            {
+                return RedirectToAction("Index");
+            }
             ViewBag.FkShUserType = new SelectList(db.ShUserTypes, "RecId", "Type");
             return View();
         }
@@ -475,6 +488,10 @@ namespace Praesidium.Controllers
             if (Session["User"] == null)
             {
                 return RedirectToAction("Login", "Login");
+            }
+            if (Session["Role"] == "Moderator")
+            {
+                return RedirectToAction("Index");
             }
             if (ModelState.IsValid)
             {
@@ -492,6 +509,10 @@ namespace Praesidium.Controllers
             if (Session["User"] == null)
             {
                 return RedirectToAction("Login", "Login");
+            }
+            if (Session["Role"] == "Moderator")
+            {
+                return RedirectToAction("Index");
             }
             if (id == null)
             {
@@ -514,6 +535,10 @@ namespace Praesidium.Controllers
             {
                 return RedirectToAction("Login", "Login");
             }
+            if (Session["Role"] == "Moderator")
+            {
+                return RedirectToAction("Index");
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(shUser).State = EntityState.Modified;
@@ -529,6 +554,10 @@ namespace Praesidium.Controllers
             if (Session["User"] == null)
             {
                 return RedirectToAction("Login", "Login");
+            }
+            if (Session["Role"] == "Moderator")
+            {
+                return RedirectToAction("Index");
             }
             if (id == null)
             {
@@ -550,6 +579,10 @@ namespace Praesidium.Controllers
             {
                 return RedirectToAction("Login", "Login");
             }
+            if (Session["Role"] == "Moderator")
+            {
+                return RedirectToAction("Index");
+            }
             ShUser shUser = db.ShUsers.Find(id);
             db.ShUsers.Remove(shUser);
             db.SaveChanges();
@@ -564,6 +597,11 @@ namespace Praesidium.Controllers
             if (Session["User"] == null)
             {
                 return RedirectToAction("Login", "Login");
+            }
+
+            if (Session["Role"] == "Moderator")
+            {
+                return RedirectToAction("Index");
             }
             page = page == null ? 1 : page;
 
@@ -594,6 +632,10 @@ namespace Praesidium.Controllers
             {
                 return RedirectToAction("Login", "Login");
             }
+            if (Session["Role"] == "Moderator")
+            {
+                return RedirectToAction("Index");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -612,7 +654,10 @@ namespace Praesidium.Controllers
             {
                 return RedirectToAction("Login", "Login");
             }
-
+            if (Session["Role"] == "Moderator")
+            {
+                return RedirectToAction("Index");
+            }
             return View();
         }
 
@@ -623,6 +668,10 @@ namespace Praesidium.Controllers
             if (Session["User"] == null)
             {
                 return RedirectToAction("Login", "Login");
+            }
+            if (Session["Role"] == "Moderator")
+            {
+                return RedirectToAction("Index");
             }
             if (ModelState.IsValid)
             {
@@ -639,6 +688,10 @@ namespace Praesidium.Controllers
             if (Session["User"] == null)
             {
                 return RedirectToAction("Login", "Login");
+            }
+            if (Session["Role"] == "Moderator")
+            {
+                return RedirectToAction("Index");
             }
             if (id == null)
             {
@@ -662,6 +715,10 @@ namespace Praesidium.Controllers
             {
                 return RedirectToAction("Login", "Login");
             }
+            if (Session["Role"] == "Moderator")
+            {
+                return RedirectToAction("Index");
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(shUserType).State = EntityState.Modified;
@@ -676,6 +733,10 @@ namespace Praesidium.Controllers
             if (Session["User"] == null)
             {
                 return RedirectToAction("Login", "Login");
+            }
+            if (Session["Role"] == "Moderator")
+            {
+                return RedirectToAction("Index");
             }
             if (id == null)
             {
@@ -696,6 +757,10 @@ namespace Praesidium.Controllers
             if (Session["User"] == null)
             {
                 return RedirectToAction("Login", "Login");
+            }
+            if (Session["Role"] == "Moderator")
+            {
+                return RedirectToAction("Index");
             }
             ShUserType shUserType = db.ShUserTypes.Find(id);
             db.ShUserTypes.Remove(shUserType);

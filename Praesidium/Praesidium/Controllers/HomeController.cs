@@ -125,7 +125,8 @@ namespace Praesidium.Controllers
 
             if (IsAdmin == true)
             {
-                model.GetAdminNavItems();
+                var userId = (int)Session["User"];
+                model.GetAdminNavItems(userId);
             }
             else
             {
