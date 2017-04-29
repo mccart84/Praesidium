@@ -46,9 +46,9 @@
             <th>
                 DateModified
             </th>
-            <th style="width: 165px;">
+            @*<th style="width: 165px;">
                 Actions
-            </th>
+            </th>*@
         </tr>
 
         @foreach (var item in Model)
@@ -91,12 +91,12 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.DateModified)
                 </td>
-                <td>
-                    @*@Html.ActionLink(" ", "FilesEdit", new { id = item.RecId }, new { @class = "btn btn-info glyphicon glyphicon-edit", @title = "Edit File" })*@
+                @*<td>
+                    @Html.ActionLink(" ", "FilesEdit", new { id = item.RecId }, new { @class = "btn btn-info glyphicon glyphicon-edit", @title = "Edit File" })
 
-                    @*@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
-                    @*@Html.ActionLink("Delete", "Delete", new {/* id=item.PrimaryKey */})*@
-                </td>
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new {/* id=item.PrimaryKey */})
+                </td>*@
             </tr>
                         }
 
