@@ -72,13 +72,5 @@ namespace Praesidium.Models.Navigation
                 return biz.PageAvailable(pageId);
             }
         }
-
-        public bool PageAvailable(int pageId)
-        {
-            using (var biz = new DAL.NavigationItems())
-            {
-                return biz.PageAvailable(pageId);
-            }
-        }
     }
 }
