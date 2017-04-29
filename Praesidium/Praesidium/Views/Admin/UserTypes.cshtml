@@ -13,9 +13,9 @@
             <h4><b>List of User Types</b></h4>
         </div>
         <div class="col-md-2">
-            <p>
+            @*<p>
                 @Html.ActionLink("Create New", "UserTypesCreate", null, new { @class = "btn btn-info pull-right" })
-            </p>
+            </p>*@
         </div>
         <br />
     </div>
@@ -28,9 +28,9 @@
             @*<th>
                 Deleted
             </th>*@
-            <th style="width: 165px;">
+            @*<th style="width: 165px;">
                 Actions
-            </th>
+            </th>*@
         </tr>
 
         @foreach (var item in Model)
@@ -42,11 +42,11 @@
                 @*<td>
                     @Html.DisplayFor(modelItem => item.IsDeleted)
                 </td>*@
-                <td>
+                @*<td>
                     @Html.ActionLink(" ", "UserTypesEdit", new { id = item.RecId }, new { @class = "btn btn-info glyphicon glyphicon-edit", @title = "Edit User Type" })
                     @Html.ActionLink(" ", "UserTypesDetails", new { id = item.RecId }, new { @class = "btn btn-info glyphicon glyphicon-eye-open", @title = "View Details" })
                     @Html.ActionLink(" ", "UserTypesDelete", new { id = item.RecId }, new { @class = "btn btn-danger glyphicon glyphicon-trash", @title = "Delete User Type" })
-                </td>
+                </td>*@
             </tr>
         }
 

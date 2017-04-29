@@ -12,9 +12,9 @@
             <h4><b>List of Sections</b></h4>
         </div>
         <div class="col-md-2">
-            <p>
+            @*<p>
                 @Html.ActionLink("Create New", "SectionsCreate", null, new { @class = "btn btn-info pull-right" })
-            </p>
+            </p>*@
         </div>
         <br />
     </div>
@@ -44,7 +44,7 @@
                 <td>
                     @Html.ActionLink(" ", "SectionsEdit", new { id = item.RecId }, new { @class = "btn btn-info glyphicon glyphicon-edit", @title = "Edit Section" })
                     @Html.ActionLink(" ", "SectionsDetails", new { id = item.RecId }, new { @class = "btn btn-info glyphicon glyphicon-eye-open", @title = "View Details" })
-                    @Html.ActionLink(" ", "SectionsDelete", new { id = item.RecId }, new { @class = "btn btn-danger glyphicon glyphicon-trash", @title = "Delete Section" })
+                    @*@Html.ActionLink(" ", "SectionsDelete", new { id = item.RecId }, new { @class = "btn btn-danger glyphicon glyphicon-trash", @title = "Delete Section" })*@
                 </td>
             </tr>
         }
