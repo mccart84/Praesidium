@@ -1,13 +1,8 @@
 ﻿@model Praesidium.Data_Models.Admin.ShSyNavigationItem
 
-@{
-    ViewBag.Title = "NavigationItemsDetails";
-}
-
-<h2>NavigationItemsDetails</h2>
+<h2>Details</h2>
 
 <div>
-    <h4>ShSyNavigationItem</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -27,7 +22,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DisplayText)
+            Display Text
         </dt>
 
         <dd>
@@ -35,7 +30,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.IsActive)
+            Active
         </dt>
 
         <dd>
@@ -43,7 +38,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.SortOrder)
+            Sort Order
         </dt>
 
         <dd>
@@ -51,15 +46,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ParentId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ParentId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ShSySection.Name)
+            Section
         </dt>
 
         <dd>
