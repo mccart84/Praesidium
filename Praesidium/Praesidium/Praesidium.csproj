@@ -177,10 +177,13 @@
     <Compile Include="Controllers\DownloadController.cs" />
     <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\TraffickingController.cs" />
     <Compile Include="Controllers\ValidationController.cs" />
     <Compile Include="DAL\Admin\REFERENCE.cs" />
+    <Compile Include="DAL\Files.cs" />
     <Compile Include="DAL\NavigationItems.cs" />
+    <Compile Include="DAL\Users.cs" />
     <Compile Include="Data Context\Admin\AdminContext.cs" />
     <Compile Include="Data Models\Admin\AdminEntity.Context.cs">
       <AutoGen>True</AutoGen>
@@ -206,10 +209,19 @@
     <Compile Include="Data Models\Admin\ShFileKeyword.cs">
       <DependentUpon>AdminEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data Models\Admin\ShRfUserTypeAccess.cs">
+      <DependentUpon>AdminEntity.tt</DependentUpon>
+    </Compile>
     <Compile Include="Data Models\Admin\ShSyNavigationItem.cs">
       <DependentUpon>AdminEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data Models\Admin\ShSyPermissionLevel.cs">
+      <DependentUpon>AdminEntity.tt</DependentUpon>
+    </Compile>
     <Compile Include="Data Models\Admin\ShSySection.cs">
+      <DependentUpon>AdminEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data Models\Admin\ShSySecurityItem.cs">
       <DependentUpon>AdminEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Data Models\Admin\ShUser.cs">
@@ -218,12 +230,17 @@
     <Compile Include="Data Models\Admin\ShUserType.cs">
       <DependentUpon>AdminEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data Models\Admin\Split_Result.cs">
+      <DependentUpon>AdminEntity.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\FileType.cs" />
     <Compile Include="Models\FileWeb.cs" />
+    <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\Navigation\NavigationModel.cs" />
+    <Compile Include="Models\SearchResults.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -276,6 +293,10 @@
     <Content Include="Content\Images\aboutus %282%29.jpg" />
     <Content Include="Content\Images\about_us.png" />
     <Content Include="Content\Images\adults.png" />
+    <Content Include="Content\Images\Alyssa.jpg" />
+    <Content Include="Content\Images\back-to-school-1576789_960_720.jpg" />
+    <Content Include="Content\Images\Blake.png" />
+    <Content Include="Content\Images\bulldog.png" />
     <Content Include="Content\Images\Caleb.png" />
     <Content Include="Content\Images\caution.jpg" />
     <Content Include="Content\Images\cs_cloud.png" />
@@ -297,6 +318,7 @@
     <Content Include="Content\Images\cyber_security_1.png" />
     <Content Include="Content\Images\cyber_security_computer.jpg" />
     <Content Include="Content\Images\DANGER.jpg" />
+    <Content Include="Content\Images\Derek.png" />
     <Content Include="Content\Images\doc_icon.png" />
     <Content Include="Content\Images\Facebook.svg" />
     <Content Include="Content\Images\fashion-person-woman-hand.jpg" />
@@ -311,6 +333,7 @@
     <Content Include="Content\Images\Human Traffickking - WC.png" />
     <Content Include="Content\Images\img04.jpg" />
     <Content Include="Content\Images\Life is about finding people who are your kind of crazy! %285%29.png" />
+    <Content Include="Content\Images\Loginbackground.jpg" />
     <Content Include="Content\Images\pdf_icon.png" />
     <Content Include="Content\Images\people-train-public-transportation-hurry.jpg" />
     <Content Include="Content\Images\pexels-photo-106567.jpeg" />
@@ -318,15 +341,19 @@
     <Content Include="Content\Images\pexels-photo-266046.jpeg" />
     <Content Include="Content\Images\pexels-photo-9816.jpeg" />
     <Content Include="Content\Images\pic4.png" />
+    <Content Include="Content\Images\pizap.com14934192136714.jpg" />
     <Content Include="Content\Images\ppt_icon.png" />
+    <Content Include="Content\Images\quiz.jpg" />
     <Content Include="Content\Images\red-logo.png" />
     <Content Include="Content\Images\Russ.png" />
+    <Content Include="Content\Images\Ryan.jpg" />
     <Content Include="Content\Images\save10.png" />
     <Content Include="Content\Images\security-265130_1920.jpg" />
     <Content Include="Content\Images\Stop-Human-Trafficking.jpg" />
     <Content Include="Content\Images\T.S.CSolutions.jpg" />
     <Content Include="Content\Images\TCS_Solutions.png" />
     <Content Include="Content\Images\teacher.png" />
+    <Content Include="Content\Images\teachers.jpg" />
     <Content Include="Content\Images\teen.png" />
     <Content Include="Content\Images\test1.jpg" />
     <Content Include="Content\Images\test2.jpg" />
@@ -334,6 +361,7 @@
     <Content Include="Content\Images\test4.jpg" />
     <Content Include="Content\Images\trafficking.png" />
     <Content Include="Content\Images\Twitter.svg" />
+    <Content Include="Content\Images\Tyler.jpg" />
     <Content Include="Content\Images\website image.png" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Data Models\Admin\AdminEntity.Context.tt">
@@ -1113,7 +1141,6 @@
     <Content Include="Views\Shared\_AdminBreadcrumb.cshtml" />
     <Content Include="Views\Admin\Files.cshtml" />
     <Content Include="Views\Admin\FilesCreate.cshtml" />
-    <None Include="Views\Admin\FilesCreate.old" />
     <Content Include="Views\Shared\EditorTemplates\tinymce_jquery_full.cshtml" />
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.woff" />
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.ttf" />
@@ -1131,6 +1158,12 @@
     <Content Include="Views\CyberSecurity\Quiz.cshtml" />
     <Content Include="Views\Shared\_FileItems.cshtml" />
     <Content Include="Views\File\Show.cshtml" />
+    <Content Include="Views\trafficking\WarningSigns.cshtml" />
+    <Content Include="Views\Shared\_Login.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Login\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\Home\CISTeam.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,4 +1,5 @@
-﻿@{
+﻿@using Praesidium.DAL
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -68,10 +69,17 @@
     <div class="col-md-6">
         <h2 style="text-align: center;">Recently Added Articles</h2>
         <ul class="align-left noleaders">
-            <li><span>Oversharing: Whats so bad about it.</span><span><A HREF="http://praesidium-beta.azurewebsites.net/CyberSecurity/Teen" class="btn btn-info btn-xs">View Link</A></span></li>
-            <li><span>Sammy & Facebook: The dangers of simple things.</span><span><A HREF="http://praesidium-beta.azurewebsites.net/CyberSecurity/Youth" class="btn btn-info btn-xs">View Link</A></span></li>
-            <li><span>Cyberbullying: The hidden problem.</span><span><A HREF="http://praesidium-beta.azurewebsites.net/CyberSecurity/Adults" class="btn btn-info btn-xs">View Link</A></span></li>
-            <li><span>Teachers: Helping your students be safe online.</span><span><A HREF="http://praesidium-beta.azurewebsites.net/CyberSecurity/Teachers" class="btn btn-info btn-xs">View Link</A></span></li>
+            @foreach (var t in ViewBag.newFiles)
+            {
+                <li>
+                    <span>
+                        @t.Title
+                    </span>
+                    <span>
+                        @Html.ActionLink("View File", "Show", "File", new { id = t.RecId }, new { @class = "btn btn-info btn-xs" })
+                    </span>
+                </li>
+            }
         </ul>
     </div>
 </div>

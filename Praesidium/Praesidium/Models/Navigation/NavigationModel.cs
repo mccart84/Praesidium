@@ -57,11 +57,19 @@ namespace Praesidium.Models.Navigation
             }
         }
 
-        public List<AdminNavItem> GetAdminNavItems()
+        public List<AdminNavItem> GetAdminNavItems(int user)
         {
             using (var biz = new DAL.NavigationItems())
             {
-                return AdminNavItems = biz.GetAdminNavItems().ToList();
+                return AdminNavItems = biz.GetAdminNavItems(user).ToList();
+            }
+        }
+
+        public bool PageAvailable(int pageId)
+        {
+            using (var biz = new DAL.NavigationItems())
+            {
+                return biz.PageAvailable(pageId);
             }
         }
 

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Praesidium.Data_Models.Admin;
+using Praesidium.DAL;
 
 namespace Praesidium.Controllers
 {
@@ -59,6 +60,7 @@ namespace Praesidium.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
+            ViewBag.files = Files.GetFilesBySection(3).OrderByDescending(x => x.ViewCount);
             return View();
         }
 

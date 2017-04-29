@@ -12,6 +12,8 @@ namespace Praesidium.Data_Models.Admin
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class AdminEntities : DbContext
     {
@@ -32,5 +34,39 @@ namespace Praesidium.Data_Models.Admin
         public virtual DbSet<ShUser> ShUsers { get; set; }
         public virtual DbSet<ShUserType> ShUserTypes { get; set; }
         public virtual DbSet<FileView> FileViews { get; set; }
+        public virtual DbSet<ShRfUserTypeAccess> ShRfUserTypeAccesses { get; set; }
+        public virtual DbSet<ShSyPermissionLevel> ShSyPermissionLevels { get; set; }
+        public virtual DbSet<ShSySecurityItem> ShSySecurityItems { get; set; }
+    
+        public virtual int Search(string searchTerm, Nullable<int> currentPage, Nullable<int> pageSize)
+        {
+            var searchTermParameter = searchTerm != null ?
+                new ObjectParameter("SearchTerm", searchTerm) :
+                new ObjectParameter("SearchTerm", typeof(string));
+    
+            var currentPageParameter = currentPage.HasValue ?
+                new ObjectParameter("CurrentPage", currentPage) :
+                new ObjectParameter("CurrentPage", typeof(int));
+    
+            var pageSizeParameter = pageSize.HasValue ?
+                new ObjectParameter("PageSize", pageSize) :
+                new ObjectParameter("PageSize", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Search", searchTermParameter, currentPageParameter, pageSizeParameter);
+        }
+    
+        [DbFunction("AdminEntities", "Split")]
+        public virtual IQueryable<Split_Result> Split(string @string, string delimiter)
+        {
+            var stringParameter = @string != null ?
+                new ObjectParameter("string", @string) :
+                new ObjectParameter("string", typeof(string));
+    
+            var delimiterParameter = delimiter != null ?
+                new ObjectParameter("delimiter", delimiter) :
+                new ObjectParameter("delimiter", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<Split_Result>("[AdminEntities].[Split](@string, @delimiter)", stringParameter, delimiterParameter);
+        }
     }
 }

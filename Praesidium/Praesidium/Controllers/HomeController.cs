@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Praesidium.Data_Models.Admin;
+using System.Text.RegularExpressions;
+using Praesidium.DAL;
+using Praesidium.Models;
 
 namespace Praesidium.Controllers
 {
@@ -24,13 +27,14 @@ namespace Praesidium.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
+            ViewBag.newFiles = Files.GetFilesByDate(4);
             return View();
         }
         public ActionResult CISTeam()
         {
             var pageId = db.ShSyNavigationItems.FirstOrDefault(x => x.Controller == "Home" && x.Action == "CISTeam");
             var model = new Models.Navigation.NavigationModel();
-            var isActive = false;
+            var isActive = true;
             if (pageId != null)
             {
                 isActive = model.PageAvailable(pageId.RecId);
@@ -121,7 +125,8 @@ namespace Praesidium.Controllers
 
             if (IsAdmin == true)
             {
-                model.GetAdminNavItems();
+                var userId = (int)Session["User"];
+                model.GetAdminNavItems(userId);
             }
             else
             {
@@ -143,6 +148,32 @@ namespace Praesidium.Controllers
             files = (List<ShFile>) files.Take(n);
 
             return PartialView("~/Views/Shared/_FileItems.cshtml",files);
+        }
+
+        public ActionResult Search(string searchTerm, int? page)
+        {
+            if (!String.IsNullOrEmpty(searchTerm))
+            {
+                //searchTerm = "trafficking";
+                page = page ?? 1;
+                searchTerm = searchTerm = Regex.Replace(searchTerm, @"[^\sa-zA-Z]", string.Empty).Trim();
+                var _service = new SearchService();
+                ;
+                var data = _service.Search(searchTerm, page);
+
+                //var model = new SearchResult();
+                //model.PageTitle = "Search";
+
+                //model.KeyWords = searchTerm;
+                //model.Results = data;
+                //model.CurrentPage = page.Value;
+                ViewBag.SearchString = searchTerm;
+                return View(data);
+            }
+            else
+            {
+                return Index();
+            }
         }
     }
 }

@@ -18,19 +18,16 @@ namespace Praesidium.Data_Models.Admin
         public ShUserType()
         {
             this.ShUsers = new HashSet<ShUser>();
+            this.ShRfUserTypeAccesses = new HashSet<ShRfUserTypeAccess>();
         }
     
         public int RecId { get; set; }
         public string Type { get; set; }
-        public Nullable<int> UserCreatedBy { get; set; }
-        public Nullable<int> UserUpdatedBy { get; set; }
-        public Nullable<int> UserDeletedBy { get; set; }
-        public Nullable<int> DateCreated { get; set; }
-        public Nullable<int> DateUpdated { get; set; }
-        public Nullable<int> DateDeleted { get; set; }
-        public Nullable<bool> IsDeleted { get; set; }
+        public bool IsActive { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ShUser> ShUsers { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ShRfUserTypeAccess> ShRfUserTypeAccesses { get; set; }
     }
 }

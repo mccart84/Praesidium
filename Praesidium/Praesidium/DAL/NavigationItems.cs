@@ -39,8 +39,9 @@ namespace Praesidium.DAL
             return navItems;
         }
 
-        public List<AdminNavItem> GetAdminNavItems()
+        public List<AdminNavItem> GetAdminNavItems(int userId)
         {
+            var userRole = _context.ShUsers.Where(x => x.RecId == userId).Select(x => x.ShUserType.Type).FirstOrDefault();
             var adminItems = _context.ShSyNavigationItems.Where(x => x.IsActive && x.ShSySection.Name == "Admin").Select(x => new AdminNavItem
             {
                 RecId = x.RecId,
@@ -52,6 +53,23 @@ namespace Praesidium.DAL
                 SortOrder = x.SortOrder,
                 IsActive = x.IsActive,
             }).OrderBy(x => x.SortOrder).ToList();
+
+            if (userRole == "Moderator")
+            {
+                var itemsToRemove = new List<AdminNavItem>();
+                foreach (var adminNavItem in adminItems)
+                {
+                    if (adminNavItem.RecId == 22 || adminNavItem.RecId == 23)
+                    {
+                        itemsToRemove.Add(adminNavItem);
+                    }
+                }
+
+                foreach (var i in itemsToRemove)
+                {
+                    adminItems.Remove(i);
+                }
+            }
 
             return adminItems;
         }

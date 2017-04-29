@@ -16,30 +16,55 @@
         </p>
     </div>
 
-    <div class="col-md-4 align-center" id="borders">     
+    <div class="col-md-4 align-center" id="borders">
         <h3 id="headers_borders"><strong>Most Viewed Links</strong></h3>
         <ul class="align-left" id="p_textborders">
-            <li><A HREF="http://praesidium.azurewebsites.net">Website1</A></li>
-            <li><A HREF="http://praesidium.azurewebsites.net">Website2</A></li>
-            <li><A HREF="http://praesidium.azurewebsites.net">Website3</A></li>
-        </ul>
-    </div>
-
-<div class="col-md-8 well">
-    <h2 id="headers"><strong>Top Cyber Security Resources</strong></h2>
-    <div class="col-md-8">
-        <ul id="p_text">
-            <li><a href="https://heimdalsecurity.com/blog/cyber-security-tips/">131 Cyber Security Tips that Anyone Can Apply</a></li>
-            <li>Website2</li>
-            <li>Website3</li>
-            <li>Website4</li>
-            <li>Website5</li>
-            <li>Website6</li>
-            <li>Website7</li>
-            <li>Website8</li>
-            <li>Website9</li>
-            <li>Website10</li>
+            <li><A HREF="https://staysafeonline.org/">Stay Safe Online</A></li>
+            <li><A HREF="https://www.dhs.gov/topic/cybersecurity">Dhs Gov</A></li>
+            <li><A HREF="https://safeandsecureonline.org/children/">Safe and Secure Online</A></li>
         </ul>
     </div>
 </div>
+
+<div class="col-md-12 well">
+    <h2 id="headers"><strong>Top Cyber Security Resources</strong></h2>
+    <table class="table">
+
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Date Uploaded</th>
+                <th>Times Viewed</th>
+                <th>Times Downloaded</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var t in ViewBag.files)
+            {
+                string title = t.Title;
+                <tr>
+                    <th scope="row">@Html.ActionLink(@title, "Show", "File", new { id = t.RecId }, null)</th>
+                    <td>
+                        @{
+                            if (t.Description.Length > 400)
+                            {
+                                @Html.Raw(HttpUtility.HtmlDecode(t.Description.Substring(0, 399) + "&hellip;"))
+                            }
+                            else
+                            {
+                                @Html.Raw(HttpUtility.HtmlDecode(t.Description))
+                            }
+                        }
+                    </td>
+                    <td>@t.DateUploaded.ToShortDateString()</td>
+                    <td>@t.ViewCount</td>
+                    <td>@t.DownloadCount</td>
+                </tr>
+                            }
+        </tbody>
+
+
+
+    </table>
 </div>
